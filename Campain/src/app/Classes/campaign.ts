@@ -1,4 +1,4 @@
-export interface campaign {
+export interface Campaign {
    IdCampaign : number 
    Name :string 
    StartDate :Date 
