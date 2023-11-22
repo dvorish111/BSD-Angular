@@ -13,6 +13,10 @@ export class CampaignService {
   getAllCampaigns(): Observable<Campaign[]> {
     return this.http.get<Campaign[]>(`${this.baseUrl}/Gat`);
   }
+  getByIdCampaign(campaignId:number):Observable<Campaign>{
+    return this.http.get<Campaign>(`${this.baseUrl}/Gat/${campaignId}`);
+
+  }
 
   createCampaign(campaignToAdd: Campaign): Observable<any> {
     return this.http.post(`${this.baseUrl}/post`, campaignToAdd);
