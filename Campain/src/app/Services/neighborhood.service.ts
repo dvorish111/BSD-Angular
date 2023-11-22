@@ -14,7 +14,10 @@ export class NeighborhoodService {
   getAllNeighborhoods(): Observable<Neighborhood[]> {
     return this.http.get<Neighborhood[]>(`${this.baseUrl}/getAll`);
   }
+  getByIdNeighborhood(neighborhoodId:number):Observable<Neighborhood>{
+    return this.http.get<Neighborhood>(`${this.baseUrl}/Gat/${neighborhoodId}`);
 
+  }
   createNeighborhood(neighborhoodToAdd: Neighborhood): Observable<any> {
     return this.http.post(`${this.baseUrl}/create`, neighborhoodToAdd);
   }

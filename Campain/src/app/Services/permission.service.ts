@@ -15,7 +15,10 @@ export class PermissionService {
   getAllPermissions(): Observable<LogIn[]> {
     return this.http.get<LogIn[]>(`${this.baseUrl}/getAll`);
   }
+  getByIdPermission(permissionId:number):Observable<LogIn>{
+    return this.http.get<LogIn>(`${this.baseUrl}/Gat/${permissionId}`);
 
+  }
   createPermission(permissionToAdd: SignUp): Observable<any> {
     return this.http.post(`${this.baseUrl}/create`, permissionToAdd);
   }
