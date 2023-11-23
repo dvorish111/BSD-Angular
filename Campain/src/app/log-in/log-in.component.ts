@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { PermissionService } from '../Services/permission.service';
+import { Parser } from '@angular/compiler';
 
 @Component({
   selector: 'app-log-in',
@@ -7,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class LogInComponent {
 
+  constructor(public myRouter: Router, public PSer:PermissionService) {
+  }
+  
+ 
+
+ 
 }
