@@ -18,8 +18,8 @@ export class LogInComponent {
   login() {
 
     this.permissionSer.getByIdPermission(5).subscribe({
-      next: (res) => { alert(res) 
-       //העברה לממשק מנהלים
+      next: (res) => { alert(res)
+        // this.myRouter=['/signUp'];
       },
       error: (err) => {
         console.log(' error: ' + err);

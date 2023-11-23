@@ -13,6 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
