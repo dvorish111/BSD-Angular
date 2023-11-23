@@ -21,7 +21,6 @@ export class DonateService {
     return this.http.get<Donate>(`${this.baseUrl}/Gat/${donateId}`);
 
   }
-
   createDonate(donateToAdd: Donate): Observable<any> {
     return this.http.post(`${this.baseUrl}/Post`, donateToAdd);
   }
