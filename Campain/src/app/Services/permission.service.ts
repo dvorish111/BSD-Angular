@@ -13,21 +13,22 @@ export class PermissionService {
   constructor(private http: HttpClient) { }
 
   getAllPermissions(): Observable<LogIn[]> {
-    return this.http.get<LogIn[]>(`${this.baseUrl}/getAll`);
+    return this.http.get<LogIn[]>(`${this.baseUrl}`);
   }
-  getByIdPermission(permissionId:number):Observable<LogIn>{
-    return this.http.get<LogIn>(`${this.baseUrl}/Gat/${permissionId}`);
-
+  
+  getByPassword_Email(password: string, email: string): Observable<LogIn> {
+    return this.http.get<LogIn>(`${this.baseUrl}/Password/${password}/Email/${email}`);
   }
+  
   createPermission(permissionToAdd: SignUp): Observable<any> {
-    return this.http.post(`${this.baseUrl}/create`, permissionToAdd);
+    return this.http.post(`${this.baseUrl}`, permissionToAdd);
   }
 
   deletePermission(permissionId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/delete/${permissionId}`);
+    return this.http.delete(`${this.baseUrl}/${permissionId}`);
   }
 
   updatePermission(permissionId: number, permissionToUpdate: LogIn): Observable<any> {
-    return this.http.put(`${this.baseUrl}/update/${permissionId}`, permissionToUpdate);
+    return this.http.put(`${this.baseUrl}/${permissionId}`, permissionToUpdate);
   }
 }

@@ -12,21 +12,24 @@ export class DonorService {
   constructor(private http: HttpClient) { }
 
   getAllDonors(): Observable<Donor[]> {
-    return this.http.get<Donor[]>(`${this.baseUrl}/Gat`);
+    return this.http.get<Donor[]>(`${this.baseUrl}`);
+  }
+  GetAllByCity(city:string): Observable<Donor[]> {
+    return this.http.get<Donor[]>(`${this.baseUrl}/Donors/${city}`);
   }
   getByIdDonor(donorId:number):Observable<Donor>{
-    return this.http.get<Donor>(`${this.baseUrl}/Gat/${donorId}`);
+    return this.http.get<Donor>(`${this.baseUrl}/Donors/${donorId}`);
 
   }
   createDonor(donorToAdd: Donor): Observable<any> {
-    return this.http.post(`${this.baseUrl}/post`, donorToAdd);
+    return this.http.post(`${this.baseUrl}`, donorToAdd);
   }
 
   deleteDonor(donorId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/Delete/${donorId}`);
+    return this.http.delete(`${this.baseUrl}/${donorId}`);
   }
 
   updateDonor(donorToUpdate: Donor): Observable<any> {
-    return this.http.put(`${this.baseUrl}/Put`, donorToUpdate);
+    return this.http.put(`${this.baseUrl}`, donorToUpdate);
   }
 }

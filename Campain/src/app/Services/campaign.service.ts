@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Campaign } from '../Classes/campaign';
+import { Campaign } from '../Classes/Campaign';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,23 +11,23 @@ export class CampaignService {
 
   
   getAllCampaigns(): Observable<Campaign[]> {
-    return this.http.get<Campaign[]>(`${this.baseUrl}/Gat`);
+    return this.http.get<Campaign[]>(`${this.baseUrl}`);
   }
   getByIdCampaign(campaignId:number):Observable<Campaign>{
-    return this.http.get<Campaign>(`${this.baseUrl}/Gat/${campaignId}`);
+    return this.http.get<Campaign>(`${this.baseUrl}/${campaignId}`);
 
   }
-
+  
   createCampaign(campaignToAdd: Campaign): Observable<any> {
-    return this.http.post(`${this.baseUrl}/post`, campaignToAdd);
+    return this.http.post(`${this.baseUrl}`, campaignToAdd);
   }
 
   deleteCampaign(campaignId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/Delete/${campaignId}`);
+    return this.http.delete(`${this.baseUrl}/${campaignId}`);
   }
 
-  updateCampaign(campaignId: number, campaignToUpdate: Campaign): Observable<any> {
-    return this.http.put(`${this.baseUrl}/Put/${campaignId}`, campaignToUpdate);
+  updateCampaign(campaignToUpdate: Campaign): Observable<any> {
+    return this.http.put(`${this.baseUrl}`, campaignToUpdate);
   }
   // getAllCampaign(): Observable<campaign[]> {
   //   return this.http.get<campaign[]>(this.baseUrl+"Gat");

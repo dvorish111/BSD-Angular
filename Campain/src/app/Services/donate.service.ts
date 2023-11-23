@@ -12,24 +12,29 @@ export class DonateService {
 
   
   getAllDonates(): Observable<Donate[]> {
-    return this.http.get<Donate[]>(`${this.baseUrl}/Gat`);
+    return this.http.get<Donate[]>(`${this.baseUrl}`);
   }
   getAllStatus(statusId:number): Observable<Donate[]> {
-    return this.http.get<Donate[]>(`${this.baseUrl}/Gat/status${statusId}`);
+    return this.http.get<Donate[]>(`${this.baseUrl}/Status/${statusId}`);
   }
-  getByIdDonate(donateId:number):Observable<Donate>{
-    return this.http.get<Donate>(`${this.baseUrl}/Gat/${donateId}`);
-
+   getAllByNeeded(neededId:number):Observable<Donate[]>{
+    return this.http.get<Donate[]>(`${this.baseUrl}/Needed/${neededId}`);
+   }
+  getAllByNumOfChildren(maxNumOfChildren:number):Observable<Donate[]>{
+    return this.http.get<Donate[]>(`${this.baseUrl}/NumOfChildren/${maxNumOfChildren}`)
+  }
+  getByTazDonate(donateTaz:number):Observable<Donate>{
+    return this.http.get<Donate>(`${this.baseUrl}/TazDonate/${donateTaz}`);
   }
   createDonate(donateToAdd: Donate): Observable<any> {
-    return this.http.post(`${this.baseUrl}/Post`, donateToAdd);
+    return this.http.post(`${this.baseUrl}`, donateToAdd);
   }
 
   deleteDonate(donateId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/Delete/${donateId}`);
+    return this.http.delete(`${this.baseUrl}/${donateId}`);
   }
 
   updateDonate(donateToUpdate: Donate): Observable<any> {
-    return this.http.put(`${this.baseUrl}/Put`, donateToUpdate);
+    return this.http.put(`${this.baseUrl}`, donateToUpdate);
   }
 }

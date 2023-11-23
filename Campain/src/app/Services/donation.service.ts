@@ -12,21 +12,21 @@ export class DonationService {
   constructor(private http: HttpClient) { }
 
   getAllDonations(): Observable<Donation[]> {
-    return this.http.get<Donation[]>(`${this.baseUrl}/getAll`);
+    return this.http.get<Donation[]>(`${this.baseUrl}`);
   }
   getByIdDonation(donationId:number):Observable<Donation>{
-    return this.http.get<Donation>(`${this.baseUrl}/Gat/${donationId}`);
+    return this.http.get<Donation>(`${this.baseUrl}/${donationId}`);
 
   }
   createDonation(donationToAdd: Donation): Observable<any> {
-    return this.http.post(`${this.baseUrl}/create`, donationToAdd);
+    return this.http.post(`${this.baseUrl}`, donationToAdd);
   }
 
   deleteDonation(donationId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/delete/${donationId}`);
+    return this.http.delete(`${this.baseUrl}/${donationId}`);
   }
 
   updateDonation( donationToUpdate: Donation): Observable<any> {
-    return this.http.put(`${this.baseUrl}/update`, donationToUpdate);
+    return this.http.put(`${this.baseUrl}`, donationToUpdate);
   }
 }

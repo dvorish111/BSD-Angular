@@ -12,21 +12,21 @@ export class NeighborhoodService {
   constructor(private http: HttpClient) { }
 
   getAllNeighborhoods(): Observable<Neighborhood[]> {
-    return this.http.get<Neighborhood[]>(`${this.baseUrl}/getAll`);
+    return this.http.get<Neighborhood[]>(`${this.baseUrl}`);
   }
   getByIdNeighborhood(neighborhoodId:number):Observable<Neighborhood>{
-    return this.http.get<Neighborhood>(`${this.baseUrl}/Gat/${neighborhoodId}`);
+    return this.http.get<Neighborhood>(`${this.baseUrl}/${neighborhoodId}`);
 
   }
   createNeighborhood(neighborhoodToAdd: Neighborhood): Observable<any> {
-    return this.http.post(`${this.baseUrl}/create`, neighborhoodToAdd);
+    return this.http.post(`${this.baseUrl}`, neighborhoodToAdd);
   }
 
   deleteNeighborhood(neighborhoodId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/delete/${neighborhoodId}`);
+    return this.http.delete(`${this.baseUrl}/${neighborhoodId}`);
   }
 
   updateNeighborhood(neighborhoodToUpdate: Neighborhood): Observable<any> {
-    return this.http.put(`${this.baseUrl}/update`, neighborhoodToUpdate);
+    return this.http.put(`${this.baseUrl}`, neighborhoodToUpdate);
   }
 }
