@@ -14,13 +14,16 @@ export class DonateService {
   getAllDonates(): Observable<Donate[]> {
     return this.http.get<Donate[]>(`${this.baseUrl}/Gat`);
   }
+  getAllStatus(statusId:number): Observable<Donate[]> {
+    return this.http.get<Donate[]>(`${this.baseUrl}/Gat/status${statusId}`);
+  }
   getByIdDonate(donateId:number):Observable<Donate>{
     return this.http.get<Donate>(`${this.baseUrl}/Gat/${donateId}`);
 
   }
 
   createDonate(donateToAdd: Donate): Observable<any> {
-    return this.http.post(`${this.baseUrl}/post`, donateToAdd);
+    return this.http.post(`${this.baseUrl}/Post`, donateToAdd);
   }
 
   deleteDonate(donateId: number): Observable<any> {
