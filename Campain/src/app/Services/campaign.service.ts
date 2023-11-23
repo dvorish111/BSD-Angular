@@ -23,7 +23,7 @@ export class CampaignService {
   }
 
   deleteCampaign(campaignId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/Delete/${campaignId}`);
+    return this.http.delete(`${this.baseUrl}/${campaignId}`);
   }
 
   updateCampaign(campaignId: number, campaignToUpdate: Campaign): Observable<any> {

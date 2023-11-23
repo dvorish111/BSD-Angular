@@ -10,7 +10,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ShowDonationsComponent } from './show-donations/show-donations.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
+import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +22,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ContactComponent,
     SignUpComponent,
     PaymentComponent,
-    ShowDonationsComponent
+    ShowDonationsComponent,
+    AdminInterfaceComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
