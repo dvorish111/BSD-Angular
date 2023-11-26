@@ -17,7 +17,7 @@ export class LogInComponent {
   user: LogIn = { Email: '', Password: '' };
   login() {
 
-    this.permissionSer.getByIdPermission(5).subscribe({
+    this.permissionSer.getByPassword_Email(this.user.Password,this.user.Email).subscribe({
       next: (res) => { alert(res)
         // this.myRouter=['/signUp'];
       },
