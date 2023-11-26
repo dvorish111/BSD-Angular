@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+   
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
