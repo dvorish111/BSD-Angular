@@ -1,6 +1,6 @@
 export interface Donor {
-    Id: number
-    LastName: string
-    FirstName: string
+    id: number
+    lastName: string
+    firstName: string
 
 }

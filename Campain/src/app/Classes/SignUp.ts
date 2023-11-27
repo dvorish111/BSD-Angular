@@ -1,6 +1,6 @@
 export interface SignUp {
-    ManagerName: string
-    Password: string
-    Email: string
+    managerName: string
+    password: string
+    email: string
 
 }

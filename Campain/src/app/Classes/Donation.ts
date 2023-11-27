@@ -1,9 +1,9 @@
 export interface Donation {
-    Id: number
-    IsAnonymous :boolean
-    Dedication: string
-    Amount : number
-    IdDonated:number
-    IdDonor:number
+    id: number
+    isAnonymous :boolean
+    dedication: string
+    amount : number
+    idDonated:number
+    idDonor:number
 
 }
