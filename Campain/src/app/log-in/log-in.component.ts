@@ -14,10 +14,10 @@ export class LogInComponent {
 
   constructor(public myRouter: Router, public permissionSer: PermissionService) {
   }
-  user: LogIn = { Email: '', Password: '' };
+  user: LogIn = {email: '', password: '' };
   login() {
 
-    this.permissionSer.getByPassword_Email(this.user.Password,this.user.Email).subscribe({
+    this.permissionSer.getByPassword_Email(this.user.password,this.user.email).subscribe({
       next: (res) => { alert(res)
         // this.myRouter=['/signUp'];
       },

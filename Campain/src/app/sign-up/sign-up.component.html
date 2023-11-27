@@ -1,12 +1,12 @@
 <form (ngSubmit)="toJoin()">
     <label for="fullName">fullName:</label>
-    <input type="text" id="fullName" [(ngModel)]="NewUser.ManagerName" required>
+    <input type="text" id="fullName" [(ngModel)]="NewUser.managerName" required>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="NewUser.Email" required>
+    <input type="email" id="email" [(ngModel)]="NewUser.email" required>
     
     <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="NewUser.Password" required>
+    <input type="password" id="password" [(ngModel)]="NewUser.password" required>
     
     <button type="submit">To Join-></button>
   </form>

@@ -13,7 +13,7 @@ export class SignUpComponent {
 
 constructor(public myRouter: Router, public permissionSer: PermissionService) {
 }
-NewUser: SignUp = {ManagerName: '', Password: '',Email: '' };
+NewUser: SignUp = {managerName: '', password: '',email: '' };
 toJoin() {
 
   this.permissionSer.createPermission(this.NewUser).subscribe({
