@@ -6,6 +6,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 import { ContactComponent } from './contact/contact.component';
 import { FamiliesComponent } from './families/families.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
  { path: 'logIn',  component: LogInComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
  {  path: 'home',  component: HomeComponent },
  {  path: 'contact',  component: ContactComponent },
  {  path: 'families',  component: FamiliesComponent },
+ {  path: 'payment/:amount',  component: PaymentComponent },
  {  path: 'admin-interface',  component: AdminInterfaceComponent },
 
 ];
