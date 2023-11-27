@@ -13,8 +13,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { MatButtonModule } from '@angular/material/button';
+// import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,9 +36,12 @@ import { MatInputModule } from '@angular/material/input';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule,   
+    // BrowserAnimationsModule,
+    // ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

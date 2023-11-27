@@ -19,7 +19,7 @@ export class LogInComponent {
 
     this.permissionSer.getByPassword_Email(this.user.password,this.user.email).subscribe({
       next: (res) => { alert(res)
-        // this.myRouter=['/signUp'];
+        this.myRouter.navigate(['/admin-interface'])
       },
       error: (err) => {
         console.log(' error: ' + err);
