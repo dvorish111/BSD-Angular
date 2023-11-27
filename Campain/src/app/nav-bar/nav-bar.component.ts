@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../Services/campaign.service';
 import { Campaign } from '../Classes/Campaign';
+import { FamiliesComponent } from '../families/families.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,6 +17,8 @@ import { Campaign } from '../Classes/Campaign';
      }
   
     ngOnInit(): void {
+    
+
       const campaignId = 1; 
       this.campaignService.getByIdCampaign(campaignId).subscribe({
         next: (campaign: Campaign) => {
@@ -29,6 +32,8 @@ import { Campaign } from '../Classes/Campaign';
           console.error(err); 
         }
      } );
+
+
     }
 
   }
