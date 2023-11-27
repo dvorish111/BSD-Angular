@@ -16,10 +16,11 @@ export class LogInComponent {
   }
   user: LogIn = { Email: '', Password: '' };
   login() {
-
+    
+console.log(this.user)
     this.permissionSer.getByPassword_Email(this.user.Password,this.user.Email).subscribe({
       next: (res) => { alert(res)
-        // this.myRouter=['/signUp'];
+        this.myRouter.navigate(['/admin-interface'])
       },
       error: (err) => {
         console.log(' error: ' + err);

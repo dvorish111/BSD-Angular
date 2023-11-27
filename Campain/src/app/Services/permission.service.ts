@@ -17,6 +17,7 @@ export class PermissionService {
   }
   
   getByPassword_Email(password: string, email: string): Observable<LogIn> {
+    console.log("getByPassword_Email")
     return this.http.get<LogIn>(`${this.baseUrl}/Password/${password}/Email/${email}`);
   }
   

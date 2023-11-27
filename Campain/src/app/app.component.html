@@ -9,15 +9,18 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/Families']" routerLinkActive='active' href="#">Families</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['/families']" routerLinkActive='active' href="#">Families</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/Contact']" routerLinkActive='active' href="#">Contact</a>
+          <a class="nav-link" [routerLink]="['/contact']" routerLinkActive='active' href="#">Contact</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<!-- <app-log-in ></app-log-in> -->
+
+<app-sign-up></app-sign-up>
 <router-outlet></router-outlet>
 
 

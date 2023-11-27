@@ -1,4 +1,4 @@
-<form (ngSubmit)="toJoin()">
+<!-- <form (ngSubmit)="toJoin()">
     <label for="fullName">fullName:</label>
     <input type="text" id="fullName" [(ngModel)]="NewUser.ManagerName" required>
 
@@ -9,4 +9,40 @@
     <input type="password" id="password" [(ngModel)]="NewUser.Password" required>
     
     <button type="submit">To Join-></button>
+  </form> -->
+ 
+   
+  <form [formGroup]="joinForm" (ngSubmit)="toJoin()">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" formControlName="fullName" required>
+  
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" required
+      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+  
+    <div *ngIf="joinForm.controls['email'].invalid && (joinForm.controls['email'].dirty || joinForm.controls['email'].touched)">
+      <div *ngIf="joinForm.controls['email'].hasError('required') && (joinForm.controls['email'].dirty || joinForm.controls['email'].touched)">
+        Email is required.
+      </div>
+      <div *ngIf="joinForm.controls['email'].hasError('pattern')">
+        Invalid email format.
+      </div>
+    </div>
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" required
+      pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$">
+      <div
+      *ngIf="joinForm.controls['password'].invalid && (joinForm.controls['password'].dirty || joinForm.controls['password'].touched)">
+      <div
+        *ngIf="joinForm.controls['password'].hasError('required') && (joinForm.controls['password'].dirty || joinForm.controls['password'].touched)">
+        password is required.
+      </div>
+      <div *ngIf="joinForm.controls['password'].hasError('pattern')">
+        Invalid password format.
+      </div>
+     </div>
+    <button type="submit">Submit</button>
   </form>
+      <!-- <div *ngIf="joinForm.controls['password'].errors?.required">Password is required.</div>
+      <div *ngIf="joinForm.controls.password.errors?. -->
