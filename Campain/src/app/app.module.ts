@@ -39,8 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,   
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatInputModule,
+     MatButtonModule,
+    //  MatInputModule,
     
   ],
   providers: [],
