@@ -23,7 +23,7 @@
     </div>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" formControlName="Password" name="Password" placeholder="Enter Password" name="psw" id="password" [ngClass]="{'invalid-field': formControls['Password'].invalid && (formControls['Password'].dirty || formControls['Password'].touched)}"/>
+    <input  type="password" formControlName="Password"  placeholder="Enter Password" name="psw" id="password" [ngClass]="{'invalid-field': formControls['Password'].invalid && (formControls['Password'].dirty || formControls['Password'].touched)}"/>
     <div *ngIf="formControls['Password'].invalid && (formControls['Password'].dirty || formControls['Password'].touched)">
       <div *ngIf="formControls['Password'].errors?.['required']">
         Password is required.
@@ -43,3 +43,6 @@
   </div>
   <button type="submit">submit</button>
 </form>
+
+
+
