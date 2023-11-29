@@ -4,6 +4,6 @@ export interface Donate {
     idStatus: number
     street: string
     needed: number 
-    iNeighborhood: number
+    idNeighborhood: number
 
 }
