@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DonateService } from '../Services/donate.service';
 import { Donate } from '../Classes/Donate';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+
 enum Statuses {
   'Married' = 0,
   'Divorced' = 1,
@@ -20,7 +22,7 @@ export class FamiliesComponent implements OnInit{
   raised!:number;
   status!:string;
 
-  constructor(private donateService:DonateService) {
+  constructor(private donateService:DonateService,public myRouter: Router) {
    
   }
  
@@ -31,9 +33,6 @@ export class FamiliesComponent implements OnInit{
       next: (donates:Donate[]) => {       
         this.donates =donates ;        
         console.log(this.donates);
-       // this.status=stauses[1];
-       
-        //this.donates[0].street;
       },
       error: (err) => {
         console.error(err);
@@ -41,5 +40,20 @@ export class FamiliesComponent implements OnInit{
     });
   
   }
+
+ familyOfChildren(NumChildren:number) {
+  this.donateService.getAllByNumOfChildren(NumChildren).subscribe
+  ({
+    next: (donate:Donate[]) => {
+             
+      console.log(donate);
+
+    },
+    error: (err) => {
+      console.error(err);
+    }
+  });
+}
+
 
 }
