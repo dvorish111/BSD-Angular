@@ -30,7 +30,7 @@ export class DonationService {
     return this.http.put(`${this.baseUrl}`, donationToUpdate);
   }
 
-  GetSumDonation(): Observable<any> {
+  getSumDonation(): Observable<any> {
     return this.http.get(`${this.baseUrl}/SumDonation`);
   }
 }

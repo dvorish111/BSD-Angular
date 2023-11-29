@@ -34,15 +34,6 @@ export class HomeComponent implements OnInit {
     });
 
 
-    this.donationService.GetSumDonation().subscribe({
-      next: (sum: number) => {
-        this.TotalRaised = sum;        
-        console.log(this.TotalRaised);
 
-      },
-      error: (err) => {
-        console.error(err);
-      }
-    });
   }
 }
