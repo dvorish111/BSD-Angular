@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../Services/campaign.service';
-import { Campaign } from '../Classes/Campaign';
+import { Campaign } from '../Classes/campaign';
 import { FamiliesComponent } from '../families/families.component';
 
 @Component({

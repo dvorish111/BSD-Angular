@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CampaignService } from '../Services/campaign.service';
-import { Campaign } from '../Classes/Campaign';
 import { DonationService } from '../Services/donation.service';
+import { DonateService } from '../Services/donate.service';
+import { Donate } from '../Classes/Donate';
+import { Campaign } from '../Classes/campaign';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +16,10 @@ export class HomeComponent implements OnInit {
   TotalRaised!:number;
   campaign!: Campaign;
   campaignGoul!: number;
+  numChildren!:number;
+  numFamily!:number;
 
-  constructor(public myRouter: Router, private campaignService: CampaignService,private donationService:DonationService) {
+  constructor(public myRouter: Router, private campaignService: CampaignService,private donationService:DonationService,private donateService:DonateService) {
 
   }
 
@@ -34,11 +38,35 @@ export class HomeComponent implements OnInit {
     });
 
 
-    this.donationService.GetSumDonation().subscribe({
+    this.donationService.GetSumDonation().subscribe
+    ({
       next: (sum: number) => {
         this.TotalRaised = sum;        
         console.log(this.TotalRaised);
 
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+
+    this.donateService.getNumChildren().subscribe
+    ({
+      next: (numChildren:number) => {       
+        this.numChildren =numChildren ;        
+        console.log(this.numChildren);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+
+
+    this.donateService.getNumFamily().subscribe
+    ({
+      next: (numFamily:number) => {       
+        this.numFamily =numFamily ;        
+        console.log(this.numFamily);
       },
       error: (err) => {
         console.error(err);

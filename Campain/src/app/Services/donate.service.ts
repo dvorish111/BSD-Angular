@@ -37,4 +37,14 @@ export class DonateService {
   updateDonate(donateToUpdate: Donate): Observable<any> {
     return this.http.put(`${this.baseUrl}`, donateToUpdate);
   }
+
+  getNumFamily():Observable<number>{
+    return this.http.get<number>(`${this.baseUrl}/NumFamily`);
+  }
+
+  getNumChildren():Observable<number>{
+    return this.http.get<number>(`${this.baseUrl}/NumChildren`);
+  }
+
+
 }
