@@ -4,7 +4,7 @@ import { CampaignService } from '../Services/campaign.service';
 import { DonationService } from '../Services/donation.service';
 import { DonateService } from '../Services/donate.service';
 import { Donate } from '../Classes/Donate';
-import { Campaign } from '../Classes/campaign';
+import { Campaign } from '../Classes/Campaign';
 
 @Component({
   selector: 'app-home',

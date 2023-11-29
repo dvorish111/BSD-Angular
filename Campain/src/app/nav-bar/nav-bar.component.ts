@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../Services/campaign.service';
-import { Campaign } from '../Classes/campaign';
+import { Campaign } from '../Classes/Campaign';
 import { FamiliesComponent } from '../families/families.component';
 import { DonationService } from '../Services/donation.service';
+import { DonateService } from '../Services/donate.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,8 +17,9 @@ import { DonationService } from '../Services/donation.service';
     TotalRaisedPercentages!:number;
   campaignLoaded!: boolean;
   sumLoaded!: boolean;
+  numFamily!: number;
 
-    constructor(private campaignService: CampaignService,private donationService:DonationService) {
+    constructor(private campaignService: CampaignService,private donationService:DonationService,private donateService:DonateService) {
       
       
      }
@@ -63,6 +65,17 @@ import { DonationService } from '../Services/donation.service';
           console.error(err);
         }
       });
+      this.donateService.getNumFamily().subscribe
+      ({
+        next: (numFamily:number) => {       
+          this.numFamily =numFamily ;        
+          console.log(this.numFamily);
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+      
     }
     
     checkBothLoaded() {
@@ -76,4 +89,5 @@ import { DonationService } from '../Services/donation.service';
     TotalRaisedPercentagesCalculation() {
       this.TotalRaisedPercentages = (this.TotalRaised / this.campaignGoul) * 100;
     }
+    
   }    
