@@ -29,4 +29,8 @@ export class DonationService {
   updateDonation( donationToUpdate: Donation): Observable<any> {
     return this.http.put(`${this.baseUrl}`, donationToUpdate);
   }
+
+  GetSumDonation(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/SumDonation`);
+  }
 }
