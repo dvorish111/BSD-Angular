@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     });
 
 
-    this.donationService.GetSumDonation().subscribe
+    this.donationService.getSumDonation().subscribe
     ({
       next: (sum: number) => {
         this.TotalRaised = sum;        
