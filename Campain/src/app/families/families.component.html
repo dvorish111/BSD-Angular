@@ -1,3 +1,36 @@
+<br>
+<mat-card *ngFor="let donatesId of donates" class="example-card">
+    <mat-card-header>
+      <mat-card-title>family size</mat-card-title>
+      <mat-card-subtitle>{{donatesId.numChildren}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-title>case</mat-card-title>
+        <mat-card-subtitle>{{donatesId.id}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-card-title>status</mat-card-title>
+        <mat-card-subtitle>{{Statuses[donatesId.idStatus]}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-card-title>street</mat-card-title>
+        <mat-card-subtitle>{{donatesId.street}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-card-title>needed</mat-card-title>
+        <mat-card-subtitle>{{donatesId.needed}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-card-title>Raised:</mat-card-title>
+        <mat-card-subtitle>{{donatesId.needed}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button [routerLink]="['/payment',raised]">Donate now</button>
+    </mat-card-actions>
+  </mat-card>
+  <br><br><br>
+
 <button (click)="familyOfChildren(5)">family of 2-5 children</button>
 <button (click)="familyOfChildren(10)">family of 5-10 children</button>
 <button (click)="familyOfChildren(15)">family of 10-15 children</button>
@@ -10,9 +43,9 @@
 <br>
 <button (click)="needed(499)">needed 0-499</button>
 <button (click)="needed(999)">needed 500-999</button>
-<button (click)="needed(1500)">needed 1000-1500</button>
+<button (click)="needed(10000)">needed 2000+</button>
 <br>
 <br>
-<button (click)="status()">Widowed</button>
-<button (click)="status()">Married</button>
-<button (click)="status()">Divorced</button>
+<button (click)="status(Statuses.Widow)">Widowed</button>
+<button (click)="status(Statuses.Married)">Married</button>
+<button (click)="status(Statuses.Divorced)">Divorced</button>

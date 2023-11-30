@@ -1,5 +1,5 @@
 export enum Statuses {
-  'Married' = 0,
-  'Divorced' = 1,
-  'Widow' = 2
+  'Married' = 1,
+  'Divorced' = 2,
+  'Widow' = 3
 }
