@@ -1,3 +1,5 @@
+import { Neighborhood } from "./Neighborhood"
+
 export interface Donate {
     id: number
     numChildren: number
@@ -5,5 +7,5 @@ export interface Donate {
     street: string
     needed: number 
     idNeighborhood: number
-
+    idNeighborhoodNavigation:Neighborhood
 }

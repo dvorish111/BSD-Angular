@@ -1,49 +1,56 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DonateService } from '../Services/donate.service';
 import { Donate } from '../Classes/Donate';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
 import { DonationService } from '../Services/donation.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { Statuses } from '../Enums/Statuses';
+import { Neighborhood } from '../Classes/Neighborhood';
+import { NeighborhoodService } from '../Services/neighborhood.service';
 
-export enum Statuses {
-  'Married' = 1,
-  'Divorced' = 2,
-  'Widow' = 3
-}
 
 @Component({
   selector: 'app-families',
   templateUrl: './families.component.html',
   styleUrls: ['./families.component.css'],
- // changeDetection: ChangeDetectionStrategy.OnPush
- 
+
 })
-export class FamiliesComponent implements OnInit{
- Statuses = Statuses; 
-  donates!:Donate[];
-  raised!:number;
-  status!:string;
+
+
+
+
+export class FamiliesComponent implements OnInit {
+
+  neighborhoods!:Neighborhood[];
+  donates!: Donate[];
+  raised!: number;
+  donatesN!: Donate[];
+  tempdonates =this.donates;
   sumAllDonationsByDonated!:number[];
-  flag:boolean=false;
-  needded:number=0;
-  constructor(private donateService:DonateService,private donationService:DonationService,public myRouter: Router,private cdr:ChangeDetectorRef ) {
-   
+
+  Statuses= Statuses ;
+  constructor( public myRouter: Router,private donateService: DonateService,private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
+
   }
- 
-  
+
+
   ngOnInit(): void {
     this.donateService.getAllDonates().subscribe
-    ({
-      next: (donates:Donate[]) => {       
-        this.donates =donates ;        
-        console.log(this.donates);
-       
-      },
-      error: (err) => {
-        console.error(err);
-      }
-    });
+      ({
+        next: (donates: Donate[]) => {
+          this.donates = donates;
+          console.log(this.donates);
+          this.getAllNeighborhoods();
+         this.tempdonates =this.donates;
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+
+  
+    
     
       this.donationService.getAllSumDonationsByDonated().subscribe
       ({
@@ -62,36 +69,79 @@ export class FamiliesComponent implements OnInit{
   }
 
 
-// async SumDonationsByDonated(IdDonated: number): Promise<number> {
-//   try {
-//     const sumDonationsByDonated: number | undefined = await this.donationService.getSumDonationsByDonated(IdDonated).toPromise();
-//     if (sumDonationsByDonated) {
-//       const sum: number = sumDonationsByDonated;
-//       console.log(sum);
-//       return sum;
+  familyOfChildren(NumChildren: number) {
+    this.donateService.getAllByNumOfChildren(NumChildren).subscribe
+      ({
+        next: (donates: Donate[]) => {
+          this.donates = donates;
+
+          console.log(donates);
+
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+  }
+
+
+
+  needed(needed: number) {
+    this.donateService.getAllByNeeded(needed).subscribe
+      ({
+        next: (donates: Donate[]) => {
+          this.donates = donates;
+          console.log(donates);
+
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+  }
+
+  funded(funded: boolean) {
     
-//     } else {
-//       throw new Error('Sum of donations is undefined');
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     throw error;
-//   }
-// }
+  }
 
- familyOfChildren(NumChildren:number) {
-  this.donateService.getAllByNumOfChildren(NumChildren).subscribe
-  ({
-    next: (donate:Donate[]) => {
-             
-      console.log(donate);
+  status(status:number){
+    this.donateService.getAllStatus(status).subscribe
+    ({
+        next: (donates: Donate[]) => {
+        this.donates = donates;
+        console.log(donates);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+    
+  }
 
-    },
-    error: (err) => {
-      console.error(err);
-    }
-  });
+  neighborhood(neighborhoodId:number)
+  {this.donates=this.tempdonates;
+    this.donatesN = [];
+    this.donates.forEach(element => {
+    if(element.idNeighborhood==neighborhoodId)
+    {this.donatesN.push(element)}    
+   });
+    this.tempdonates =this.donates;
+    this.donates=this.donatesN;
+  }
+
+  getAllNeighborhoods(){
+    this.neighborhoodService.getAllNeighborhoods().subscribe
+    ({
+      next: (neighborhood:Neighborhood[]) => {
+        this.neighborhoods = neighborhood;
+        console.log(this.neighborhoods);
+
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
 }
 
 
-}

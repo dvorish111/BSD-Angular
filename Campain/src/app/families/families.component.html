@@ -24,6 +24,11 @@
       <mat-card-title>Raised:</mat-card-title>
       <mat-card-subtitle>{{ sumAllDonationsByDonated[i]}}</mat-card-subtitle>
     </mat-card-content>    
+       
+    <mat-card-content>
+      <mat-card-title>Neighborhood:</mat-card-title>
+      <mat-card-subtitle>{{donatesId.idNeighborhoodNavigation.name}}</mat-card-subtitle>
+  </mat-card-content>
     <mat-card-actions>
       <button mat-button>LIKE</button>
       <button mat-button [routerLink]="['/payment',raised]">Donate now</button>
@@ -35,3 +40,22 @@
 <button (click)="familyOfChildren(10)">family of 5-10 children</button>
 <button (click)="familyOfChildren(15)">family of 10-15 children</button>
 <button (click)="familyOfChildren(21)">family of 15-21 children</button>
+<br>
+<br>
+<button (click)="funded(true)">funded</button>
+<button (click)="funded(false)">not funded</button>
+<br>
+<br>
+<button (click)="needed(499)">needed 0-499</button>
+<button (click)="needed(999)">needed 500-999</button>
+<button (click)="needed(10000)">needed 2000+</button>
+<br>
+<br>
+<button (click)="status(Statuses.Widow)">Widowed</button>
+<button (click)="status(Statuses.Married)">Married</button>
+<button (click)="status(Statuses.Divorced)">Divorced</button>
+<br>
+<br>
+<div *ngFor="let neighborhoodId of neighborhoods" >
+<button (click)="neighborhood(neighborhoodId.id)">{{neighborhoodId.name}}</button>
+</div>

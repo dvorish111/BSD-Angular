@@ -40,7 +40,7 @@ import { MatCardModule } from '@angular/material/card';
     BrowserAnimationsModule,
     ReactiveFormsModule,
      MatButtonModule,
-     MatInputModule,
+    //  MatInputModule,
      MatCardModule
   ],
   providers: [],
