@@ -24,6 +24,10 @@
         <mat-card-title>Raised:</mat-card-title>
         <mat-card-subtitle>{{donatesId.needed}}</mat-card-subtitle>
     </mat-card-content>
+    <mat-card-content>
+      <mat-card-title>Neighborhood:</mat-card-title>
+      <mat-card-subtitle>{{donatesId.idNeighborhoodNavigation.name}}</mat-card-subtitle>
+  </mat-card-content>
     <mat-card-actions>
       <button mat-button>LIKE</button>
       <button mat-button [routerLink]="['/payment',raised]">Donate now</button>
@@ -49,3 +53,8 @@
 <button (click)="status(Statuses.Widow)">Widowed</button>
 <button (click)="status(Statuses.Married)">Married</button>
 <button (click)="status(Statuses.Divorced)">Divorced</button>
+<br>
+<br>
+<div *ngFor="let neighborhoodId of neighborhoods" >
+<button (click)="neighborhood(neighborhoodId.id)">{{neighborhoodId.name}}</button>
+</div>
