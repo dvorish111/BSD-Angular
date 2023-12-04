@@ -1,5 +1,5 @@
 <br>
-<mat-card *ngFor="let donatesId of donates" class="example-card">
+<mat-card *ngFor="let donatesId of donates; let i = index" class="example-card">
     <mat-card-header>
       <mat-card-title>family size</mat-card-title>
       <mat-card-subtitle>{{donatesId.numChildren}}</mat-card-subtitle>
@@ -17,13 +17,13 @@
         <mat-card-subtitle>{{donatesId.street}}</mat-card-subtitle>
     </mat-card-content>
     <mat-card-content>
-        <mat-card-title>needed</mat-card-title>
-        <mat-card-subtitle>{{donatesId.needed}}</mat-card-subtitle>
+        <mat-card-title >needed</mat-card-title>
+        <mat-card-subtitle >{{donatesId.needed}}</mat-card-subtitle>
     </mat-card-content>
     <mat-card-content>
-        <mat-card-title>Raised:</mat-card-title>
-        <mat-card-subtitle>{{donatesId.needed}}</mat-card-subtitle>
-    </mat-card-content>
+      <mat-card-title>Raised:</mat-card-title>
+      <mat-card-subtitle>{{ sumAllDonationsByDonated[i]}}</mat-card-subtitle>
+    </mat-card-content>    
     <mat-card-actions>
       <button mat-button>LIKE</button>
       <button mat-button [routerLink]="['/payment',raised]">Donate now</button>
