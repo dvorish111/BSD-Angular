@@ -46,5 +46,7 @@ export class DonateService {
     return this.http.get<number>(`${this.baseUrl}/NumChildren`);
   }
 
-
+craeteDonatesByExcel(ExcelToAdd:FormData ): Observable<any> {
+  return this.http.post(`${this.baseUrl}/CraeteDonatesByExcel`, ExcelToAdd);
+}
 }
