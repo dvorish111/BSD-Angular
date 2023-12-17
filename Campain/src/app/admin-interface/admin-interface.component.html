@@ -1,1 +1,9 @@
-<p>admin-interface works!</p>
+<form (submit)="uploadFile($event)">
+    <input  type="file" (change)="onFileSelected($event)" />
+    <div *ngIf="fileMessage">{{ fileMessage }}</div>
+    <div *ngIf="selectedFile"   >
+        <button class="btn"  mat-raised-button color="primary" type="submit" >העלאת הקובץ</button>
+    </div>
+    <a href="https://drive.google.com/drive/u/5/my-drive/תבנית - יבוא רשימת נתרמים.csv" download>Download Sample File</a>
+  </form>
+
