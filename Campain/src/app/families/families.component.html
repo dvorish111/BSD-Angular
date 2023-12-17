@@ -30,7 +30,8 @@
       <mat-card-subtitle>{{donatesId.idNeighborhoodNavigation.name}}</mat-card-subtitle>
   </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
+      <button mat-button *ngIf="donatesId.needed-sumAllDonationsByDonated[i]<=0" [routerLink]="['/payment',0]" routerLinkActive='active'>Funded</button>
+      <button mat-button *ngIf="donatesId.needed-sumAllDonationsByDonated[i]>0" [routerLink]="['/payment',donatesId.needed-sumAllDonationsByDonated[i]]" routerLinkActive='active'>Donate now</button>
       <button mat-button [routerLink]="['/payment',raised]">Donate now</button>
     </mat-card-actions>
   </mat-card>

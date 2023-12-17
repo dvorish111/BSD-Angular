@@ -33,7 +33,7 @@ export class LogInComponent {
   get formControls() {
     return this.loginForm.controls;
   }
-  submitLoginForm(): void {
+  onSubmitLoginForm(): void {
     if (this.loginForm.valid) {
       this.User.password = this.loginForm.value.Password;
       this.User.email = this.loginForm.value.Email;

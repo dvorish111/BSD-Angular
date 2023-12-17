@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Statuses } from '../Enums/Statuses';
 import { Neighborhood } from '../Classes/Neighborhood';
 import { NeighborhoodService } from '../Services/neighborhood.service';
+import { findIndex } from 'rxjs';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class FamiliesComponent implements OnInit {
   donatesN!: Donate[];
   tempdonates =this.donates;
   sumAllDonationsByDonated!:number[];
-
+//flagIsFulldonates:boolean=false;
   Statuses= Statuses ;
   constructor( public myRouter: Router,private donateService: DonateService,private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
 
@@ -43,6 +44,7 @@ export class FamiliesComponent implements OnInit {
           console.log(this.donates);
           this.getAllNeighborhoods();
          this.tempdonates =this.donates;
+       // this.flagIsFulldonates=true;
         },
         error: (err) => {
           console.error(err);
@@ -101,7 +103,23 @@ export class FamiliesComponent implements OnInit {
   }
 
   funded(funded: boolean) {
+    //if(this.flagIsFulldonates==false)
+    this.donates=this.tempdonates;
+    if(funded){
+      // this.donates=this.donates.filter((d=>d.needed-this.sumAllDonationsByDonated[]))
+      this.donates = this.donates.map((item, index) => ({ item, index }))
+      .filter(({ item, index }) => item.needed - this.sumAllDonationsByDonated[index] <= 0)
+      .map(({ item }) => item);
     
+    }
+    else{
+      this.donates = this.donates.map((item, index) => ({ item, index }))
+      .filter(({ item, index }) => item.needed - this.sumAllDonationsByDonated[index] > 0)
+      .map(({ item }) => item);
+    
+      }
+   //   this.flagIsFulldonates=false;
+
   }
 
   status(status:number){
@@ -119,13 +137,14 @@ export class FamiliesComponent implements OnInit {
   }
 
   neighborhood(neighborhoodId:number)
-  {this.donates=this.tempdonates;
+  {
+    this.donates=this.tempdonates;
     this.donatesN = [];
     this.donates.forEach(element => {
     if(element.idNeighborhood==neighborhoodId)
     {this.donatesN.push(element)}    
    });
-    this.tempdonates =this.donates;
+    //this.tempdonates =this.donates;
     this.donates=this.donatesN;
   }
 

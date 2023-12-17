@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { AdminFamiliesComponent } from './admin-families/admin-families.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatCardModule } from '@angular/material/card';
     PaymentComponent,
     ShowDonationsComponent,
     AdminInterfaceComponent,
-    NavBarComponent
+    NavBarComponent,
+    AdminFamiliesComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { MatCardModule } from '@angular/material/card';
     BrowserAnimationsModule,
     ReactiveFormsModule,
      MatButtonModule,
-    //  MatInputModule,
+     MatInputModule,
      MatCardModule
   ],
   providers: [],

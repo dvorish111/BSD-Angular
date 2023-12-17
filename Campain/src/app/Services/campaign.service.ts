@@ -30,16 +30,5 @@ export class CampaignService {
   updateCampaign(campaignToUpdate: Campaign): Observable<any> {
     return this.http.put(`${this.baseUrl}`, campaignToUpdate);
   }
-  // getAllCampaign(): Observable<campaign[]> {
-  //   return this.http.get<campaign[]>(this.baseUrl+"Gat");
-  // }
-  // CreateCampaign(campaignToAdd: campaign[]): Observable<any> {
-  //   return this.http.post(this.baseUrl+"post", campaignToAdd);
-  // }
-  // DeleteCampaign(campaignId: Campaign): Observable<any> {
-  //   return this.http.delete(this.baseUrl+"Delete", campaignId)
-  // }
-  // UpdateCampaign(campaignId: Campaign):Observable<any>{
-  //   return this.http.put(this.baseUrl+"Put",campaignId)
-  // }
+
 }
