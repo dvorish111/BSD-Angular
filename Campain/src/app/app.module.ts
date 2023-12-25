@@ -19,6 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { AdminFamiliesComponent } from './admin-families/admin-families.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { AdminFamiliesComponent } from './admin-families/admin-families.componen
     ReactiveFormsModule,
      MatButtonModule,
      MatInputModule,
-     MatCardModule
+     MatCardModule,
+     MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
