@@ -49,4 +49,7 @@ export class DonateService {
 craeteDonatesByExcel(ExcelToAdd:FormData ): Observable<any> {
   return this.http.post(`${this.baseUrl}/CraeteDonatesByExcel`, ExcelToAdd);
 }
+getDonatesByExcel(): Observable<Blob> {
+  return this.http.get(`${this.baseUrl}/GetDonatesByExcel`,  { responseType: 'blob' });
+}
 }
