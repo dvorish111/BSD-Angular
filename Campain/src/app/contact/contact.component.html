@@ -5,22 +5,22 @@
       <mat-label>First Name</mat-label>
       <input matInput formControlName="firstName" required>
     </mat-form-field>
-  
+  <br>
     <mat-form-field>
       <mat-label>Last Name</mat-label>
       <input matInput formControlName="lastName" required>
     </mat-form-field>
-  
+  <br>
     <mat-form-field>
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" required>
       <mat-error *ngIf="contactForm.get('email')">Invalid email</mat-error>
     </mat-form-field>
-  
+  <br>
     <mat-form-field>
       <mat-label>Message</mat-label>
       <textarea matInput formControlName="message" required></textarea>
     </mat-form-field>
-  
+  <br>
     <button mat-raised-button color="primary" type="submit">Submit</button>
   </form> 

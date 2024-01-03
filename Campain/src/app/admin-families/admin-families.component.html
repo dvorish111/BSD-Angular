@@ -1,3 +1,10 @@
+<br>
+<form class="example-form" [formGroup]="SearchForm" (ngSubmit)="onSubmitSearchForm()">
+
+  <mat-label>חפש משפחה לפי מספר case</mat-label>
+  <input  type="number" formControlName="search" matInput placeholder="מספר CASE" value="">
+</form>
+<br>
  <form class="example-form" [formGroup]="addFamilyForm" (ngSubmit)="onSubmitAddFamilyForm()">
     
         <mat-form-field class="example-full-width">
@@ -8,6 +15,8 @@
             <mat-label>שם המשפחה</mat-label>
             <input type="text" formControlName="Name" matInput placeholder="" value="">
           </mat-form-field>
+          <br>
+
           <mat-form-field class="example-full-width">
             <mat-label>מס ילדים</mat-label>
             <input type="number" formControlName="NumChildren" matInput placeholder="" value="">
@@ -16,6 +25,8 @@
             <mat-label>רחוב</mat-label>
             <input type="text" formControlName="Street" matInput placeholder="" value="">
           </mat-form-field>
+          <br>
+
           <mat-form-field class="example-full-width">
             <mat-label>סכום נצרך לתמיכה</mat-label>
             <input  type="number" formControlName="Needed" matInput placeholder="" value="">
@@ -25,28 +36,22 @@
             <input  type="number" formControlName="NumberBuilding" matInput placeholder="" value="">
           </mat-form-field>
 
-          <!-- <mat-form-field>
-            <mat-label>Cars</mat-label>
-            <select matNativeControl formControlName="Status">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </select>
-          </mat-form-field> -->
-           <!-- <mat-form-field>
+          <br>
+          
+           <mat-form-field>
             <mat-label>סטטוס</mat-label>
             <mat-select formControlName="Status" name="status">
-           
-                <mat-option *ngFor="let food of f" [value]="f">{{f}}</mat-option>
-                 
+                <mat-option *ngFor="let s of options" [value]="s">{{s}}</mat-option>
              </mat-select>
-          </mat-form-field> -->
-          <!-- <mat-form-field>
+          </mat-form-field>
+          <mat-form-field>
             <mat-label>שכונה</mat-label>
             <mat-select formControlName="Neighborhood" name="neighborhood">
-                <mat-option *ngFor="neighborhoods" [value]="neighborhood.value">{{neighborhood.viewValue}}</mat-option>
+                <mat-option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{neighborhood.name}}</mat-option>
             </mat-select>
-          </mat-form-field>  -->
+          </mat-form-field> 
           <!-- <p> Selected food: {{selectedValue}} </p> -->
-</form>
+          <br>
+          <button mat-raised-button color="primary" type="submit">עדכן</button>
+        </form>
+       

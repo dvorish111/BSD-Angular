@@ -1,7 +1,7 @@
 import { Neighborhood } from "./Neighborhood"
 
 export interface Donate {
-    id: number
+    id?: number
     numChildren: number
     idStatus: number
     street: string
