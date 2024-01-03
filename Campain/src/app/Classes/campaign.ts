@@ -1,6 +1,6 @@
 export interface Campaign {
    
-   idCampaign : number 
+   id : number 
    name :string 
    startDate :Date 
    duration :Date 
