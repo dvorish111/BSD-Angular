@@ -13,16 +13,26 @@
   <div>
     <button class="btn"  mat-raised-button color="primary" (click)="updateCampaign()">עדכון הקמפיין </button>
   </div>
-  <!-- <form [formGroup]="campaignForm" (ngSubmit)="onSubmitCampaignForm()" #userForm="ngForm" class="modal-content animate" action="" method="post"autocomplete="off">
-    <button type="submit">submit</button>
-  </form>   -->
-  
-  <mat-form-field>
-    <mat-label>Select an option</mat-label>
-    <mat-select>
-      <mat-option value="option1">Option 1</mat-option>
-      <mat-option value="option2">Option 2</mat-option>
-      <mat-option value="option3">Option 3</mat-option>
-    </mat-select>
+ <div  *ngIf="campaign" >
+<form [formGroup]="campaignForm" (ngSubmit)="onSubmitCampaignForm()" #userForm="ngForm" class="modal-content animate" action="" method="post"autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <mat-label>{{campaign.name}}</mat-label>
+    <input type="text" formControlName="name" matInput placeholder="" value="campaign?.name">
   </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>{{campaign.goul}}</mat-label>
+    <input type="text" formControlName="goul" matInput placeholder=""  value="11111">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>{{campaign.startDate}}</mat-label>
+    <input type="datetime" formControlName="startDate" matInput placeholder="" value="campaign.startDate">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>{{campaign.duration}}</mat-label>
+    <input type="date" formControlName="duration" matInput placeholder="" value="campaign.duration">
+  </mat-form-field>
+  <button type="submit">submit</button>
+  </form>   
+  </div>
+
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DonateService } from '../Services/donate.service';
 import { CampaignService } from '../Services/campaign.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Campaign } from '../Classes/Campaign';
 
 @Component({
   selector: 'app-admin-interface',
@@ -12,8 +13,10 @@ export class AdminInterfaceComponent {
   campaignForm: FormGroup;
   selectedFile: File | null = null;
   fileMessage: string | undefined;
+  campaign!:Campaign ;
   constructor(private donateService: DonateService,private campainService:CampaignService) {
     this.campaignForm = new FormGroup({
+     
       name: new FormControl("", ),
       startDate: new FormControl("",),
       duration: new FormControl("", ),
@@ -78,9 +81,31 @@ export class AdminInterfaceComponent {
   }
 
   updateCampaign(){
-    this.campainService.getByIdCampaign(1).subscribe(
-      (response) => {
-        console.log(response);
+    this.campainService.getByIdCampaign(6).subscribe(
+      (campaign) => {
+        this.campaign=campaign;
+        this.campaignForm.setValue({
+          name: this.campaign.name, 
+          goul: this.campaign.goul,
+          startDate: this.campaign.startDate, 
+          duration: this.campaign.duration,
+         
+        });
+       // this.campaignForm=campaign
+        console.log(campaign);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  onSubmitCampaignForm(){
+    this.campaign=this.campaignForm.value;
+    this.campaign.id=6;
+    this.campainService.updateCampaign(this.campaign).subscribe(
+      (campaign) => {
+        console.log("!!!!!");
       },
       (error) => {
         console.error(error);
