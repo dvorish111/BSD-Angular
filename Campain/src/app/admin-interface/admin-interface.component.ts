@@ -90,6 +90,7 @@ export class AdminInterfaceComponent {
           startDate: this.campaign.startDate, 
           duration: this.campaign.duration,
          
+        
         });
        // this.campaignForm=campaign
         console.log(campaign);
