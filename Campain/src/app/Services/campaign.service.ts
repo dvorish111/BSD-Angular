@@ -30,5 +30,8 @@ export class CampaignService {
   updateCampaign(campaignToUpdate: Campaign): Observable<any> {
     return this.http.put(`${this.baseUrl}`, campaignToUpdate);
   }
+  deleteAllEntitiesCampaign(): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/DeleteAllEntities`);
+  }
 
 }

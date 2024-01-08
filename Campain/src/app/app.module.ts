@@ -20,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { AdminFamiliesComponent } from './admin-families/admin-families.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { MatSelectModule } from '@angular/material/select';
      MatButtonModule,
      MatInputModule,
      MatCardModule,
-     MatSelectModule
+     MatSelectModule,
+     MatSnackBarModule,
+     MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

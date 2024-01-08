@@ -32,4 +32,7 @@ export class DonorService {
   updateDonor(donorToUpdate: Donor): Observable<any> {
     return this.http.put(`${this.baseUrl}`, donorToUpdate);
   }
+  deleteAllEntitiesDonors(): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/DeleteAllEntities`);
+  }
 }

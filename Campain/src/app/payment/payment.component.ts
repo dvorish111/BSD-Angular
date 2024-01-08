@@ -2,6 +2,7 @@ import { Component ,AfterViewInit, OnInit, Renderer2 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import '../../assets/check/script.js';
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',

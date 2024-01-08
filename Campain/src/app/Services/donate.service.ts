@@ -52,4 +52,8 @@ craeteDonatesByExcel(ExcelToAdd:FormData ): Observable<any> {
 getDonatesByExcel(): Observable<Blob> {
   return this.http.get(`${this.baseUrl}/GetDonatesByExcel`,  { responseType: 'blob' });
 }
+
+deleteAllEntitiesDonates(): Observable<any> {
+  return this.http.delete(`${this.baseUrl}/DeleteAllEntities`);
+}
 }
