@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import 'tslib';
 
 @NgModule({
   declarations: [

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Donate } from '../Classes/Donate';
+import { AllDonate } from '../Classes/AllClasses/AllDonate';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class DonateService {
   getByTazDonate(donateTaz:number):Observable<Donate>{
     return this.http.get<Donate>(`${this.baseUrl}/TazDonate/${donateTaz}`);
   }
-  createDonate(donateToAdd: Donate): Observable<any> {
+  createDonate(donateToAdd: AllDonate): Observable<any> {
     return this.http.post(`${this.baseUrl}`, donateToAdd);
   }
 
