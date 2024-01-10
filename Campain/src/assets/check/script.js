@@ -26,7 +26,7 @@ function ReadPostMessage(event) {
             break;
 
         case 'TransactionResponse':
-            document.getElementById('Result').innerHTML = '<b>TransactionResponse:<br/>' + JSON.stringify(event.data.Value) + '</b><br/>see full data in console';
+            document.getElementById('Result').innerHTML = '<b>TransactionResponse:<br/>' + JSON.stringify("ClientName"+event.data.Value.ClientName,"\nAmount"+event.data.Value.Amount,"\nLastNum"+event.data.Value.LastNum+document.getElementById('Neighborhood') )+ '</b><br/>see full data in console';
             console.log(event.data.Value)
             if (event.data.Value.Status == 'Error') {
                 document.getElementById('ErrorDiv').innerHTML = event.data.Value.Message
@@ -39,32 +39,63 @@ function ReadPostMessage(event) {
     }
 }
 function PayBtClick() {
+    var ApiValid;
+    var Mosad;
     document.getElementById('Result').innerHTML = ''
     document.getElementById('PayBtDiv').style.display = 'none';
     document.getElementById('OkDiv').style.display = 'none';
     document.getElementById('WaitPay').style.display = 'block';
     document.getElementById('ErrorDiv').innerHTML = '';
+    switch(document.getElementById('Neighborhood').value)
+   {
+case "1":
+    Mosad=31;
+ApiValid="BQZYrRMXvF";
+    break;
+case "2":
+    Mosad=7001267;
+    ApiValid="hbOO24qBMT";  
+    break;
+ case "3":
+    Mosad=32;
+    ApiValid="ckUDDk+Efb"; 
+    break;
+case "4":
+    Mosad=33;
+    ApiValid="tFX9DPmB9P"; 
+    break;
+case "5":
+    Mosad=5776829;
+    ApiValid="737FzAnO1v";  
+    break;
+case "5":
+    Mosad=7001979;
+    ApiValid="ug8/1AHy4Q";  
+    break;
+default:
+    Mosad=5776829;
+    ApiValid="737FzAnO1v";  
+          
+  }
+  console.log(Mosad+"mosad"+document.getElementById('Neighborhood').value)
     PostNedarim({
         'Name': 'FinishTransaction2',
         'Value': {
-            'Mosad': document.getElementById('MosadId').value,
-            'ApiValid': document.getElementById('ApiValid').value,
+            'Mosad':Mosad,
+            'ApiValid':ApiValid,
             'PaymentType': document.getElementById("PaymentType").value,
             'Currency': '1',
-
-            'Zeout': '',
-            'FirstName': document.getElementById('ClientName').value,
-            'LastName': '',
+            'Zeout': document.getElementById('Zeout').value,
+            'FirstName': document.getElementById('FirstName').value,
+            'LastName': document.getElementById('LastName').value,
             'Street': document.getElementById('Street').value,
             'City': document.getElementById('City').value,
-            'Phone': '',
-            'Mail': '',
-
+            'Phone': document.getElementById('Phone').value,
+            'Mail': document.getElementById('Mail').value,
             'Amount': document.getElementById('Amount').value,
-            'Tashlumim': '1',
-
+            'Tashlumim': document.getElementById('Tashlumim').value?document.getElementById('Tashlumim').value:1,
             'Groupe': '',
-            'Comment': 'בדיקת אייפרם 2',
+            'Comment': document.getElementById('Comment').value,
 
             'Param1': 'פרמטר 1',
             'Param2': '',

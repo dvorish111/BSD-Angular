@@ -25,7 +25,6 @@ export class FamiliesComponent implements OnInit {
 
   neighborhoods!:Neighborhood[];
   donates!: Donate[];
-  raised!: number;
   donatesN!: Donate[];
   tempdonates =this.donates;
   sumAllDonationsByDonated!:number[];
