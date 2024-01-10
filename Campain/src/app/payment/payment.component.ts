@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NeighborhoodService } from '../Services/neighborhood.service';
 import { Neighborhood } from '../Classes/Neighborhood';
 import '../../assets/check/script.js';
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
