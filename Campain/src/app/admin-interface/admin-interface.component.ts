@@ -70,7 +70,8 @@ export class AdminInterfaceComponent {
       );
     }
   }
-  downloadDonatesCSV() {
+  downloadDonatesCSV()//הורדת קובץ נתרמים
+   {
     this.donateService.getDonatesByExcel().subscribe(
       (blob: Blob) => {
         const link = document.createElement('a');
@@ -86,6 +87,23 @@ export class AdminInterfaceComponent {
 
   }
 
+
+  downloadDonationsCSV()//הורדת קובץ תרומות
+   {
+    this.donationService.getDonationsByExcel().subscribe(
+      (blob: Blob) => {
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'רשימת תרומות.csv';
+        link.click();
+        console.log(blob);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+  }
 
   //delete & create level 4
   updateCampaign() {
@@ -128,7 +146,7 @@ export class AdminInterfaceComponent {
 
   //delete & create level 1
   ifcreateCampaign() {
-    const ifDelete = this.showMessage("האם אתה בטוח שברצונך למחוק את הקמפיין הנוכחי וליצור חדש");
+    const ifDelete = this.showMessage("באפשרותך ליצא לקובץ אקסל את הנתונים... \n מחיקה זו תגרום לכל הנתונים שבקמפיין הנוכחי להמחק  \n ?האם אתה בטוח שברצונך למחוק את הקמפיין הנוכחי וליצור חדש");
     console.log(ifDelete);
   }
   //delete & create level 3
@@ -201,5 +219,8 @@ if  ( this.deleteAllCampain = false){
     });
   };
 
+
+
+  
 
 }
