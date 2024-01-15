@@ -1,4 +1,4 @@
-export interface Contact1{
+export interface Contact{
     firstName :string
     lastName :string
     email :string

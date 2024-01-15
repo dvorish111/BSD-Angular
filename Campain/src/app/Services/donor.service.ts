@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Donor } from '../Classes/Donor';
+import { AllDonor } from '../Classes/AllClasses/AllDonor';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,8 @@ export class DonorService {
     return this.http.get<Donor>(`${this.baseUrl}/Donors/${donorId}`);
 
   }
-  createDonor(donorToAdd: Donor): Observable<any> {
-    return this.http.post(`${this.baseUrl}`, donorToAdd);
+  createDonor(donorToAdd: AllDonor): Observable<number> {
+    return this.http.post<number>(`${this.baseUrl}`, donorToAdd);
   }
 
   deleteDonor(donorId: number): Observable<any> {

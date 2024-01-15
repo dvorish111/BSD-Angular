@@ -7,37 +7,37 @@
 
     <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
         <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">FirstName:</span><br />
-        <input id="FirstName" type="text" maxlength="30" class="TextBox" /><br />
+        <input id="FirstName" type="text" [(ngModel)]="newDonor.FirstName" maxlength="30" class="TextBox" /><br />
     </div>
 
     <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
         <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">LastName:</span><br />
-        <input id="LastName" type="text" maxlength="30" class="TextBox" /><br />
+        <input id="LastName"  [(ngModel)]="newDonor.LastName" type="text" maxlength="30" class="TextBox" /><br />
     </div>
 
     <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
         <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Street:</span><br />
-        <input id="Street" type="text" maxlength="30" class="TextBox" /><br />
+        <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonor.Street" class="TextBox" /><br />
     </div>
 
     <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
         <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">City:</span><br />
-        <input id="City" type="text" maxlength="30" class="TextBox" /><br />
+        <input id="City" type="text" maxlength="30" [(ngModel)]="newDonor.City" class="TextBox" /><br />
     </div>
 
     <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
         <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Zeout:</span><br />
-        <input id="Zeout" type="text" maxlength="30" class="TextBox" /><br />
+        <input id="Zeout" type="text" maxlength="30"  class="TextBox" /><br />
     </div>
 
     <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
         <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Phone:</span><br />
-        <input id="Phone" type="text" maxlength="30" class="TextBox" /><br />
+        <input id="Phone" type="text" maxlength="30" [(ngModel)]="newDonor.Phone" class="TextBox" /><br />
     </div>
 
     <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
         <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Mail:</span><br />
-        <input id="Mail" type="text" maxlength="30" class="TextBox" /><br />
+        <input id="Mail" type="text" maxlength="30" [(ngModel)]="newDonor.Email" class="TextBox" /><br />
     </div>
 
 
@@ -82,13 +82,19 @@
         <div style="vertical-align
         :top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
             <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">TashlumimHK:</span><br />
-            <input id="Tashlumim" type="text" maxlength="30" class="TextBox" /><br />
+            <input id="Tashlumim" type="text" [(ngModel)]="Tashlumim" maxlength="30" class="TextBox" /><br />
         </div>
 
 
 
         </div>
-           
+        <div>
+            <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Make my donation anonymous</span><br />
+            <input id="ifAnonymous" type="checkbox" [(ngModel)]="newDonation.isAnonymous">
+          
+        </div>
+        <textarea matInput placeholder="Write your dedication here" rows="10" [(ngModel)]="newDonation.dedication"></textarea>
+          
         <!-- <div id="NeighborhoodDiv" style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
             <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Neighborhood:</span><br />
             <select id="PaymentType">
@@ -99,7 +105,7 @@
         <div id="NeighborhoodDiv" style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
             <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Neighborhood:</span><br />
             <select id="Neighborhood" [(ngModel)]="selectedNeighborhood" >
-                <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
+                <option *ngFor="let neighborhood of neighborhoods"  [(ngModel)]="newDonation.idNeighborhood" [value]="neighborhood.id">{{ neighborhood.name }}</option>
               </select>
             <br />
         </div>
@@ -130,6 +136,6 @@
 
 
 </div>
-
+<button (click)="keepData()"> </button>
 <script src="../../assets/check/script.js"></script>
 
