@@ -7,7 +7,7 @@
 // //זהירות! את השורת קוד הזו יש להפעיל רק פעם אחת בעת פתיחת הדף
 // window.onload = function () {
     
-// console.log(document.getElementById('ClientName').value);
+// console.log(document.getElementById('FirstName').value);
 //     if (window.addEventListener) { window.addEventListener("message", ReadPostMessage, false); } else { window.attachEvent("onmessage", ReadPostMessage); }
 //     document.getElementById('NedarimFrame').onload = function () { console.log('StartNedarim'); PostNedarim({'Name':'GetHeight'}) }
 //     document.getElementById('NedarimFrame').src = "https://matara.pro/nedarimplus/iframe?language=en";

@@ -1,11 +1,16 @@
-<br>
-<form class="example-form" [formGroup]="SearchForm" (ngSubmit)="onSubmitSearchForm()">
+<button mat-raised-button color="primary" (click)="updateFamilyForm()" type="button">עדכן פרטי משפחה</button>
 
-  <mat-label>חפש משפחה לפי מספר case</mat-label>
-  <input  type="number" formControlName="search" matInput placeholder="מספר CASE" value="">
+<button mat-raised-button color="primary" (click)="createFamilyForm()" type="button">הוסף משפחה</button>
+<br>
+<form *ngIf="statusFamilyForm ==='update'" class="example-form" [formGroup]="SearchForm" (ngSubmit)="onSubmitSearchForm()">
+
+  <mat-label>חפש משפחה לפי מספר תז </mat-label>
+  <input  type="search" formControlName="search" matInput placeholder="  תז מספר " value="">
+  <button type="submit">חפש</button>
 </form>
 <br>
- <form class="example-form" [formGroup]="addFamilyForm" (ngSubmit)="onSubmitAddFamilyForm()">
+
+ <form *ngIf="statusFamilyForm" class="example-form" [formGroup]="addFamilyForm" (ngSubmit)="onSubmitFamilyForm()">
     
         <mat-form-field class="example-full-width">
           <mat-label>תז הורים</mat-label>
@@ -33,7 +38,7 @@
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>מס בניין</mat-label>
-            <input  type="number" formControlName="NumberBuilding" matInput placeholder="" value="">
+            <input  type="number" formControlName="NumberBuilding" matInput placeholder="" value="donate.numChildren">
           </mat-form-field>
 
           <br>
@@ -52,6 +57,7 @@
           </mat-form-field> 
           <!-- <p> Selected food: {{selectedValue}} </p> -->
           <br>
-          <button mat-raised-button color="primary" type="submit">עדכן</button>
+          <button mat-raised-button color="primary"  type="submit">שלח</button>
+
         </form>
        

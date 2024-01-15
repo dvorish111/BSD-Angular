@@ -9,6 +9,9 @@ import { AllDonor } from '../Classes/AllClasses/AllDonor';
 import { Donation } from '../Classes/Donation';
 import { DonorService } from '../Services/donor.service';
 import { DonationService } from '../Services/donation.service';
+import { Donate } from '../Classes/Donate';
+import { AllDonate } from '../Classes/AllClasses/AllDonate';
+import { DonateService } from '../Services/donate.service';
 
 @Component({
   selector: 'app-payment',
@@ -16,22 +19,34 @@ import { DonationService } from '../Services/donation.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent  implements OnInit {
-  constructor( private donationService: DonationService,private renderer: Renderer2,private route:Router,private activatedRoute:ActivatedRoute,private neighborhoodService:NeighborhoodService, private donorService:DonorService) { }
+  constructor( private donateService: DonateService,private donationService: DonationService,private renderer: Renderer2,private route:Router,private activatedRoute:ActivatedRoute,private neighborhoodService:NeighborhoodService, private donorService:DonorService) { }
   selectedPaymentType:string='Ragil';
   selectedNeighborhood!:Neighborhood;
-  amount!:string|null;
+  amount!:number;
   neighborhoods!:Neighborhood[];
+  donated!:Donate;
+  idDonated!:number;
   newDonor!: AllDonor; 
   newDonation!: Donation ;
   okDonation: boolean =true;
   Tashlumim!: number;
   ifAnonymous: boolean =false;
   ngOnInit() {
+ 
     this.activatedRoute.paramMap.subscribe(params => {
-      var amount1=params.get('amount');
-      this.amount=amount1;
-     
-      });
+
+      this.idDonated =Number(params.get('donatesId'));
+     this.donateService.getByIdDonate(this.idDonated ).subscribe(
+        {
+          next:(donated:Donate)=>{
+            this.donated=donated;
+            console.log( this.donated+" this.donated!!!!!")
+           this.amount= Number(params.get('amount'))
+          },
+          error: (err) => {
+            console.error(err);
+          }
+      });});
 
       this.getAllNeighborhoods();
 

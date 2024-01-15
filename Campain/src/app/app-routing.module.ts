@@ -15,6 +15,7 @@ const routes: Routes = [
  {  path: 'contact',  component: ContactComponent },
  {  path: 'families',  component: FamiliesComponent },
  {  path: 'payment/:amount',  component: PaymentComponent },
+ {  path: 'payment/:donatesId/:amount',  component: PaymentComponent },
  {  path: 'admin-interface/:name',  component: AdminInterfaceComponent },
 
 ];
