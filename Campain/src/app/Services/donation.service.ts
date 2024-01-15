@@ -43,5 +43,8 @@ export class DonationService {
   deleteAllEntitiesDonations(): Observable<any> {
     return this.http.delete(`${this.baseUrl}/DeleteAllEntities`);
   }
+  getDonationsByExcel(): Observable<Blob> {
+    return this.http.get(`${this.baseUrl}/GetDonationsByExcel`,  { responseType: 'blob' });
+  }
   
 }

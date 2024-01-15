@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LogIn } from '../Classes/LogIn';
 import { PermissionService } from '../Services/permission.service';
@@ -27,17 +27,38 @@ export class SignUpComponent implements OnInit {
 
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    if(this.data){
+      this.loginForm.setValue({
+      ManagerName: this.data.managerName,
+      Email: this.data.email,
+      Password: this.data.password,
+      
+    });}
+  }
+  @Input() data: SignUp | undefined;
 
-
-  get formControls() {
+  get formControls() { 
+  
     return this.loginForm.controls;
+   
   }
   submitLoginForm(): void {
     if (this.loginForm.valid) {
       this.NewUser.password = this.loginForm.value.Password;
       this.NewUser.email = this.loginForm.value.Email;
       this.NewUser.managerName = this.loginForm.value.ManagerName;
+    }
+    if(this.data){
+      this.permissionSer.updatePermissionByMail(this.data.email,this.NewUser).subscribe({
+        next: (res) => {
+          alert("successful")
+          this.myRouter.navigate(['/admin-interface'])
+        },
+        error: (err) => {
+          console.log(' error: ' + err);
+        }
+      })
     }
     this.permissionSer.createPermission(this.NewUser).subscribe({
       next: (res) => {
@@ -49,4 +70,7 @@ export class SignUpComponent implements OnInit {
       }
     })
   }
+ 
+
+
 }
