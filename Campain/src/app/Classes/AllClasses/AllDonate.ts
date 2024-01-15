@@ -10,4 +10,5 @@ import { Neighborhood } from "../Neighborhood"
         numberBuilding:number
         idNeighborhood: number
         idNeighborhoodNavigation?:Neighborhood
+        
        }

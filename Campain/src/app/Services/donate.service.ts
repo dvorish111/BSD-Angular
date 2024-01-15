@@ -24,8 +24,11 @@ export class DonateService {
   getAllByNumOfChildren(maxNumOfChildren:number):Observable<Donate[]>{
     return this.http.get<Donate[]>(`${this.baseUrl}/NumOfChildren/${maxNumOfChildren}`)
   }
-  getByTazDonate(donateTaz:number):Observable<Donate>{
-    return this.http.get<Donate>(`${this.baseUrl}/TazDonate/${donateTaz}`);
+  getByTazDonate(donateTaz:number):Observable<AllDonate>{
+    return this.http.get<AllDonate>(`${this.baseUrl}/TazDonate/${donateTaz}`);
+  }
+  getByIdDonate(donateId:number):Observable<Donate>{
+    return this.http.get<Donate>(`${this.baseUrl}/DonateId/${donateId}`);
   }
   createDonate(donateToAdd: AllDonate): Observable<any> {
     return this.http.post(`${this.baseUrl}`, donateToAdd);
@@ -35,7 +38,7 @@ export class DonateService {
     return this.http.delete(`${this.baseUrl}/${donateId}`);
   }
 
-  updateDonate(donateToUpdate: Donate): Observable<any> {
+  updateDonate(donateToUpdate: AllDonate): Observable<any> {
     return this.http.put(`${this.baseUrl}`, donateToUpdate);
   }
 

@@ -5,6 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NeighborhoodService } from '../Services/neighborhood.service';
 import { Neighborhood } from '../Classes/Neighborhood';
 import '../../assets/check/script.js';
+import { Donate } from '../Classes/Donate';
+import { DonateService } from '../Services/donate.service';
+import { AllDonate } from '../Classes/AllClasses/AllDonate';
 
 @Component({
   selector: 'app-payment',
@@ -12,17 +15,29 @@ import '../../assets/check/script.js';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent  implements OnInit {
-  constructor(private renderer: Renderer2,private route:Router,private activatedRoute:ActivatedRoute,private neighborhoodService:NeighborhoodService) { }
+  constructor(private renderer: Renderer2,private route:Router,private activatedRoute:ActivatedRoute,private neighborhoodService:NeighborhoodService,private donateService: DonateService) { }
   selectedPaymentType:string='Ragil';
   selectedNeighborhood!:Neighborhood;
-  amount!:string|null;
+  amount!:number;
   neighborhoods!:Neighborhood[];
+  donated!:Donate;
+  idDonated!:number;
   ngOnInit() {
+ 
     this.activatedRoute.paramMap.subscribe(params => {
-      var amount1=params.get('amount');
-      this.amount=amount1;
-     
-      });
+
+      this.idDonated =Number(params.get('donatesId'));
+     this.donateService.getByIdDonate(this.idDonated ).subscribe(
+        {
+          next:(donated:Donate)=>{
+            this.donated=donated;
+            console.log( this.donated+" this.donated!!!!!")
+           this.amount= Number(params.get('amount'))
+          },
+          error: (err) => {
+            console.error(err);
+          }
+      });});
 
       this.getAllNeighborhoods();
 

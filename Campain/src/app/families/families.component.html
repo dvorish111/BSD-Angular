@@ -31,7 +31,9 @@
   </mat-card-content>
     <mat-card-actions>
       <button mat-button *ngIf="donatesId.needed-sumAllDonationsByDonated[i]<=0" [routerLink]="['/payment',0]" routerLinkActive='active'>Funded</button>
-      <button mat-button *ngIf="donatesId.needed-sumAllDonationsByDonated[i]>0" [routerLink]="['/payment',donatesId.needed-sumAllDonationsByDonated[i]]" routerLinkActive='active'>Pay now</button>
+      <!-- <button mat-button *ngIf="donatesId.needed-sumAllDonationsByDonated[i]>0" [routerLink]="['/payment',donatesId.needed-sumAllDonationsByDonated[i]]" routerLinkActive='active'>Pay now</button> -->
+
+      <button mat-button *ngIf="donatesId.needed-sumAllDonationsByDonated[i]>0" [routerLink]="['/payment',donatesId.id,donatesId.needed-sumAllDonationsByDonated[i]]" routerLinkActive='active'>Pay now</button>
       <button mat-button [routerLink]="['/payment',0]">Donate now</button>
     </mat-card-actions>
   </mat-card>
