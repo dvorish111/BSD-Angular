@@ -15,7 +15,7 @@ const routes: Routes = [
  {  path: 'contact',  component: ContactComponent },
  {  path: 'families',  component: FamiliesComponent },
  {  path: 'payment/:amount',  component: PaymentComponent },
- {  path: 'admin-interface',  component: AdminInterfaceComponent },
+ {  path: 'admin-interface/:name',  component: AdminInterfaceComponent },
 
 ];
 

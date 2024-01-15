@@ -1,3 +1,5 @@
+<!-- <h1>Welcome, {{ detailesMenegr.managerName }}!</h1> -->
+
 <h2>-----נתרמים-----</h2> 
 <form (submit)="uploadFile($event)">
     <p>ייבוא רשימת נתרמים</p>
@@ -18,7 +20,7 @@
   <div>
     <button class="btn"  mat-raised-button color="primary" (click)="updateCampaign() " >עדכון הקמפיין </button>
   </div>
- <div  *ngIf="status" >
+ <div  *ngIf="statusFormCampgian" >
 <form [formGroup]="campaignForm" (ngSubmit)="onSubmitUpdateCampaignForm()" #userForm="ngForm" class="modal-content animate" action="" method="post"autocomplete="off">
   <mat-form-field class="example-full-width">
     <mat-label> שם הקמפיין: {{campaign.name}}</mat-label>
@@ -48,4 +50,14 @@
   <button (click)="downloadDonationsCSV()">להורדת קובץ אקסל של התרומות</button>
 
 
+  <h2>-----הרשאות----</h2> 
+  ------להוספת מנהל חדש------
+  
 
+  <button (click)="showSignUpComponentC = !showSignUpComponentC">להוספת מנהל חדש</button>
+  <app-sign-up *ngIf="showSignUpComponentC"></app-sign-up>
+  <button (click)="showSignUpComponentU = !showSignUpComponentU">לעדכון פרטים אישיים</button>
+  <app-sign-up *ngIf="showSignUpComponentU" [data]="detailesMenegr"></app-sign-up>
+  
+
+ 

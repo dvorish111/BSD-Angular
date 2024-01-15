@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DonateService } from '../Services/donate.service';
 import { CampaignService } from '../Services/campaign.service';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -6,20 +6,27 @@ import { Campaign } from '../Classes/Campaign';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DonorService } from '../Services/donor.service';
 import { DonationService } from '../Services/donation.service';
+import { ActivatedRoute } from '@angular/router';
+import { PermissionService } from '../Services/permission.service';
+import { SignUp } from '../Classes/SignUp';
 
 @Component({
   selector: 'app-admin-interface',
   templateUrl: './admin-interface.component.html',
   styleUrls: ['./admin-interface.component.css']
 })
-export class AdminInterfaceComponent {
+export class AdminInterfaceComponent  implements OnInit{
   campaignForm: FormGroup;
   selectedFile: File | null = null;
   fileMessage: string | undefined;
   campaign!: Campaign;
   deleteAllCampain: boolean = false;
-  status: string | undefined;
-  constructor(private donateService: DonateService, private campainService: CampaignService, private snackBar: MatSnackBar, private donorService: DonorService, private donationService: DonationService) {
+  statusFormCampgian: string | undefined;
+  ellowName!: string | null;
+  detailesMenegr!:SignUp;
+  showSignUpComponentC:boolean=false;
+  showSignUpComponentU:boolean=false;
+  constructor(private premissionSer:PermissionService,private activatedRoute:ActivatedRoute,private donateService: DonateService, private campainService: CampaignService, private snackBar: MatSnackBar, private donorService: DonorService, private donationService: DonationService) {
     this.campaignForm = new FormGroup({
       name: new FormControl("",),
       startDate: new FormControl("",),
@@ -28,10 +35,21 @@ export class AdminInterfaceComponent {
     })
   }
 
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(params => {
+      var name=params.get('name');
+      this.ellowName=name;
+  });
+
+  this.detailesMenegr= this.premissionSer.detailesMenegr;// להוריד סילוש ..שליפת פרטי המנהל מהסרוויס
+  console.log("detailesMenegr:", this.detailesMenegr)
+}
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0] as File;
     this.ifCSV();
   }
+
+  
 
   ifCSV() {
     const validExtensions = ['.csv'];
@@ -109,7 +127,7 @@ export class AdminInterfaceComponent {
   updateCampaign() {
     this.campainService.getByIdCampaign(1).subscribe(
       (campaign) => {
-        this.status = "apdate"
+        this.statusFormCampgian = "apdate"
         this.campaign = campaign;
         this.campaignForm.setValue({
           name: this.campaign.name,
@@ -133,7 +151,7 @@ export class AdminInterfaceComponent {
       (campaign) => {
         this.showMessageOK("!הנתונים עודכנו בהצלחה")
         console.log("!!!!!");
-        this.status = "";
+        this.statusFormCampgian = "";
         //  this.fullCampain=false;
         console.log(this.campaign);
       },
@@ -184,7 +202,7 @@ export class AdminInterfaceComponent {
       (campaign) => {
        
         console.log("הקמפיין נמחק בהצלחה");
-        this.status = "create"
+        this.statusFormCampgian = "create"
         this.updateCampaign()
       },
       (error) => {

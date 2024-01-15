@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { PermissionService } from '../Services/permission.service';
 import { Parser } from '@angular/compiler';
 import { LogIn } from '../Classes/LogIn';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { SignUp } from '../Classes/SignUp';
 
 @Component({
   selector: 'app-log-in',
@@ -15,9 +16,10 @@ export class LogInComponent {
 
   loginForm: FormGroup;
   model: any;
-  User: LogIn = {
+  User: SignUp = {
     password: '',
-    email: ''
+    email: '',
+    managerName: ''
   };
   constructor(private myRouter: Router, private permissionSer: PermissionService) {
     this.loginForm = new FormGroup({
@@ -39,9 +41,11 @@ export class LogInComponent {
       this.User.email = this.loginForm.value.Email;
     }
     this.permissionSer.getByPassword_Email(this.User.password,this.User.email).subscribe({
-      next: (res) => {
+      next: (permission) => {
+        this.User=permission;
+      this.login();
         alert("successful")
-        this.myRouter.navigate(['/admin-interface'])
+        this.myRouter.navigate(['/admin-interface',permission.managerName])
       },
       error: (err) => {
         alert("no user")
@@ -49,7 +53,14 @@ export class LogInComponent {
     })
   }
 
-  
+  @Output() loginParams = new EventEmitter<any>();
+
+  login() {
+    // Emit the parameters when login button is clicked
+    this.loginParams.emit({ username: this.User.managerName, password: this.User.password,mail:this.User.email });
+  }
+
+
   }
 
  
