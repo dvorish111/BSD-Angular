@@ -35,20 +35,20 @@ ngOnInit(): void {
     }
   });
 }
-getAllNeighborhoods(){
-  this.neighborhoodService.getByIdNeighborhood(this.donate.idNeighborhood).subscribe
-  ({
-    next: (neighborhood:Neighborhood) => {
-      this.neighborhood = neighborhood;
-      console.log(this.neighborhood);
+// getAllNeighborhoods(){
+//   this.neighborhoodService.getByIdNeighborhood(this.donate.idNeighborhood).subscribe
+//   ({
+//     next: (neighborhood:Neighborhood) => {
+//       this.neighborhood = neighborhood;
+//       console.log(this.neighborhood);
 
-    },
-    error: (err) => {
-      console.error(err);
-    }
-  });
+//     },
+//     error: (err) => {
+//       console.error(err);
+//     }
+//   });
   
-}
+// }
 
 
 

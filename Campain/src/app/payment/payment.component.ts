@@ -27,11 +27,25 @@ export class PaymentComponent  implements OnInit {
   donated!:Donate;
   idDonated!:number;
   sumDonationsByDonated!:number;
-  newDonor!: AllDonor; 
-  newDonation!: Donation ;
+  newDonor: AllDonor={
+    FirstName:"",
+    LastName:"",
+    Email:"",
+    Phone:0,
+    City:"",
+    Street:""
+  }; 
+  newDonation: Donation={
+    isAnonymous: false,
+    dedication: '',
+    amount: 0,
+    idDonated: 0,
+    idDonor: 0,
+    idNeighborhood: 0
+  } ;
   okDonation: boolean =true;
   Tashlumim!: number;
-  ifAnonymous: boolean =false;
+  //ifAnonymous: boolean =true;
   ngOnInit() {
  
     this.activatedRoute.paramMap.subscribe(params => {
@@ -125,8 +139,8 @@ export class PaymentComponent  implements OnInit {
     });
   }
   keepDataNewDonaition(){
-    //this.newDonation.amount=this.amount*this.Tashlumim;//להחזיר אחרי שנעשה קומיט צריך אותו!
-    //this.newDonation.idDonated=//להחזיר אחרי שנעשה קומיט צריך אותו!
+    this.newDonation.amount=this.amount*this.Tashlumim;
+    this.newDonation.idDonated=this.idDonated 
     console.log("newDonation"+this.newDonation);    
     this.donationService.createDonation(this.newDonation).subscribe
     ({
