@@ -5,9 +5,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NeighborhoodService } from '../Services/neighborhood.service';
 import { Neighborhood } from '../Classes/Neighborhood';
 import '../../assets/check/script.js';
+import { AllDonor } from '../Classes/AllClasses/AllDonor';
+import { Donation } from '../Classes/Donation';
+import { DonorService } from '../Services/donor.service';
+import { DonationService } from '../Services/donation.service';
 import { Donate } from '../Classes/Donate';
-import { DonateService } from '../Services/donate.service';
 import { AllDonate } from '../Classes/AllClasses/AllDonate';
+import { DonateService } from '../Services/donate.service';
 
 @Component({
   selector: 'app-payment',
@@ -15,7 +19,7 @@ import { AllDonate } from '../Classes/AllClasses/AllDonate';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent  implements OnInit {
-  constructor(private renderer: Renderer2,private route:Router,private activatedRoute:ActivatedRoute,private neighborhoodService:NeighborhoodService,private donateService: DonateService) { }
+  constructor( private donateService: DonateService,private donationService: DonationService,private renderer: Renderer2,private route:Router,private activatedRoute:ActivatedRoute,private neighborhoodService:NeighborhoodService, private donorService:DonorService) { }
   selectedPaymentType:string='Ragil';
   selectedNeighborhood!:Neighborhood;
   amount!:number;
@@ -23,6 +27,11 @@ export class PaymentComponent  implements OnInit {
   donated!:Donate;
   idDonated!:number;
   sumDonationsByDonated!:number;
+  newDonor!: AllDonor; 
+  newDonation!: Donation ;
+  okDonation: boolean =true;
+  Tashlumim!: number;
+  ifAnonymous: boolean =false;
   ngOnInit() {
  
     this.activatedRoute.paramMap.subscribe(params => {
@@ -46,7 +55,8 @@ export class PaymentComponent  implements OnInit {
 
     this.loadScript();
    
-      window.addEventListener('message', this.receiveMessage.bind(this), false);
+    window.addEventListener('message', this.receiveMessage.bind(this), false);    
+
     }
     getAllNeighborhoods(){
       this.neighborhoodService.getAllNeighborhoods().subscribe
@@ -69,8 +79,10 @@ export class PaymentComponent  implements OnInit {
         return; // Ignore messages from other origins for security
       }
     
-      const inputData = event.data; // Access the input data sent by the iframe
-      console.log(inputData+"inputData");
+     // const inputData = event.data; // Access the input data sent by the iframe
+      this.okDonation= event.data;
+      this.keepData();
+      console.log(event.data+"inputData");
     }
     
   
@@ -86,5 +98,44 @@ export class PaymentComponent  implements OnInit {
   PaymentTypeClick(selectedPaymentType:string){
     this.selectedPaymentType=selectedPaymentType;
   }
-  
+
+  //To receive the message from the JS
+  // handleMessage(event: MessageEvent) {
+  //   const returnedData = event.data;    
+  //   this.okDonation= event.data;
+  //  this.keepData();
+  // }
+
+  ngOnDestroy() {
+    window.removeEventListener('message', this.receiveMessage.bind(this));
+  }
+
+  keepData(){
+    console.log("newDonation"+this.newDonation); 
+    this.donorService.createDonor(this.newDonor).subscribe
+    ({
+      next: (Id) => {
+        this.newDonation.idDonor=Id;
+        console.log(Id);  
+       this.keepDataNewDonaition();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+  keepDataNewDonaition(){
+    //this.newDonation.amount=this.amount*this.Tashlumim;//להחזיר אחרי שנעשה קומיט צריך אותו!
+    //this.newDonation.idDonated=//להחזיר אחרי שנעשה קומיט צריך אותו!
+    console.log("newDonation"+this.newDonation);    
+    this.donationService.createDonation(this.newDonation).subscribe
+    ({
+      next: (next) => {      
+        console.log(next);        
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
 }

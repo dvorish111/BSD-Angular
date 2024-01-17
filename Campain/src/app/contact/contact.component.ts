@@ -5,7 +5,7 @@ import { ContactService } from '../Services/contact.service';
 //import { Contact } from '../Classes/otherObject/contact';
 //import{Contact}from '../Classes/otherObject/contact';
 //import{Contact}from'../Classes/otherObject/contact';
-import{Contact1}from '../Classes/otherObject/Contact1';
+import{Contact}from '../Classes/OtherObject/Contact';
 
 
 @Component({
@@ -15,7 +15,7 @@ import{Contact1}from '../Classes/otherObject/Contact1';
 })
 export class ContactComponent {
   contactForm: FormGroup;
-  contact:Contact1={
+  contact:Contact={
     firstName:'',
     lastName:'',
     email:'',

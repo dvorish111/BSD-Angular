@@ -18,13 +18,22 @@ donate!:Donate;
 @Input() 
 sumDonationsByDonated!:number;
 neighborhood!:Neighborhood;
-
+TotalRaised!:number;
 constructor(private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
-
 
 }
 ngOnInit(): void {
-  alert(this.donate.idNeighborhoodNavigation.name)
+  this.donationService.getSumDonation().subscribe
+  ({
+    next: (sum: number) => {
+      this.TotalRaised = sum;        
+      console.log(this.TotalRaised);
+
+    },
+    error: (err) => {
+      console.error(err);
+    }
+  });
 }
 getAllNeighborhoods(){
   this.neighborhoodService.getByIdNeighborhood(this.donate.idNeighborhood).subscribe
@@ -40,5 +49,8 @@ getAllNeighborhoods(){
   });
   
 }
+
+
+
 
 }
