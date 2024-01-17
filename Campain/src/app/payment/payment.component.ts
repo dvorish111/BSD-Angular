@@ -22,17 +22,20 @@ export class PaymentComponent  implements OnInit {
   neighborhoods!:Neighborhood[];
   donated!:Donate;
   idDonated!:number;
+  sumDonationsByDonated!:number;
   ngOnInit() {
  
     this.activatedRoute.paramMap.subscribe(params => {
 
       this.idDonated =Number(params.get('donatesId'));
+      this.amount= Number(params.get('amount'));
+      this.sumDonationsByDonated= Number(params.get('sumDonationsByDonated'));
      this.donateService.getByIdDonate(this.idDonated ).subscribe(
         {
           next:(donated:Donate)=>{
             this.donated=donated;
             console.log( this.donated+" this.donated!!!!!")
-           this.amount= Number(params.get('amount'))
+        
           },
           error: (err) => {
             console.error(err);

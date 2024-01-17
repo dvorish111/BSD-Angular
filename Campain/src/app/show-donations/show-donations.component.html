@@ -1,1 +1,35 @@
-<p>show-donations works!</p>
+
+<mat-card  class="example-card">
+    <mat-card-header>
+      <mat-card-title>family size</mat-card-title>
+      <mat-card-subtitle>{{donate.numChildren}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-title>case</mat-card-title>
+        <mat-card-subtitle>{{donate.id}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-card-title>status</mat-card-title>
+        <mat-card-subtitle>{{Statuses[donate.idStatus]}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-card-title>street</mat-card-title>
+        <mat-card-subtitle>{{donate.street}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-card-title >needed</mat-card-title>
+        <mat-card-subtitle >{{donate.needed}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-card-title>Raised:</mat-card-title>    
+      <!-- <mat-card-subtitle *ngIf="sumDonationsByDonated>0; else elseBlock">{{ sumDonationsByDonated}}</mat-card-subtitle>
+      <ng-template #elseBlock  > <mat-card-subtitle >0</mat-card-subtitle></ng-template> -->
+      <mat-card-subtitle >{{ sumDonationsByDonated}}</mat-card-subtitle>
+    </mat-card-content>    
+    <mat-card-content>
+      <mat-card-title>Neighborhood:</mat-card-title>
+      <mat-card-subtitle>{{neighborhood}}</mat-card-subtitle>
+  </mat-card-content>
+   
+  </mat-card>
+  <br><br>

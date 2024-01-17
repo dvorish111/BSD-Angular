@@ -58,7 +58,7 @@ export class FamiliesComponent implements OnInit {
         
         next: (sumAllDonationsByDonated:number[]) => {       
          this.sumAllDonationsByDonated=sumAllDonationsByDonated;
-         console.log(this.sumAllDonationsByDonated);
+         console.log(this.sumAllDonationsByDonated+"sumAllDonationsByDonated");
          
         },
         error: (err) => {

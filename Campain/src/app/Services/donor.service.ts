@@ -15,10 +15,10 @@ export class DonorService {
     return this.http.get<Donor[]>(`${this.baseUrl}`);
   }
   GetAllByCity(city:string): Observable<Donor[]> {
-    return this.http.get<Donor[]>(`${this.baseUrl}/Donors/${city}`);
+    return this.http.get<Donor[]>(`${this.baseUrl}/${city}`);
   }
   getByIdDonor(donorId:number):Observable<Donor>{
-    return this.http.get<Donor>(`${this.baseUrl}/Donors/${donorId}`);
+    return this.http.get<Donor>(`${this.baseUrl}/${donorId}`);
 
   }
   createDonor(donorToAdd: Donor): Observable<any> {
