@@ -1,5 +1,5 @@
 
-<mat-card  class="example-card">
+<mat-card *ngIf="donate"  class="example-card">
     <mat-card-header>
       <mat-card-title>family size</mat-card-title>
       <mat-card-subtitle>{{donate.numChildren}}</mat-card-subtitle>
@@ -33,6 +33,33 @@
    
   </mat-card>
   <br><br>
-  
+
+<mat-card *ngIf="donate!"  class="example-card">
+
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ///////////////////////
+
+
+
+
+
+
+
+
+
 <span>Total raised</span> 
 <H5 class="Goal-Campaign">Total raised:</H5>  <span > {{TotalRaised}}</span>

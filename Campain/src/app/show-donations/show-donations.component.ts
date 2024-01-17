@@ -4,6 +4,7 @@ import { Statuses } from '../Enums/Statuses';
 import { DonationService } from '../Services/donation.service';
 import { NeighborhoodService } from '../Services/neighborhood.service';
 import { Neighborhood } from '../Classes/Neighborhood';
+import { Donation } from '../Classes/Donation';
 
 @Component({
   selector: 'app-show-donations',
@@ -19,10 +20,13 @@ donate!:Donate;
 sumDonationsByDonated!:number;
 neighborhood!:Neighborhood;
 TotalRaised!:number;
+donationsByDonated!:Donation[];
+donations!:Donation[];
 constructor(private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
 
 }
 ngOnInit(): void {
+
   this.donationService.getSumDonation().subscribe
   ({
     next: (sum: number) => {
@@ -34,8 +38,7 @@ ngOnInit(): void {
       console.error(err);
     }
   });
-}
-getAllNeighborhoods(){
+
   this.neighborhoodService.getByIdNeighborhood(this.donate.idNeighborhood).subscribe
   ({
     next: (neighborhood:Neighborhood) => {
@@ -47,7 +50,26 @@ getAllNeighborhoods(){
       console.error(err);
     }
   });
+  this.donationService.getAllDonationsByDonated(this.donate.id).subscribe(
+    {
+      next:(donation:Donation[])=>{
+        this.donationsByDonated=donation;
+        console.log(this.donationsByDonated+"donationsByDonated")
+      },
+      error:(err)=>{
+        console.error(err);
+      }
+    }
+  )
   
+ this.donationService.getAllDonations().subscribe(
+  {
+    next:(donations:Donation[])=>{
+      this.donations=donations;
+      console.log(donations+"donations")
+    }
+  }
+ ) 
 }
 
 

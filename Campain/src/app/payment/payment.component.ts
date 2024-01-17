@@ -49,7 +49,10 @@ export class PaymentComponent  implements OnInit {
           error: (err) => {
             console.error(err);
           }
-      });});
+      });
+    
+    
+    });
 
       this.getAllNeighborhoods();
 

@@ -39,7 +39,9 @@ export class DonationService {
   getAllSumDonationsByDonated(): Observable<number[]> {
     return this.http.get<number[]>(`${this.baseUrl}/GetAllSumDonationsByDonated`);
   }
-
+  getAllDonationsByDonated(IdDonated:number):Observable<Donation[]>{
+    return this.http.get<Donation[]>(`${this.baseUrl}/GetAllDonationsByDonated/${IdDonated}`);
+  }
   deleteAllEntitiesDonations(): Observable<any> {
     return this.http.delete(`${this.baseUrl}/DeleteAllEntities`);
   }
