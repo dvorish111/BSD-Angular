@@ -2,7 +2,7 @@ export interface AllDonor{
     LastName :string
     FirstName :string
     Email: string
-    Phone: number
+    Phone: string
     City: string
     Street: string 
     

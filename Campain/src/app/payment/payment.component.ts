@@ -1,4 +1,4 @@
-import { Component ,AfterViewInit, OnInit, Renderer2 } from '@angular/core';
+import { Component ,AfterViewInit, OnInit, Renderer2, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,6 +7,7 @@ import { Neighborhood } from '../Classes/Neighborhood';
 import '../../assets/check/script.js';
 import { AllDonor } from '../Classes/AllClasses/AllDonor';
 import { Donation } from '../Classes/Donation';
+import { AllDonation } from '../Classes/AllClasses/AllDonation';
 import { DonorService } from '../Services/donor.service';
 import { DonationService } from '../Services/donation.service';
 import { Donate } from '../Classes/Donate';
@@ -21,30 +22,34 @@ import { DonateService } from '../Services/donate.service';
 export class PaymentComponent  implements OnInit {
   constructor( private donateService: DonateService,private donationService: DonationService,private renderer: Renderer2,private route:Router,private activatedRoute:ActivatedRoute,private neighborhoodService:NeighborhoodService, private donorService:DonorService) { }
   selectedPaymentType:string='Ragil';
-  selectedNeighborhood!:Neighborhood;
+  selectedNeighborhood!:number;
   amount!:number;
   neighborhoods!:Neighborhood[];
   donated!:Donate;
   idDonated!:number;
   sumDonationsByDonated!:number;
+  date: Date = new Date();
   newDonor: AllDonor={
     FirstName:"",
     LastName:"",
     Email:"",
-    Phone:0,
+    Phone:"",
     City:"",
     Street:""
   }; 
-  newDonation: Donation={
+  newDonation: AllDonation={
     isAnonymous: false,
     dedication: '',
     amount: 0,
-    idDonated: 0,
     idDonor: 0,
-    idNeighborhood: 0
+    idNeighborhoods: 0,
+    date: this.date,
+    Quetel: ''
   } ;
   okDonation: boolean =true;
   Tashlumim!: number;
+  
+
   //ifAnonymous: boolean =true;
   ngOnInit() {
  
@@ -53,19 +58,22 @@ export class PaymentComponent  implements OnInit {
       this.idDonated =Number(params.get('donatesId'));
       this.amount= Number(params.get('amount'));
       this.sumDonationsByDonated= Number(params.get('sumDonationsByDonated'));
+      if (this.idDonated!=0){
      this.donateService.getByIdDonate(this.idDonated ).subscribe(
         {
           next:(donated:Donate)=>{
             this.donated=donated;
-            console.log( this.donated+" this.donated!!!!!")
+            console.log(this.donated+"this.donated!!!!!")
         
           },
           error: (err) => {
             console.error(err);
           }
-      });});
+      });
+    }
+    });
 
-      this.getAllNeighborhoods();
+    this.getAllNeighborhoods();
 
     this.loadScript();
    
@@ -125,12 +133,14 @@ export class PaymentComponent  implements OnInit {
   }
 
   keepData(){
-    console.log("newDonation"+this.newDonation); 
+    console.log(this.date);
+    console.log(this.selectedNeighborhood); 
+    console.log("newDonor:"+this.newDonor); 
     this.donorService.createDonor(this.newDonor).subscribe
     ({
       next: (Id) => {
         this.newDonation.idDonor=Id;
-        console.log(Id);  
+        console.log("sucsses newDonor");  
        this.keepDataNewDonaition();
       },
       error: (err) => {
@@ -140,12 +150,19 @@ export class PaymentComponent  implements OnInit {
   }
   keepDataNewDonaition(){
     this.newDonation.amount=this.amount*this.Tashlumim;
-    this.newDonation.idDonated=this.idDonated 
-    console.log("newDonation"+this.newDonation);    
+    this.newDonation.date=this.date
+    if(this.idDonated !=0){
+    this.newDonation.idDonated=this.idDonated }
+    this.newDonation.idNeighborhoods=Number(this.selectedNeighborhood);
+    console.log("newDonation:"+this.newDonation.amount);    
     this.donationService.createDonation(this.newDonation).subscribe
     ({
       next: (next) => {      
-        console.log(next);        
+        console.log(next);
+        console.log("sucsses newDonation");  
+        
+     //   this.donationService.updateDonationAmount(this.newDonation.amount);
+      
       },
       error: (err) => {
         console.error(err);
