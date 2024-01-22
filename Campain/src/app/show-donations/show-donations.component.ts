@@ -78,15 +78,49 @@ ngOnInit(): void {
 
 }
 
-calculateDaysSinceDonation(date: Date): number {
-  const donationDate = new Date(date);
-  const currentDate = new Date();
-  const timeDifferenceMs = currentDate.getTime() - donationDate.getTime();
-console.log(currentDate+"currentDate")
-console.log("date"+date)
-  // Convert milliseconds to days
-  const daysDifference = Math.floor(timeDifferenceMs / (1000 * 60 * 60 * 24));
+// calculateDaysSinceDonation(date: Date): number {
+//   const donationDate = new Date(date);
+//   const currentDate = new Date();
+//   const timeDifferenceMs = currentDate.getTime() - donationDate.getTime();
+// console.log(currentDate+"currentDate")
+// console.log("date"+date)
+//   // Convert milliseconds to days
+//   const daysDifference = Math.floor(timeDifferenceMs / (1000 * 60 * 60 * 24));
 
-  return daysDifference;
+//   return daysDifference;
+// }
+
+calculateTimeDifference(date: Date): string {
+  const currentDate = new Date();
+  const donationDate = new Date(date);
+  const timeDifferenceMs = currentDate.getTime() - donationDate.getTime();
+
+  // Calculate the difference in milliseconds, hours, days, months, and years
+  const milliseconds = timeDifferenceMs;
+  const seconds=Math.floor(milliseconds/(1000*60));
+  const hours = Math.floor(milliseconds / (1000 * 60 * 60));
+  const days = Math.floor(milliseconds / (1000 * 60 * 60 * 24));
+  const months = Math.floor(milliseconds / (1000 * 60 * 60 * 24 * 30.44));
+  const years = Math.floor(milliseconds / (1000 * 60 * 60 * 24 * 365.25));
+
+  // Determine the appropriate time difference unit to display
+  let timeDifference = '';
+  if (years > 0) {
+    timeDifference = `${years} ${years === 1 ? 'year' : 'years'}`;
+  } else if (months > 0) {
+    timeDifference = `${months} ${months === 1 ? 'month' : 'months'}`;
+  } else if (days > 0) {
+    timeDifference = `${days} ${days === 1 ? 'day' : 'days'}`;
+  } else if (hours > 0) {
+    timeDifference = `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
+  } else if(seconds>0){
+    timeDifference=`${seconds} ${seconds==1? 'second' : 'seconds'}`;
+  }
+    else{
+timeDifference="this donate add exectly NOW :)"
+    }
+
+  return timeDifference;
 }
+
 }
