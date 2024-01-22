@@ -7,7 +7,7 @@ export interface AllDonation {
     amount : number
     idDonated?:number
     idDonor:number
-    idNeighborhoods:number
+    idNeighborhood:number
     date: Date
   
 
