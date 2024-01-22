@@ -14,11 +14,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-admin-families',
   templateUrl: './admin-families.component.html',

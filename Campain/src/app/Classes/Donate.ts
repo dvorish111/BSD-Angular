@@ -1,11 +1,13 @@
 import { Neighborhood } from "./Neighborhood"
+import { Status } from "./Status"
 
 export interface Donate {
-    id?: number
+    id: number
     numChildren: number
     idStatus: number
     street: string
     needed: number 
     idNeighborhood: number
     idNeighborhoodNavigation:Neighborhood
+    idStatusNavigation:Status
 }

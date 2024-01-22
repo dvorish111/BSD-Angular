@@ -11,6 +11,8 @@ import { AllDonation } from '../Classes/AllClasses/AllDonation';
 import { DonorService } from '../Services/donor.service';
 import { DonationService } from '../Services/donation.service';
 import { Donate } from '../Classes/Donate';
+import { Donor } from '../Classes/Donor';
+
 import { AllDonate } from '../Classes/AllClasses/AllDonate';
 import { DonateService } from '../Services/donate.service';
 
@@ -28,7 +30,10 @@ export class PaymentComponent  implements OnInit {
   donated!:Donate;
   idDonated!:number;
   sumDonationsByDonated!:number;
-  date: Date = new Date();
+  donor!:Donor;
+ date:Date=new Date();
+
+
   newDonor: AllDonor={
     FirstName:"",
     LastName:"",
@@ -42,7 +47,7 @@ export class PaymentComponent  implements OnInit {
     dedication: '',
     amount: 0,
     idDonor: 0,
-    idNeighborhoods: 0,
+    idNeighborhood: 0,
     date: this.date,
     Quetel: ''
   } ;
@@ -153,7 +158,7 @@ export class PaymentComponent  implements OnInit {
     this.newDonation.date=this.date
     if(this.idDonated !=0){
     this.newDonation.idDonated=this.idDonated }
-    this.newDonation.idNeighborhoods=Number(this.selectedNeighborhood);
+    this.newDonation.idNeighborhood=Number(this.selectedNeighborhood);
     console.log("newDonation:"+this.newDonation.amount);    
     this.donationService.createDonation(this.newDonation).subscribe
     ({
