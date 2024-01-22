@@ -1,4 +1,5 @@
-<mat-card *ngFor="let donatesId of donates; let i = index" class="example-card">
+
+<mat-card *ngFor="let donatesId of donates; let i = index" class="example-card" >
   <mat-card-header>
     <mat-card-title>family size</mat-card-title>
     <mat-card-subtitle>{{donatesId.numChildren}}</mat-card-subtitle>
@@ -42,7 +43,7 @@
   </mat-card-actions>
 </mat-card>
 <br><br><br>
-
+<app-show-donations  [sumDonationsByDonated]=0></app-show-donations>
 <button (click)="familyOfChildren(5)">family of 2-5 children</button>
 <button (click)="familyOfChildren(10)">family of 5-10 children</button>
 <button (click)="familyOfChildren(15)">family of 10-15 children</button>

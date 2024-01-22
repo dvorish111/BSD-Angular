@@ -10,6 +10,8 @@ import { Donation } from '../Classes/Donation';
 import { DonorService } from '../Services/donor.service';
 import { DonationService } from '../Services/donation.service';
 import { Donate } from '../Classes/Donate';
+import { Donor } from '../Classes/Donor';
+
 import { AllDonate } from '../Classes/AllClasses/AllDonate';
 import { DonateService } from '../Services/donate.service';
 
@@ -27,6 +29,10 @@ export class PaymentComponent  implements OnInit {
   donated!:Donate;
   idDonated!:number;
   sumDonationsByDonated!:number;
+  donor!:Donor;
+ date:Date=new Date();
+ 
+
   newDonor: AllDonor={
     FirstName:"",
     LastName:"",
@@ -41,7 +47,9 @@ export class PaymentComponent  implements OnInit {
     amount: 0,
     idDonated: 0,
     idDonor: 0,
-    idNeighborhood: 0
+    idNeighborhood: 0,
+    idDonorNavigation: this.donor,
+    date: this.date
   } ;
   okDonation: boolean =true;
   Tashlumim!: number;
