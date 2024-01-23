@@ -3,7 +3,7 @@
 export interface AllDonation {
     isAnonymous :boolean
     dedication: string
-    Quetel: string
+    quetel: string
     amount : number
     idDonated?:number
     idDonor:number

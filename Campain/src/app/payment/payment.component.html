@@ -94,7 +94,10 @@
           
         </div>
         <textarea matInput placeholder="Write your dedication here" rows="10" [(ngModel)]="newDonation.dedication"></textarea>
-          
+        <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
+            <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Quetel:</span><br />
+            <input id="Quetel" type="text" maxlength="30" class="TextBox"  [(ngModel)]="newDonation.quetel"/><br />
+        </div>  
         <!-- <div id="NeighborhoodDiv" style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
             <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Neighborhood:</span><br />
             <select id="PaymentType">

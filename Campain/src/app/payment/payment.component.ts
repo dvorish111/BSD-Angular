@@ -49,7 +49,7 @@ export class PaymentComponent  implements OnInit {
     idDonor: 0,
     idNeighborhood: 0,
     date: this.date,
-    Quetel: ''
+    quetel: ''
   } ;
   okDonation: boolean =true;
   Tashlumim!: number;
@@ -157,17 +157,17 @@ export class PaymentComponent  implements OnInit {
     this.newDonation.amount=this.amount*this.Tashlumim;
     this.newDonation.date=this.date
     if(this.idDonated !=0){
-    this.newDonation.idDonated=this.idDonated }
-    this.newDonation.idNeighborhood=Number(this.selectedNeighborhood);
+    this.newDonation.idDonated=this.idDonated
+  this.newDonation.idNeighborhood=this.donated.idNeighborhood
+  }
+  else{
+    this.newDonation.idNeighborhood=Number(this.selectedNeighborhood);}
     console.log("newDonation:"+this.newDonation.amount);    
     this.donationService.createDonation(this.newDonation).subscribe
     ({
       next: (next) => {      
         console.log(next);
         console.log("sucsses newDonation");  
-        
-     //   this.donationService.updateDonationAmount(this.newDonation.amount);
-      
       },
       error: (err) => {
         console.error(err);
