@@ -113,12 +113,12 @@ calculateTimeDifference(date: Date): string {
     timeDifference = `${days} ${days === 1 ? 'day' : 'days'}`;
   } else if (hours > 0) {
     timeDifference = `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
-  } else if(seconds>0){
+  } else {
     timeDifference=`${seconds} ${seconds==1? 'second' : 'seconds'}`;
   }
-    else{
-timeDifference="this donate add exectly NOW :)"
-    }
+//     else{
+// timeDifference="this donate add exectly NOW :)"
+//     }
 
   return timeDifference;
 }

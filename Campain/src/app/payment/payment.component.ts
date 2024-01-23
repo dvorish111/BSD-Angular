@@ -49,7 +49,8 @@ export class PaymentComponent  implements OnInit {
     idDonor: 0,
     idNeighborhood: 0,
     date: this.date,
-    quetel: ''
+    quetel: '',
+    NumPayments: 1
   } ;
   okDonation: boolean =true;
   Tashlumim!: number;
@@ -154,7 +155,7 @@ export class PaymentComponent  implements OnInit {
     });
   }
   keepDataNewDonaition(){
-    this.newDonation.amount=this.amount*this.Tashlumim;
+    this.newDonation.amount=this.amount;
     this.newDonation.date=this.date
     if(this.idDonated !=0){
     this.newDonation.idDonated=this.idDonated
