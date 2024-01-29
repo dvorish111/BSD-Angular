@@ -9,6 +9,7 @@ export interface AllDonation {
     idDonor:number
     idNeighborhood:number
     date: Date
+    NumPayments :number
   
 
 }

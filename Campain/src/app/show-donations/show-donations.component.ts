@@ -109,10 +109,11 @@ calculateTimeDifference(date: Date): string {
     timeDifference = `${days} ${days === 1 ? 'day' : 'days'}`;
   } else if (hours > 0) {
     timeDifference = `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
-  } else {
-    timeDifference=`${seconds} ${seconds==1? 'second' : 'seconds'}`;
-  }
-   
+  } 
+   else {
+    timeDifference=`${seconds} ${seconds==1? 'second' : 'seconds'}`;}
+  
+
 
   return timeDifference;
 }
