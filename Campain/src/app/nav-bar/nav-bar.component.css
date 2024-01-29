@@ -1,7 +1,205 @@
-.Goal-Campaign{
-    
-    font-size: small;
-}
-.Goal{
+/* styles.css */
+
+/* סגנון לNAVBAR */
+.navbar {
+    background-color: #fffefd; /* צבע הרקע - באר לבן */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* צל בקצה התחתון */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  /* קישורים בNAVBAR */
+  .navbar a {
+    color: #8B4513; /* צבע חום בורדו */
+    transition:
+    color 0.3s ease; /* אנימציה במעבר העכבר */
+    margin: 10px;
+  }
+  
+  .navbar a:hover {
+    color: black; /* צבע שחור במעבר העכבר */
+    text-decoration: solid underline #8B4513 4px;
+    text-underline-offset: 8px;
+  }
+  
+  /* פס מתחת לNAVBAR */
+  .navbar::after {
+    content: "";
     display: block;
-}
+    height: 3px;
+    width: 100%;
+    background-color: #8B4513; /* צבע חום בורדו */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  /* אייקונים לצד כל קישור */
+  .navbar a::before {
+    margin-right: 15px;
+    font-size: 14px;
+    color: #8B4513; /* צבע חום בורדו */
+  }
+  
+  .logo {
+    width: 150px;
+    /* height: 50%; */
+  }
+  
+  button.mat-raised-button {
+    background-color: #8B0000; /* צבע בורדו נוטה לאדום */
+    color: white; /* צבע טקסט לבן או צבע מתאים */
+    margin-right: 15px; /* מרווח מימין בין הכפתורים */
+    font-weight: bold; /* טקסט מודגש */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+  }
+  
+  button.mat-raised-button:hover {
+    background-color: #B22222; /* צבע בורדו נוטה לאדום כאשר עם העכבר מעל הכפתור */
+    transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
+  }
+  
+  #myNavbar a {
+    font-weight: bold; /* טקסט מודגש */
+    transition: font-size 0.3s ease; /* אנימציה במעבר על הלינקים */
+  }
+  
+  #myNavbar a:hover {
+    font-size: 1.1em; /* הגדלת גודל הטקסט במעבר על הלינקים */
+  }
+  
+  /* שורה חדשה למדיה-קווים - בתוך קובץ ה-CSS שלך */
+  @media (max-width: 768px) {
+    .navbar-collapse {
+      flex-basis: 100%;
+      flex-direction: column;
+    }
+  
+    .navbar-nav {
+      text-align: center;
+    }
+  
+    .navbar-toggler-icon {
+      order: 1;
+    }
+  
+    .navbar-brand,
+    .navbar-toggler {
+      margin-bottom: 10px;
+    }
+  
+    .Goul {
+      order: 2;
+    }
+  
+    .navbar a,
+    .navbar-toggler,
+    .Goul {
+      margin: 10px;
+    }
+  
+    .Goul button {
+      margin-top: 10px;
+    }
+  }
+
+ /* navbar.component.css */
+#myNavbar.sticky {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #fefd; /* צבע הרקע - באר לבן */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* צל בקצה התחתון */
+  }
+  
+  #myNavbar.sticky a {
+    color: #8B4513; /* צבע חום בורדו */
+    transition: color 0.3s ease; /* אנימציה במעבר העכבר */
+    margin: 10px;
+  }
+  
+  #myNavbar.sticky a:hover {
+    color: black; /* צבע שחור במעבר העכבר */
+    text-decoration: solid underline #8B4513 4px;
+    text-underline-offset: 8px;
+  }
+  
+  #myNavbar.sticky::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #8B4513; /* צבע חום בורדו */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  #myNavbar.sticky a::before {
+    margin-right: 15px;
+    font-size: 14px;
+    color: #8B4513; /* צבע חום בורדו */
+  }
+  
+  #myNavbar.sticky img.logo {
+    width: 150px;
+  }
+  /* navbar.component.css */
+.Goul {
+    display: flex;
+    align-items: center;
+  }
+  
+  .Goal-Campaign {
+    color: #8B4513; /* צבע חום בורדו */
+    margin-right: 5px;
+  }
+  
+  .Goul .navbar-brand {
+    color: #8B4513; /* צבע חום בורדו */
+    font-weight: bold; /* טקסט מודגש */
+    display: flex;
+    align-items: center;
+  }
+  
+  .Goul .navbar-brand h6 {
+    margin-left: 5px;
+  }
+  /* סגנון כללי לקו התמלאות (Progress Bar) */
+/* סגנון ה progress bar */
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd; /* צבע רקע */
+    border-radius: 10px; /* רינוע עגול */
+    margin-bottom: 10px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #4CAF50; /* צבע המילוי, יכול להיות כל צבע שאתה רוצה */
+    border-radius: 10px; /* רינוע עגול */
+    transition: width 0.5s ease; /* אנימציה של 0.5 שניות כאשר משתנה הרוחב */
+  }
+  /* .progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+  }
+  
+  .progress-ring {
+    transform: rotate(-90deg);
+  }
+  
+  .progress-ring-circle {
+    transition: stroke-dashoffset 0.5s ease;
+  } */
+  .igx-circular-bar{
+    width: 100px;
+    height: 100px;
+  
+  }
+  

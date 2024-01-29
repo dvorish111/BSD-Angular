@@ -1,24 +1,24 @@
 
-<mat-card *ngFor="let donatesId of donates; let i = index" class="example-card" >
+<mat-card *ngFor="let donate of donates; let i = index" class="example-card" >
   <mat-card-header>
     <mat-card-title>family size</mat-card-title>
-    <mat-card-subtitle>{{donatesId.numChildren}}</mat-card-subtitle>
+    <mat-card-subtitle>{{donate.numChildren}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <mat-card-title>case</mat-card-title>
-    <mat-card-subtitle>{{donatesId.id}}</mat-card-subtitle>
+    <mat-card-subtitle>{{donate.id}}</mat-card-subtitle>
   </mat-card-content>
   <mat-card-content>
     <mat-card-title>status</mat-card-title>
-    <mat-card-subtitle>{{Statuses[donatesId.idStatus]}}</mat-card-subtitle>
+    <mat-card-subtitle>{{Statuses[donate.idStatus]}}</mat-card-subtitle>
   </mat-card-content>
   <mat-card-content>
     <mat-card-title>street</mat-card-title>
-    <mat-card-subtitle>{{donatesId.street}}</mat-card-subtitle>
+    <mat-card-subtitle>{{donate.street}}</mat-card-subtitle>
   </mat-card-content>
   <mat-card-content>
     <mat-card-title>needed</mat-card-title>
-    <mat-card-subtitle>{{donatesId.needed}}</mat-card-subtitle>
+    <mat-card-subtitle>{{donate.needed}}</mat-card-subtitle>
   </mat-card-content>
   <mat-card-content>
     <mat-card-title>Raised:</mat-card-title>
@@ -30,19 +30,20 @@
 
   <mat-card-content>
     <mat-card-title>Neighborhood:</mat-card-title>
-    <mat-card-subtitle>{{donatesId.idNeighborhoodNavigation.name}}</mat-card-subtitle>
+    <mat-card-subtitle>{{donate.idNeighborhoodNavigation.name}}</mat-card-subtitle>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button *ngIf="donatesId.needed-sumAllDonationsByDonated[i]<=0 ;else payNow "
-      [routerLink]="['/payment',donatesId.id,0,sumAllDonationsByDonated[i]]" routerLinkActive='active'>Funded</button>
+    <button mat-button *ngIf="donate.needed-sumAllDonationsByDonated[i]<=0 ;else payNow "
+      [routerLink]="['/payment',donate.id,0,sumAllDonationsByDonated[i]]" routerLinkActive='active'>Funded</button>
     <ng-template #payNow>
       <button mat-button 
-        [routerLink]="['/payment',donatesId.id,sumAllDonationsByDonated[i]?donatesId.needed-sumAllDonationsByDonated[i]:donatesId.needed,sumAllDonationsByDonated[i]?sumAllDonationsByDonated[i]:0]" routerLinkActive='active'>Pay now</button>
+        [routerLink]="['/payment',donate.id,sumAllDonationsByDonated[i]?donate.needed-sumAllDonationsByDonated[i]:donate.needed,sumAllDonationsByDonated[i]?sumAllDonationsByDonated[i]:0]" routerLinkActive='active'>Pay now</button>
     </ng-template>
   
   </mat-card-actions>
 </mat-card>
 <br><br><br>
+<button (click)="showMoreFamilies()" *ngIf="donates.length < fullDonates.length" >Show more</button>
 <app-show-donations  [sumDonationsByDonated]=0></app-show-donations>
 <button (click)="familyOfChildren(5)">family of 2-5 children</button>
 <button (click)="familyOfChildren(10)">family of 5-10 children</button>

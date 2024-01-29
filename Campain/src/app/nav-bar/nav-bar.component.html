@@ -1,23 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive='active' href="#">Home</a>
      
-      <!-- <button class="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/families']" routerLinkActive='active' href="#">Families</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/contact']" routerLinkActive='active' href="#">Contact</a>
-          </li>
-        </ul> -->
        
         <a class="navbar-brand" [routerLink]="['/families']" routerLinkActive='active' href="#">Families</a>
         <a class="navbar-brand" [routerLink]="['/contact']" routerLinkActive='active' href="#">Contact</a>
-        <!-- <a class="navbar-brand" [routerLink]="['/logIn']" routerLinkActive='active' href="#">LogIn</a> -->
         <div class="Goul">
        <H5  class="Goal-Campaign">Goal Campaign:</H5>  <span class="navbar-brand"> {{campaignGoul}}<h6>{{TotalRaisedPercentages}}%</h6></span>
         </div>
@@ -27,4 +15,150 @@
       </div>
       </div> 
       <p>Donation Amount: {{ TotalRaised }}</p>
+  </nav> -->
+<!-- 
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive='active' href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/families']" routerLinkActive='active' href="#">Families</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact']" routerLinkActive='active' href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="Goul">
+          <h5 class="Goal-Campaign">Goal Campaign:</h5>
+          <span class="navbar-brand">{{campaignGoul}}<h6>{{TotalRaisedPercentages}}%</h6></span>
+        </div>
+        <a class="navbar-brand" [routerLink]="['/payment',250]" routerLinkActive='active' href="#">Donate now</a>
+        <a class="navbar-brand" [routerLink]="['/payment',numFamily]" routerLinkActive='active' href="#">Donate $1 to each family</a>
+      </div>
+      <p>Donation Amount: {{ TotalRaised }}</p>
+    </div>
   </nav>
+  
+   -->
+<!--    
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active" href="#">Home <mat-icon >home</mat-icon></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/families']" routerLinkActive="active" href="#">Families</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="active" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="Goul">
+          <h5 class="Goal-Campaign">Goal Campaign:</h5>
+          <span class="navbar-brand">{{ campaignGoul }}<h6>{{ TotalRaisedPercentages }}%</h6></span>
+        </div> -->
+<!-- <a class="btn btn-primary" [routerLink]="['/payment', 250]" routerLinkActive="active">Donate now</a>
+        <a class="btn btn-primary" [routerLink]="['/payment', numFamily]" routerLinkActive="active">Donate $1 to each
+          family</a> -->
+<!-- בתוך הקובץ של ה-HTML שלך (תוך שימוש ב-Angular Material) -->
+<!-- <button mat-button color="primary" [routerLink]="['/payment', 250]" routerLinkActive="active">
+  <mat-icon>attach_money</mat-icon> Donate now
+</button>
+<button mat-button color="primary" [routerLink]="['/payment', numFamily]" routerLinkActive="active">
+  <mat-icon>attach_money</mat-icon> Donate $1 to each family
+</button>
+
+          <img src="../../assets/images/globalLogo.png" alt="">
+      </div>
+    </div>
+  </nav> -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" [ngClass]="{'sticky': isSticky}" id="myNavbar">
+  
+  <div class="container">
+   
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"  [routerLink]="['/home']" routerLinkActive="active" href="#">
+            <mat-icon>home</mat-icon> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/families']" routerLinkActive="active" href="#">
+            <mat-icon>diversity_1</mat-icon> Families
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="active" href="#">
+            <mat-icon>perm_phone_msg</mat-icon>Contact
+          </a>
+        </li>
+      </ul>
+      <div class="Goul">
+        <h5 class="Goal-Campaign">Goal Campaign:</h5>
+        <span class="navbar-brand">${{ campaignGoul }}<h6>{{ TotalRaisedPercentages }}%</h6></span>
+      </div>
+    
+  <igx-circular-bar
+  [value]="TotalRaisedPercentages"
+  [max]="100"
+  [animate]="true"
+  class="igx-circular-bar">
+    <ng-template igxProgressBarGradient let-id>
+        <svg:linearGradient [id]="id" gradientTransform="rotate(90)">
+            <stop offset="0%"   stop-color="#ff9a40"/>
+            <stop offset="50%" stop-color="#1eccd4"/>
+            <stop offset="100%" stop-color="#ff0079"/>
+        </svg:linearGradient>
+    </ng-template>
+</igx-circular-bar>
+        <!-- <svg class="progress-ring" height="120" width="120">
+          
+          <circle
+            class="progress-ring-circle"
+            stroke="#4CAF50" 
+            stroke-width="10"
+            fill="transparent" 
+            r="50" 
+            cx="60"
+            cy="60"
+            [style.strokeDasharray]="circumference"
+            [style.strokeDashoffset]="calculateDashOffset()"
+          />
+          
+        </svg> -->
+        
+       
+        <!-- <div class="progress-container">
+          <div class="progress-bar" [style.width]="{TotalRaisedPercentages }+ '%'"></div>
+        </div> -->
+        
+      </div>
+    
+      <button class="mat-raised-button" mat-raised-button [routerLink]="['/payment', 250]" routerLinkActive="active">
+        <mat-icon>arrow_circle_right</mat-icon> Donate now
+      </button>
+
+      <button class="mat-raised-button" mat-raised-button [routerLink]="['/payment', numFamily]"
+        routerLinkActive="active">
+        <mat-icon>arrow_circle_right</mat-icon> Donate $1 to each family
+      </button>
+
+      <img src="../../assets/images/globalLogo.png" alt="" class="logo">
+    
+  </div>
+  
+</nav>
