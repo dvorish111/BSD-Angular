@@ -69,18 +69,18 @@ export class NavBarComponent implements OnInit {
         console.error(err);
       }
     });
-    // this.donateService.getNumFamily().subscribe
-    //   ({
-    //     next: (numFamily: number) => {
+    this.donateService.getNumFamily().subscribe
+      ({
+        next: (numFamily: number) => {
 
-    //       this.numFamily = numFamily;
-    //       this.cdr.detectChanges();
-    //       console.log(this.numFamily);
-    //     },
-    //     error: (err) => {
-    //       console.error(err);
-    //     }
-    //   });
+          this.numFamily = numFamily;
+          this.cdr.detectChanges();
+          console.log(this.numFamily);
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
 
     this.donationService.donationAmount$.subscribe(amount => {
       this.TotalRaised  = amount;

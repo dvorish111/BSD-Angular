@@ -32,7 +32,7 @@ export class PaymentComponent  implements OnInit {
   sumDonationsByDonated!:number;
   donor!:Donor;
  date:Date=new Date();
-
+ nnn:string="nnnn";
 
   newDonor: AllDonor={
     FirstName:"",
@@ -50,10 +50,10 @@ export class PaymentComponent  implements OnInit {
     idNeighborhood: 0,
     date: this.date,
     quetel: '',
-    NumPayments: 1
+    NumPayments: 12
   } ;
   okDonation: boolean =true;
-  Tashlumim!: number;
+  Tashlumim: number=1;
   
 
   //ifAnonymous: boolean =true;
@@ -99,8 +99,7 @@ export class PaymentComponent  implements OnInit {
         }
       });
     }  
-
-   
+    
 
     public receiveMessage(event: MessageEvent): void {
       if (event.origin !== '../../assets/check/script.js') {
@@ -123,16 +122,21 @@ export class PaymentComponent  implements OnInit {
     
    
   }
-  PaymentTypeClick(selectedPaymentType:string){
+   isButtonClicked: boolean = false;
+  PaymentTypeClick(selectedPaymentType:string):void{
     this.selectedPaymentType=selectedPaymentType;
+    this.isButtonClicked = true;
   }
+ 
 
+ 
   //To receive the message from the JS
   // handleMessage(event: MessageEvent) {
   //   const returnedData = event.data;    
   //   this.okDonation= event.data;
   //  this.keepData();
   // }
+
 
   ngOnDestroy() {
     window.removeEventListener('message', this.receiveMessage.bind(this));
@@ -156,6 +160,11 @@ export class PaymentComponent  implements OnInit {
   }
   keepDataNewDonaition(){
     this.newDonation.amount=this.amount;
+
+
+
+
+    
     this.newDonation.date=this.date
     if(this.idDonated !=0){
     this.newDonation.idDonated=this.idDonated

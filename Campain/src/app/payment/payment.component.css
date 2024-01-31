@@ -1,0 +1,35 @@
+.container {
+  
+    max-width: 800px; /* Adjust the maximum width as needed */
+  }
+  .btn-btn-secondary {
+    border-radius: 2px;
+    background-color: rgb(206, 216, 252);
+  }
+
+  .form-control {
+    border-radius: 2px;
+    background-color: rgb(206, 216, 252);
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.0); 
+    border: 2px solid black;
+    /* transition: border 2s; */
+  }
+  .form-check-input{
+    border-radius: 2px;
+    background-color: rgb(206, 216, 252) ;
+  }
+  .centered-group {
+    display: flex;
+    justify-content: center;
+    width: 200%px;
+  }
+.btn-outline-primary{
+ 
+  display: flex;
+  align-items: flex-end;
+  justify-content:end ;
+  flex-direction: column;
+}

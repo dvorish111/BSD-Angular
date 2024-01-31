@@ -22,6 +22,8 @@ import { AdminFamiliesComponent } from './admin-families/admin-families.componen
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatIconModule} from '@angular/material/icon';
 
 import 'tslib';
 
@@ -51,7 +53,10 @@ import 'tslib';
      MatCardModule,
      MatSelectModule,
      MatSnackBarModule,
-     MatDialogModule
+     MatDialogModule,
+     MatButtonToggleModule,
+     MatIconModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,87 +1,78 @@
-
-<div id="Nedarim-HTML" style="width:80%;max-width:500px;border:2px solid cadetblue;padding:20px;margin-right:auto;margin-left:auto">
-    <div style="text-align:center">
+<!-- 
+<div id="Nedarim-HTML" >
+    <div >
         <h3>טופס תשלום </h3>
-        <!-- <span></span> -->
+      
     </div>
 
-    <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">FirstName:</span><br />
+    <div >
+        <span>FirstName:</span><br />
         <input id="FirstName" type="text" [(ngModel)]="newDonor.FirstName" maxlength="30" class="TextBox" /><br />
     </div>
 
-    <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">LastName:</span><br />
+    <div >
+        <span >LastName:</span><br />
         <input id="LastName"  [(ngModel)]="newDonor.LastName" type="text" maxlength="30" class="TextBox" /><br />
     </div>
 
-    <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Street:</span><br />
+    <div >
+        <span >Street:</span><br />
         <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonor.Street" class="TextBox" /><br />
     </div>
 
-    <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">City:</span><br />
+    <div >
+        <span>City:</span><br />
         <input id="City" type="text" maxlength="30" [(ngModel)]="newDonor.City" class="TextBox" /><br />
     </div>
 
-    <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Zeout:</span><br />
+    <div >
+        <span>Zeout:</span><br />
         <input id="Zeout" type="text" maxlength="30"  class="TextBox" /><br />
     </div>
 
-    <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Phone:</span><br />
+    <div >
+        <span >Phone:</span><br />
         <input id="Phone" type="text" maxlength="30" [(ngModel)]="newDonor.Phone" class="TextBox" /><br />
     </div>
 
-    <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Mail:</span><br />
+    <div >
+        <span>Mail:</span><br />
         <input id="Mail" type="text" maxlength="30" [(ngModel)]="newDonor.Email" class="TextBox" /><br />
     </div>
 
 
-    <div id="TokefDiv" style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%;display:none">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Expiration:</span><br />
+    <div id="TokefDiv">
+        <span >Expiration:</span><br />
         <input id="Tokef" type="text" maxlength="30" class="TextBox" /><br />
     </div>
 
-    <!-- <div id="PaymentTypeDiv" style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">PaymentType:</span><br />
-        <select id="PaymentType" [(ngModel)]="selectedPaymentType">
-            <option value="Ragil">Ragil</option>
-            <option value="HK">HK</option>
-        </select>
-        <br />
-    </div> -->
     <button (click)="PaymentTypeClick('Ragil')">Ragil</button>
     <button (click)="PaymentTypeClick('HK')">HK</button>
 
     <div *ngIf="selectedPaymentType === 'Ragil'">
         
-    <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Amount:</span><br />
+    <div >
+        <span >Amount:</span><br />
         <input id="Amount" type="number" maxlength="30" class="TextBox" [(ngModel)]="amount"/><br />
     </div>
 
     
-    <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-        <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Tashlumim:</span><br />
+    <div >
+        <span >Tashlumim:</span><br />
         <input id="Tashlumim" type="text" maxlength="30" class="TextBox" [(ngModel)]="Tashlumim" /><br />
     </div>
     </div>
 
     <div *ngIf="selectedPaymentType === 'HK'">
         
-        <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-            <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">AmountHK:</span><br />
+        <div >
+            <span >AmountHK:</span><br />
             <input id="Amount" type="number" maxlength="30" class="TextBox" [(ngModel)]="amount"/><br />
         </div>
     
         
-        <div style="vertical-align
-        :top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-            <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">TashlumimHK:</span><br />
+        <div >
+            <span >TashlumimHK:</span><br />
             <input id="Tashlumim" type="text" [(ngModel)]="newDonation.NumPayments" maxlength="30" class="TextBox" /><br />
         </div>
 
@@ -89,40 +80,28 @@
 
         </div>
         <div>
-            <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Make my donation anonymous</span><br />
+            <span >Make my donation anonymous</span><br />
             <input id="ifAnonymous" type="checkbox" [(ngModel)]="newDonation.isAnonymous">
           
         </div>
         <textarea matInput placeholder="Write your dedication here" rows="10" [(ngModel)]="newDonation.dedication"></textarea>
-        <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-            <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Quetel:</span><br />
+        <div >
+            <span >Quetel:</span><br />
             <input id="Quetel" type="text" maxlength="30" class="TextBox"  [(ngModel)]="newDonation.quetel"/><br />
         </div>  
-        <!-- <div id="NeighborhoodDiv" style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-            <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Neighborhood:</span><br />
-            <select id="PaymentType">
-                <mat-option value="1">1232</mat-option>
-            </select>
-            <br />
-        </div>    -->
         <div *ngIf="idDonated==0" id="NeighborhoodDiv" style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-            <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Neighborhood:</span><br />
+            <span>Neighborhood:</span><br />
             <select id="Neighborhood" [(ngModel)]="selectedNeighborhood" >
                 <option *ngFor="let neighborhood of neighborhoods"  [(ngModel)]="newDonation.idNeighborhood" [value]="neighborhood.id">{{ neighborhood.name }}</option>
               </select>
             <br />
         </div>
        
-          
-       
-        <div style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
-            <span style="text-align:left; min-width:100%;margin-right:1px;color:#808080">Comment:</span><br />
+      
+        <div >
+            <span >Comment:</span><br />
             <input id="Comment" type="text" maxlength="30" class="TextBox" /><br />
         </div>  
-
-       
-
-
 
     <iframe id="NedarimFrame" style="width:100%;-webkit-box-sizing:border-box;height:0px;border:1px solid indianred;" scrolling="no" src="iframe/nedarimplus/pro.matara.www://https"></iframe>
     <div style="text-align:center;padding:10px 0px;font-family:Assistant,Arial;color:#808080" id="WaitNedarimFrame"><img src="waitnew.gif" style="width:50px;" /><br />Connecting to PCI Server...</div>
@@ -141,5 +120,395 @@
 </div>
 <button (click)="keepData()">keepData </button>
 <app-show-donations [donate]="donated" [sumDonationsByDonated]="sumDonationsByDonated"></app-show-donations>
+<script src="../../assets/check/script.js"></script> -->
+
+<!-- *************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-5">
+  <div>
+    <h3 class="text-center mb-4">טופס תשלום</h3>
+  </div>
+
+ 
+    
+    <div *ngIf="idDonated==0" class="form-group" id="NeighborhoodDiv">
+      <h1 class="fas fa-user text-center" for="Neighborhood">Which neighborhood is your donation intended for?:</h1>
+      <select id="Neighborhood" class="form-control" [(ngModel)]="selectedNeighborhood">
+        <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
+      </select>
+    </div>
+    <hr>
+    <!-- Personal Information -->
+    <div class="divider">
+      <h1><i class="fas fa-user"></i> Personal Information</h1>
+      <div class="row mb-4">
+        <div class="col-md-4">
+
+          <div class="form-group">
+            <label for="FirstName">First Name:</label>
+            <input id="FirstName" type="text" [(ngModel)]="newDonor.FirstName" maxlength="30" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="LastName">Full Name:</label>
+            <input id="LastName" [(ngModel)]="newDonor.LastName" type="text" maxlength="30" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="Street">Street:</label>
+            <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonor.Street" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="City">City:</label>
+            <input id="City" type="text" maxlength="30" [(ngModel)]="newDonor.City" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="Zeout">Zeout:</label>
+            <input id="Zeout" type="text" maxlength="30" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="Phone">Phone:</label>
+            <input id="Phone" type="text" maxlength="30" [(ngModel)]="newDonor.Phone" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="Mail">Mail:</label>
+            <input id="Mail" type="text" maxlength="30" [(ngModel)]="newDonor.Email" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="form-group">
+            <label for="Comment">Comment:</label>
+            <input id="Comment" type="text" maxlength="30" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-check">
+        <input id="ifAnonymous" class="form-check-input" type="checkbox" [(ngModel)]="newDonation.isAnonymous">
+        <label class="form-check-label" for="ifAnonymous">Make my donation anonymous</label>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Donation Details -->
+    <div class="divider">
+      <h1><i class="fas fa-heart"></i> Donation Details</h1>
+
+
+
+
+      <div class="form-group">
+        <label for="Quetel">Quetel:</label>
+        <input id="Quetel" type="text" maxlength="30" class="form-control" [(ngModel)]="newDonation.quetel" />
+      </div>
+
+
+
+      <div class="form-group mt-3">
+        <label for="dedication">dedication: (will be displayed on campaign page)</label>
+        <input id="dedication" matInput placeholder="Write your dedication here" rows="5"
+          [(ngModel)]="newDonation.dedication" class="form-control">
+      </div>
+
+
+    </div>
+
+    <hr />
+
+    <!-- Payment Type Buttons -->
+    <div class="divider">
+
+      <!-- <div class="form-group centered-group">
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle (click)="PaymentTypeClick('Ragil')">Single donation/ installments</mat-button-toggle>
+            <mat-button-toggle (click)="PaymentTypeClick('HK')">Donation by direct debit</mat-button-toggle>         
+          </mat-button-toggle-group>
+        </div> -->
+
+
+
+      <div class="divider">
+        <h1><i class="fas fa-credit-card"></i> Payment Type</h1>
+
+        <div class="form-group mt-3 text-center">
+          <div class="btn-group" role="group" aria-label="Font Style">
+            <button type="button" class="btn btn-outline-primary btn-group d-flex flex-column align-items-center"
+              [ngClass]="{'active': selectedPaymentType === 'Ragil'} " (click)="PaymentTypeClick('Ragil')">
+              <div class="d-flex flex-column align-items-center">
+                <mat-icon *ngIf="selectedPaymentType === 'Ragil' " class="mb-0">done</mat-icon>
+                <mat-icon *ngIf="selectedPaymentType ==undefined " class="mb-0">circle</mat-icon>
+                <h2 class="mb-0">Single donation/ installments</h2>
+              </div>
+            </button>
+            <button type="button" class="btn btn-outline-primary btn-group d-flex flex-column align-items-center"
+              [ngClass]="{'active': selectedPaymentType === 'HK'}" (click)="PaymentTypeClick('HK')">
+              <div class="d-flex flex-column align-items-center">
+                <mat-icon *ngIf="selectedPaymentType === 'HK' " class="mb-0">done</mat-icon>
+                <h2 class="mb-0">Donation by direct debit</h2>
+              </div>
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+
+      <br>
+      <div *ngIf="selectedPaymentType === 'Ragil'" class="row mx-auto centered-group">
+        <div class="col-md-4 form-group">
+          <label for="Amount">Amount:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input id="Amount" type="text" maxlength="30" class="form-control" [(ngModel)]="amount" />
+          </div>
+        </div>
+
+        <div class="col-md-4 form-group">
+          <label for="Tashlumim">Tashlumim:</label>
+          <input id="Tashlumim" type="number" maxlength="30" class="form-control" [(ngModel)]="Tashlumim" value="1" />
+        </div>
+      </div>
+
+
+
+
+      <!-- HK Payment Type -->
+      <div *ngIf="selectedPaymentType === 'HK'" class="row mx-auto centered-group">
+        <div class="col-md-4 form-group">
+          <label for="AmountHK">Billing amount per month:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input id="Amount" type="number" maxlength="30" class="form-control" [(ngModel)]="amount" />
+          </div>
+        </div>
+
+        <div class="col-md-4 form-group">
+          <label for="Tashlumim">Tashlumim:</label>
+          <input id="Tashlumim" type="number" [(ngModel)]="newDonation.NumPayments" maxlength="30" class="form-control" value="12" />
+           
+        </div>
+      </div>
+
+    </div>
+    <h2 *ngIf="amount!=0 && amount!=null">{{amount*Tashlumim}}</h2>
+    <hr />
+
+    <!-- Credit Card Information (Original IFRAME) -->
+    <div class="divider">
+      <h1><i class="fas fa-credit-card"></i> Credit Card Information</h1>
+      <iframe id="NedarimFrame" style="width:100%;-webkit-box-sizing:border-box;height:0px;border:1px " scrolling="no"
+        src="iframe/nedarimplus/pro.matara.www://https"></iframe>
+    </div>
+
+    <!-- Additional Elements (buttons, results, etc.) -->
+    <div class="divider">
+      <div style="text-align:center;padding:10px 0px;font-family:Assistant,Arial;color:#808080" id="WaitNedarimFrame">
+        <img src="waitnew.gif" style="width:50px;" /><br />Connecting to PCI Server...
+      </div>
+
+      <div id="OkDiv" style="font-weight:bold;color:#47ba18;padding:5px;display:none;text-align:center">Transaction Done
+        - העסקה בוצעה בהצלחה</div>
+
+      <div id="PayBtDiv" style="margin:20px 0px 15px 0px;text-align:center">
+        <input type="button" id="PayBt" style="cursor:pointer;color:white;background-color:#17a2b8;text-align:center"
+          value="ביצוע תשלום" class="TextBox" onclick="PayBtClick()" />
+        <div id="ErrorDiv" style="font-weight:bold;color:firebrick;padding:5px"></div>
+      </div>
+
+      <div style="text-align:center;padding:10px 0px;font-family:Assistant,Arial;color:#808080;display:none"
+        id="WaitPay">
+        <img src="waitnew.gif" style="width:50px;" /><br />מבצע חיוב, נא להמתין...
+      </div>
+
+      <div id="Result" style="text-align:center" dir="ltr"></div>
+
+      <button (click)="keepData()">keepData </button>
+      <app-show-donations [donate]="donated" [sumDonationsByDonated]="sumDonationsByDonated"></app-show-donations>
+    </div>
+
+ 
+</div>
+
+
 <script src="../../assets/check/script.js"></script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="Nedarim-HTML" >
+    <div >
+        <h3>טופס תשלום </h3>
+      
+    </div>
+
+    <div class="form-group">
+        <label for="FirstName">First Name:</label>
+        <input id="FirstName" type="text" [(ngModel)]="newDonor.FirstName" maxlength="30" class="form-control" />
+      </div>
+
+    <div >
+        <span >LastName:</span><br />
+        <input id="LastName"  [(ngModel)]="newDonor.LastName" type="text" maxlength="30" class="TextBox" /><br />
+    </div>
+
+    <div >
+        <span >Street:</span><br />
+        <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonor.Street" class="TextBox" /><br />
+    </div>
+
+    <div >
+        <span>City:</span><br />
+        <input id="City" type="text" maxlength="30" [(ngModel)]="newDonor.City" class="TextBox" /><br />
+    </div>
+
+    <div >
+        <span>Zeout:</span><br />
+        <input id="Zeout" type="text" maxlength="30"  class="TextBox" /><br />
+    </div>
+
+    <div >
+        <span >Phone:</span><br />
+        <input id="Phone" type="text" maxlength="30" [(ngModel)]="newDonor.Phone" class="TextBox" /><br />
+    </div>
+
+    <div >
+        <span>Mail:</span><br />
+        <input id="Mail" type="text" maxlength="30" [(ngModel)]="newDonor.Email" class="TextBox" /><br />
+    </div>
+
+
+    <div id="TokefDiv">
+        <span >Expiration:</span><br />
+        <input id="Tokef" type="text" maxlength="30" class="TextBox" /><br />
+    </div>
+
+    <button (click)="PaymentTypeClick('Ragil')">Ragil</button>
+    <button (click)="PaymentTypeClick('HK')">HK</button>
+
+    <div *ngIf="selectedPaymentType === 'Ragil'">
+        
+    <div >
+        <span >Amount:</span><br />
+        <input id="Amount" type="number" maxlength="30" class="TextBox" [(ngModel)]="amount"/><br />
+    </div>
+
+    
+    <div >
+        <span >Tashlumim:</span><br />
+        <input id="Tashlumim" type="text" maxlength="30" class="TextBox" [(ngModel)]="Tashlumim" /><br />
+    </div>
+    </div>
+
+    <div *ngIf="selectedPaymentType === 'HK'">
+        
+        <div >
+            <span >AmountHK:</span><br />
+            <input id="Amount" type="number" maxlength="30" class="TextBox" [(ngModel)]="amount"/><br />
+        </div>
+    
+        
+        <div >
+            <span >TashlumimHK:</span><br />
+            <input id="Tashlumim" type="text" [(ngModel)]="newDonation.NumPayments" maxlength="30" class="TextBox" /><br />
+        </div>
+
+
+
+        </div>
+        <div>
+            <span >Make my donation anonymous</span><br />
+            <input id="ifAnonymous" type="checkbox" [(ngModel)]="newDonation.isAnonymous">
+          
+        </div>
+        <textarea matInput placeholder="Write your dedication here" rows="10" [(ngModel)]="newDonation.dedication"></textarea>
+        <div >
+            <span >Quetel:</span><br />
+            <input id="Quetel" type="text" maxlength="30" class="TextBox"  [(ngModel)]="newDonation.quetel"/><br />
+        </div>  
+        <div *ngIf="idDonated==0" id="NeighborhoodDiv" style="vertical-align:top;text-align:left;margin:15px 0px 15px 0px;min-width:100%">
+            <span>Neighborhood:</span><br />
+            <select id="Neighborhood" [(ngModel)]="selectedNeighborhood" >
+                <option *ngFor="let neighborhood of neighborhoods"  [(ngModel)]="newDonation.idNeighborhood" [value]="neighborhood.id">{{ neighborhood.name }}</option>
+              </select>
+            <br />
+        </div>
+       
+      
+        <div >
+            <span >Comment:</span><br />
+            <input id="Comment" type="text" maxlength="30" class="TextBox" /><br />
+        </div>  
+
+        
+    <iframe id="NedarimFrame" style="width:100%;-webkit-box-sizing:border-box;height:0px;border:1px solid indianred;" scrolling="no" src="iframe/nedarimplus/pro.matara.www://https"></iframe>
+    <div style="text-align:center;padding:10px 0px;font-family:Assistant,Arial;color:#808080" id="WaitNedarimFrame"><img src="waitnew.gif" style="width:50px;" /><br />Connecting to PCI Server...</div>
+
+    <div id="OkDiv" style="font-weight:bold;color:#47ba18;padding:5px;display:none;text-align:center">Transaction Done - העסקה בוצעה בהצלחה</div>
+
+    <div id="PayBtDiv" style="margin:20px 0px 15px 0px;text-align:center">
+        <input type="button" id="PayBt" style="cursor:pointer;color:white;background-color:#17a2b8;text-align:center" value="ביצוע תשלום" class="TextBox" onclick="PayBtClick()" />
+        <div id="ErrorDiv" style="font-weight:bold;color:firebrick;padding:5px"></div>
+    </div>
+    <div style="text-align:center;padding:10px 0px;font-family:Assistant,Arial;color:#808080;display:none" id="WaitPay"><img src="waitnew.gif" style="width:50px;" /><br />מבצע חיוב, נא להמתין...</div>
+
+    <div id="Result" style="text-align:center" dir="ltr"></div>
+
+
+</div>
+<button (click)="keepData()">keepData </button>
+<app-show-donations [donate]="donated" [sumDonationsByDonated]="sumDonationsByDonated"></app-show-donations>
+<script src="../../assets/check/script.js"></script> -->

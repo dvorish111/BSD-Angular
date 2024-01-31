@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   campaignGoul!: number;
   numChildren!:number;
   numFamily!:number;
+  
   constructor(public myRouter: Router, private campaignService: CampaignService,private donationService:DonationService,private donateService:DonateService) {
   }
 
@@ -71,4 +72,10 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
+
+
+
+
+  
 }
