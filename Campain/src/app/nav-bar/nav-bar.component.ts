@@ -20,6 +20,7 @@ export class NavBarComponent implements OnInit {
   numFamily!: number;
   donationAmount!: number;
   isSticky: boolean = false;
+  isCollapsed = false;
 
   radius: number = 50;
   circumference: number = 2 * Math.PI * this.radius;

@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { IgxProgressBarModule } from 'igniteui-angular';
 
+
 import 'tslib';
 
 @NgModule({
@@ -56,6 +57,7 @@ import 'tslib';
     MatDialogModule,
     MatIconModule,
     IgxProgressBarModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
