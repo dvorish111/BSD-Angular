@@ -13,4 +13,5 @@ export interface Donation {
       idDonatedNavigation? :Donate
       idDonorNavigation :Donor
       idNeighborhoodNavigation?:Neighborhood
+      
 }

@@ -20,12 +20,15 @@ donate!:Donate;
 @Input() 
 sumDonationsByDonated!:number;
 neighborhood!:Neighborhood;
-TotalRaised!:number;
+// TotalRaised!:number;
 donationsByDonated!:Donation[];
 donations!:Donation[];
 showDonations!:Donation[];
 flagFamily!:boolean;
 date!:Date;
+initialFamiliesCount: number = 5;
+fullDonations!: Donation[];
+
 
 constructor(private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
 this.date=new Date();
@@ -33,25 +36,27 @@ this.date=new Date();
 }
 ngOnInit(): void {
 
-  this.donationService.getSumDonation().subscribe
-  ({
-    next: (sum: number) => {
-      this.TotalRaised = sum;        
-      console.log(this.TotalRaised);
+  // this.donationService.getSumDonation().subscribe
+  // ({
+  //   next: (sum: number) => {
+  //     this.TotalRaised = sum;        
+  //     console.log(this.TotalRaised);
 
-    },
-    error: (err) => {
-      console.error(err);
-    }
-  });}
+  //   },
+  //   error: (err) => {
+  //     console.error(err);
+  //   }
+  // });
+}
   ngOnChanges(changes: SimpleChanges): void {
 
     if (changes['donate'] && changes['donate'].currentValue) {
   this.donationService.getAllDonationsByDonated(this.donate.id).subscribe(
     {
-      next:(donation:Donation[])=>{
-        this.donationsByDonated=donation;
-       this.showDonations= this.donationsByDonated;
+      next:(donations:Donation[])=>{
+        this.donationsByDonated=donations;
+        this.ShowLoadedDonationsCount(donations);
+       //this.showDonations= this.donationsByDonated;
        this.flagFamily=true;
         console.log(this.donationsByDonated+"donationsByDonated")
       },
@@ -65,7 +70,8 @@ ngOnInit(): void {
   {
     next:(donations:Donation[])=>{
       this.donations=donations;
-      this.showDonations=this.donations;
+      this.ShowLoadedDonationsCount(donations);
+     // this.showDonations=this.donations;
       console.log(donations+"donations")
     },
     error:(err)=>{
@@ -78,17 +84,7 @@ ngOnInit(): void {
 
 }
 
-// calculateDaysSinceDonation(date: Date): number {
-//   const donationDate = new Date(date);
-//   const currentDate = new Date();
-//   const timeDifferenceMs = currentDate.getTime() - donationDate.getTime();
-// console.log(currentDate+"currentDate")
-// console.log("date"+date)
-//   // Convert milliseconds to days
-//   const daysDifference = Math.floor(timeDifferenceMs / (1000 * 60 * 60 * 24));
 
-//   return daysDifference;
-// }
 
 calculateTimeDifference(date: Date): string {
   const currentDate = new Date();
@@ -113,14 +109,23 @@ calculateTimeDifference(date: Date): string {
     timeDifference = `${days} ${days === 1 ? 'day' : 'days'}`;
   } else if (hours > 0) {
     timeDifference = `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
-  } else {
-    timeDifference=`${seconds} ${seconds==1? 'second' : 'seconds'}`;
-  }
-//     else{
-// timeDifference="this donate add exectly NOW :)"
-//     }
+  } 
+   else {
+    timeDifference=`${seconds} ${seconds==1? 'second' : 'seconds'}`;}
+  
+
 
   return timeDifference;
 }
+showMoreDonations(): void {
+  const currentDonationsCount = this.showDonations.length;
+  const additionalDonations = this.fullDonations.slice(currentDonationsCount, currentDonationsCount + 5);
+  this.showDonations = this.showDonations.concat(additionalDonations);
+ //this.donates=this.tempdonates.slice(0,this.donates.length+10)
+}
+ShowLoadedDonationsCount(donates:Donation[]){
+ this.fullDonations =donates;
+ this.showDonations = donates.slice(0, this.initialFamiliesCount);
 
+}
 }

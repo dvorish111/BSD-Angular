@@ -27,9 +27,10 @@ export class FamiliesComponent implements OnInit {
   donates!: Donate[];
   donatesN!: Donate[];
   tempdonates =this.donates;
+  fullDonates!: Donate[];
   sumAllDonationsByDonated!:number[];
-//flagIsFulldonates:boolean=false;
   Statuses= Statuses ;
+  initialFamiliesCount: number = 5;
   constructor( public myRouter: Router,private donateService: DonateService,private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
 
   }
@@ -39,11 +40,10 @@ export class FamiliesComponent implements OnInit {
     this.donateService.getAllDonates().subscribe
       ({
         next: (donates: Donate[]) => {
-          this.donates = donates;
-          console.log(this.donates);
+          this.tempdonates =donates;
+          this.ShowLoadedFamiliesCount(donates);
           this.getAllNeighborhoods();
-         this.tempdonates =this.donates;
-       // this.flagIsFulldonates=true;
+       
         },
         error: (err) => {
           console.error(err);
@@ -74,7 +74,7 @@ export class FamiliesComponent implements OnInit {
     this.donateService.getAllByNumOfChildren(NumChildren).subscribe
       ({
         next: (donates: Donate[]) => {
-          this.donates = donates;
+          this.ShowLoadedFamiliesCount(donates);
 
           console.log(donates);
 
@@ -91,7 +91,7 @@ export class FamiliesComponent implements OnInit {
     this.donateService.getAllByNeeded(needed).subscribe
       ({
         next: (donates: Donate[]) => {
-          this.donates = donates;
+          this.ShowLoadedFamiliesCount(donates);
           console.log(donates);
 
         },
@@ -117,6 +117,9 @@ export class FamiliesComponent implements OnInit {
       .map(({ item }) => item);
     
       }
+      this.ShowLoadedFamiliesCount(this.donates);
+
+
    //   this.flagIsFulldonates=false;
 
   }
@@ -125,7 +128,7 @@ export class FamiliesComponent implements OnInit {
     this.donateService.getAllStatus(status).subscribe
     ({
         next: (donates: Donate[]) => {
-        this.donates = donates;
+          this.ShowLoadedFamiliesCount(donates);
         console.log(donates);
       },
       error: (err) => {
@@ -137,14 +140,16 @@ export class FamiliesComponent implements OnInit {
 
   neighborhood(neighborhoodId:number)
   {
-    this.donates=this.tempdonates;
-    this.donatesN = [];
-    this.donates.forEach(element => {
+    //this.donates=this.tempdonates;
+    this.donates = [];
+    this.tempdonates.forEach(element => {
     if(element.idNeighborhood==neighborhoodId)
-    {this.donatesN.push(element)}    
+    {this.donates.push(element)}    
    });
+   this.ShowLoadedFamiliesCount( this.donates);
+
     //this.tempdonates =this.donates;
-    this.donates=this.donatesN;
+   // this.donates=this.donatesN;
   }
 
   getAllNeighborhoods(){
@@ -159,6 +164,17 @@ export class FamiliesComponent implements OnInit {
         console.error(err);
       }
     });
+  }
+  showMoreFamilies(): void {
+     const currentFamiliesCount = this.donates.length;
+     const additionalFamilies = this.fullDonates.slice(currentFamiliesCount, currentFamiliesCount + 5);
+     this.donates = this.donates.concat(additionalFamilies);
+    //this.donates=this.tempdonates.slice(0,this.donates.length+10)
+  }
+  ShowLoadedFamiliesCount(donates:Donate[]){
+    this.fullDonates =donates;
+    this.donates = donates.slice(0, this.initialFamiliesCount);
+
   }
 }
 

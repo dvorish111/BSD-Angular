@@ -22,8 +22,11 @@ import { AdminFamiliesComponent } from './admin-families/admin-families.componen
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+//import { IgxProgressBarModule } from 'igniteui-angular';
+
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatIconModule} from '@angular/material/icon';
+
 
 import 'tslib';
 
@@ -45,7 +48,7 @@ import 'tslib';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,   
+    FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
      MatButtonModule,
@@ -55,10 +58,11 @@ import 'tslib';
      MatSnackBarModule,
      MatDialogModule,
      MatButtonToggleModule,
-     MatIconModule
-    
+     MatIconModule,
+    // IgxProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

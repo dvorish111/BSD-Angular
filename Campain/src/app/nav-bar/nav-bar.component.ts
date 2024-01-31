@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges, ChangeDetectorRef } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges, ChangeDetectorRef, HostListener, ElementRef } from '@angular/core';
 import { CampaignService } from '../Services/campaign.service';
 import { Campaign } from '../Classes/Campaign';
 import { FamiliesComponent } from '../families/families.component';
@@ -19,7 +19,13 @@ export class NavBarComponent implements OnInit {
   sumLoaded!: boolean;
   numFamily!: number;
   donationAmount!: number;
-  constructor(private cdr: ChangeDetectorRef, private campaignService: CampaignService, private donationService: DonationService, private donateService: DonateService) {
+  isSticky: boolean = false;
+  isCollapsed = false;
+
+  radius: number = 50;
+  circumference: number = 2 * Math.PI * this.radius;
+
+  constructor(private cdr: ChangeDetectorRef, private campaignService: CampaignService, private donationService: DonationService, private donateService: DonateService,private el: ElementRef) {
 
 
   }
@@ -106,7 +112,16 @@ export class NavBarComponent implements OnInit {
     this.TotalRaisedPercentages = (this.TotalRaised / this.campaignGoul) * 100;
   }
 
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.isSticky = scrollPosition > this.el.nativeElement.offsetTop;
+  }
 
+  calculateDashOffset(): number {
+    const percentage = 80 / 100;
+    return this.circumference * (1 - percentage);
+  }
 
-
+  
 }    

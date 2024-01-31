@@ -14,9 +14,23 @@ body{background-image: url(../../../../../../pictures/RAMOT1.jpg);}
   .example-full-width {
     width: 100%;
   }
-
-
+  .igx-circular-bar{
+    width: 100px;
+    height: 100px;
+  
+  }
   
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+/*//////////////////////////////*/
