@@ -23,8 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-//import { IgxProgressBarModule } from 'igniteui-angular';
-
+import { IgxProgressBarModule } from 'igniteui-angular';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
@@ -59,7 +58,7 @@ import 'tslib';
      MatDialogModule,
      MatButtonToggleModule,
      MatIconModule,
-    // IgxProgressBarModule
+     IgxProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@ import { Campaign } from '../Classes/Campaign';
 import { FamiliesComponent } from '../families/families.component';
 import { DonationService } from '../Services/donation.service';
 import { DonateService } from '../Services/donate.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-nav-bar',
@@ -21,7 +22,6 @@ export class NavBarComponent implements OnInit {
   donationAmount!: number;
   isSticky: boolean = false;
   isCollapsed = false;
-
   radius: number = 50;
   circumference: number = 2 * Math.PI * this.radius;
 
