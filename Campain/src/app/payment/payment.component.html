@@ -163,21 +163,21 @@
 
           <div class="form-group">
             <label for="FirstName">First Name:</label>
-            <input id="FirstName" type="text" [(ngModel)]="newDonor.FirstName" maxlength="30" class="form-control" />
+            <input id="FirstName" type="text" [(ngModel)]="newDonor.firstName" maxlength="30" class="form-control" />
           </div>
         </div>
 
         <div class="col-md-4">
           <div class="form-group">
             <label for="LastName">Full Name:</label>
-            <input id="LastName" [(ngModel)]="newDonor.LastName" type="text" maxlength="30" class="form-control" />
+            <input id="LastName" [(ngModel)]="newDonor.lastName" type="text" maxlength="30" class="form-control" />
           </div>
         </div>
 
         <div class="col-md-4">
           <div class="form-group">
             <label for="Street">Street:</label>
-            <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonor.Street" class="form-control" />
+            <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonor.street" class="form-control" />
           </div>
         </div>
       </div>
@@ -186,7 +186,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="City">City:</label>
-            <input id="City" type="text" maxlength="30" [(ngModel)]="newDonor.City" class="form-control" />
+            <input id="City" type="text" maxlength="30" [(ngModel)]="newDonor.city" class="form-control" />
           </div>
         </div>
 
@@ -200,7 +200,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="Phone">Phone:</label>
-            <input id="Phone" type="text" maxlength="30" [(ngModel)]="newDonor.Phone" class="form-control" />
+            <input id="Phone" type="text" maxlength="30" [(ngModel)]="newDonor.phone" class="form-control" />
           </div>
         </div>
       </div>
@@ -209,7 +209,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="Mail">Mail:</label>
-            <input id="Mail" type="text" maxlength="30" [(ngModel)]="newDonor.Email" class="form-control" />
+            <input id="Mail" type="text" maxlength="30" [(ngModel)]="newDonor.email" class="form-control" />
           </div>
         </div>
 
@@ -301,13 +301,13 @@
             <div class="input-group-prepend">
               <span class="input-group-text">$</span>
             </div>
-            <input id="Amount" type="text" maxlength="30" class="form-control" [(ngModel)]="amount" />
+            <input id="Amount" type="number" maxlength="30" class="form-control" [(ngModel)]="amount" required />
           </div>
         </div>
 
         <div class="col-md-4 form-group">
           <label for="Tashlumim">Tashlumim:</label>
-          <input id="Tashlumim" type="number" maxlength="30" class="form-control" [(ngModel)]="Tashlumim" value="1" />
+          <input id="Tashlumim" type="number" maxlength="30" class="form-control" [(ngModel)]="Tashlumim" value="1" required/>
         </div>
       </div>
 
@@ -322,13 +322,13 @@
             <div class="input-group-prepend">
               <span class="input-group-text">$</span>
             </div>
-            <input id="Amount" type="number" maxlength="30" class="form-control" [(ngModel)]="amount" />
+            <input id="Amount" type="number" maxlength="30" class="form-control" [(ngModel)]="amount" required/>
           </div>
         </div>
 
         <div class="col-md-4 form-group">
           <label for="Tashlumim">Tashlumim:</label>
-          <input id="Tashlumim" type="number" [(ngModel)]="newDonation.NumPayments" maxlength="30" class="form-control" value="12" />
+          <input id="Tashlumim" type="number" [(ngModel)]="newDonation.NumPayments" maxlength="30" class="form-control" value="12" required/>
            
         </div>
       </div>
@@ -367,7 +367,7 @@
       <div id="Result" style="text-align:center" dir="ltr"></div>
 
       <button (click)="keepData()">keepData </button>
-      <app-show-donations [donate]="donated" [sumDonationsByDonated]="sumDonationsByDonated"></app-show-donations>
+      <app-show-donations [donate]="donated" [sumDonationsByDonated]="sumDonationsByDonated" ></app-show-donations>
     </div>
 
  

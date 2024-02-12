@@ -76,6 +76,7 @@ return this.allDonate={
   parentTaz:this.addFamilyForm.value.ParentTaz,
   name:this.addFamilyForm.value.Name,
   numChildren:this.addFamilyForm.value.NumChildren,
+  raised:0,
   // idStatus:this.addFamilyForm.value.Status,
   idStatus:1,
   street: this.addFamilyForm.value.Street,

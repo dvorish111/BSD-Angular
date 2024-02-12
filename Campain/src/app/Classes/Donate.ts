@@ -8,6 +8,7 @@ export interface Donate {
     street: string
     needed: number 
     idNeighborhood: number
+    raised:number
     idNeighborhoodNavigation:Neighborhood
     idStatusNavigation:Status
 }

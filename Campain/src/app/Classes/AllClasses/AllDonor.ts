@@ -1,9 +1,9 @@
 export interface AllDonor{
-    LastName :string
-    FirstName :string
-    Email: string
-    Phone: string
-    City: string
-    Street: string 
+    lastName :string
+    firstName :string
+    email: string
+    phone: string
+    city: string
+    street: string 
     
    }

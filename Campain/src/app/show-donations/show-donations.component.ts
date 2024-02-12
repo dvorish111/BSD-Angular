@@ -14,7 +14,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ShowDonationsComponent implements OnInit,OnChanges{
  
-  Statuses= Statuses ;
+Statuses= Statuses ;
 @Input() 
 donate!:Donate;
 @Input() 

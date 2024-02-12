@@ -5,7 +5,7 @@ import { DonationService } from '../Services/donation.service';
 import { DonateService } from '../Services/donate.service';
 import { Donate } from '../Classes/Donate';
 import { Campaign } from '../Classes/Campaign';
-
+// import { CarouselModule } from '@coreui/angular';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,7 +18,13 @@ export class HomeComponent implements OnInit {
   campaignGoul!: number;
   numChildren!:number;
   numFamily!:number;
-  
+  slides: string[] = [
+    '../../assets/images/RAMOT2.jpg',
+    '../../assets/images/RAMOT1.jpg',
+    //'https://example.com/image3.jpg'
+  ];
+  slideSubtitle:string="slideSubtitle";
+  slideTitle:string="slideTitle";
   constructor(public myRouter: Router, private campaignService: CampaignService,private donationService:DonationService,private donateService:DonateService) {
   }
 
