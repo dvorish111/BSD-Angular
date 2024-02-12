@@ -26,6 +26,9 @@ export class AdminInterfaceComponent  implements OnInit{
   detailesMenegr!:SignUp;
   showSignUpComponentC:boolean=false;
   showSignUpComponentU:boolean=false;
+  showPasswordPrompt: boolean = false;//confirmPassword
+  password: string = '';//confirmPassword
+  ifPasswodOk:Boolean=false;//confirmPassword
   constructor(private premissionSer:PermissionService,private activatedRoute:ActivatedRoute,private donateService: DonateService, private campainService: CampaignService, private snackBar: MatSnackBar, private donorService: DonorService, private donationService: DonationService) {
     this.campaignForm = new FormGroup({
       name: new FormControl("",),
@@ -149,7 +152,7 @@ export class AdminInterfaceComponent  implements OnInit{
     this.campaign.id = 1;
     this.campainService.updateCampaign(this.campaign).subscribe(
       (campaign) => {
-        this.showMessageOK("!הנתונים עודכנו בהצלחה")
+        this.showMessageOK("!נא לרענן את הדף, הנתונים עודכנו בהצלחה")
         console.log("!!!!!");
         this.statusFormCampgian = "";
         //  this.fullCampain=false;
@@ -239,6 +242,45 @@ if  ( this.deleteAllCampain = false){
 
 
 
+
+
+funcAftercConfirmPassword: number=0;
+ 
+ // storedPassword: string = "this.detailesMenegr.password";
+
+ showconfirmPassword( funcAftercConfirmPassword:number) {
+  this.funcAftercConfirmPassword=funcAftercConfirmPassword;
+    this.showPasswordPrompt = true;
+  }
+ ifPasswodAdminOk(password: string){
+  this.premissionSer.confirmPassword(password).subscribe(
+    (ifOk) => { 
+      console.log("ifOk:" + ifOk)  
+      if (ifOk ) {
+        console.log("Authentication successful! Proceed with the change.");
+        switch (this.funcAftercConfirmPassword){
+        case(0):{this.ifcreateCampaign(); break;}
+        case(1):{this.updateCampaign();  break;}
+        case(2):{this.showSignUpComponentC = !this.showSignUpComponentC;  break;}
+       }
+      } else {
+        console.log("Authentication failed! Incorrect password.");
+        this.showMessageOK("סיסמא שגויה - אין הרשאת שינוי");
+      }
+      return ifOk;
+    },
+    (error) => {
+      return false;
+    }
+    
+  );return false;
+ }
+  
+  authenticate() {
+   this.ifPasswodOk =this.ifPasswodAdminOk(this.password) 
+    this.showPasswordPrompt = false;
+    this.password = '';
+  }
   
 
 }

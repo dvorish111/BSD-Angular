@@ -18,7 +18,7 @@
 
   <h2>-----קמפיין-----</h2> 
   <div>
-    <button class="btn"  mat-raised-button color="primary" (click)="updateCampaign() " >עדכון הקמפיין </button>
+    <button class="btn"  mat-raised-button color="primary"  (click)="showconfirmPassword(1)" >עדכון הקמפיין </button>
   </div>
  <div  *ngIf="statusFormCampgian" >
 <form [formGroup]="campaignForm" (ngSubmit)="onSubmitUpdateCampaignForm()" #userForm="ngForm" class="modal-content animate" action="" method="post"autocomplete="off">
@@ -43,7 +43,12 @@
  </div>
 <!-- delete campaign and crate new campaign -->
   <div>
-    <button class="btn"  mat-raised-button color="primary" (click)="ifcreateCampaign()">קמפיין חדש </button>
+    <button class="btn"  mat-raised-button color="primary" (click)="showconfirmPassword(0)">קמפיין חדש </button>
+    <div *ngIf="showPasswordPrompt">
+      <input type="password" [(ngModel)]="password" placeholder="Enter password">
+      <button (click)="authenticate()">אימות סיסמא</button>
+    </div>
+  
   </div>
 
   <h2>-----תרומות----</h2> 
@@ -54,11 +59,21 @@
   ------להוספת מנהל חדש------
   
 
-  <button (click)="showSignUpComponentC = !showSignUpComponentC">להוספת מנהל חדש</button>
+  <button  (click)="showconfirmPassword(2)">להוספת מנהל חדש</button>
+  
   <app-sign-up *ngIf="showSignUpComponentC"></app-sign-up>
   <button (click)="showSignUpComponentU = !showSignUpComponentU">לעדכון פרטים אישיים</button>
   <app-sign-up *ngIf="showSignUpComponentU" [data]="detailesMenegr"></app-sign-up>
   
+<hr>
+ 
+
+ 
+
+<hr>
 -----נתרמים-----
 <app-admin-families></app-admin-families>
  
+
+
+

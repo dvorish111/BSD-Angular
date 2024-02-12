@@ -15,3 +15,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-family: 'Open Sans', sans-serif;
     font-size: larger;
   }
+.icon{width: 200%;
+background-color: blueviolet;}

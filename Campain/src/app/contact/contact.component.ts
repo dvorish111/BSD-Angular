@@ -53,12 +53,7 @@ this.contact.firstName=this.contactForm.value.firstName;
 this.contact.lastName=this.contactForm.value.lastName;
 this.contact.email=this.contactForm.value.email;
 this.contact.message=this.contactForm.value.message;
-//   this.contact= {
-    //   firstName:this.contactForm.get('firstName')!=null?this.contactForm.get('firstName').value: "",
-    //   lastName: "",
-    //   email:"",
-    //   message:""
-    // };
+
     
 
    
@@ -75,4 +70,13 @@ this.contact.message=this.contactForm.value.message;
         });
       }
   }
+
+
+
+
+  
+
+
+
+
 }

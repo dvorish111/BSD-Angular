@@ -1,4 +1,4 @@
-<!-- <igx-circular-bar
+<igx-circular-bar
 [value]="TotalRaised/100"
 [max]="100"
 [animate]="true"
@@ -10,7 +10,14 @@ class="igx-circular-bar">
           <stop offset="100%" stop-color="#ff0079"/>
       </svg:linearGradient>
   </ng-template>
-</igx-circular-bar> -->
+</igx-circular-bar>
+
+
+
+
+
+
+
 <div class="Goul">
     <H5 class="Goal-Campaign">Goal Campaign:</H5>  <span > {{campaignGoul}}</span>
     <H5 class="Goal-Campaign">Total raised:</H5>  <span > {{TotalRaised}}</span>
@@ -21,7 +28,10 @@ class="igx-circular-bar">
 </div>
 
  
-
+<!-- ---caunter--- -->
+<div class="container">
+    <div class="progress-bar" [style.width.%]="progress">{{progress}}%</div>
+  </div>
 
 <app-families></app-families>
-<!-- <app-show-donations></app-show-donations> -->
+<app-show-donations></app-show-donations>

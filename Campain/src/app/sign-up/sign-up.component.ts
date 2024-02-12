@@ -60,7 +60,7 @@ export class SignUpComponent implements OnInit {
         }
       })
     }
-    this.permissionSer.createPermission(this.NewUser).subscribe({
+   else{ this.permissionSer.createPermission(this.NewUser).subscribe({
       next: (res) => {
         alert("successful")
         this.myRouter.navigate(['/admin-interface'])
@@ -68,7 +68,7 @@ export class SignUpComponent implements OnInit {
       error: (err) => {
         console.log(' error: ' + err);
       }
-    })
+    })}
   }
  
 

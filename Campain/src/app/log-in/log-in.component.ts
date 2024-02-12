@@ -57,7 +57,7 @@ export class LogInComponent {
 
   login() {
     // Emit the parameters when login button is clicked
-    this.loginParams.emit({ username: this.User.managerName, password: this.User.password,mail:this.User.email });
+    this.loginParams.emit({ username: this.User.managerName, mail:this.User.email });
   }
 
 
