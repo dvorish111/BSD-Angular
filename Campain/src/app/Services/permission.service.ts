@@ -21,6 +21,7 @@ export class PermissionService {
    return this.http.get<SignUp>(`${this.baseUrl}/Password/${password}/Email/${email}`).pipe(
     tap((response: SignUp) => {
       this.detailesMenegr = response; // Save the response in the detailsMenegr variable
+      this.detailesMenegr.password="";
    })
    )
   }
@@ -38,6 +39,10 @@ export class PermissionService {
   }
 
   updatePermissionByMail(permissionMail: string, permissionToUpdate: SignUp): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${permissionMail}`, permissionToUpdate);
+    return this.http.put(`${this.baseUrl}/UpdateByGmail/${permissionMail}`, permissionToUpdate);
+  }
+
+  confirmPassword(password: string): Observable<boolean> {
+    return this.http.put<boolean>(`${this.baseUrl}/ConfirmPassword/${password}`,password);
   }
 }

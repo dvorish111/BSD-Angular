@@ -158,7 +158,7 @@ export class PaymentComponent  implements OnInit {
     });
   }
   keepDataNewDonaition(){
-    this.newDonation.amount=this.amount;
+    this.newDonation.amount=this.amount;  
     this.newDonation.date=this.date
     if(this.idDonated !=0){
     this.newDonation.idDonated=this.idDonated

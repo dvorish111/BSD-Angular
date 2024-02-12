@@ -11,29 +11,8 @@ class="igx-circular-bar">
           <stop offset="100%" stop-color="#ff0079"/>
       </svg:linearGradient>
   </ng-template>
-</igx-circular-bar>
-<!-- <img src="../../assets/images/RAMOT1.jpg"> -->
-<!-- <c-carousel [dark]="true" [wrap]="false">
-    <c-carousel-indicators></c-carousel-indicators>
-    <c-carousel-inner>
-      <c-carousel-item *ngFor="let slide of slides; index as i;">
-        <img
-          [src]="slide"
-          alt="{{slideTitle}}"
-          class="d-block w-100"
-          loading="lazy"
-        />
-        <c-carousel-caption class="d-none d-md-block">
-          <h3>{{slideTitle}}</h3>
-          <p>{{slideSubtitle}}</p>
-        </c-carousel-caption>
-      </c-carousel-item>
-    </c-carousel-inner>
-    <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
-    <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
-  </c-carousel> -->
-  
-<!-- <img class="img"  src="../../assets/images/RAMOT2.jpg"> -->
+</igx-circular-bar> 
+<img class="img"  src="../../assets/images/RAMOT2.jpg"> 
 </div>
 <div class="Goul">
     <H5 class="Goal-Campaign">Goal Campaign:</H5>  <span > {{campaignGoul}}</span>
@@ -45,7 +24,10 @@ class="igx-circular-bar">
 </div>
 
  
-
+<!-- ---caunter--- -->
+<div class="container">
+    <div class="progress-bar" [style.width.%]="progress">{{progress}}%</div>
+  </div>
 
 <app-families></app-families>
-<!-- <app-show-donations></app-show-donations> -->
+<app-show-donations></app-show-donations>
