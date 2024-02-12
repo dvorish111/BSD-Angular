@@ -40,8 +40,8 @@ export class FamiliesComponent implements OnInit {
     this.donateService.getAllDonates().subscribe
       ({
         next: (donates: Donate[]) => {
+          this.getAllSumDonationsByDonated(donates);
           this.tempdonates =donates;
-          this.ShowLoadedFamiliesCount(donates);
           this.getAllNeighborhoods();
        
         },
@@ -53,22 +53,25 @@ export class FamiliesComponent implements OnInit {
   
     
     
-      this.donationService.getAllSumDonationsByDonated().subscribe
-      ({
-        
-        next: (sumAllDonationsByDonated:number[]) => {       
-         this.sumAllDonationsByDonated=sumAllDonationsByDonated;
-         console.log(this.sumAllDonationsByDonated+"sumAllDonationsByDonated");
-         
-        },
-        error: (err) => {
-          console.error(err);
-        }
-      });
-      
+
     
   }
+  getAllSumDonationsByDonated(donates: Donate[]){
+  this.donationService.getAllSumDonationsByDonated().subscribe
+  ({
+    
+    next: (sumAllDonationsByDonated:number[]) => {       
+     this.sumAllDonationsByDonated=sumAllDonationsByDonated;
 
+     console.log(this.sumAllDonationsByDonated+"sumAllDonationsByDonated");
+     this.ShowLoadedFamiliesCount(donates);
+     
+    },
+    error: (err) => {
+      console.error(err);
+    }
+  });
+}
 
   familyOfChildren(NumChildren: number) {
     this.donateService.getAllByNumOfChildren(NumChildren).subscribe
@@ -172,9 +175,19 @@ export class FamiliesComponent implements OnInit {
     //this.donates=this.tempdonates.slice(0,this.donates.length+10)
   }
   ShowLoadedFamiliesCount(donates:Donate[]){
+    this.mapFamiliesRandom(donates);
     this.fullDonates =donates;
     this.donates = donates.slice(0, this.initialFamiliesCount);
+    
 
+  }
+  mapFamiliesRandom(donates:Donate[]){//Fisher-Yates algorithm
+      for (let i = donates.length  - 1; i > 0; i--) { 
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [donates [i],donates [j]] = [donates [j], donates [i]]; 
+       [this.sumAllDonationsByDonated[i],this.sumAllDonationsByDonated [j]] = [this.sumAllDonationsByDonated [j], this.sumAllDonationsByDonated [i]]; 
+
+      } 
   }
 }
 

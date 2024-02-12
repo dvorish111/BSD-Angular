@@ -1,4 +1,4 @@
-body{background-image: url(../../../../../../pictures/RAMOT1.jpg);}
+.img{width:8000px}
 .Goul{
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -15,10 +15,14 @@ body{background-image: url(../../../../../../pictures/RAMOT1.jpg);}
     width: 100%;
   }
   .igx-circular-bar{
-    width: 100px;
-    height: 100px;
-  
+    width: 500px;
+    height: 500px;
+    left: 500px;
+  position: fixed;
+  /* top: 500px; */
+  z-index: 1;
   }
+  
   
 
   .container {
