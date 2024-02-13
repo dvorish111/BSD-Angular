@@ -1,4 +1,4 @@
-.img{width:8000px}
+.img{width: 100px;}
 .Goul{
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -39,6 +39,73 @@
     color: white;
   }
 
+/* ---הגדרות התמונות----- */
+
+.carousel-image {
+  width: 50%;
+  height: 50%;
+  padding-top: 50%; /* רוחב רקע כחלק מהגובה */
+  /* padding-left: outo;  */
+  position: relative;
+ 
+
+}
+
+.carousel-image__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:50%;
+  height: 50%;
+  padding: 0 10%; /* שוליים ימין ושמאל של 10% */
+
+  object-fit: cover; /* מילוי אובייקט בכל האלמנט */
+}
+
+.carousel-image {
+  position: relative;
+  text-align: right;
+ 
+}
+/* //הכיתובים מעל כל תמונה */
+.image-caption {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  right: 0; /* נעביר לצד ימין של המסך */
+
+  text-align: end;
+  color: white;
+  padding: 10px;
+  transform: translateX(-50%);
+  animation: slideUp 0.5s ease-in-out infinite; /* אנימצית עלייה עם התחלה וסיום חלקית */
+  /* animation: moveleft 3s linear infinite  ;  */
+
+}
+
+
+@keyframes slideUp {
+  0% { 
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.image-caption.moveUp {
+ 
+  top: calc(50% - 10px); /* המיקום אחרי האנימציה */
+}
+
+/* @keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+} */
 
 
 
