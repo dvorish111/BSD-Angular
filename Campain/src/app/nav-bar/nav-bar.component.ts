@@ -1,17 +1,18 @@
-import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges, ChangeDetectorRef, HostListener, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges, ChangeDetectorRef, HostListener, ElementRef, OnDestroy } from '@angular/core';
 import { CampaignService } from '../Services/campaign.service';
 import { Campaign } from '../Classes/Campaign';
 import { FamiliesComponent } from '../families/families.component';
 import { DonationService } from '../Services/donation.service';
 import { DonateService } from '../Services/donate.service';
 import { MatIconModule } from '@angular/material/icon';
+import { Subscription, interval , timer} from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit,OnDestroy {
   campaign!: Campaign;
   campaignGoul!: number;
   TotalRaised!: number;
@@ -24,6 +25,8 @@ export class NavBarComponent implements OnInit {
   isCollapsed = false;
   radius: number = 50;
   circumference: number = 2 * Math.PI * this.radius;
+  timerSubscription!: Subscription ;
+  progress: number=0;
 
   constructor(private cdr: ChangeDetectorRef, private campaignService: CampaignService, private donationService: DonationService, private donateService: DonateService,private el: ElementRef) {
 
@@ -69,7 +72,9 @@ export class NavBarComponent implements OnInit {
         this.sumLoaded = true;
         // Call the callback function
         this.checkBothLoaded();
+         this.caunterRaised()
         this.cdr.detectChanges();
+       
       },
       error: (err) => {
         console.error(err);
@@ -95,11 +100,35 @@ export class NavBarComponent implements OnInit {
       console.log('Service data changed:',  this.TotalRaised );
       this.cdr.detectChanges();
     });
-
+  
+  
   }
 
-
-
+  ngOnDestroy() {
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
+  }
+  caunterRaised(){
+    this.cdr.detectChanges();
+    const targetValue =  this.TotalRaisedPercentages; // ערך היעד
+    const animationDuration = 5000; // משך זמן האנימציה במילישניות
+    const steps =  this.TotalRaisedPercentages ; // מספר השלבים באנימציה
+  
+  
+    const stepSize = targetValue /steps;
+    const intervalTime = animationDuration /steps;
+  
+    const timer = interval(intervalTime);
+    this.timerSubscription = timer.subscribe(() => {
+      if (this.progress < targetValue) {
+        this.progress += stepSize;
+      } else {
+        this.timerSubscription.unsubscribe(); // להפסיק את האינטרוול
+      }
+    });
+    this.cdr.detectChanges();
+  }
   checkBothLoaded() {
     // Check if both server calls have finished
     if (this.campaignLoaded && this.sumLoaded) {
@@ -110,6 +139,7 @@ export class NavBarComponent implements OnInit {
 
   TotalRaisedPercentagesCalculation() {
     this.TotalRaisedPercentages = (this.TotalRaised / this.campaignGoul) * 100;
+    this.caunterRaised()
   }
 
   @HostListener('window:scroll', ['$event'])

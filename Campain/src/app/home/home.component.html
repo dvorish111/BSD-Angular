@@ -11,21 +11,25 @@ class="igx-circular-bar">
           <stop offset="100%" stop-color="#ff0079"/>
       </svg:linearGradient>
   </ng-template>
-</igx-circular-bar> -->
+</igx-circular-bar></div>
 <div class="Goul">
-    <H5 class="Goal-Campaign">Goal Campaign:</H5>  <span > {{campaignGoul}}</span>
-    <H5 class="Goal-Campaign">Total raised:</H5>  <span > {{TotalRaised}}</span>
+    <H5 class="Goal-Campaign">Goal Campaign:</H5>  <span > {{currentGoul}}</span>
+    <H5 class="Goal-Campaign">Total raised:</H5>  <span > {{currentTotalRaised}}</span>
 </div>
 <div class="Goul">
-    <H5 class="numFamily">Families funded:</H5>  <span > {{numFamily}}</span>
-    <H5 class="numChildren">Children funded:</H5>  <span > {{numChildren}}</span>
+    <H5 class="numFamily">Families funded:</H5>  <span > {{currentNumFamily}}</span>
+    <H5 class="numChildren">Children funded:</H5>  <span > {{currentNumChildren}}</span>
 </div>
 
- 
-<!-- ---caunter--- -->
-<div class="container">
-    <div class="progress-bar" [style.width.%]="progress">{{progress}}%</div>
+
+  <!-- <div class="counter" *ngFor="let counter of counters">
+    <span class="number" [ngStyle]="{ 'width.%': (counter.current / counter.target) * 100 }">{{ counter.current| number: '1.0-0' }}</span>
+  </div> -->
+  <div class="counterConainr">
+  <div *ngFor="let counter of counters" class="counter" >
+    <div class="number" >{{ counter.current| number: '1.0-0'  }}</div>
   </div>
-
+</div>
+  
 <app-families></app-families>
 <app-show-donations></app-show-donations>

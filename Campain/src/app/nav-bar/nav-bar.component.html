@@ -40,9 +40,13 @@
         <div class="Goul d-flex flex-column align-items-center mt-1 mr-1">
           <h5 class="Goal-Campaign my-1">Goal Campaign</h5>
           <span class="navbar-brand my-1 my-lg-0">${{campaignGoul}}</span>
+          <div class="container2">
+            <div class="progress-bar" [style.width.%]="progress">{{progress}}%</div>
+          </div>
+
       </div>
       </div>
-    
+
 
     <button class="mat-raised-button mt-2"  class="mat-raised-button" mat-raised-button [routerLink]="['/payment', 250]" routerLinkActive="active">
       <mat-icon>arrow_circle_right</mat-icon> <div class="DonateNow">Donate now</div>
