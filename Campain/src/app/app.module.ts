@@ -25,9 +25,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { IgxProgressBarModule } from 'igniteui-angular';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+// import { OwlModule } from 'ngx-owl-carousel';
 
 
 import 'tslib';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,7 @@ import 'tslib';
     ShowDonationsComponent,
     AdminInterfaceComponent,
     NavBarComponent,
-    AdminFamiliesComponent
+    AdminFamiliesComponent 
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,12 @@ import 'tslib';
      MatDialogModule,
      MatButtonToggleModule,
      MatIconModule,
-     IgxProgressBarModule
+     IgxProgressBarModule,
+     CarouselModule,
+     BrowserAnimationsModule,
+     RouterModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

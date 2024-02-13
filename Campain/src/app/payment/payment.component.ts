@@ -32,15 +32,14 @@ export class PaymentComponent  implements OnInit {
   sumDonationsByDonated!:number;
   donor!:Donor;
  date:Date=new Date();
- nnn:string="nnnn";
-
+ allDonate!:AllDonate;
   newDonor: AllDonor={
-    FirstName:"",
-    LastName:"",
-    Email:"",
-    Phone:"",
-    City:"",
-    Street:""
+    firstName:"",
+    lastName:"",
+    email:"",
+    phone:"",
+    city:"",
+    street:""
   }; 
   newDonation: AllDonation={
     isAnonymous: false,
@@ -164,6 +163,7 @@ export class PaymentComponent  implements OnInit {
     if(this.idDonated !=0){
     this.newDonation.idDonated=this.idDonated
   this.newDonation.idNeighborhood=this.donated.idNeighborhood
+  
   }
   else{
     this.newDonation.idNeighborhood=Number(this.selectedNeighborhood);}
@@ -173,10 +173,41 @@ export class PaymentComponent  implements OnInit {
       next: (next) => {      
         console.log(next);
         console.log("sucsses newDonation");  
+        if(this.idDonated !=0){
+        this.donated.raised=this.donated.raised+this.newDonation.amount;
+        this.allDonate= this.mapDonateToAllDonate(this.donated) ;
+       this.updateDonate();}
       },
       error: (err) => {
         console.error(err);
       }
     });
+  }
+  updateDonate(){
+  this.donateService.updateDonate( this.allDonate).subscribe
+        ({
+          next: (next) => {    
+            alert('good')
+                console.log(next);
+          },
+          error: (err) => {
+            alert("not good")
+            console.error(err);
+          }
+        })
+      
+    }
+  mapDonateToAllDonate(donated:Donate){
+return this.allDonate={
+id:this.idDonated,
+  idNeighborhood:donated.idNeighborhood,
+ idNeighborhoodNavigation: donated.idNeighborhoodNavigation,
+  idStatus:donated.idStatus,
+  //  donated.idStatusNavigation,
+  needed:donated.needed,
+  numChildren:donated.numChildren,
+  raised:donated.raised,
+  street:donated.street
+}
   }
 }

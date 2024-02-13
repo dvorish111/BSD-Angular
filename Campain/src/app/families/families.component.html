@@ -20,13 +20,18 @@
     <mat-card-title>needed</mat-card-title>
     <mat-card-subtitle>{{donate.needed}}</mat-card-subtitle>
   </mat-card-content>
-  <mat-card-content>
-    <mat-card-title>Raised:</mat-card-title>
+   <mat-card-content>
+    <!-- <mat-card-title>Raised:</mat-card-title>
     <mat-card-subtitle *ngIf="sumAllDonationsByDonated[i]>0; else elseBlock">{{
       sumAllDonationsByDonated[i]}}</mat-card-subtitle>
     <ng-template #elseBlock> <mat-card-subtitle>0</mat-card-subtitle></ng-template>
 
-  </mat-card-content>
+  </mat-card-content>  -->
+
+  <mat-card-title>Raised:</mat-card-title>
+  <mat-card-subtitle>{{donate.raised}}</mat-card-subtitle>
+
+</mat-card-content>
 
   <mat-card-content>
     <mat-card-title>Neighborhood:</mat-card-title>
@@ -44,7 +49,7 @@
 </mat-card>
 <br><br><br>
 <button (click)="showMoreFamilies()" >Show more</button>
-<app-show-donations  [sumDonationsByDonated]=0></app-show-donations>
+<app-show-donations [sumDonationsByDonated]=0></app-show-donations> ></app-show-donations>
 <button (click)="familyOfChildren(5)">family of 2-5 children</button>
 <button (click)="familyOfChildren(10)">family of 5-10 children</button>
 <button (click)="familyOfChildren(15)">family of 10-15 children</button>
