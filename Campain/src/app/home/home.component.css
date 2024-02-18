@@ -1,3 +1,4 @@
+@import "~animate.css/animate.min.css";
 .img{width: 100px;}
 .Goul{
     font-size: large;
@@ -36,7 +37,7 @@
   } */
   
   .progress-bar {
-    height: 100%;
+    height: 50%;
     line-height: 30px;
     text-align: center;
     background-color: green;
@@ -46,56 +47,60 @@
 /* ---הגדרות התמונות----- */
 
 .carousel-image {
-  width: 50%;
-  height: 50%;
-  padding-top: 50%; /* רוחב רקע כחלק מהגובה */
-  /* padding-left: outo;  */
+
+
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  height:auto;
+  top: 0;
+  left: 0;
+  padding-top: 25%; /* רוחב רקע כחלק מהגובה */
+
   position: relative;
  
-
 }
+/* .carousel-image__div{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* צל */
 
 .carousel-image__img {
   position: absolute;
   top: 0;
-  left: 0;
-  width:50%;
-  height: 50%;
-  padding: 0 10%; /* שוליים ימין ושמאל של 10% */
-
-  object-fit: cover; /* מילוי אובייקט בכל האלמנט */
+  left:0;
+   width:50%;
+  /* height: 50%; */
+  /* padding-top: 50%; */
+  padding: 0 25%;
+  object-fit: cover; /* מילוי אובייקט בכל האלמנט */  
 }
 
-.carousel-image {
-  position: relative;
-  text-align: right;
- 
-}
+
 /* //הכיתובים מעל כל תמונה */
 .image-caption {
+ text-shadow: 5px 5px 10px rgb(169, 169, 169);;
   position: absolute;
   top: 20%;
-  left: 20%;
-  right: 0; /* נעביר לצד ימין של המסך */
-
+  right:0%; /* נעביר לצד ימין של המסך */
   text-align: end;
-  color: white;
-  padding: 10px;
-  transform: translateX(-50%);
-  animation: slideUp 0.5s ease-in-out infinite; /* אנימצית עלייה עם התחלה וסיום חלקית */
-  /* animation: moveleft 3s linear infinite  ;  */
+  color: rgb(003036);
+  padding: 15px;
 
 }
 
 
-@keyframes slideUp {
+
+
+
+
+
+/* @keyframes slideUp {
   0% { 
     transform: translateY(0);
   }
   100% {
     transform: translateY(-10px);
   }
-}
+} */
 
 .image-caption.moveUp {
  
@@ -169,6 +174,4 @@
 .finished .count-number {
   transition: none; /* Remove transition when animation is finished */
 }
-.counterConainr{
 
-}
