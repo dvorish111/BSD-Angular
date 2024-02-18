@@ -16,6 +16,7 @@ export interface slidesStore{
   description:string;
 }
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-home',
