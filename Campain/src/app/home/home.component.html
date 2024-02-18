@@ -1,7 +1,7 @@
 
 
-<div>
-    <div>
+
+    <!-- <div>
         <igx-circular-bar
         [value]="TotalRaised/100 "
         [max]="100"
@@ -15,6 +15,8 @@
               </svg:linearGradient>
           </ng-template>
         </igx-circular-bar> 
+      </div> -->
+
 
 <!-- 
         <owl-carousel-o [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding']">
@@ -32,7 +34,8 @@
             <ng-container *ngFor="let slide of images">
               <ng-template carouselSlide [id]="slide.id">
                 <div class="carousel-image">
-                  <img class="carousel-image__img" [src]="slide.src" [alt]="slide.alt" [title]="">
+                  <div class="carousel-image__div" >
+                  <img class="carousel-image__img" [src]="slide.src" [alt]="slide.alt" [title]=""></div>
                   <div class="image-caption">
                     <h1>{{ slide.title }}</h1>
                     <p>{{ slide.description }}</p>
@@ -44,9 +47,15 @@
               </ng-template>
             </ng-container>
           </owl-carousel-o>
+
           
-<img class="img"  src="../../assets/images/RAMOT2.jpg"> 
-</div>
+   
+
+
+
+          
+<img class="img"  src="../../assets/images/RAMOT1.jpg"> 
+
 <div class="Goul">
     <H5 class="Goal-Campaign">Goal Campaign:</H5>  <span > {{currentGoul}}</span>
     <H5 class="Goal-Campaign">Total raised:</H5>  <span > {{currentTotalRaised}}</span>

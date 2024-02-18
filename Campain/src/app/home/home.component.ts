@@ -6,7 +6,9 @@ import { DonateService } from '../Services/donate.service';
 import { Donate } from '../Classes/Donate';
 import { Campaign } from '../Classes/Campaign';
 import { Subscription, interval, timer } from 'rxjs';
-// import { OwlOptions } from 'ngx-owl-carousel-o';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Directive, HostListener, ElementRef } from '@angular/core';
+// import { trigger, style, animate, transition } from '@angular/animations';
 
 export interface slidesStore{
   id:string;
@@ -16,6 +18,8 @@ export interface slidesStore{
   description:string;
 }
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { shakeCenter } from 'igniteui-angular';
+import { cementMixer } from '@igniteui/material-icons-extended';
 
 @Component({
   selector: 'app-home',
@@ -37,8 +41,8 @@ export class HomeComponent implements OnInit{
   //   autoplayTimeout: 3000,
   //   autoplayHoverPause: true
   // };
-  images:slidesStore[]=[{id:"1",title:"1",src:'../../assets/images/RAMOT2.jpg',alt:'./../assets/images/RAMOT2.jpg',description:"תמונה ראשונה נוף ראשון"}
-     ,{id:"2",title:"2",src: '../../assets/images/RAMOT1.jpg',alt:"./../assets/images/RAMOT2.jpg",description:"תמונה שניה נוף שני"}
+  images:slidesStore[]=[{id:"1",title:"Ramot",src:'../../assets/images/RAMOT1.jpg',alt:'./../assets/images/RAMOT2.jpg',description:"תמונה ראשונה נוף ראשון"}
+     ,{id:"2",title:"all Ramot",src: '../../assets/images/RAMOT2.jpg',alt:"./../assets/images/RAMOT2.jpg",description:"תמונה שניה נוף שני"}
    
   ];
   showId: boolean = false;
@@ -48,12 +52,14 @@ export class HomeComponent implements OnInit{
   }
  
   customOptions: OwlOptions = {
+    
     loop: true,
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
     dots: false,
     navSpeed: 700,
+   
    navText: ['', ''],
     responsive: {
       0: {
