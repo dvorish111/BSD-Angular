@@ -3,7 +3,8 @@
 .Goul{
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+    color:   #054556;  /* צבע חום בורדו */
+    ;
 }
 
 
@@ -285,6 +286,7 @@
 }
 .TotalRaised{
   font-size:30px;
+  color: #054556;
 }
 .counter-col{
   justify-content: center;
@@ -322,4 +324,13 @@ font-size:large;
   width: 378px;
   height: 377px;
   transform: translate(-50%, -50%);
+}
+.timer{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  justify-content:center;
+  margin-right: 200px; /* ניתן להתאים את המרחק מהצד עם ערך רצוי */
+  color: #FFAF00;
 }

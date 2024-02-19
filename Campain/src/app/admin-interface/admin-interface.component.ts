@@ -136,7 +136,7 @@ export class AdminInterfaceComponent  implements OnInit{
           name: this.campaign.name,
           goul: this.campaign.goul,
           startDate: this.campaign.startDate,
-          duration: this.campaign.duration,
+          duration: this.campaign.endDate,
         });
         // this.campaignForm=campaign
         console.log(campaign);

@@ -26,7 +26,8 @@
           </div>
            -->
            <!-- <img src="../../assets/images/RAMOT1.jpg" class="imgBeckground" alt="">  -->
-           <div>{{ timeLeft }}timeLeft</div>
+           <!-- <div class="timer">{{ formattedTime  }}</div> -->
+
            <br><br><br>
    <div class="counterConainr">
   <div class="counter-wrapper">
@@ -51,11 +52,12 @@
 <div class="circular-bar-container">
 <div class="circular-bar">
     <img src="../../assets/images/RAMOT2.jpg" alt="..." class="rounded-circle">
-    <div>{{ timeLeft }}</div>
+    <div class="timer">{{ formattedTime  }}</div>
+    <!-- <div>{{ timeLeft }}</div> -->
     <!-- <img src="../../assets/images/rounded-circle.png" alt="..." class="rounded-circle"> -->
 
     <igx-circular-bar
-    [value]="TotalRaised/100 "
+    [value]="valuetimeInMilliseconds"
     [max]="100"
     [animate]="true"
     class="igx-circular-bar">
