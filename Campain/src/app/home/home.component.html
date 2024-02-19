@@ -108,12 +108,38 @@
       <video width="100%" height="100%" controls #videoPlayer3>
         <source src="../../assets/video/video1.mp4" type="video/mp4">
       </video>
-      <div class="logo-overlay-video" (click)="playVideo(videoPlayer3)">
-        <mat-icon class="logoVideo">play_circle</mat-icon>
+      <div class="logo-overlay-video"   (click)="playVideo(videoPlayer3)">
+        <mat-icon  class="logoVideo">play_circle</mat-icon>
       </div>
     </div>
   </div>
-  
+  <!-- <div class="container">
+    <div class="side-rectangle">
+      <video width="100%" height="100%" controls #videoPlayer1>
+        <source src="../../assets/video/video1.mp4" type="video/mp4">
+      </video>
+      <div class="logo-overlay-video" (click)="playVideo(videoPlayer1, iconVideo1)">
+        <mat-icon class="logoVideo" #iconVideo1>{{ isPlaying ? 'pause_circle' : 'play_circle' }}</mat-icon>
+      </div>
+    </div>
+    <div class="main-rectangle">
+      <video width="100%" height="100%" controls #videoPlayer2>
+        <source src="../../assets/video/video1.mp4" type="video/mp4">
+      </video>
+      <div  class="logo-overlay-video" (click)="playVideo(videoPlayer2, iconVideo2)">
+        <mat-icon class="logoVideo" *ngif="!isPlaying" #iconVideo2>{{ isPlaying ? 'pause_circle' : 'play_circle' }}</mat-icon>
+      </div>
+    </div>
+    <div class="side-rectangle">
+      <video width="100%" height="100%" controls #videoPlayer3>
+        <source src="../../assets/video/video1.mp4" type="video/mp4">
+      </video>
+      <div class="logo-overlay-video" (click)="playVideo(videoPlayer3, iconVideo3)">
+        <mat-icon class="logoVideo" #iconVideo3>{{ isPlaying ? 'pause_circle' : 'play_circle' }}</mat-icon>
+      </div>
+    </div>
+  </div> -->
+
   
     <!-- -----end mp4----- -->
 
