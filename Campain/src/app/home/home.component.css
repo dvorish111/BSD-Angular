@@ -155,6 +155,8 @@
 
 
 
+
+
 .videoPlaying .logo-overlay-video:not(:hover) {
   opacity: 0; /* החבאת האייקון כאשר הוידאו דלוק */
 }
