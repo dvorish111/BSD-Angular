@@ -154,8 +154,8 @@ button.mat-raised-button:hover {
 }
 
 #myNavbar.sticky a:hover {
-  color: black; /* צבע שחור במעבר העכבר */
-  text-decoration: solid underline black 4px;
+  color: #003036; /* צבע שחור במעבר העכבר */
+  text-decoration: solid underline #FFAF00 4px;
   text-underline-offset: 8px;
 }
 
