@@ -3,6 +3,8 @@
 .Goul{
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:   #054556;  /* צבע חום בורדו */
+    ;
 }
 .bg-image_goal{
 
@@ -40,12 +42,13 @@
     width: 100%;
   }
   .igx-circular-bar{
-    width: 500px;
-    height: 500px;
-    left: 500px;
-  position: fixed;
+    width: 400px;
+    height: 400px;
+
+    /* left: 500px; */
+  /* position: fixed; */
   /* top: 500px; */
-  z-index: 1;
+  /* z-index: 1; */
   }
   
   
@@ -367,6 +370,7 @@
 }
 .TotalRaised{
   font-size:30px;
+  color: #054556;
 }
 .counter-col{
   justify-content: center;
@@ -377,6 +381,41 @@ color: #FFAF00;
 .numChildren.numFamily{
 font-size:large;
 }
+.circular-bar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  justify-content:center;
+  margin-right: 220px; /* ניתן להתאים את המרחק מהצד עם ערך רצוי */
+}
+.mat-raised-button{
+  background-color:#FFAF00;
+}
 
+/* .rounded-circle{
 
+  width: 390px;
+  height: 390px;
+  justify-content:center;
+  position: absolute;
+  
+} */
 
+.circular-bar img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 378px;
+  height: 377px;
+  transform: translate(-50%, -50%);
+}
+.timer{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  justify-content:center;
+  margin-right: 200px; /* ניתן להתאים את המרחק מהצד עם ערך רצוי */
+  color: #FFAF00;
+}
