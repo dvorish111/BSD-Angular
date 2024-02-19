@@ -149,7 +149,7 @@
  
     
     <div *ngIf="idDonated==0" class="form-group" id="NeighborhoodDiv">
-      <h1 class="fas fa-user text-center" for="Neighborhood">Which neighborhood is your donation intended for?:</h1>
+      <h1 class="fas fa-user text-center" for="Neighborhood">Which neighborhood is your donation intended for?</h1>
       <select id="Neighborhood" class="form-control" [(ngModel)]="selectedNeighborhood">
         <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
       </select>

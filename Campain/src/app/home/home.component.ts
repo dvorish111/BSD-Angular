@@ -29,7 +29,7 @@ export interface slidesStore{
   styleUrls: ['./home.component.css'],
  
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit, OnDestroy{
  
   TotalRaised!:number;
   campaign!: Campaign;
@@ -118,6 +118,20 @@ export class HomeComponent implements OnInit{
     { name: 'NumChildren', current: 0, target: 2000, left: 70, top: 25 } // Changed left value
   ];
   public counterValues: { [key: string]: number } = {};
+
+
+  // timeLeft: string = '';
+  // interval: any;
+  // StartDate: Date = new Date('2024-02-18T08:00:00');
+  // allowedTimeInMinutes: number = 60; // זמן הקמפיין בדקות
+  timeLeft: string = '';
+  timer: any;
+
+  // הגדרת תאריך ההתחלה ומשך הזמן בדקות
+
+  
+  startDate: Date = new Date('2024-02-01T08:00:00'); // התאריך שבו הקמפיין מתחיל
+  durationInMinutes: number = 6000; // משך זמן הקמפיין בדקות
 
   constructor(public myRouter: Router, private campaignService: CampaignService,private donationService:DonationService,private donateService:DonateService) {
    // this.maxEliteNumber = Math.max(...this.eliteNumbers);
@@ -284,34 +298,81 @@ export class HomeComponent implements OnInit{
       await this.delay(1); // Adjust the interval as needed
       counter.current += increment;
     }
-  }
-  videoPlaying: boolean = false;
-
-  playVideo(videoPlayer: HTMLVideoElement) {
-    if (!this.videoPlaying) {
-      videoPlayer.play();
-      videoPlayer.classList.add('video-playing'); // הוספת קלאס "video-playing"
-      this.videoPlaying = true;
-    } else {
-      videoPlayer.pause();
-      videoPlayer.classList.remove('video-playing'); // הסרת קלאס "video-playing"
-      this.videoPlaying = false;
-    }
-  }
-  // isPlaying: boolean = false;
-  // playVideo(videoPlayer: HTMLVideoElement, iconElement: MatIcon) {
-  //   const isPlaying = !videoPlayer.paused && !videoPlayer.ended;
-    
-  //   if (isPlaying) {
-  //     videoPlayer.pause();
-  //     videoPlayer.classList.remove('video-playing');
-  //     iconElement._elementRef.nativeElement.textContent = 'play_circle'; // Change icon to play_circle when video is paused
-  //   } else {
-  //     videoPlayer.play();
-  //     videoPlayer.classList.add('video-playing');
-  //     iconElement._elementRef.nativeElement.textContent = 'pause_circle'; // Change icon to pause_circle when video is playing
-  //   }
-  // }
   
 
+
+    // const startDate = this.StartDate.getTime();
+    // const endTime = startDate + this.allowedTimeInMinutes * 60 * 1000;
+
+    // // קביעת הזמן הנוכחי
+    // const now = new Date().getTime();
+
+    // // חישוב הזמן שנשאר לקמפיין
+    // const timeLeftInMilliseconds = endTime - now;
+
+    // // המרת הזמן לדקות ושניות
+    // const minutes = Math.floor((timeLeftInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+    // const seconds = Math.floor((timeLeftInMilliseconds % (1000 * 60)) / 1000);
+
+    // // תצוגת הזמן
+    // this.timeLeft = `${minutes}:${seconds}`;
+
+    // // כל 1000 מילישניות (שניה), נעדכן את הזמן שנשאר
+    // this.interval = setInterval(() => {
+    //   const now = new Date().getTime();
+    //   const timeLeftInMilliseconds = endTime - now;
+
+    //   const minutes = Math.floor((timeLeftInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+    //   const seconds = Math.floor((timeLeftInMilliseconds % (1000 * 60)) / 1000);
+
+    //   this.timeLeft = `${minutes}:${seconds}`;
+
+    //   // אם זמן הקמפיין עבר, נפסיק את הטיימר
+    //   if (timeLeftInMilliseconds < 0) {
+    //     clearInterval(this.interval);
+    //     this.timeLeft = 'הקמפיין הסתיים';
+    //     // כאן תוכל להוסיף פונקציונליות נוספת להתרעה או פעולה נוספת
+    //   }
+    // }, 1000);
+    this.startTimer();
+}
+videoPlaying: boolean = false;
+
+playVideo(videoPlayer: HTMLVideoElement) {
+  if (!this.videoPlaying) {
+    videoPlayer.play();
+    videoPlayer.classList.add('video-playing'); // הוספת קלאס "video-playing"
+    this.videoPlaying = true;
+  } else {
+    videoPlayer.pause();
+    videoPlayer.classList.remove('video-playing'); // הסרת קלאס "video-playing"
+    this.videoPlaying = false;
+  }
+}
+startTimer(): void {
+  // חישוב תאריך הסיום
+  const endDate = new Date(this.startDate.getTime() + this.durationInMinutes * 60000);
+
+  // פונקציה רקורסיבית לעדכון הזמן
+  const updateTimer = () => {
+    const now = new Date().getTime();
+    const timeLeftInMilliseconds = endDate.getTime() - now;
+
+    // if (timeLeftInMilliseconds <= 0) {
+    //   this.timeLeft = 'הקמפיין הסתיים';
+    // } else {
+      const minutes = Math.floor(timeLeftInMilliseconds / 60000);
+      const seconds = Math.floor((timeLeftInMilliseconds % 60000) / 1000);
+      this.timeLeft = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      // שובץ את הפונקציה לקריאה חוזרת כל שנייה
+      this.timer = setTimeout(updateTimer, 1000);
+    // }
+  };
+
+  updateTimer(); // הפעלת הפונקציה לראשונה
+}
+
+ngOnDestroy(): void {
+  clearInterval(this.timer);
+}
 }
