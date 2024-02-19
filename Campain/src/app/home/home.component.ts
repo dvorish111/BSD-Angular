@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   numChildren!: number;
   numFamily!: number;
   videoPlaying: boolean = false;
-  images: slidesStore[] = [{ id: "1", title: "Ramot", src: '../../assets/images/RAMOT1.jpg', alt: './../assets/images/RAMOT2.jpg', description: "תמונה ראשונה נוף ראשון" }
+  images: slidesStore[] = [{ id: "1", title: "Ramot", src: '../../assets/images/RAMOT1.jpg', alt: './../assets/images/RAMOT2.jpg', description: "תמונה ראשונה נוף ראשוןזה תמונה של רמות בכללי התמונה הזו צולצה בשעת הבוקר של בין הערביים " }
     , { id: "2", title: "all Ramot", src: '../../assets/images/RAMOT2.jpg', alt: "./../assets/images/RAMOT2.jpg", description: "תמונה שניה נוף שני" }
 
   ];
