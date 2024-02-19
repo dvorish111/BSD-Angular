@@ -9,6 +9,9 @@ import { Subscription, interval, timer } from 'rxjs';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Directive, HostListener, ElementRef } from '@angular/core';
 // import { trigger, style, animate, transition } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { shakeCenter } from 'igniteui-angular';
+import { cementMixer } from '@igniteui/material-icons-extended';
 
 export interface slidesStore{
   id:string;
@@ -17,10 +20,7 @@ export interface slidesStore{
   alt:string;
   description:string;
 }
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { shakeCenter } from 'igniteui-angular';
-import { cementMixer } from '@igniteui/material-icons-extended';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+
 
 @Component({
   selector: 'app-home',
@@ -284,4 +284,8 @@ export class HomeComponent implements OnInit{
       counter.current += increment;
     }
   }
+
+
+
+  
 }

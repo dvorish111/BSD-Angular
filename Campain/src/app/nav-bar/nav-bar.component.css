@@ -17,7 +17,7 @@
 
 /* קישורים בNAVBAR */
 .navbar a {
- color: 003036;  /* צבע חום בורדו */
+ color: #003036;  /* צבע חום בורדו */
   transition:
   color 0.3s ease; /* אנימציה במעבר העכבר */
   margin: 10px;
@@ -54,7 +54,7 @@
   align-items: center; /* מרכז את הטקסט והאייקון */
   margin-right: 15px;
   font-size: 14px;
-  color:  #FFAF00; /* צבע חום בורדו */
+  color:  #003036; /* צבע חום בורדו */
 }
 
 .logo {
@@ -273,3 +273,4 @@ transition: stroke-dashoffset 0.5s ease;
   background-color:  #FFAF00;
   color: white;
 }
+
