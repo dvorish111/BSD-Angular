@@ -64,7 +64,7 @@ import { RouterModule } from '@angular/router';
      IgxProgressBarModule,
      CarouselModule,
      BrowserAnimationsModule,
-     RouterModule,
+     RouterModule
     
     
   ],

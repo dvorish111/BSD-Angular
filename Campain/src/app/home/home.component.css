@@ -89,8 +89,68 @@
 
 
 
+/* -- -----mp4------ */
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.side-rectangle,
+.main-rectangle {
+  width: calc(33.33% - 20px); /* חלוקת הרוחב לשלושה חלקים, עם מרווח בין המלבנים */
+  height: 350px; /* גובה קבוע */
+  margin: 0 10px; /* מרווח בין המלבנים */
+  background-color: #f0f0f0; /* צבע רקע */
+  position: relative;
+  
+}
+.logo-overlay-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* הוספת אנימציה למעבר */
+}
+
+.logo-overlay-video:hover {
+  opacity: 0.7;
+}
+
+.logoVideo {
+  font-size: 100px;
+  color:  #FFAF00;
+  width: 200%; /* גודל האייקון */
+  height: auto; /* גובה אוטומטי כדי לשמור על היחסיות */
+}
+
+.video-playing .logo-overlay-video {
+  transform: scale(2) translate(-50%, -50%); /* מקדמת את האייקון ומזיזה אותו לאמצע */
+}
+
+.video-playing .logoVideo {
+  width: 50px; /* הקטנת האייקון */
+}
+
+.videoPlaying .logo-overlay-video:not(:hover) {
+  opacity: 0; /* החבאת האייקון כאשר הוידאו דלוק */
+}
 
 
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* שינוי לכיוון אנכי כאשר הרוחב הוא קטן מ-768px */
+  }
+
+  .side-rectangle,
+  .main-rectangle {
+    width: 100%; /* רוחב מלבן המלבנים בכיוון אנכי */
+    margin: 10px 0; /* מרווח בין המלבנים */
+  }
+}
+/* -- -----mp4------ */
 
 
 /* @keyframes slideUp {

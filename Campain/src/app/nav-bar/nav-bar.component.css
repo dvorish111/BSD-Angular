@@ -146,14 +146,14 @@ button.mat-raised-button:hover {
 }
 
 #myNavbar.sticky a {
-  color: #FFAF00; /* צבע חום בורדו */
+  color: #003036; /* צבע חום בורדו */
   transition: color 0.3s ease; /* אנימציה במעבר העכבר */
   margin: 10px;
 }
 
 #myNavbar.sticky a:hover {
-  color: black; /* צבע שחור במעבר העכבר */
-  text-decoration: solid underline black 4px;
+  color:  #003036; /* צבע שחור במעבר העכבר */
+  text-decoration: solid underline  #FFAF00 4px;
   text-underline-offset: 8px;
 }
 
@@ -186,14 +186,14 @@ button.mat-raised-button:hover {
 }
 
 .Goal-Campaign {
-  color: black; /* צבע חום בורדו */
+  color: #003036; /* צבע חום בורדו */
   margin-right: 5px;
   margin-left: 5px;
   margin-top: 10px;
 }
 
 .Goul .navbar-brand {
-  color: black; /* צבע חום בורדו */
+  color: #003036; /* צבע חום בורדו */
   font-weight: bold; 
   display: flex;
   align-items: center;

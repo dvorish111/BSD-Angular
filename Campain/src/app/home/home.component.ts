@@ -20,7 +20,7 @@ export interface slidesStore{
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { shakeCenter } from 'igniteui-angular';
 import { cementMixer } from '@igniteui/material-icons-extended';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+// import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-home',
@@ -284,4 +284,18 @@ export class HomeComponent implements OnInit{
       counter.current += increment;
     }
   }
+  videoPlaying: boolean = false;
+
+  playVideo(videoPlayer: HTMLVideoElement) {
+    if (!this.videoPlaying) {
+      videoPlayer.play();
+      videoPlayer.classList.add('video-playing'); // הוספת קלאס "video-playing"
+      this.videoPlaying = true;
+    } else {
+      videoPlayer.pause();
+      videoPlayer.classList.remove('video-playing'); // הסרת קלאס "video-playing"
+      this.videoPlaying = false;
+    }
+  }
+  
 }
