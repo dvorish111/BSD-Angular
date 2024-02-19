@@ -167,56 +167,26 @@
   top: calc(50% - 10px); /* המיקום אחרי האנימציה */
 }
 
-/* @keyframes moveRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(50%);
-  }
-} */
-
-
-  /* .animated-number {
-    font-size: 24px; 
-    color: #333;
-    animation: countUpAnimation 2s forwards;
-  } */
-/*   
-  @keyframes countUpAnimation {
-    from { transform: translateY(0); }
-    to { transform: translateY(-100px); }
-  } */
-  
-  
-
-
-
-
-
-
-
-
-/*//////////////////////////////*/
 
 .animated-number {
   transition: width 1s ease-in-out; /* או כל סוג אנימציה אחר שתרצה */
 }
 
 .number {
-  width: 50px;
-  height: 50px;
-  background-color: lightblue;
+  /* width: 50px;
+  height: 50px; */
+  /* background-color: lightblue; */
   display: inline-block;
   margin: 10px;
   text-align: center;
   line-height: 50px;
   cursor: pointer;
+  /* justify-content: center; */
 }
 
-.counter {
+/* .counter {
   text-align: center;
-}
+} */
 
 .count-number {
   font-size: 36px;
@@ -235,3 +205,65 @@
   transition: none; /* Remove transition when animation is finished */
 }
 
+.counter-row {
+  display: flex;
+}
+
+.counter {
+  margin: 20px;
+  
+}
+
+.counter1{
+  order: 1;
+  font-size:50px;
+  text-align:center;
+}
+.counter2 {
+  order: 1;
+  font-size:35px;
+  text-align:center;
+}
+
+.counter3,
+.counter4 {
+  order: 2;
+  background-color: #054556;
+  color: #FFAF00;
+  text-align:center;
+  font-size:25px;
+}
+.counterConainr {
+  display: flex;
+  width: 50%; /* אחוז כדי להקטין את העיצוב לחצי הצד השמאלי של המסך */
+  /* position: fixed; */
+   /* כדי להקטין את העיצוב בלבד על חצי הצד השמאלי של המסך */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  /* background-color: lightgray;  */
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+.counter-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+ 
+  
+}
+.Goal-Campaign{
+  font-size:50px;
+}
+.TotalRaised{
+  font-size:30px;
+}
+.counter-col{
+  justify-content: center;
+    
+}
+
+.numChildren.numFamily{
+font-size:large;
+}

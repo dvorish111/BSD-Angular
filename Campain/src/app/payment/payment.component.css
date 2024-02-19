@@ -4,12 +4,14 @@
   }
   .btn-btn-secondary {
     border-radius: 2px;
-    background-color: rgb(206, 216, 252);
+    background-color: #003036;
+    /* rgb(206, 216, 252); */
   }
 
   .form-control {
     border-radius: 2px;
-    background-color: rgb(206, 216, 252);
+    background-color:#003036;
+     /* rgb(206, 216, 252); */
   }
 
   .form-control:focus {

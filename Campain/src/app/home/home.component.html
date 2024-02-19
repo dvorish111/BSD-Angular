@@ -29,6 +29,42 @@
             </ng-template>
           </owl-carousel-o>
          -->
+         
+            
+           
+          
+         
+         <!-- <div class="counterConainr">
+            <div *ngFor="let counter of counters; let i = index" class="counter counter{{i + 1}} {{i % 2 === 0 ? 'mt-3' : 'mt-5'}} {{i === 3 ? 'col' : 'col-md-6'}}">
+              <div class="number">{{ counter.current| number: '1.0-0' }}</div>
+            </div>
+          </div>
+           -->
+   <div class="counterConainr">
+  <div class="counter-wrapper">
+    <div class="counter-col">
+      <div class="counter counter1">
+        <div class="number"><H5 class="Goal-Campaign">Goal Campaign</H5>${{ counters[0].current | number: '1.0-0' }}</div>
+      </div>
+      <div class="counter counter2">
+        <div class="number"> <H5 class="TotalRaised">Total raised</H5> ${{ counters[1].current | number: '1.0-0' }}</div>
+      </div>
+    </div>
+    <div class="counter-row">
+      <div class="counter counter3">
+        <div class="number"><H5 class="numFamily">Families funded</H5>{{ counters[2].current | number: '1.0-0' }}</div>
+      </div>
+      <div class="counter counter4">
+        <div class="number"><H5 class="numChildren">Children funded</H5> {{ counters[3].current | number: '1.0-0' }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<!-- <img class="img"  src="../../assets/images/RAMOT1.jpg">  -->
+          
+       
        <br><br><br>
          <owl-carousel-o [options]="customOptions">
             <ng-container *ngFor="let slide of images">
@@ -86,7 +122,7 @@
           
 <!-- 
 
-<div class="Goul">
+ <div class="Goul">
     <H5 class="Goal-Campaign">Goal Campaign:</H5>  <span > {{currentGoul}}</span>
     <H5 class="Goal-Campaign">Total raised:</H5>  <span > {{currentTotalRaised}}</span>
 </div>
@@ -99,11 +135,7 @@
   <!-- <div class="counter" *ngFor="let counter of counters">
     <span class="number" [ngStyle]="{ 'width.%': (counter.current / counter.target) * 100 }">{{ counter.current| number: '1.0-0' }}</span>
   </div> -->
-  <div class="counterConainr">
-  <div *ngFor="let counter of counters" class="counter" >
-    <div class="number" >{{ counter.current| number: '1.0-0'  }}</div>
-  </div>
-</div>
+
   
 <app-families></app-families>
 <app-show-donations></app-show-donations>
