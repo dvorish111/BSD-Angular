@@ -20,12 +20,16 @@
   .igx-circular-bar{
     width: 400px;
     height: 400px;
+    --igx-circular-bar-text-display: none; /* להסתיר את הטקסט */
 
     /* left: 500px; */
   /* position: fixed; */
   /* top: 500px; */
   /* z-index: 1; */
   }
+  .igx-circular-bar-percentage {
+    display: none !important;
+}
   
   
 
@@ -308,14 +312,15 @@ font-size:large;
   background-color:#FFAF00;
 }
 
-/* .rounded-circle{
+ .rounded-circle{
 
-  width: 390px;
+  /* width: 390px;
   height: 390px;
   justify-content:center;
-  position: absolute;
+  position: absolute; */
+  /* z-index: 2; */
   
-} */
+} 
 
 .circular-bar img {
   position: absolute;
