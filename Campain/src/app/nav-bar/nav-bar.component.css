@@ -72,6 +72,8 @@ button.mat-raised-button1{
   font-family: 'Open Sans', sans-serif;
   font-weight: bold; /* טקסט מודגש */
   transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+  
+  border: 2px solid #FFAF00 !important;
 }
 
 button.mat-raised-button {
