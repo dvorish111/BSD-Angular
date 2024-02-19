@@ -71,7 +71,7 @@ export class NavBarComponent implements OnInit,OnDestroy {
         // Set the flag to true when the second server call is complete
         this.sumLoaded = true;
         // Call the callback function
-        this.checkBothLoaded();
+      //  this.checkBothLoaded();
          this.caunterRaised()
         this.cdr.detectChanges();
        
@@ -110,20 +110,20 @@ export class NavBarComponent implements OnInit,OnDestroy {
     }
   }
   caunterRaised(){
+    this.TotalRaisedPercentages= this.TotalRaisedPercentagesCalculation()
     this.cdr.detectChanges();
     const targetValue =  this.TotalRaisedPercentages; // ערך היעד
     const animationDuration = 5000; // משך זמן האנימציה במילישניות
     const steps =  this.TotalRaisedPercentages ; // מספר השלבים באנימציה
-  
-  
     const stepSize = targetValue /steps;
     const intervalTime = animationDuration /steps;
-  
+
     const timer = interval(intervalTime);
     this.timerSubscription = timer.subscribe(() => {
       if (this.progress < targetValue) {
         this.progress += stepSize;
       } else {
+        
         this.timerSubscription.unsubscribe(); // להפסיק את האינטרוול
       }
     });
@@ -133,13 +133,17 @@ export class NavBarComponent implements OnInit,OnDestroy {
     // Check if both server calls have finished
     if (this.campaignLoaded && this.sumLoaded) {
       // Call the calculation function
+      this.cdr.detectChanges();
       this.TotalRaisedPercentagesCalculation();
     }
   }
 
-  TotalRaisedPercentagesCalculation() {
-    this.TotalRaisedPercentages = (this.TotalRaised / this.campaignGoul) * 100;
-    this.caunterRaised()
+  TotalRaisedPercentagesCalculation()
+   {   this.cdr.detectChanges();
+    if((this.TotalRaised / this.campaignGoul) * 100<100){
+    this.TotalRaisedPercentages = (this.TotalRaised / this.campaignGoul) * 100;}
+    else{ this.TotalRaisedPercentages =110}
+    return  this.TotalRaisedPercentages;
   }
 
   @HostListener('window:scroll', ['$event'])

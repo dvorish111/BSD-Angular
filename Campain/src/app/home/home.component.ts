@@ -12,6 +12,7 @@ import { Directive, HostListener, ElementRef } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { shakeCenter } from 'igniteui-angular';
 import { cementMixer } from '@igniteui/material-icons-extended';
+import { MatIcon } from '@angular/material/icon';
 
 export interface slidesStore{
   id:string;
@@ -284,8 +285,33 @@ export class HomeComponent implements OnInit{
       counter.current += increment;
     }
   }
+  videoPlaying: boolean = false;
 
-
-
+  playVideo(videoPlayer: HTMLVideoElement) {
+    if (!this.videoPlaying) {
+      videoPlayer.play();
+      videoPlayer.classList.add('video-playing'); // הוספת קלאס "video-playing"
+      this.videoPlaying = true;
+    } else {
+      videoPlayer.pause();
+      videoPlayer.classList.remove('video-playing'); // הסרת קלאס "video-playing"
+      this.videoPlaying = false;
+    }
+  }
+  // isPlaying: boolean = false;
+  // playVideo(videoPlayer: HTMLVideoElement, iconElement: MatIcon) {
+  //   const isPlaying = !videoPlayer.paused && !videoPlayer.ended;
+    
+  //   if (isPlaying) {
+  //     videoPlayer.pause();
+  //     videoPlayer.classList.remove('video-playing');
+  //     iconElement._elementRef.nativeElement.textContent = 'play_circle'; // Change icon to play_circle when video is paused
+  //   } else {
+  //     videoPlayer.play();
+  //     videoPlayer.classList.add('video-playing');
+  //     iconElement._elementRef.nativeElement.textContent = 'pause_circle'; // Change icon to pause_circle when video is playing
+  //   }
+  // }
   
+
 }
