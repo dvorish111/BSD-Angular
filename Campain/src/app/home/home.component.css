@@ -129,7 +129,8 @@
 }
 
 .video-playing .logoVideo {
-  width: 50px; /* הקטנת האייקון */
+  opacity: 0;
+  font-size: 5px; /* הקטנת האייקון */
 }
 
 .videoPlaying .logo-overlay-video:not(:hover) {
