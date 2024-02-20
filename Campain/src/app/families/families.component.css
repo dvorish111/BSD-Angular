@@ -2,8 +2,37 @@
     max-width: 400px;
   }
 
+.show-donations {
+  width: 25%;
+}
+.donatesContainer{
+  display: flex;
+ margin: 1rem 1rem;
+
+}
 
 
+
+.cards-container {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  justify-content:flex-start; /* רווח בשוליים */
+   /* gap: 1rem;  */
+   width: 75%;
+  /* margin: 0 1rem; */
+
+} 
+
+.card{
+  text-align: center;
+  justify-content:center; 
+}
+.mat-card-content{
+  display: flex;
+}
+/* .showMoreFamiliesContainer{
+  position: absolute;
+} */
 
 
 

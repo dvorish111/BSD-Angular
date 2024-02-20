@@ -25,7 +25,7 @@ export class FamiliesComponent implements OnInit {
   fullDonates!: Donate[];
   sumAllDonationsByDonated!:number[];
   Statuses= Statuses ;
-  initialFamiliesCount: number = 5;
+  initialFamiliesCount: number = 45;
   constructor( public myRouter: Router,private donateService: DonateService,private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
 
   }

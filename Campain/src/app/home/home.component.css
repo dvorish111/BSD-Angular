@@ -387,6 +387,7 @@ font-size:large;
 }
 .circular-bar {
   position: absolute;
+  display: flex;
   top: 50%;
   transform: translateY(-50%);
   right: 0;
@@ -398,7 +399,8 @@ font-size:large;
 }
 
  .rounded-circle{
-
+width: 100%;
+height: 60%;
   /* width: 390px;
   height: 390px;
   justify-content:center;
@@ -417,10 +419,12 @@ font-size:large;
 }
 .timer{
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 40%;
+  transform: translateX(50%);
   right: 0;
-  justify-content:center;
+  /* justify-content:center; */
   margin-right: 200px; /* ניתן להתאים את המרחק מהצד עם ערך רצוי */
   color: #FFAF00;
+  font-size: xx-large;
+ 
 }
