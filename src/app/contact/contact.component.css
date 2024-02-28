@@ -1,0 +1,51 @@
+ .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1c40f;
+  background-image: linear-gradient(to bottom right, #2ecc71, #3498db);
+  animation: gradient-animation 10s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.card {
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+}
+
+mat-card-title {
+  font-size: 24px;
+}
+
+.form {
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+mat-error {
+  color: red;
+}
+
+button {
+  margin: 10px;} 
+
+
+
+
+
+
+
