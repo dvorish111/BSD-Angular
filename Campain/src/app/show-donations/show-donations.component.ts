@@ -6,6 +6,9 @@ import { NeighborhoodService } from '../Services/neighborhood.service';
 import { Neighborhood } from '../Classes/Neighborhood';
 import { Donation } from '../Classes/Donation';
 import { DatePipe } from '@angular/common';
+import { DonorService } from '../Services/donor.service';
+import { CampaignService } from '../Services/campaign.service';
+import { Campaign } from '../Classes/Campaign';
 
 @Component({
   selector: 'app-show-donations',
@@ -28,14 +31,28 @@ flagFamily!:boolean;
 date!:Date;
 initialFamiliesCount: number = 5;
 fullDonations!: Donation[];
-
-
-constructor(private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
+campaign!:Campaign;
+campaignGoul!:number;
+constructor(private donationService:DonationService,private neighborhoodService:NeighborhoodService,private donorService:DonorService,private campaignService:CampaignService) {
 this.date=new Date();
 
 }
 ngOnInit(): void {
-
+  const campaignId = 1;
+  this.campaignService.getByIdCampaign(campaignId).subscribe({
+    next: (campaign: Campaign) => {
+      this.campaign = campaign;
+      this.campaignGoul = this.campaign.goul;
+      // this.startDate = this.campaign.startDate;
+      // this.endDate = this.campaign.endDate;
+      // console.log(this.campaignGoul);
+      // this.counters[0].target = campaign.goul
+  
+    },
+    error: (err) => {
+      console.error(err);
+    }
+  });
   // this.donationService.getSumDonation().subscribe
   // ({
   //   next: (sum: number) => {
@@ -128,4 +145,6 @@ ShowLoadedDonationsCount(donates:Donation[]){
  this.showDonations = donates.slice(0, this.initialFamiliesCount);
 
 }
+
+
 }

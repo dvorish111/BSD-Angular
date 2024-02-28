@@ -237,7 +237,33 @@
 <div *ngFor="let neighborhoodId of neighborhoods">
   <button (click)="neighborhood(neighborhoodId.id)">{{neighborhoodId.name}}</button>
 </div> -->
+ <div class="filters">
+  
+  <button (click)="familyOfChildren(5)">family of 2-5 children</button>
+  <button (click)="familyOfChildren(10)">family of 5-10 children</button>
+  <button (click)="familyOfChildren(15)">family of 10-15 children</button>
+  <button (click)="familyOfChildren(21)">family of 15-21 children</button>
+  <br>
+  <br>
+  <button (click)="funded(true)">funded</button>
+  <button (click)="funded(false)">not funded</button>
+  <br>
+  <br>
+  <button (click)="needed(499)">needed 0-499</button>
+  <button (click)="needed(999)">needed 500-999</button>
+  <button (click)="needed(10000)">needed 2000+</button>
+  <br>
+  <br>
+  <button (click)="status(Statuses.Widow)">Widowed</button>
+  <button (click)="status(Statuses.Married)">Married</button>
+  <button (click)="status(Statuses.Divorced)">Divorced</button>
+  <br>
+  <br>
 
+  <div *ngFor="let neighborhoodId of neighborhoods">
+    <button (click)="neighborhood(neighborhoodId.id)">{{neighborhoodId.name}}</button>
+  </div>
+</div>
 <div class="donatesContainer">
   
 
@@ -315,7 +341,8 @@
     </mat-card>
   </div>
   </div>
-  
+  <button (click)="showMoreFamilies()">Show more</button>
+
 </div>
 <div  class="show-donations">
   <app-show-donations [sumDonationsByDonated]=0></app-show-donations>
@@ -323,31 +350,7 @@
 </div>
   
   <br><br><br>
-  <button (click)="showMoreFamilies()">Show more</button>
-  
-  <button (click)="familyOfChildren(5)">family of 2-5 children</button>
-  <button (click)="familyOfChildren(10)">family of 5-10 children</button>
-  <button (click)="familyOfChildren(15)">family of 10-15 children</button>
-  <button (click)="familyOfChildren(21)">family of 15-21 children</button>
-  <br>
-  <br>
-  <button (click)="funded(true)">funded</button>
-  <button (click)="funded(false)">not funded</button>
-  <br>
-  <br>
-  <button (click)="needed(499)">needed 0-499</button>
-  <button (click)="needed(999)">needed 500-999</button>
-  <button (click)="needed(10000)">needed 2000+</button>
-  <br>
-  <br>
-  <button (click)="status(Statuses.Widow)">Widowed</button>
-  <button (click)="status(Statuses.Married)">Married</button>
-  <button (click)="status(Statuses.Divorced)">Divorced</button>
-  <br>
-  <br>
-  <div *ngFor="let neighborhoodId of neighborhoods">
-    <button (click)="neighborhood(neighborhoodId.id)">{{neighborhoodId.name}}</button>
-  </div>
+ 
   
   
   
