@@ -83,7 +83,7 @@ default:
         'Value': {
             'Mosad':Mosad,
             'ApiValid':ApiValid,
-            'PaymentType': document.getElementById("PaymentType").value,
+            'PaymentType': document.getElementById("selectedPaymentType").value,
             'Currency': '1',
             'Zeout': document.getElementById('Zeout').value,
             'FirstName': document.getElementById('FirstName').value,
