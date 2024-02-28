@@ -1,0 +1,19 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  */
+  .x{
+    font-family: 'Open Sans', sans-serif;
+    font-size: larger;
+  }
+.icon{width: 200%;
+background-color: blueviolet;}

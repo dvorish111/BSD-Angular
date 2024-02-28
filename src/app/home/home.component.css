@@ -1,0 +1,430 @@
+@import "~animate.css/animate.min.css";
+/* .img{width: 100px;} */
+.Goul{
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:   #054556;  /* צבע חום בורדו */
+    ;
+}
+.bg-image_goal{
+
+  position: relative;
+
+}
+.bg-image1{ position: relative;
+  height: 85vh; /* גובה של התמונה כחצי מהגובה של המסך */
+  width: 100%; /* רוחב התמונה יהיה 100% */
+  overflow: hidden; /* מוסתרת תוכן חורג מהמסגרת של האבא */}
+.bg-image{
+  width: 100%; /* רוחב התמונה יהיה 100% */
+  height: 100%; /* גובה התמונה יהיה 100% */
+  object-fit: cover; /* התמונה תותאם כך שתמלא את כל האבא בלתי תלוי ביחסי צורה */
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  opacity: 0.7; /* שקיפות של 70% */
+
+  background-position: center;
+  background-repeat:repeat;
+  background-size: cover ;
+  position: absolute;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .igx-circular-bar{
+    width: 400px;
+    height: 400px;
+    --igx-circular-bar-text-display: none; /* להסתיר את הטקסט */
+
+    /* left: 500px; */
+  /* position: fixed; */
+  /* top: 500px; */
+  /* z-index: 1; */
+  }
+  .igx-circular-bar-percentage {
+    display: none !important;
+}
+  
+  
+
+ 
+
+  
+  /* .number-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; 
+  } */
+  
+  .progress-bar {
+    height: 50%;
+    line-height: 30px;
+    text-align: center;
+    background-color: green;
+    color: white;
+  }
+
+/* ---הגדרות התמונות----- */
+
+.carousel-image {
+
+
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  height:auto;
+  top: 0;
+  left: 0;
+  padding-top: 25%; /* רוחב רקע כחלק מהגובה */
+
+  position: relative;
+ 
+}
+/* .carousel-image__div{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* צל */
+
+.carousel-image__img {
+  position: absolute;
+  top: 0;
+  left:0;
+   width:50%;
+  /* height: 50%; */
+  /* padding-top: 50%; */
+  padding: 0 25%;
+  object-fit: cover; /* מילוי אובייקט בכל האלמנט */  
+}
+
+
+/* //הכיתובים מעל כל תמונה */
+.image-caption {
+ text-shadow: 5px 5px 10px rgb(169, 169, 169);;
+  position: absolute;
+  top: 20%;
+  right:0%; /* נעביר לצד ימין של המסך */
+  text-align: end;
+  color: rgb(003036);
+  padding: 15px;
+ 
+  /* color: #f1f1f1; */
+  width: 20%;
+  height: auto;
+}
+.image-caption p {
+  display: flexbox;
+  margin-bottom: 1px; /* Reduce margin below the p element */
+  
+}
+
+
+/* -- -----mp4------ */
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.side-rectangle,
+.main-rectangle {
+  width: calc(33.33% - 20px); /* חלוקת הרוחב לשלושה חלקים, עם מרווח בין המלבנים */
+  height: 350px; /* גובה קבוע */
+  margin: 0 10px; /* מרווח בין המלבנים */
+  background-color: #f0f0f0; /* צבע רקע */
+  position: relative;
+  
+}
+.logo-overlay-video {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+ 
+}
+
+.logo-overlay-video:hover {
+  opacity: 0.7;
+}
+
+.logoVideo {
+  font-size: 100px;
+  color:  #FFAF00;
+  width: 200%; /* גודל האייקון */
+  height: auto; /* גובה אוטומטי כדי לשמור על היחסיות */
+}
+/* .logo-overlay-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 1;
+} */
+
+/* .logoVideo {
+  font-size: 3rem;
+  color: white;
+} */
+
+.video-playing + .logo-overlay-video  {
+  content: "pause_circle"; 
+  font-size: medium;
+  transform: scale(0.5) translate(-100%, -350%); 
+  
+
+}
+/*  */
+
+
+
+
+
+.videoPlaying .logo-overlay-video:not(:hover) {
+  opacity: 0; /* החבאת האייקון כאשר הוידאו דלוק */
+}
+
+
+
+
+@media (max-width: 900px) {
+  .bg-image1{
+    height: 100vh;
+  }
+  .container {
+    flex-direction: column; /* שינוי לכיוון אנכי כאשר הרוחב הוא קטן מ-768px */
+  }
+
+  .side-rectangle,
+  .main-rectangle {
+    width: 100%; /* רוחב מלבן המלבנים בכיוון אנכי */
+    margin: 10px 0; /* מרווח בין המלבנים */
+  }
+
+ /* ----רספונסביות לסליידר----- */
+    .carousel-image {
+      width: 100%; /* Adjust width to 100% for smaller screens */
+      padding-top: 50%; /* Increase padding for better responsiveness */
+    }
+    
+    .carousel-image__img {
+     
+      width: 80%; /* Adjust image width for smaller screens */
+      padding: 0 10%; /* Adjust padding for better responsiveness */
+    }
+    
+    .image-caption {
+      text-shadow: 5px 5px 10px rgb(20, 1, 1);;
+       position:absolute;
+       top: 80%;
+       left: 50%;
+       transform: translate(-50%, -50%); /* נעביר לצד ימין של המסך */
+       text-align: center;
+       color: #FFAF00;
+      
+       background: rgb(0, 0, 0); /* Fallback color */
+       background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+       /* color: #f1f1f1; */
+       width: 80%;
+       height: auto;
+      
+     }
+     .image-caption h1 {
+      margin-bottom: 1px; /* Reduce margin below the h1 element */
+    }
+    
+    .image-caption p {
+      margin-bottom: 1px; /* Reduce margin below the p element */
+    }
+    
+    .image-caption button {
+      margin-top: 1px; /* Reduce margin above the button element */
+    }
+    
+    .image-caption .DonateNow {
+      margin-top: 1px; /* Reduce margin above the "Donate now" text */
+    }
+   /* ----רספונסביות לסליידר-סיום---- */
+   .counterConainr{
+    width: 100%;
+    transform: translate(50%, 0%);
+
+   }
+  
+}
+/* -- -----mp4------ */
+
+
+/* @keyframes slideUp {
+  0% { 
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+} */
+
+.image-caption.moveUp {
+ 
+  top: calc(50% - 10px); /* המיקום אחרי האנימציה */
+}
+
+
+.animated-number {
+  transition: width 1s ease-in-out; /* או כל סוג אנימציה אחר שתרצה */
+}
+
+.number {
+  /* width: 50px;
+  height: 50px; */
+  /* background-color: lightblue; */
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  /* justify-content: center; */
+}
+
+/* .counter {
+  text-align: center;
+} */
+
+.count-number {
+  font-size: 36px;
+  font-weight: bold;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.count-number.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.finished .count-number {
+  transition: none; /* Remove transition when animation is finished */
+}
+
+.counter-row {
+  display: flex;
+}
+
+.counter {
+  margin: 20px;
+  
+}
+
+.counter1{
+  order: 1;
+  font-size:50px;
+  text-align:center;
+}
+.counter2 {
+  order: 1;
+  font-size:35px;
+  text-align:center;
+}
+
+.counter3,
+.counter4 {
+  order: 2;
+  background-color: #054556;
+  color: #FFAF00;
+  text-align:center;
+  font-size:25px;
+}
+.counterConainr {
+  text-shadow: 5px 5px 10px rgb(56, 56, 56);;
+
+ position: absolute;
+  display: flex;
+  width: 50%; /* אחוז כדי להקטין את העיצוב לחצי הצד השמאלי של המסך */
+  /* position: fixed; */
+   /* כדי להקטין את העיצוב בלבד על חצי הצד השמאלי של המסך */
+  top: 10%;
+  left: 0;
+  bottom: 0;
+  /* background-color: lightgray;  */
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+.counter-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+ 
+  
+}
+.Goal-Campaign{
+  font-size:50px;
+  font-weight: bolder;
+}
+.TotalRaised{
+  font-size:30px;
+  color: #054556;
+}
+.counter-col{
+  justify-content: center;
+color: #FFAF00;
+  
+}
+
+.numChildren.numFamily{
+font-size:large;
+}
+.circular-bar {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  justify-content:center;
+  margin-right: 220px; /* ניתן להתאים את המרחק מהצד עם ערך רצוי */
+}
+.mat-raised-button{
+  background-color:#FFAF00;
+}
+
+ .rounded-circle{
+width: 100%;
+height: 60%;
+  /* width: 390px;
+  height: 390px;
+  justify-content:center;
+  position: absolute; */
+  /* z-index: 2; */
+  
+} 
+
+.circular-bar img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 378px;
+  height: 377px;
+  transform: translate(-50%, -50%);
+}
+.timer{
+  position: absolute;
+  top: 40%;
+  transform: translateX(50%);
+  right: 0;
+  /* justify-content:center; */
+  margin-right: 200px; /* ניתן להתאים את המרחק מהצד עם ערך רצוי */
+  color: #FFAF00;
+  font-size: xx-large;
+ 
+}

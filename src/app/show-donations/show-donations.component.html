@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="  mb-5 ">
+      <mat-card *ngIf="donate" class="example-card">
+        <mat-card-header>
+          <mat-card-title>Family Size</mat-card-title>
+          <mat-card-subtitle>{{ donate.numChildren }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-card-title>Case</mat-card-title>
+          <mat-card-subtitle>{{ donate.id }}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-card-title>Status</mat-card-title>
+          <mat-card-subtitle>{{ Statuses[donate.idStatus] }}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-card-title>Street</mat-card-title>
+          <mat-card-subtitle>{{ donate.street }}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-card-title>Needed</mat-card-title>
+          <mat-card-subtitle>{{ donate.needed }}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-card-title>Raised</mat-card-title>
+          <mat-card-subtitle [(ngModel)]="donate.raised">{{ donate.raised }}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-card-title>Neighborhood</mat-card-title>
+          <mat-card-subtitle>{{ donate.idNeighborhoodNavigation.name }}</mat-card-subtitle>
+        </mat-card-content>
+      </mat-card>
+      <br><br>
+      <!-- <button (click)="showMoreDonations()">Show more</button> -->
+    </div>
+    <div class="mb-5">
+      <mat-card *ngFor="let donation of showDonations" class="example-card">
+        
+        <mat-card-header>
+          <mat-card-title>Amount</mat-card-title>
+          <mat-card-subtitle>{{ donation.amount }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content *ngIf="donation.idDonated; else elseBlock">
+          <mat-card-title>Case</mat-card-title>
+          <mat-card-subtitle>{{ donation.idDonatedNavigation?.id }}</mat-card-subtitle>
+        </mat-card-content>
+        <ng-template #elseBlock>
+          <mat-card-content>
+            <mat-card-title>General Donation</mat-card-title>
+            <mat-card-subtitle>{{ donation.idNeighborhoodNavigation?.name }}</mat-card-subtitle>
+          </mat-card-content>
+        </ng-template>
+        <mat-card-content>
+          <!-- <mat-card-title>Date</mat-card-title> -->
+          <mat-card-subtitle>{{ calculateTimeDifference(donation.date) }} ago</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content *ngIf="donation.dedication">
+          <mat-card-title>Dedication</mat-card-title>
+          <mat-card-subtitle>{{ donation.dedication }}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-card-title *ngIf="donation.isAnonymous; else isNotAnonymous">Anonymous</mat-card-title>
+        </mat-card-content>
+        <ng-template #isNotAnonymous>
+          <mat-card-content>
+            <mat-card-title>{{ donation.idDonorNavigation.firstName }}</mat-card-title>
+            <!-- <mat-card-subtitle>{{ donation.idDonorNavigation.firstName }}</mat-card-subtitle> -->
+          </mat-card-content>
+        </ng-template>
+      </mat-card>
+    
+    </div>
+    
+  </div>
+</div>
+
+
+<button (click)="showMoreDonations()"  >Show more</button>
+
+
+
+
+
+

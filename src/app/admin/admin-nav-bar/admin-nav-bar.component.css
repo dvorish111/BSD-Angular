@@ -1,0 +1,63 @@
+.admin-nav-bar-wrapper {
+    height: 70px;
+
+    .admin-nav-bar {
+        border: 2px solid #054556 !important;
+        height: 70px;
+        padding-top: 10px;
+    }
+    .nav-item{
+        text-align: center;
+    }
+    .nav-item.active {
+        height: 70px;
+        background-color: #054556;
+        color: white;
+    }
+
+    .nav-link {
+        font-family: sans-serif;
+        font-size: 25px;
+    }
+
+    .nav-link.active {
+        color: white;
+
+    }
+}
+
+
+
+.sub-links {
+    display: none;
+}
+
+.nav-item:hover .sub-links {
+    display: block;
+}
+
+.nav-link-child {
+    color: black;
+    font-size: 20px;
+}
+
+
+.submenu {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+    background-color: #EBECED;
+    
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu a {
+    padding: 8px;
+    /* text-decoration: none; */
+    color: black;
+    /* font-size: 20px; */
+}
+
