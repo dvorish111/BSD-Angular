@@ -237,8 +237,51 @@
 <div *ngFor="let neighborhoodId of neighborhoods">
   <button (click)="neighborhood(neighborhoodId.id)">{{neighborhoodId.name}}</button>
 </div> -->
- <div class="filters">
-  
+<br>
+<div class="filters">
+  <mat-form-field >
+    <mat-label>Family size</mat-label>
+    <mat-select (selectionChange)="familyOfChildren($event.value)">
+      <mat-option value="5">2-5 children</mat-option>
+      <mat-option value="10">5-10 children</mat-option>
+      <mat-option value="15">10-15 children</mat-option>
+      <mat-option value="21">15-21 children</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Funded</mat-label>
+    <mat-select (selectionChange)="funded($event.value)">
+      <mat-option value="true">Funded</mat-option>
+      <mat-option value="false">Not funded</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Needed</mat-label>
+    <mat-select (selectionChange)="needed($event.value)">
+      <mat-option value="499">0-499</mat-option>
+      <mat-option value="999">500-999</mat-option>
+      <mat-option value="10000">2000+</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select (selectionChange)="status($event.value)">
+      <mat-option [value]="Statuses.Widow">Widowed</mat-option>
+      <mat-option [value]="Statuses.Married">Married</mat-option>
+      <mat-option [value]="Statuses.Divorced">Divorced</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Neighborhood</mat-label>
+    <mat-select (selectionChange)="neighborhood($event.value)">
+      <mat-option *ngFor="let neighborhoodId of neighborhoods" [value]="neighborhoodId.id">
+        {{ neighborhoodId.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!--   
   <button (click)="familyOfChildren(5)">family of 2-5 children</button>
   <button (click)="familyOfChildren(10)">family of 5-10 children</button>
   <button (click)="familyOfChildren(15)">family of 10-15 children</button>
@@ -262,8 +305,8 @@
 
   <div *ngFor="let neighborhoodId of neighborhoods">
     <button (click)="neighborhood(neighborhoodId.id)">{{neighborhoodId.name}}</button>
-  </div>
-</div>
+  </div> -->
+
 <div class="donatesContainer">
   
 

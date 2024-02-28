@@ -16,7 +16,9 @@
   padding: 5%;
 }
 
-
+.filters{
+  justify-content: center;
+}
 
 /* .cards-container {
   display: flex;
@@ -111,6 +113,22 @@
   margin: 0 1rem;
   position: absolute;
 }   */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mat-form-field {
+  flex: 1;
+}
+
+.mat-select {
+  width: 100%;
+  
+}
+
+
 
 
 
