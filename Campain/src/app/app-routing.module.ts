@@ -9,6 +9,7 @@ import { FamiliesComponent } from './families/families.component';
 import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
+  { path: '',  component: HomeComponent },
  { path: 'logIn',  component: LogInComponent },
  {  path: 'signUp',  component: SignUpComponent },
  {  path: 'home',  component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
  {  path: 'payment/:amount',  component: PaymentComponent },
  {  path: 'payment/:donatesId/:amount/:sumDonationsByDonated',  component: PaymentComponent },
  {  path: 'admin-interface/:name',  component: AdminInterfaceComponent },
+ { path: '**',  component: HomeComponent }
 
 ];
 

@@ -140,14 +140,12 @@
 
 
 
-
+<div class="container1">
 <div class="container mt-5">
-  <div>
-    <h3 class="text-center mb-4">טופס תשלום</h3>
-  </div>
+ 
 
  
-    
+    <div class="payment-form-container">
     <div *ngIf="idDonated==0" class="form-group" id="NeighborhoodDiv">
       <h1 class="fas fa-user text-center" for="Neighborhood">Which neighborhood is your donation intended for?</h1>
       <select id="Neighborhood" class="form-control" [(ngModel)]="selectedNeighborhood">
@@ -367,10 +365,14 @@
       <div id="Result" style="text-align:center" dir="ltr"></div>
 
       <button (click)="keepData()">keepData </button>
+    </div>
+  </div>
+
+</div>
+      <div  class="show-donations">
       <app-show-donations [donate]="donated" [sumDonationsByDonated]="sumDonationsByDonated" ></app-show-donations>
     </div>
-
- 
+  
 </div>
 
 
