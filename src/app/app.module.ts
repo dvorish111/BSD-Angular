@@ -34,6 +34,7 @@ import { RouterModule } from '@angular/router';
 import { ConfirmPasswordComponent } from './admin/confirm-password/confirm-password.component';
 import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.component';
 import { NewCampaignComponent } from './admin/new-campaign/new-campaign.component';
+import { NewCampaignApprovalComponent } from './admin/new-campaign-approval/new-campaign-approval.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { NewCampaignComponent } from './admin/new-campaign/new-campaign.componen
     AdminFamiliesComponent,
     ConfirmPasswordComponent,
     AdminNavBarComponent,
-    NewCampaignComponent 
+    NewCampaignComponent,
+    NewCampaignApprovalComponent 
   ],
   imports: [
     BrowserModule,
