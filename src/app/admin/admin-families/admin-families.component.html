@@ -1,0 +1,63 @@
+<button mat-raised-button color="primary" (click)="updateFamilyForm()" type="button">עדכן פרטי משפחה</button>
+
+<button mat-raised-button color="primary" (click)="createFamilyForm()" type="button">הוסף משפחה</button>
+<br>
+<form *ngIf="statusFamilyForm ==='update'" class="example-form" [formGroup]="SearchForm" (ngSubmit)="onSubmitSearchForm()">
+
+  <mat-label>חפש משפחה לפי מספר תז </mat-label>
+  <input  type="search" formControlName="search" matInput placeholder="  תז מספר " value="">
+  <button type="submit">חפש</button>
+</form>
+<br>
+
+ <form *ngIf="statusFamilyForm" class="example-form" [formGroup]="addFamilyForm" (ngSubmit)="onSubmitFamilyForm()">
+    
+        <mat-form-field class="example-full-width">
+          <mat-label>תז הורים</mat-label>
+          <input type="text" formControlName="ParentTaz" matInput placeholder="" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>שם המשפחה</mat-label>
+            <input type="text" formControlName="Name" matInput placeholder="" value="">
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>מס ילדים</mat-label>
+            <input type="number" formControlName="NumChildren" matInput placeholder="" value="">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>רחוב</mat-label>
+            <input type="text" formControlName="Street" matInput placeholder="" value="">
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>סכום נצרך לתמיכה</mat-label>
+            <input  type="number" formControlName="Needed" matInput placeholder="" value="">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>מס בניין</mat-label>
+            <input  type="number" formControlName="NumberBuilding" matInput placeholder="" value="donate.numChildren">
+          </mat-form-field>
+
+          <br>
+          
+           <mat-form-field>
+            <mat-label>סטטוס</mat-label>
+            <mat-select formControlName="Status" name="status">
+                <mat-option *ngFor="let s of options" [value]="s">{{s}}</mat-option>
+             </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>שכונה</mat-label>
+            <mat-select formControlName="Neighborhood" name="neighborhood">
+                <mat-option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{neighborhood.name}}</mat-option>
+            </mat-select>
+          </mat-form-field> 
+          <!-- <p> Selected food: {{selectedValue}} </p> -->
+          <br>
+          <button mat-raised-button color="primary"  type="submit">שלח</button>
+
+        </form>
+       

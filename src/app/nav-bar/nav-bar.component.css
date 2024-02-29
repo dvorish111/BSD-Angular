@@ -1,0 +1,278 @@
+/* styles.css */
+
+/* body{
+  font-family: 'Sixtyfour';
+} */
+
+/* סגנון לNAVBAR */
+.navbar {
+  background-color: white; /* צבע הרקע - באר לבן */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* צל בקצה התחתון */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 110px; /* הוספת גובה קבוע לNAVBAR */
+}
+
+/* קישורים בNAVBAR */
+.navbar a {
+ color: #003036;  /* צבע חום בורדו */
+  transition:
+  color 0.3s ease; /* אנימציה במעבר העכבר */
+  margin: 10px;
+}
+
+.navbar a:hover {
+  color:black;/* צבע שחור במעבר העכבר */
+  text-decoration: solid underline  #FFAF00 4px;
+  text-underline-offset: 8px;
+  
+}
+
+/* פס מתחת לNAVBAR */
+.navbar::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color:  FFAF00; ; /* צבע חום בורדו */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* אייקונים לצד כל קישור */
+/* .navbar a::before {
+  margin-right: 15px;
+  font-size: 14px;
+  color: #8B4513; 
+} 
+*/
+.navbar a::before {
+  display: flex;
+  align-items: center; /* מרכז את הטקסט והאייקון */
+  margin-right: 15px;
+  font-size: 14px;
+  color:  #003036; /* צבע חום בורדו */
+}
+
+.logo {
+  width: 150px;
+  /* height: 50%; */
+}
+button.mat-raised-button1{
+  height: 70px;
+ stroke-width: 20%;
+ stroke: #FFAF00;
+ border-width: medium;
+  /* background-color: #FFAF00; צבע בורדו נוטה לאדום */
+  color: #003036; /* צבע טקסט לבן או צבע מתאים */
+  margin-right: 15px; /* מרווח מימין בין הכפתורים */
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold; /* טקסט מודגש */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+  
+  border: 2px solid #FFAF00 !important;
+}
+
+button.mat-raised-button {
+  height: 70px;
+  background-color: #FFAF00; /* צבע בורדו נוטה לאדום */
+  color: white; /* צבע טקסט לבן או צבע מתאים */
+  margin-right: 15px; /* מרווח מימין בין הכפתורים */
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold; /* טקסט מודגש */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+}
+button.mat-raised-button1:hover {
+  background-color:   #FFAF00; /* צבע בורדו נוטה לאדום כאשר עם העכבר מעל הכפתור */
+  transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
+}
+button.mat-raised-button:hover {
+  background-color: #ffb515; /* צבע בורדו נוטה לאדום כאשר עם העכבר מעל הכפתור */
+  transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
+}
+
+#myNavbar a {
+  font-weight: bold; /* טקסט מודגש */
+  transition: font-size 0.3s ease; /* אנימציה במעבר על הלינקים */
+}
+
+#myNavbar a:hover {
+  font-size: 1.1em; /* הגדלת גודל הטקסט במעבר על הלינקים */
+}
+
+/* שורה חדשה למדיה-קווים - בתוך קובץ ה-CSS שלך */
+@media (max-width: 768px) {
+  .navbar-collapse {
+      flex-basis: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-nav {
+      text-align: center;
+  }
+
+  .navbar-toggler-icon {
+      order: 1;
+  }
+
+  .navbar-brand,
+  .navbar-toggler {
+      margin-bottom: 10px;
+  }
+
+  .Goul {
+      order: 2;
+  }
+
+  .navbar a,
+  .navbar-toggler,
+  .Goul {
+      margin: 10px;
+  }
+
+  .Goul button {
+      margin-top: 10px;
+  }
+}
+
+/* navbar.component.css */
+#myNavbar.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #fefd; /* צבע הרקע - באר לבן */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* צל בקצה התחתון */
+}
+
+#myNavbar.sticky a {
+  color: #003036; /* צבע חום בורדו */
+  transition: color 0.3s ease; /* אנימציה במעבר העכבר */
+  margin: 10px;
+}
+
+#myNavbar.sticky a:hover {
+  color: #003036; /* צבע שחור במעבר העכבר */
+  text-decoration: solid underline #FFAF00 4px;
+  text-underline-offset: 8px;
+}
+
+#myNavbar.sticky::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color:  #FFAF00; /* צבע חום בורדו */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#myNavbar.sticky a::before {
+  margin-right: 15px;
+  font-size: 14px;
+  color: #8B4513; /* צבע חום בורדו */
+}
+
+#myNavbar.sticky img.logo {
+  width: 150px;
+}
+
+/* navbar.component.css */
+.Goul {
+  display: flex;
+  align-items: center;
+  margin-right: 17px;
+}
+
+.Goal-Campaign {
+  color: #003036; /* צבע חום בורדו */
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.Goul .navbar-brand {
+  color: #003036; /* צבע חום בורדו */
+  font-weight: bold; 
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+
+}
+.Goul .navbar-brand h6 {
+  margin-left: 5px;
+}
+
+
+/* סגנון כללי לקו התמלאות (Progress Bar) */
+/* סגנון ה progress bar */
+/*
+.progress-container {
+width: 100%;
+height: 20px;
+background-color: #ddd;
+border-radius: 10px; 
+margin-bottom: 10px;
+}
+
+.progress-bar {
+height: 100%;
+background-color: #4CAF50; 
+border-radius: 10px;
+transition: width 0.5s ease; 
+}
+*/
+
+/* .progress-container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 120px;
+}
+
+.progress-ring {
+transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+transition: stroke-dashoffset 0.5s ease;
+}
+*/
+
+.mat-icon{
+  text-align: center;
+
+/* margin-left: 20px;   */
+}
+  
+.nav-link-wrapper {
+  display: flex;
+  align-items: center; /* מרכז את האייקון והטקסט */
+}
+
+.DonateNow{
+  font-size: larger;
+  
+}
+
+
+
+.container2 {
+  width: 100%;
+  height: 10px;
+  font-size: 10px;
+  background-color: lightgray;
+}
+
+.progress-bar {
+  height: 100%;
+  line-height: 10px;
+  font-size:10px;
+  text-align: center;
+  background-color:  #FFAF00;
+  color: white;
+}
+

@@ -1,0 +1,49 @@
+
+<form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()" #userForm="ngForm" class="modal-content animate" action="" method="post"
+  autocomplete="off">
+  <div class="logo-div">
+  </div>
+  <div class="container">
+    <br>
+    <label for="psw">Manager Name:</label>
+    <input type="text" id="fullName" formControlName="ManagerName" placeholder="Enter Manager Name" value="loginForm?.ManagerName">
+    
+    <label for="psw"><b>Email</b></label>
+    <input #c type="email"  placeholder="Enter Email"  formControlName="Email" id="email"  value="loginForm?.Email" name="Eml" [ngClass]="{'invalid-field': formControls['Email'].invalid && (formControls['Email'].dirty || formControls['Email'].touched)}"  />
+    <div *ngIf="formControls['Email'].invalid && (formControls['Email'].dirty || formControls['Email'].touched)">
+      <div *ngIf="formControls['Email'].errors?.['required']">
+        Email is required.
+      </div>
+      <div *ngIf="formControls['Email'].errors?.['minlength']">
+        Email must be at least 5 characters long.
+      </div>
+      <div *ngIf="formControls['Email'].errors?.['email']">
+        Please enter a valid email address.
+      </div>
+    </div>
+
+    <label for="psw"><b>Password</b></label>
+    <input  type="password" formControlName="Password"  placeholder="Enter Password"  value="loginForm?.Password" name="psw" id="password" [ngClass]="{'invalid-field': formControls['Password'].invalid && (formControls['Password'].dirty || formControls['Password'].touched)}"/>
+    <div *ngIf="formControls['Password'].invalid && (formControls['Password'].dirty || formControls['Password'].touched)">
+      <div *ngIf="formControls['Password'].errors?.['required']">
+        Password is required.
+      </div>
+      <div *ngIf="formControls['Password'].errors?.['minlength']">
+        Password must be at least 6 characters long.
+      </div>
+      <div *ngIf="formControls['Password'].errors?.['pattern']">
+        Password should contain at least one letter and one number.
+      </div>
+    </div>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+  <div class="container" style="background-color:#f1f1f1; padding: 16px;">
+  </div>
+  <button type="submit">submit</button>
+</form>
+
+
+
+<p>{{ data?.email }}</p>

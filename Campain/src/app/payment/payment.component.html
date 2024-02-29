@@ -273,7 +273,7 @@
             <button type="button" class="btn btn-outline-primary btn-group d-flex flex-column align-items-center"
               [ngClass]="{'active': selectedPaymentType === 'Ragil'} " (click)="PaymentTypeClick('Ragil')">
               <div class="d-flex flex-column align-items-center">
-                <mat-icon *ngIf="selectedPaymentType === 'Ragil' " class="mb-0">done</mat-icon>
+                <mat-icon *ngIf="selectedPaymentType == 'Ragil' " class="mb-0">done</mat-icon>
                 <mat-icon *ngIf="selectedPaymentType ==undefined " class="mb-0">circle</mat-icon>
                 <h2 class="mb-0">Single donation/ installments</h2>
               </div>
