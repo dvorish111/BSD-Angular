@@ -1,0 +1,31 @@
+.example-card{
+ margin-bottom: 5%;  
+ padding: 15%;
+}
+.mat-card-content{
+    text-align: left;
+}
+
+.container{ 
+    display: flex;
+   flex-wrap: wrap; 
+    justify-content:flex-end; 
+    gap: 1rem;
+    width: 23%;
+    margin: 2rem 1rem;
+  position: absolute;
+  /* justify-content: center; */
+  background-color: #FFAF00;
+  } 
+  .btnShowMore{
+    width: 50%;
+   
+  }
+  .row{
+    justify-content: center;
+  }
+/* .campaign{
+    justify-content: center;
+
+} */
+  

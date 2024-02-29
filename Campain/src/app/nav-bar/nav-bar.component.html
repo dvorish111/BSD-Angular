@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" [ngClass]="{'sticky': isSticky}" id="myNavbar">
+
+  <div class="container">
+
+    <img src="../../assets/images/globalLogo.png" alt="" class="logo">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <div class="nav-link-wrapper">
+              <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active" href="#">
+                  <mat-icon>home</mat-icon>
+                  <br>Home
+              </a>
+          </div>
+         
+          
+      </li>
+        <li class="nav-item">
+          <div class="nav-link-wrapper">
+
+          <a class="nav-link" [routerLink]="['/families']" routerLinkActive="active" href="#">
+            <mat-icon>diversity_1</mat-icon>
+            <br>Families
+          </a>
+        </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-wrapper">
+          <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="active" href="#">
+            <mat-icon>perm_phone_msg</mat-icon>
+            <br>Contact
+          </a>
+          </div>
+        </li>
+      </ul>
+      <div class="Goul">
+        <div class="Goul d-flex flex-column align-items-center mt-1 mr-1">
+          <h5 class="Goal-Campaign my-1">Goal Campaign</h5>
+          <span class="navbar-brand my-1 my-lg-0">${{campaignGoul}}</span>
+          <div class="container2">
+            <div class="progress-bar" [style.width.%]="progress">{{progress}}%</div>
+          </div>
+
+      </div>
+      </div>
+
+
+    <button  class="mat-raised-button" mat-raised-button [routerLink]="['/payment', 250]" routerLinkActive="active">
+      <mat-icon>arrow_circle_right</mat-icon> <div class="DonateNow" >Donate now</div>
+    </button>
+
+    <button class="mat-raised-button1" mat-raised-button [routerLink]="['/payment', numFamily]"
+      routerLinkActive="active">
+      <mat-icon>arrow_circle_right</mat-icon> <div class="DonateNow">Donate $1 to each family</div>
+    </button>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+
+  </div>
+
+</nav>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

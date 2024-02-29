@@ -1,0 +1,229 @@
+
+
+
+<br><br><br>
+
+
+
+<br>
+<div class="filters">
+  <mat-form-field >
+    <mat-label>Family size</mat-label>
+    <mat-select (selectionChange)="familyOfChildren($event.value)">
+      <mat-option value="5">2-5 children</mat-option>
+      <mat-option value="10">5-10 children</mat-option>
+      <mat-option value="15">10-15 children</mat-option>
+      <mat-option value="21">15-21 children</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Funded</mat-label>
+    <mat-select (selectionChange)="funded($event.value)">
+      <mat-option value="true">Funded</mat-option>
+      <mat-option value="false">Not funded</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Needed</mat-label>
+    <mat-select (selectionChange)="needed($event.value)">
+      <mat-option value="499">0-499</mat-option>
+      <mat-option value="999">500-999</mat-option>
+      <mat-option value="10000">2000+</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select (selectionChange)="status($event.value)">
+      <mat-option [value]="Statuses.Widow">Widowed</mat-option>
+      <mat-option [value]="Statuses.Married">Married</mat-option>
+      <mat-option [value]="Statuses.Divorced">Divorced</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Neighborhood</mat-label>
+    <mat-select (selectionChange)="neighborhood($event.value)">
+      <mat-option *ngFor="let neighborhoodId of neighborhoods" [value]="neighborhoodId.id">
+        {{ neighborhoodId.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div ><p>There are 592 families availalbe to fund</p></div>
+<div class="donatesContainer">
+  
+
+
+<div class="cards-container">
+  <div class="row">
+    <div class="col-lg-4 col-md- mb-3 " *ngFor="let donate of donates; let i = index">
+      <div class="mb-5">
+      <mat-card class="card">
+       
+          <div class="row">
+            
+            <div class="col-3 align-icon-left">
+              <mat-icon>diversity_1</mat-icon> 
+            </div>
+            <!-- טקסט -->
+            <div class="col-9 align-items-center">
+              <mat-card-content class="d-flex ">
+              <mat-card-title class="flex-grow-1">family size:</mat-card-title>
+              <mat-card-subtitle>{{donate.numChildren}}</mat-card-subtitle>
+            </mat-card-content>
+            </div>
+          </div>
+       
+        <div class="row " >
+          
+          <div class="col-3 align-icon-left">
+            <mat-icon>home</mat-icon> 
+          </div>
+          <!-- טקסט -->
+          <div class="col-9 align-items-center">
+            <mat-card-content class="d-flex ">
+              <mat-card-title class="flex-grow-1">case:</mat-card-title>
+              <mat-card-subtitle>{{donate.id}}</mat-card-subtitle>
+            </mat-card-content>
+            
+        <mat-card-content class="d-flex align-items-center">
+          <mat-card-title class="flex-grow-1">status:</mat-card-title>
+          <mat-card-subtitle>{{Statuses[donate.idStatus]}}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content class="d-flex align-items-center">
+          <mat-card-title class="flex-grow-1">Neighborhood:</mat-card-title>
+          <mat-card-subtitle >{{donate.idNeighborhoodNavigation.name}}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content class="d-flex align-items-center">
+          <mat-card-title class="flex-grow-1">street:</mat-card-title>
+          <mat-card-subtitle>{{donate.street}}</mat-card-subtitle>
+        </mat-card-content>
+       </div></div>
+       <div class="row3">
+        <!-- אייקון -->
+        <div class="col-11 align-icon-center">
+          <mat-icon class="credit_card_heart">credit_card_heart</mat-icon> <!-- ניתן להחליף את "insert_chart" באייקון המתאים -->
+        </div>
+        <!-- טקסט -->
+        <div class="amount" >
+          <mat-card-content class="aaa">
+              <mat-card-title >needed:</mat-card-title>
+              <mat-card-subtitle class="mat-card-amount">{{donate.needed}}</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-content class="bbb">
+              <mat-card-title>Raised:</mat-card-title>
+              <mat-card-subtitle class="mat-card-amount">{{donate.raised}}</mat-card-subtitle>
+          </mat-card-content>
+      </div>
+    </div>
+  <mat-card-actions>
+    <button mat-button class="mat-button-pay" *ngIf="donate.needed-sumAllDonationsByDonated[i]<=0 ;else payNow "
+      [routerLink]="['/payment',donate.id,0,sumAllDonationsByDonated[i]]" routerLinkActive='active'>Funded</button>
+    <ng-template #payNow>
+      <button mat-button class="mat-button-pay"
+        [routerLink]="['/payment',donate.id,sumAllDonationsByDonated[i]?donate.needed-sumAllDonationsByDonated[i]:donate.needed,sumAllDonationsByDonated[i]?sumAllDonationsByDonated[i]:0]"
+        routerLinkActive='active'>Pay now</button>
+    </ng-template>
+  </mat-card-actions>
+  </mat-card>
+</div>
+</div>
+</div>
+
+
+
+<!-- 
+<div class="donatesContainer">
+  
+
+
+  <div class="cards-container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-3 " *ngFor="let donate of donates; let i = index">
+        <mat-card class="card">
+         
+            <div class="row">
+             
+              <div class="col-3 align-icon-left">
+                <mat-icon>diversity_1</mat-icon> 
+              </div>
+            
+              <div class="col-9 align-items-center">
+                <mat-card-content class="d-flex ">
+                <mat-card-title class="flex-grow-1">family size:</mat-card-title>
+                <mat-card-subtitle>{{donate.numChildren}}</mat-card-subtitle>
+              </mat-card-content>
+              </div>
+            </div>
+         
+          <div class="row " >
+          
+            <div class="col-3 align-icon-left">
+              <mat-icon>home</mat-icon> 
+            </div>
+           
+            <div class="col-9 align-items-center">
+              <mat-card-content class="d-flex ">
+                <mat-card-title class="flex-grow-1">case:</mat-card-title>
+                <mat-card-subtitle>{{donate.id}}</mat-card-subtitle>
+              </mat-card-content>
+              
+          <mat-card-content class="d-flex align-items-center">
+            <mat-card-title class="flex-grow-1">status:</mat-card-title>
+            <mat-card-subtitle>{{Statuses[donate.idStatus]}}</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-content class="d-flex align-items-center">
+            <mat-card-title class="flex-grow-1">Neighborhood:</mat-card-title>
+            <mat-card-subtitle >{{donate.idNeighborhoodNavigation.name}}</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-content class="d-flex align-items-center">
+            <mat-card-title class="flex-grow-1">street:</mat-card-title>
+            <mat-card-subtitle>{{donate.street}}</mat-card-subtitle>
+          </mat-card-content>
+         </div></div>
+         <div class="row">
+          <div class="col-5 align-icon-center">
+            <mat-icon>credit_card_heart</mat-icon> 
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <mat-card-content >
+                <mat-card-title>needed:</mat-card-title>
+                <mat-card-subtitle class="mat-card-amount">{{donate.needed}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-content class="bbb">
+                <mat-card-title>Raised:</mat-card-title>
+                <mat-card-subtitle class="mat-card-amount">{{donate.raised}}</mat-card-subtitle>
+            </mat-card-content>
+        </div>
+      </div>
+    <mat-card-actions>
+      <button mat-button *ngIf="donate.needed-sumAllDonationsByDonated[i]<=0 ;else payNow "
+        [routerLink]="['/payment',donate.id,0,sumAllDonationsByDonated[i]]" routerLinkActive='active'>Funded</button>
+      <ng-template #payNow>
+        <button mat-button
+          [routerLink]="['/payment',donate.id,sumAllDonationsByDonated[i]?donate.needed-sumAllDonationsByDonated[i]:donate.needed,sumAllDonationsByDonated[i]?sumAllDonationsByDonated[i]:0]"
+          routerLinkActive='active'>Pay now</button>
+      </ng-template>
+    </mat-card-actions>
+    </mat-card>
+  </div>
+  </div> -->
+  <button (click)="showMoreFamilies()">Show more</button>
+
+</div>
+<div  class="show-donations">
+  <app-show-donations [sumDonationsByDonated]=0></app-show-donations>
+</div>
+</div>
+
+
+
+
+  
+  <br><br><br>
+ 
+  
+  
+  
+  
+  

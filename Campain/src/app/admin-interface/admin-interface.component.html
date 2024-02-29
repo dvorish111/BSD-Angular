@@ -1,0 +1,79 @@
+<!-- <h1>Welcome, {{ detailesMenegr.managerName }}!</h1> -->
+
+<h2>-----נתרמים-----</h2> 
+<form (submit)="uploadFile($event)">
+    <p>ייבוא רשימת נתרמים</p>
+    <p>חובה להעלות קובץ במבנה מתאים, ניתן להוריד קובץ דוגמא ולהכניס בו את כל המידע.
+      שימו לב! אין לשנות סדר העמודות, להסיר, או להוסיף. כל שינוי קטן ימנע מהמערכת לקרוא את הקובץ שלכם.
+    </p>
+    <input  type="file" (change)="onFileSelected($event)" />
+    <div *ngIf="fileMessage">{{ fileMessage }}</div>
+    <div *ngIf="selectedFile"   >
+        <button class="btn"  mat-raised-button color="primary" type="submit" >העלאת הקובץ</button>
+    </div>
+    <a href="https://drive.google.com/drive/u/5/my-drive/תבנית - יבוא רשימת נתרמים.csv" download>Download Sample File</a>
+  </form>
+  <button (click)="downloadDonatesCSV()">להורדת קובץ אקסל של הנתרמים</button>
+
+
+  <h2>-----קמפיין-----</h2> 
+  <div>
+    <button class="btn"  mat-raised-button color="primary"  (click)="showconfirmPassword(1)" >עדכון הקמפיין </button>
+  </div>
+ <div  *ngIf="statusFormCampgian" >
+<form [formGroup]="campaignForm" (ngSubmit)="onSubmitUpdateCampaignForm()" #userForm="ngForm" class="modal-content animate" action="" method="post"autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <mat-label> שם הקמפיין: {{campaign.name}}</mat-label>
+    <input type="text" formControlName="name" matInput placeholder="" value="campaign?.name">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>יעד הקמפיין {{campaign.goul}}</mat-label>
+    <input type="text" formControlName="goul" matInput placeholder=""  value="11111">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>תאריך התחלה {{campaign.startDate}}</mat-label>
+    <input type="datetime" formControlName="startDate" matInput placeholder="" value="campaign?.startDate">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>תאריך סיום {{campaign.endDate}}</mat-label>
+    <input type="date" formControlName="duration" matInput placeholder="" value="campaign?.duration">
+  </mat-form-field>
+  <button type="submit">submit</button>
+  </form>   
+ </div>
+<!-- delete campaign and crate new campaign -->
+  <div>
+    <button class="btn"  mat-raised-button color="primary" (click)="showconfirmPassword(0)">קמפיין חדש </button>
+    <div *ngIf="showPasswordPrompt">
+      <input type="password" [(ngModel)]="password" placeholder="Enter password">
+      <button (click)="authenticate()">אימות סיסמא</button>
+    </div>
+  
+  </div>
+
+  <h2>-----תרומות----</h2> 
+  <button (click)="downloadDonationsCSV()">להורדת קובץ אקסל של התרומות</button>
+
+
+  <h2>-----הרשאות----</h2> 
+  ------להוספת מנהל חדש------
+  
+
+  <button  (click)="showconfirmPassword(2)">להוספת מנהל חדש</button>
+  
+  <app-sign-up *ngIf="showSignUpComponentC"></app-sign-up>
+  <button (click)="showSignUpComponentU = !showSignUpComponentU">לעדכון פרטים אישיים</button>
+  <app-sign-up *ngIf="showSignUpComponentU" [data]="detailesMenegr"></app-sign-up>
+  
+<hr>
+ 
+
+ 
+
+<hr>
+-----נתרמים-----
+<app-admin-families></app-admin-families>
+ 
+
+
+
