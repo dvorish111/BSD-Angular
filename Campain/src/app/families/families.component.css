@@ -131,6 +131,7 @@ mat-card-title{font-size:small;}
   /* width: 190px;
   height: 254px;}
   */
+ }
 .cards-container {
   /* display: flex; */
   /* flex-wrap: wrap; */
@@ -274,7 +275,7 @@ transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
     flex: 0 0 50%; 
   }
 } */
-}   */
+
 .filters {
   display: flex;
   flex-wrap: wrap;
