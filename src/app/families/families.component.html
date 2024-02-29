@@ -1,0 +1,149 @@
+<!-- 
+<div class="cards-container">
+<mat-card *ngFor="let donate of donates; let i = index" class="card" >
+  <mat-card-header>
+    <mat-card-title>family size</mat-card-title>
+    <mat-card-subtitle>{{donate.numChildren}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-title>case</mat-card-title>
+    <mat-card-subtitle>{{donate.id}}</mat-card-subtitle>
+  </mat-card-content>
+  <mat-card-content>
+    <mat-card-title>status</mat-card-title>
+    <mat-card-subtitle>{{Statuses[donate.idStatus]}}</mat-card-subtitle>
+  </mat-card-content>
+  <mat-card-content>
+    <mat-card-title>street</mat-card-title>
+    <mat-card-subtitle>{{donate.street}}</mat-card-subtitle>
+  </mat-card-content>
+  <mat-card-content>
+    <mat-card-title>needed</mat-card-title>
+    <mat-card-subtitle>{{donate.needed}}</mat-card-subtitle>
+  </mat-card-content>
+   <mat-card-content>
+
+  <mat-card-title>Raised:</mat-card-title>
+  <mat-card-subtitle>{{donate.raised}}</mat-card-subtitle>
+
+</mat-card-content>
+
+  <mat-card-content>
+    <mat-card-title>Neighborhood:</mat-card-title>
+    <mat-card-subtitle>{{donate.idNeighborhoodNavigation.name}}</mat-card-subtitle>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button *ngIf="donate.needed-sumAllDonationsByDonated[i]<=0 ;else payNow "
+      [routerLink]="['/payment',donate.id,0,sumAllDonationsByDonated[i]]" routerLinkActive='active'>Funded</button>
+    <ng-template #payNow>
+      <button mat-button
+        [routerLink]="['/payment',donate.id,sumAllDonationsByDonated[i]?donate.needed-sumAllDonationsByDonated[i]:donate.needed,sumAllDonationsByDonated[i]?sumAllDonationsByDonated[i]:0]"
+        routerLinkActive='active'>Pay now</button>
+    </ng-template>
+  </mat-card-actions>
+</mat-card>
+
+</div> -->
+<br><br>
+<div ><p>There are 592 families availalbe to fund</p></div>
+<div class="cards-container">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 mb-3 " *ngFor="let donate of donates; let i = index">
+      <mat-card class="card">
+        <mat-card-header class="d-flex ">
+          <div class="row">
+            <!-- אייקון -->
+            <div class="col-3 align-icon-left">
+              <mat-icon>diversity_1</mat-icon> <!-- ניתן להחליף את "insert_chart" באייקון המתאים -->
+            </div>
+            <!-- טקסט -->
+            <div class="col-8 align-famely-r">
+              <mat-card-title>family size</mat-card-title>
+              <mat-card-subtitle>{{donate.numChildren}}</mat-card-subtitle>
+            </div></div>
+        </mat-card-header>
+        <div class="row " >
+          <!-- אייקון -->
+          <div class="col-3 align-icon-left">
+            <mat-icon>home</mat-icon> <!-- ניתן להחליף את "insert_chart" באייקון המתאים -->
+          </div>
+          <!-- טקסט -->
+          <div class="col-8 align-items-center">
+            <mat-card-content class="d-flex ">
+              <mat-card-title class="flex-grow-1">case</mat-card-title>
+              <mat-card-subtitle>{{donate.id}}</mat-card-subtitle>
+            </mat-card-content>
+            
+        <mat-card-content class="d-flex align-items-center">
+          <mat-card-title class="flex-grow-1">status</mat-card-title>
+          <mat-card-subtitle>{{Statuses[donate.idStatus]}}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content class="d-flex align-items-center">
+          <mat-card-title class="flex-grow-1">Neighborhood:</mat-card-title>
+          <mat-card-subtitle >{{donate.idNeighborhoodNavigation.name}}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-content class="d-flex align-items-center">
+          <mat-card-title class="flex-grow-1">street</mat-card-title>
+          <mat-card-subtitle>{{donate.street}}</mat-card-subtitle>
+        </mat-card-content>
+       </div></div>
+       <div class="row">
+        <!-- אייקון -->
+        <div class="col-3 align-icon-left">
+          <mat-icon>credit_card_heart</mat-icon> <!-- ניתן להחליף את "insert_chart" באייקון המתאים -->
+        </div>
+        <!-- טקסט -->
+        <div class="col-9 d-flex">
+          <mat-card-content class="mr-auto">
+            <mat-card-title>needed</mat-card-title>
+            <mat-card-subtitle class="mat-card-amount">{{donate.needed}}</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-content class="mr-auto">
+            <mat-card-title>Raised:</mat-card-title>
+            <mat-card-subtitle class="mat-card-amount">{{donate.raised}}</mat-card-subtitle>
+          </mat-card-content>
+        </div>
+        </div>
+  <mat-card-actions>
+    <button mat-button *ngIf="donate.needed-sumAllDonationsByDonated[i]<=0 ;else payNow "
+      [routerLink]="['/payment',donate.id,0,sumAllDonationsByDonated[i]]" routerLinkActive='active'>Funded</button>
+    <ng-template #payNow>
+      <button mat-button
+        [routerLink]="['/payment',donate.id,sumAllDonationsByDonated[i]?donate.needed-sumAllDonationsByDonated[i]:donate.needed,sumAllDonationsByDonated[i]?sumAllDonationsByDonated[i]:0]"
+        routerLinkActive='active'>Pay now</button>
+    </ng-template>
+  </mat-card-actions>
+  </mat-card>
+</div>
+</div>
+</div>
+
+
+
+
+<br><br><br>
+<button (click)="showMoreFamilies()">Show more</button>
+<!-- <app-show-donations [sumDonationsByDonated]=0></app-show-donations> -->
+<button (click)="familyOfChildren(5)">family of 2-5 children</button>
+<button (click)="familyOfChildren(10)">family of 5-10 children</button>
+<button (click)="familyOfChildren(15)">family of 10-15 children</button>
+<button (click)="familyOfChildren(21)">family of 15-21 children</button>
+<br>
+<br>
+<button (click)="funded(true)">funded</button>
+<button (click)="funded(false)">not funded</button>
+<br>
+<br>
+<button (click)="needed(499)">needed 0-499</button>
+<button (click)="needed(999)">needed 500-999</button>
+<button (click)="needed(10000)">needed 2000+</button>
+<br>
+<br>
+<button (click)="status(Statuses.Widow)">Widowed</button>
+<button (click)="status(Statuses.Married)">Married</button>
+<button (click)="status(Statuses.Divorced)">Divorced</button>
+<br>
+<br>
+<div *ngFor="let neighborhoodId of neighborhoods">
+  <button (click)="neighborhood(neighborhoodId.id)">{{neighborhoodId.name}}</button>
+</div>

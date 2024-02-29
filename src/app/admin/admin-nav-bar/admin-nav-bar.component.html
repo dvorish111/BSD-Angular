@@ -1,0 +1,89 @@
+<!-- 
+
+ <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">...</div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">...</div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">...</div>
+    <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">...</div>
+  </div> -->
+
+<div class="admin-nav-bar-wrapper" dir="rtl">
+    <div class="container">
+        <div class="row mt-5">
+            <p>שלום לך מנהל יקר</p>
+        </div>
+        <div class="row mb-5">
+            <nav class="navbar navbar-expand-lg navbar-light admin-nav-bar mb-5">
+                <ul class="col-12 navbar-nav" style="width: 100%;">
+                    <li class="nav-item col-2 py-2 px-3 " (click)="selectNavItem('link1')" [class.active]="selectedNavItem === 'link1'">
+                        <a class="nav-link">קמפיין</a>
+                        <ul *ngIf="selectedNavItem === 'link1'" class="submenu p-3">
+                          <li><a class="nav-link-child p-2" href="#"> ניהול קמפיין</a></li>
+                          <li><a class="nav-link-child p-2" routerLink="new-campain"> קמפיין חדש</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item col-2 py-2 px-3" (click)="selectNavItem('link2')" [class.active]="selectedNavItem === 'link2'">
+                        <a class="nav-link">נתרמים</a>
+                        <ul *ngIf="selectedNavItem === 'link2'" class="submenu p-2">
+                          <li><a class="nav-link-child p-2" href="#">  הוספת נתרמים</a></li>
+                          <li><a class="nav-link-child p-2">  שינוי נתרם</a></li>
+                          <li><a class="nav-link-child p-2">   יצוא נתרמים</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item col-2 py-2 px-3" (click)="selectNavItem('link3')" [class.active]="selectedNavItem === 'link3'">
+                        <a class="nav-link">תרומות</a>
+                        
+                    </li>
+                    <li class="nav-item col-2 py-2 px-3" (click)="selectNavItem('link4')" [class.active]="selectedNavItem === 'link4'">
+                        <a class="nav-link">הרשאות</a>
+                        <ul *ngIf="selectedNavItem === 'link4'" class="submenu p-2">
+                          <li><a class="nav-link-child p-2" href="#"> עדכון פרטי מנהל</a></li>
+                          <li><a class="nav-link-child p-2">  הוספת מנהל</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- <nav class="navbar navbar-expand-lg navbar-light admin-nav-bar">
+              <ul class="navbar-nav" style="width: 100%;">
+                  <li class="nav-item col-3 py-2 px-3" (click)="selectNavItem('link1')" [class.active]="selectedNavItem === 'link1'">
+                      <a class="nav-link">Campaign</a>
+                      <ul *ngIf="selectedNavItem === 'link1'" class="submenu p-3">
+                        <li><a class="nav-link-child p-2" href="#">Campaign Management</a></li>
+                        <li><a class="nav-link-child p-2">New campaign</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item col-3 py-2 px-3" (click)="selectNavItem('link2')" [class.active]="selectedNavItem === 'link2'">
+                      <a class="nav-link">Donate</a>
+                  </li>
+                  <li class="nav-item col-3 py-2 px-3" (click)="selectNavItem('link3')" [class.active]="selectedNavItem === 'link3'">
+                      <a class="nav-link">Donations</a>
+                  </li>
+                  <li class="nav-item col-3 py-2 px-3" (click)="selectNavItem('link4')" [class.active]="selectedNavItem === 'link4'">
+                      <a class="nav-link">Permissions</a>
+                  </li>
+              </ul>
+          </nav> -->
+          
+        </div>
+
+      
+
+         
+        
+        
+    </div>
+</div>

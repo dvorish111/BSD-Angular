@@ -1,0 +1,186 @@
+
+
+
+
+
+<!-- 
+        <owl-carousel-o [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+            <ng-template carouselSlide>
+              <div class="item" *ngFor="let image of images">
+                <img [src]="image" alt="Slide">
+              
+        
+          </div>
+            </ng-template>
+          </owl-carousel-o>
+         -->
+         
+            
+           
+          
+         
+         <!-- <div class="counterConainr">
+            <div *ngFor="let counter of counters; let i = index" class="counter counter{{i + 1}} {{i % 2 === 0 ? 'mt-3' : 'mt-5'}} {{i === 3 ? 'col' : 'col-md-6'}}">
+              <div class="number">{{ counter.current| number: '1.0-0' }}</div>
+            </div>
+          </div>
+           -->
+
+ <div class="bg-image_goal">
+          <div  class="bg-image1" >
+            <img class="bg-image" src="../../assets/images/galery10.jpg" alt=""  class="bg-image">
+         </div>
+           <br><br><br>
+
+
+
+   <div class="counterConainr">
+  <div class="counter-wrapper">
+    <div class="counter-col">
+      <div class="counter counter1">
+        <div class="number"><H5 class="Goal-Campaign">Goal Campaign</H5>${{ counters[0].current | number: '1.0-0' }}</div>
+      </div>
+      <div class="counter counter2">
+        <div class="number"> <H5 class="TotalRaised">Total raised</H5> ${{ counters[1].current | number: '1.0-0' }}</div>
+      </div>
+    </div>
+    <div class="counter-row">
+      <div class="counter counter3">
+        <div class="number"><H5 class="numFamily">Families funded</H5>{{ counters[2].current | number: '1.0-0' }}</div>
+      </div>
+      <div class="counter counter4">
+        <div class="number"><H5 class="numChildren">Children funded</H5> {{ counters[3].current | number: '1.0-0' }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="circular-bar-container">
+<div class="circular-bar">
+    <img src="../../assets/images/180720111150234336000558181ft1lyxh3unifnxn5vaih2mzk.jpg" alt="..." class="rounded-circle">
+    
+    <!-- <div>{{ timeLeft }}</div> -->
+    <!-- <img src="../../assets/images/rounded-circle.png" alt="..." class="rounded-circle"> -->
+
+    <igx-circular-bar
+    [value]="valuetimeInMilliseconds"
+    [max]="100"
+    [animate]="true"
+    class="igx-circular-bar">
+   
+      <ng-template igxProgressBarGradient let-id>
+        
+          <svg:linearGradient [id]="id" gradientTransform="rotate(90)">
+              <stop offset="0%"   stop-color=" #054550"/>
+              <stop offset="50%" stop-color="#1eccd4"/>
+              <stop offset="100%" stop-color="#FFAF00"/>
+          </svg:linearGradient>
+      </ng-template>
+    </igx-circular-bar> 
+    <div class="timer">{{ formattedTime  }}</div>
+  </div>
+</div>
+</div>
+<!-- <img src="../../assets/images/RAMOT1.jpg" class="rounded-circle" alt="Cinque Terre"> -->
+<!-- <img class="img"  src="../../assets/images/RAMOT1.jpg">  -->
+          
+       
+       <br><br><br>
+         <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let slide of images">
+              <ng-template carouselSlide [id]="slide.id">
+                <div class="carousel-image">
+                  <div class="carousel-image__div" >
+                  <img class="carousel-image__img" [src]="slide.src" [alt]="slide.alt" [title]=""></div>
+                  <div class="image-caption">
+                    <h1>{{ slide.title }}</h1>
+                    <p >{{ slide.description }}</p>
+                    <button class="mat-raised-button mt-2"  class="mat-raised-button" mat-raised-button [routerLink]="['/payment', 250]" routerLinkActive="active">
+                        <mat-icon>arrow_circle_right</mat-icon> <div class="DonateNow">Donate now</div>
+                      </button>
+                  </div>
+                </div>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+
+      <br><br>    
+   <!-- -----mp4----- -->
+   <div class="container">
+    <div class="side-rectangle">
+      <video width="100%" height="100%" controls #videoPlayer1>
+        <source src="../../assets/video/video1.mp4" type="video/mp4">
+      </video>
+      <div class="logo-overlay-video" (click)="playVideo(videoPlayer1)">
+        <mat-icon class="logoVideo">play_circle</mat-icon>
+      </div>
+    </div>
+    <div class="main-rectangle">
+      <video width="100%" height="100%" controls #videoPlayer2>
+        <source src="../../assets/video/video1.mp4" type="video/mp4">
+      </video>
+      <div class="logo-overlay-video" (click)="playVideo(videoPlayer2)">
+        <mat-icon class="logoVideo">play_circle</mat-icon>
+      </div>
+    </div>
+    <div class="side-rectangle">
+      <video width="100%" height="100%" controls #videoPlayer3>
+        <source src="../../assets/video/video1.mp4" type="video/mp4">
+      </video>
+      <div class="logo-overlay-video"   (click)="playVideo(videoPlayer3)">
+        <mat-icon  class="logoVideo">play_circle</mat-icon>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container">
+    <div class="side-rectangle">
+      <video width="100%" height="100%" controls #videoPlayer1>
+        <source src="../../assets/video/video1.mp4" type="video/mp4">
+      </video>
+      <div class="logo-overlay-video" (click)="playVideo(videoPlayer1, iconVideo1)">
+        <mat-icon class="logoVideo" #iconVideo1>{{ isPlaying ? 'pause_circle' : 'play_circle' }}</mat-icon>
+      </div>
+    </div>
+    <div class="main-rectangle">
+      <video width="100%" height="100%" controls #videoPlayer2>
+        <source src="../../assets/video/video1.mp4" type="video/mp4">
+      </video>
+      <div  class="logo-overlay-video" (click)="playVideo(videoPlayer2, iconVideo2)">
+        <mat-icon class="logoVideo" *ngif="!isPlaying" #iconVideo2>{{ isPlaying ? 'pause_circle' : 'play_circle' }}</mat-icon>
+      </div>
+    </div>
+    <div class="side-rectangle">
+      <video width="100%" height="100%" controls #videoPlayer3>
+        <source src="../../assets/video/video1.mp4" type="video/mp4">
+      </video>
+      <div class="logo-overlay-video" (click)="playVideo(videoPlayer3, iconVideo3)">
+        <mat-icon class="logoVideo" #iconVideo3>{{ isPlaying ? 'pause_circle' : 'play_circle' }}</mat-icon>
+      </div>
+    </div>
+  </div> -->
+
+  
+    <!-- -----end mp4----- -->
+
+    
+    
+    <br><br>   <br><br>   <br><br> 
+          
+<!-- 
+
+ <div class="Goul">
+    <H5 class="Goal-Campaign">Goal Campaign:</H5>  <span > {{currentGoul}}</span>
+    <H5 class="Goal-Campaign">Total raised:</H5>  <span > {{currentTotalRaised}}</span>
+</div>
+<div class="Goul">
+    <H5 class="numFamily">Families funded:</H5>  <span > {{currentNumFamily}}</span>
+    <H5 class="numChildren">Children funded:</H5>  <span > {{currentNumChildren}}</span>
+</div> -->
+
+
+  <!-- <div class="counter" *ngFor="let counter of counters">
+    <span class="number" [ngStyle]="{ 'width.%': (counter.current / counter.target) * 100 }">{{ counter.current| number: '1.0-0' }}</span>
+  </div> -->
+
+  
+<app-families></app-families>
+<app-show-donations [sumDonationsByDonated]=0></app-show-donations>

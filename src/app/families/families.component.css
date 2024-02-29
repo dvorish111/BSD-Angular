@@ -1,0 +1,90 @@
+
+
+/* .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:flex-start; /* רווח בשוליים */
+  /* gap: 1rem; רווח בין הכרטיסים */
+  /* width: 75%;
+  margin: 0 1rem;
+
+} */ 
+  
+
+ .cards-container {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  justify-content:flex-start; /* רווח בשוליים */
+   /* gap: 1rem;  */
+   width: 75%;
+  /* margin: 0 1rem; */
+
+} 
+
+.card{
+  /* text-align: center;
+  justify-content:center;  */
+  padding: 5%;
+}
+
+
+.align-items-center {
+ /* justify-content: flex-start; */
+ text-align: left;
+ 
+}
+
+
+  .align-icon-left{
+    justify-content: left;
+  }
+
+  .align-famely-r .Raised{
+    justify-content: end;
+    text-align: right;
+  }
+  .mat-card-amount{
+  font-size:xx-large;
+
+  }
+.example-card {
+    max-width: 400px;
+  }
+
+.show-donations {
+  width: 25%;
+}
+.donatesContainer{
+  display: flex;
+ margin: 1rem 1rem;
+
+}
+
+
+
+.cards-container {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  justify-content:flex-start; /* רווח בשוליים */
+   /* gap: 1rem;  */
+   width: 75%;
+  /* margin: 0 1rem; */
+
+} 
+
+.card{
+  text-align: center;
+  justify-content:center; 
+}
+.mat-card-content{
+  display: flex;
+}
+/* .showMoreFamiliesContainer{
+  position: absolute;
+} */
+
+
+
+
+
+  
