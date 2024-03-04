@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LogInComponent } from './log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
+import { AdminInterfaceComponent } from './admin/admin-interface/admin-interface.component';
 import { ContactComponent } from './contact/contact.component';
 import { FamiliesComponent } from './families/families.component';
 import { PaymentComponent } from './payment/payment.component';
+import { NewCampaignComponent } from './admin/new-campaign/new-campaign.component';
 
 const routes: Routes = [
   { path: '',  component: HomeComponent },
@@ -18,8 +19,8 @@ const routes: Routes = [
  {  path: 'payment/:amount',  component: PaymentComponent },
  {  path: 'payment/:donatesId/:amount/:sumDonationsByDonated',  component: PaymentComponent },
  {  path: 'admin-interface/:name',  component: AdminInterfaceComponent },
- { path: '**',  component: HomeComponent }
-
+ {  path: 'admin-interface/:name/new-campain',  component: NewCampaignComponent },
+ { path: '**',  component: HomeComponent },
 ];
 
 @NgModule({

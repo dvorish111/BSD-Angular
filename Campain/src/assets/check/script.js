@@ -1,17 +1,17 @@
    //שימו לב!! שיטת הפוסטמסג' לא עובדת בשרת מקומי (localhost). חובה להעלות את הקוד שלכם לדומיין שלכם.
 
-//    window.onerror = function (msg, url, line, col, error) {
-//     alert("שגיאת תוכנה. פנה לתמיכה טכנית. שגיאה: " + msg)
-// }
+   window.onerror = function (msg, url, line, col, error) {
+    alert("שגיאת תוכנה. פנה לתמיכה טכנית. שגיאה: " + msg)
+}
 
-// //זהירות! את השורת קוד הזו יש להפעיל רק פעם אחת בעת פתיחת הדף
-// window.onload = function () {
+//זהירות! את השורת קוד הזו יש להפעיל רק פעם אחת בעת פתיחת הדף
+window.onload = function () {
     
-// console.log(document.getElementById('FirstName').value);
-//     if (window.addEventListener) { window.addEventListener("message", ReadPostMessage, false); } else { window.attachEvent("onmessage", ReadPostMessage); }
-//     document.getElementById('NedarimFrame').onload = function () { console.log('StartNedarim'); PostNedarim({'Name':'GetHeight'}) }
-//     document.getElementById('NedarimFrame').src = "https://matara.pro/nedarimplus/iframe?language=en";
-// }
+console.log(document.getElementById('FirstName').value);
+    if (window.addEventListener) { window.addEventListener("message", ReadPostMessage, false); } else { window.attachEvent("onmessage", ReadPostMessage); }
+    document.getElementById('NedarimFrame').onload = function () { console.log('StartNedarim'); PostNedarim({'Name':'GetHeight'}) }
+    document.getElementById('NedarimFrame').src = "https://matara.pro/nedarimplus/iframe?language=en";
+}
 ///////////////////////////////
 
 function PostNedarim(Data) {      
@@ -65,10 +65,10 @@ case "4":
     ApiValid="tFX9DPmB9P"; 
     break;
 case "5":
-    Mosad=5776829;
-    ApiValid="737FzAnO1v";  
+    Mosad=5777259;
+    ApiValid="FzWsNkQRAl";  
     break;
-case "5":
+case "6":
     Mosad=7001979;
     ApiValid="ug8/1AHy4Q";  
     break;
@@ -78,12 +78,15 @@ default:
           
   }
   console.log(Mosad+"mosad"+document.getElementById('Neighborhood').value)
+  console.log(window.selectedPaymentType+ " selectedPaymentType" ); // יציג: Hello from TypeScript
+  console.log( document.getElementById('Tashlumim').value+ "Tashlumim")
     PostNedarim({
         'Name': 'FinishTransaction2',
         'Value': {
             'Mosad':Mosad,
             'ApiValid':ApiValid,
-            'PaymentType': document.getElementById("selectedPaymentType").value,
+            // 'PaymentType': document.getElementById("selectedPaymentType").value,
+            'PaymentType': window.selectedPaymentType, //מגיע מהTS בתוך פונקציית LOADSCRIPT
             'Currency': '1',
             'Zeout': document.getElementById('Zeout').value,
             'FirstName': document.getElementById('FirstName').value,
@@ -104,7 +107,7 @@ default:
             'CallBack': '', //מיועד לקבלת WEBHOOK לאחר כל עסקה / סירוב
             'CallBackMailError': '', //מיועד לקבלת התראה על תקלת בשליחת קאלבק למייל של המפתח במקום למייל של אנשי הקשר של המוסד
 
-            'Tokef': document.getElementById('Tokef').value //אם אתם מנהלים את התוקף בדף שלכם (מיועד למי שרוצה להפריד בין חודש לשנה ורוצה לעצב מותאם אישית)
+            // 'Tokef': document.getElementById('Tokef').value //אם אתם מנהלים את התוקף בדף שלכם (מיועד למי שרוצה להפריד בין חודש לשנה ורוצה לעצב מותאם אישית)
 
         }
     });

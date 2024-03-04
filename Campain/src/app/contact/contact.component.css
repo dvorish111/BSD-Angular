@@ -1,55 +1,96 @@
- .container {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f1c40f;
-  background-image: linear-gradient(to bottom right, #2ecc71, #3498db);
-  animation: gradient-animation 10s ease-in-out infinite alternate;
+  height: 150vh;
 }
 
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+.form-container {
+  width: 90%;
 }
 
 .card {
-  width: 400px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-mat-card-title {
-  font-size: 24px;
+.form-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 
-.form {
+.image-wrapper {
+  width: 30%;
+  position: relative; /* להגדיר כדי שנוכל למקם את ה-DIV עליו */
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.contact-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   padding: 20px;
 }
 
-mat-form-field {
+.contact-details h3 {
+  margin-bottom: 10px;
+}
+
+.contact-details p {
+  margin: 5px 0;
+}
+
+.contact-form {
+  width: 65%;
+}
+
+.name-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-field {
+  height: 150px;
+}
+
+.mat-form-field {
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
 }
 
-mat-error {
-  color: red;
+button[type="submit"] {
+  width: 100%;
 }
 
-button {
-  margin: 10px;} 
-
-
-
+@media screen and (max-width: 768px) {
+  .form-wrapper {
+    flex-direction: column;
+  }
+  
+  .image-wrapper {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form {
+    width: 100%;
+  }
+}
 
 
 
 /* ------------------ */
-@keyframes animate {
+/* @keyframes animate {
   0% {
     filter: hue-rotate(0deg);
   }
@@ -124,4 +165,4 @@ button {
       }
     }
   }
-}
+} */

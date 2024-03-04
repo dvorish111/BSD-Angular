@@ -382,8 +382,8 @@ color: #FFAF00;
   
 }
 
-.numChildren.numFamily{
-font-size:large;
+.numChildren .numFamily{
+font-size:x-small;
 }
 .circular-bar {
   position: absolute;

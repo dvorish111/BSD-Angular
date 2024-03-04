@@ -7,15 +7,15 @@
 }
 
 .container{ 
-    display: flex;
+   display: flex;
    flex-wrap: wrap; 
-    justify-content:flex-end; 
-    gap: 1rem;
-    width: 23%;
-    margin: 2rem 1rem;
-  position: absolute;
-  /* justify-content: center; */
-  background-color: #FFAF00;
+   justify-content:end; 
+   gap: 1rem;
+   width: 23%;
+   margin: 2rem 1rem;
+   position: absolute;
+   /* justify-content: center; */
+   background-color: #FFAF00;
   } 
   .btnShowMore{
     width: 50%;

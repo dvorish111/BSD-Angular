@@ -1,16 +1,55 @@
 
+.show-donations {
+  width: 25%;
+}
+.donatesContainer{
+  display: flex;
+ margin: 1rem 1rem;
 
-.card{
-  /* text-align: center;
-  justify-content:center;  */
-  text-align: center;
-  /* justify-content:center;  */
-  padding: 5%;
 }
 
-.filters{
+
+
+
+
+
+
+
+.cards-container {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  justify-content:flex-start; /* רווח בשוליים */
+   /* gap: 1rem;  */
+   width: 70%;
+  /* margin: 0 1rem; */
+  flex: 70%
+
+} 
+
+
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-content: center;
+
 }
+
+.mat-form-field {
+  flex: 1;
+}
+
+.mat-select {
+  width: 100%;
+  
+}
+
+
+
+
+
+
 
 /* .cards-container {
   display: flex;
@@ -20,10 +59,91 @@
   /* width: 75%;
   margin: 0 1rem;
 
+} */ 
+  
+
+
+
+.card{
+  /* text-align: center;
+  justify-content:center;  */
+  padding: 5%;
+}
+
+
+.align-items-center {
+ /* justify-content: flex-start; */
+ text-align: left;
+ 
+}
+
+
+  .align-icon-left{
+    justify-content: left;
+  }
+
+  .align-famely-r .Raised{
+    justify-content: end;
+    text-align: right;
+  }
+  .mat-card-amount{
+  font-size:xx-large;
+
+  }
+.example-card {
+    max-width: 400px;
+  }
+
+.show-donations {
+  width: 25%;
+}
+.donatesContainer{
+  display: flex;
+ margin: 1rem 1rem;
+
+}
+
+
+
+.cards-container {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  justify-content:flex-start; /* רווח בשוליים */
+   /* gap: 1rem;  */
+   width: 75%;
+  /* margin: 0 1rem; */
+
 } 
 
+.card{
+  text-align: center;
+  justify-content:center; 
+}
+.mat-card-content{
+  display: flex;
+}
+/* .showMoreFamiliesContainer{
+  position: absolute;
+} */
 
- */
+
+
+
+
+  
+
+/* .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:flex-start; /* רווח בשוליים */
+  /* gap: 1rem; רווח בין הכרטיסים */
+  /* width: 75%;
+  margin: 0 1rem;
+
+} */ 
+  
+
+
 
 .card{
   /* text-align: center;
@@ -51,8 +171,13 @@ color: #054556;
 }
 .row3{
   background-color:#80A3B2 ;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   padding: 5%;
+  margin-top: -10px;
+  margin-left: -6%;
+  margin-right: -6%;
+  display: flex; /* הפעלת Flexbox על השורה */
+  align-items: center; /* יישור אנכי של הפריטים למרכז השורה */
   }
  
 mat-icon{
@@ -63,13 +188,22 @@ mat-icon{
 .align-items-center mat-card-content {
   flex-grow: 1; /* התפשטות כלפי כל הכיוונים של הטקסט */
 }
-
+.family-size{
+  text-align: right;
+ 
+}
+.family-size-title{
+color: #ffffff;
+}
 .align-items-center {
- /* justify-content: flex-start; */
+ /* justify-content: flex-end; */
  text-align: left;
  
 }
-
+.donate-numChildren{
+  font-size: x-large;
+  color: #ffffff;
+}
 .amount{
   display: flex;
    justify-content: space-between; 
@@ -96,14 +230,6 @@ mat-icon{
     max-width: 400px;
   }
 
-.show-donations {
-  width: 25%;
-}
-.donatesContainer{
-  display: flex;
- margin: 1rem 1rem;
-
-}
 
 
 
@@ -119,9 +245,10 @@ mat-card-subtitle{
   font-size:large;
   color: #000;
   font-weight: bold;
+  text-align: end;
 }
 
-mat-card-title{font-size:small;}
+mat-card-title{font-size:medium;}
   
 .bbb{
   padding-top: 16px;
@@ -129,25 +256,7 @@ mat-card-title{font-size:small;}
 /* גורם לסכומים להיות באותו גובה */
 .card {
   /* width: 190px;
-  height: 254px;}
-  */
- }
-.cards-container {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  justify-content:flex-start; /* רווח בשוליים */
-   /* gap: 1rem;  */
-   width: 75%;
-  /* margin: 0 1rem; */
-  flex: 75%
-
-} 
-
-.card{
-  text-align: center;
-  justify-content:center; 
-}
-.mat-card-content{
+  height: 254px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,7 +270,7 @@ mat-card-title{font-size:small;}
   cursor: pointer;
   font-weight: 900;
   transition-duration: .2s;
-  background: linear-gradient(0deg, #000, #272727); 
+  background: linear-gradient(0deg, #000, #272727); */
 }
 /* ----מסגרת זוהרת----- */
 .card:hover{
@@ -170,16 +279,6 @@ mat-card-title{font-size:small;}
 .card:hover:before, .card:hover:after {
   content: '';
  
-
-
-/* 
-.app-show-donations{ 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:flex-end; 
-  gap: 1rem;
-  width: 25%;
-  margin: 0 1rem;
   position: absolute;
   left: -6px;
   top: -6px;
@@ -216,7 +315,7 @@ mat-card-title{font-size:small;}
 /* ----פסים בצידי האיקון----- */
 .align-icon-center {
   position: relative;
-  margin-bottom: -100px; 
+  margin-bottom: -90px; 
 
 }
 .credit_card_heart{
@@ -230,7 +329,7 @@ mat-card-title{font-size:small;}
    top: 100%;
   /* transform: translateY(-50%); */
   width: 40%;
-  height: 5px;
+  height: 3px;
   background-color: #054556; /* צבע הפס */
 }
 
@@ -264,7 +363,14 @@ color: #ffffff;
 transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
 } 
 
-
+.titleCard{  content: '';
+  /* position: absolute; */
+  background-color: #FFAF00;
+  
+  /* transform: translateY(-50%); */
+  width: 40%;
+  /* height: 5px; */
+ }
 /* @media (max-width: 700px) {
   .col-lg-4 {
     flex: 0 0 100%; 
@@ -275,22 +381,6 @@ transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
     flex: 0 0 50%; 
   }
 } */
-
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.mat-form-field {
-  flex: 1;
-}
-
-.mat-select {
-  width: 100%;
-  
-}
-
 
 
 
