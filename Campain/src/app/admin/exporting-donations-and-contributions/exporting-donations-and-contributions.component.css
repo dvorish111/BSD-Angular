@@ -1,0 +1,37 @@
+
+.ExportingDonationsAndContributions-wrapper{
+    margin-top: 80px;
+    border: 5px solid #054556 !important;
+}
+
+.ExportingDonationsAndContributions-p{
+    font-family: sans-serif;
+    font-size: 30px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+
+.ExportingDonationsAndContributions-input{
+    border: 2px solid #054556 !important;
+    font-family: sans-serif;
+width: 50%;
+}
+
+.ExportingDonationsAndContributions-button{
+    background-color: black;
+    width: 10%;
+}
+
+.donations-wrapper{
+    border: 5px solid #054556 !important;
+}
+
+
+
+.ExportingDonationsAndContributions{
+    background-color: #FFAF00;
+    border: none;
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+}
