@@ -29,55 +29,60 @@
   
 
    -->
-   <div class="container">
-    <div class="form-container">
-      <mat-card class="card">
-        <mat-card-header>
-          <mat-card-title>Contact Us</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="form-wrapper">
-            <div class="image-wrapper">
-              <img src="../../assets/images/galery10.jpg" alt="כתוב כאן את הטקסט שאתה רוצה להציג מעל התמונה">
-              <div class="contact-details">
-                <h3>Get in Touch With Us</h3>
-                <p>Have any questions? feel free to ask.</p>
-                <p>+1 (732) 730-5332</p>
-                <p>kupaszichronmoshe@gmail.com</p>
-                <p>325 7th Street Lakewood NJ 08701</p>
+   <div class="stripe-container">
+    <div class="stripe">
+      <div class="container">
+        <div class="form-container">
+          <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title>Contact Us</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="form-wrapper">
+                <div class="image-wrapper">
+                  <img src="../../assets/images/galery10.jpg" alt="כתוב כאן את הטקסט שאתה רוצה להציג מעל התמונה">
+                  <div class="contact-details">
+                    <h3>Get in Touch With Us</h3>
+                    <p>Have any questions? feel free to ask.</p>
+                    <p>+1 (732) 730-5332</p>
+                    <p>kupaszichronmoshe@gmail.com</p>
+                    <p>325 7th Street Lakewood NJ 08701</p>
+                  </div>
+                </div>
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+                  <div class="form-fields">
+                    <div class="name-container">
+                      <mat-form-field>
+                        <mat-label>First Name</mat-label>
+                        <input placeholder="firstName" matInput formControlName="firstName" required>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <mat-label>Last Name</mat-label>
+                        <input placeholder="lastName" matInput formControlName="lastName" required>
+                      </mat-form-field>
+                    </div>
+                    <mat-form-field>
+                      <mat-label>Email</mat-label>
+                      <input placeholder="email" matInput formControlName="email" required>
+                      <mat-error *ngIf="contactForm.get('email')">Invalid email</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="message-field">
+                      <mat-label>Message</mat-label>
+                      <textarea placeholder="message" matInput formControlName="message" rows="8" required></textarea>
+                    </mat-form-field>
+                    <button   class="mat-raised-button" color="primary" type="submit">Submit</button>
+                  </div>
+                </form>
               </div>
-            </div>
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-              <div class="name-fields">
-                <mat-form-field>
-                  <mat-label>First Name</mat-label>
-                  <input placeholder="firstName" matInput formControlName="firstName" required>
-                </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Last Name</mat-label>
-                  <input placeholder="lastName" matInput formControlName="lastName" required>
-                </mat-form-field>
-              </div>
-              <div class="contact-fields">
-                <mat-form-field>
-                  <mat-label>Email</mat-label>
-                  <input placeholder="email" matInput formControlName="email" required>
-                  <mat-error *ngIf="contactForm.get('email')">Invalid email</mat-error>
-                </mat-form-field>
-                <mat-form-field class="message-field">
-                  <mat-label>Message</mat-label>
-                  <textarea placeholder="message" matInput formControlName="message" rows="3" required></textarea>
-                </mat-form-field>
-              </div>
-              <button mat-raised-button color="primary" type="submit">Submit</button>
-            </form>
-          </div>
-        </mat-card-content>
-      </mat-card>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
     </div>
   </div>
   
-
+  
+  
 
 <!--  
   <div class="container">

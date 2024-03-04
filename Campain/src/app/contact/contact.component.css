@@ -1,27 +1,26 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 150vh;
-}
-
-.form-container {
-  width: 90%;
-}
-
-.card {
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .form-wrapper {
   display: flex;
   justify-content: space-between;
 }
+.card {
+  border-radius: 0;
+  box-shadow: none;
+  background-color: #f0f0f0;
+  border: none;
+  margin-left  : -3%; /* מסיר את הרווחים בצדדים */
+  margin-right  : -3%; /* מסיר את הרווחים בצדדים */
+  padding: 5%;
+}
+
+.form-container {
+  width: 100%;
+  padding: 0; /* מסיר את הרווחים למטה */
+}
+
 
 .image-wrapper {
   width: 30%;
-  position: relative; /* להגדיר כדי שנוכל למקם את ה-DIV עליו */
+  position: relative;
 }
 
 .image-wrapper img {
@@ -49,18 +48,18 @@
   width: 65%;
 }
 
-.name-fields {
+.form-fields {
   display: flex;
   flex-direction: column;
 }
 
-.contact-fields {
+.name-container {
   display: flex;
-  flex-direction: column;
 }
 
-.message-field {
-  height: 150px;
+.name-container mat-form-field {
+  flex: 1;
+  margin-right: 10px;
 }
 
 .mat-form-field {
@@ -69,7 +68,25 @@
 }
 
 button[type="submit"] {
-  width: 100%;
+  width: 200px; /* קטן את הרוחב של הכפתור */
+  font-weight:bolder; /* עשה את הכפתור עבה יותר */
+  margin: 0 auto; /* ממוקם באמצע על פי ציר האופק */
+
+}
+
+button.mat-raised-button {
+  height: 70px;
+  background-color: #FFAF00; /* צבע בורדו נוטה לאדום */
+  color: white; /* צבע טקסט לבן או צבע מתאים */
+  margin-right: 15px; /* מרווח מימין בין הכפתורים */
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold; /* טקסט מודגש */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+}
+
+button.mat-raised-button:hover {
+  background-color: #ffb515; /* צבע בורדו נוטה לאדום כאשר עם העכבר מעל הכפתור */
+  transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
 }
 
 @media screen and (max-width: 768px) {
@@ -86,9 +103,6 @@ button[type="submit"] {
     width: 100%;
   }
 }
-
-
-
 /* ------------------ */
 /* @keyframes animate {
   0% {
