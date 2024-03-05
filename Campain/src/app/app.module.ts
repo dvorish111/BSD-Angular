@@ -60,6 +60,9 @@ import { NewCampaignApprovalComponent } from './admin/new-campaign-approval/new-
 import { NewCampaignComponent } from './admin/new-campaign/new-campaign.component';
 import { ConfirmPasswordComponent } from './admin/confirm-password/confirm-password.component';
 import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.component';
+import { ExportingDonationsAndContributionsComponent } from './admin/exporting-donations-and-contributions/exporting-donations-and-contributions.component';
+import { ExportsDonatedComponent } from './admin/exports-donated/exports-donated.component';
+import { DonationsComponent } from './admin/donations/donations.component';
 // import { BrowserModule } from '@angular/platform-browser';
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { RouterModule } from '@angular/router';
@@ -82,7 +85,10 @@ import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.compon
     NewCampaignApprovalComponent,
     NewCampaignComponent,
     ConfirmPasswordComponent,
-    AdminNavBarComponent 
+    AdminNavBarComponent,
+    ExportingDonationsAndContributionsComponent,
+    ExportsDonatedComponent,
+    DonationsComponent 
   ],
   imports: [
     BrowserModule,

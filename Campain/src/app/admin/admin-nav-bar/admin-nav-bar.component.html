@@ -29,30 +29,30 @@
         <div class="row mb-5">
             <nav class="navbar navbar-expand-lg navbar-light admin-nav-bar mb-5">
                 <ul class="col-12 navbar-nav" style="width: 100%;">
-                    <li class="nav-item col-2 py-2 px-3 " (click)="selectNavItem('link1')" [class.active]="selectedNavItem === 'link1'">
+                    <li class="nav-item col-2 py-2 px-3 justify-content-center" (click)="selectNavItem('link1')" [class.active]="selectedNavItem === 'link1'">
                         <a class="nav-link">קמפיין</a>
-                        <ul *ngIf="selectedNavItem === 'link1'" class="submenu p-3">
-                          <li><a class="nav-link-child p-2" href="#"> ניהול קמפיין</a></li>
-                          <li><a class="nav-link-child p-2" routerLink="new-campain"> קמפיין חדש</a></li>
+                        <ul *ngIf="selectedNavItem === 'link1'" class="submenu py-3">
+                          <li><a class="nav-link-child py-2" href="#"> ניהול קמפיין</a></li> <br>
+                          <li><a class="nav-link-child py-2 " routerLink="new-campain"> קמפיין חדש</a></li>
                         </ul>
                     </li>
                     <li class="nav-item col-2 py-2 px-3" (click)="selectNavItem('link2')" [class.active]="selectedNavItem === 'link2'">
                         <a class="nav-link">נתרמים</a>
-                        <ul *ngIf="selectedNavItem === 'link2'" class="submenu p-2">
-                          <li><a class="nav-link-child p-2" href="#">  הוספת נתרמים</a></li>
-                          <li><a class="nav-link-child p-2">  שינוי נתרם</a></li>
-                          <li><a class="nav-link-child p-2">   יצוא נתרמים</a></li>
+                        <ul *ngIf="selectedNavItem === 'link2'" class="submenu py-3">
+                          <li><a class="nav-link-child py-2" href="#">  הוספת נתרמים</a></li> <br>
+                          <li><a class="nav-link-child py-2">  שינוי נתרם</a></li> <br>
+                          <li><a class="nav-link-child py-2" routerLink="exports-donated">   יצוא נתרמים</a></li>
                         </ul>
                     </li>
                     <li class="nav-item col-2 py-2 px-3" (click)="selectNavItem('link3')" [class.active]="selectedNavItem === 'link3'">
-                        <a class="nav-link">תרומות</a>
+                        <a class="nav-link" routerLink="donations">תרומות</a>
                         
                     </li>
                     <li class="nav-item col-2 py-2 px-3" (click)="selectNavItem('link4')" [class.active]="selectedNavItem === 'link4'">
                         <a class="nav-link">הרשאות</a>
-                        <ul *ngIf="selectedNavItem === 'link4'" class="submenu p-2">
-                          <li><a class="nav-link-child p-2" href="#"> עדכון פרטי מנהל</a></li>
-                          <li><a class="nav-link-child p-2">  הוספת מנהל</a></li>
+                        <ul *ngIf="selectedNavItem === 'link4'" class="submenu py-4">
+                          <li><a class="nav-link-child py-2" href="#"> עדכון פרטי מנהל</a></li> <br>
+                          <li><a class="nav-link-child py-2">  הוספת מנהל</a></li>
                         </ul>
                     </li>
                 </ul>

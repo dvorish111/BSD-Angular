@@ -24,8 +24,8 @@ export class ContactComponent {
 
   constructor(private fb: FormBuilder, private http: HttpClient,private contactService:ContactService) {
     this.contactForm = new FormGroup({
-      firstName: new FormControl("", Validators.required),
-      lastName: new FormControl("", Validators.required),
+      firstName: new FormControl(""),
+      lastName: new FormControl(""),
       email: new FormControl("", [Validators.required, Validators.email]),
       message: new FormControl("", Validators.required)
     });
