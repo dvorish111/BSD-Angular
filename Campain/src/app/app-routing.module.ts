@@ -8,6 +8,10 @@ import { ContactComponent } from './contact/contact.component';
 import { FamiliesComponent } from './families/families.component';
 import { PaymentComponent } from './payment/payment.component';
 import { NewCampaignComponent } from './admin/new-campaign/new-campaign.component';
+import { ExportsDonatedComponent } from './admin/exports-donated/exports-donated.component';
+import { DonationsComponent } from './admin/donations/donations.component';
+// import { DonationsComponent } from './admin/donations/donations.component';
+
 
 const routes: Routes = [
   { path: '',  component: HomeComponent },
@@ -19,8 +23,16 @@ const routes: Routes = [
  {  path: 'payment/:amount',  component: PaymentComponent },
  {  path: 'payment/:donatesId/:amount/:sumDonationsByDonated',  component: PaymentComponent },
  {  path: 'admin-interface/:name',  component: AdminInterfaceComponent },
- {  path: 'admin-interface/:name/new-campain',  component: NewCampaignComponent },
- { path: '**',  component: HomeComponent },
+//  { path: '**',  component: HomeComponent },
+//  {  path: 'admin-interface/:name/new-campain',  component: NewCampaignComponent },
+
+{ path: 'admin-interface/:name', component: AdminInterfaceComponent,
+  children: [
+    { path: 'new-campain', component: NewCampaignComponent },
+    { path: 'donations', component: DonationsComponent },
+    { path: 'exports-donated', component: ExportsDonatedComponent },
+  ]
+},
 ];
 
 @NgModule({

@@ -65,3 +65,28 @@ margin: 0%;
 .show-donations {
   width: 25%;
 }
+
+  .TextBox{
+    justify-content: center; /* מיישור אופקי למרכז */
+    align-items: center; /* מיישור אנכי למרכז */
+    width: 50%; /* רוחב מקסימלי */
+    background-color: #FFAF00;
+    border-radius: 10px;
+    border: none;
+    font-size: larger;
+    font-weight: bold; /* טקסט מודגש */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+   height: 80px;
+   color: #054556;
+  }
+  
+  .TextBox:hover {
+  background-color: #054556;
+  color: #ffffff;
+  
+  transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
+  } 
+  /* .center-button {
+    display: flex;
+    justify-content: center;
+  } */
