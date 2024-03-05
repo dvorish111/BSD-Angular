@@ -64,11 +64,7 @@
 
 
 
-.card{
-  /* text-align: center;
-  justify-content:center;  */
-  padding: 5%;
-}
+
 
 
 .align-items-center {
@@ -115,10 +111,7 @@
 
 } 
 
-.card{
-  text-align: center;
-  justify-content:center; 
-}
+
 .mat-card-content{
   display: flex;
 }
@@ -146,12 +139,12 @@
 
 
 .card{
-  /* text-align: center;
-  justify-content:center;  */
-  text-align: center;
+
   border: 6px solid #054556; /* צבע מסגרת צהובה בגודל 2 פיקסלים */
-  /* justify-content:center;  */
   padding: 5%;
+  /* text-align: center; */
+  justify-content:center; 
+
 }
 
 
@@ -212,14 +205,7 @@ color: #ffffff;
 
 
 }
-  .align-icon-left{
-    /* justify-content: left; */
-  }
 
-  .align-famely-r .Raised{
-    /* justify-content: end;
-    text-align: right; */
-  }
   .mat-card-amount{
   font-size:xx-large;
   font-weight: bold;
@@ -254,24 +240,7 @@ mat-card-title{font-size:medium;}
   padding-top: 16px;
 }
 /* גורם לסכומים להיות באותו גובה */
-.card {
-  /* width: 190px;
-  height: 254px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 0px 15px;
-  background-color: red;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  position: relative;
-  cursor: pointer;
-  font-weight: 900;
-  transition-duration: .2s;
-  background: linear-gradient(0deg, #000, #272727); */
-}
+
 /* ----מסגרת זוהרת----- */
 .card:hover{
   border: none;
@@ -311,20 +280,26 @@ mat-card-title{font-size:medium;}
   /* filter: blur(20px); */
   transform: scale(0.98);
   border-radius: 20px;
+  
 } 
 /* ----פסים בצידי האיקון----- */
 .align-icon-center {
   position: relative;
-  margin-bottom: -90px; 
+  margin-bottom: -90px;
+  text-align: center;
 
 }
 .credit_card_heart{
   top:25px;
   position: relative;
   color: #054556;
+ text-align: center;
 }
+
+
 .align-icon-center::before, .align-icon-center::after {
   content: '';
+
   position: absolute;
    top: 100%;
   /* transform: translateY(-50%); */
