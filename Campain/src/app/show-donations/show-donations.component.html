@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
-    <!-- <div class="campaign  ">
+    <div class="campaign  ">
       {{campaign.goul}}
-    </div> -->
-    <div class="  mb-5 ">
+    </div>
+    <div  class="  mb-5 ">
+
       <mat-card *ngIf="donate" class="example-card">
         <mat-card-header>
           <mat-card-title>Family Size</mat-card-title>
@@ -39,11 +40,13 @@
     </div>
     <div class="mb-5">
       <mat-card *ngFor="let donation of showDonations" class="example-card">
-        
+        <div class="col-9 align-items-center">
+
         <mat-card-header>
           <mat-card-title>Amount</mat-card-title>
           <mat-card-subtitle>{{ donation.amount }}</mat-card-subtitle>
         </mat-card-header>
+        </div>
         <mat-card-content *ngIf="donation.idDonated; else elseBlock">
           <mat-card-title>Case</mat-card-title>
           <mat-card-subtitle>{{ donation.idDonatedNavigation?.id }}</mat-card-subtitle>
@@ -55,6 +58,7 @@
           </mat-card-content>
         </ng-template>
         <mat-card-content>
+       
           <!-- <mat-card-title>Date</mat-card-title> -->
           <mat-card-subtitle>{{ calculateTimeDifference(donation.date) }} ago</mat-card-subtitle>
         </mat-card-content>

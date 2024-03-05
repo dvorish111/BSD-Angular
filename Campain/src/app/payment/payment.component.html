@@ -891,19 +891,21 @@
     <div id="OkDiv" style="font-weight:bold;color:#47ba18;padding:5px;display:none;text-align:center">Transaction Done
       - העסקה בוצעה בהצלחה</div>
 
-    <div id="PayBtDiv" style="margin:20px 0px 15px 0px;text-align:center">
-      <input type="button" id="PayBt" style="cursor:pointer;color:white;background-color:#17a2b8;text-align:center"
-        value="ביצוע תשלום" class="TextBox" onclick="PayBtClick()" />
+      
+
+    <div id="PayBtDiv" style="text-align:center">
+      <input type="button"  id="PayBt" 
+        value="Donate Now" class="TextBox" onclick="PayBtClick()" />
       <div id="ErrorDiv" style="font-weight:bold;color:firebrick;padding:5px"></div>
     </div>
-
+    
     <div style="text-align:center;padding:10px 0px;font-family:Assistant,Arial;color:#808080;display:none" id="WaitPay">
       <img src="waitnew.gif" style="width:50px;" /><br />מבצע חיוב, נא להמתין...
     </div>
 
     <div id="Result" style="text-align:center" dir="ltr"></div>
 
-    <button (click)="keepData()" [disabled]="myForm.invalid"> keepData </button>
+    <!-- <button (click)="keepData()" [disabled]="myForm.invalid"> keepData </button> -->
   </div>
 </div>
 

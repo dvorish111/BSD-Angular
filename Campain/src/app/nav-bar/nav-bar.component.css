@@ -192,6 +192,7 @@ button.mat-raised-button:hover {
   margin-right: 5px;
   margin-left: 5px;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 .Goul .navbar-brand {
@@ -200,12 +201,14 @@ button.mat-raised-button:hover {
   display: flex;
   align-items: center;
   margin-top: 5px;
-
+font-weight: bold;
 }
 .Goul .navbar-brand h6 {
   margin-left: 5px;
 }
-
+.navbar-brand{
+  font-size: x-large;
+}
 
 /* סגנון כללי לקו התמלאות (Progress Bar) */
 /* סגנון ה progress bar */

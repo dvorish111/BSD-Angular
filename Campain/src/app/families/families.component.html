@@ -9,8 +9,8 @@
 
 <br>
 <div class="filters">
-  <mat-form-field >
-    <mat-label>Family size</mat-label>
+  <mat-form-field appearance="fill">
+        <mat-label>Family size</mat-label>
     <mat-select (selectionChange)="familyOfChildren($event.value)">
       <mat-option value="5">2-5 children</mat-option>
       <mat-option value="10">5-10 children</mat-option>
@@ -209,7 +209,9 @@
     </mat-card>
   </div>
   </div> -->
-  <button (click)="showMoreFamilies()">Show more</button>
+  <div class="center-button">
+  <button class="btnShowMore" (click)="showMoreFamilies()">Show more</button>
+</div>
 
 </div>
 <div  class="show-donations">

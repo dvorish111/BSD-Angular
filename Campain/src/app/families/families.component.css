@@ -16,8 +16,7 @@
 
 
 .cards-container {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
+
   justify-content:flex-start; /* רווח בשוליים */
    /* gap: 1rem;  */
    width: 70%;
@@ -94,9 +93,9 @@
     max-width: 400px;
   }
 
-.show-donations {
+/* .show-donations {
   width: 25%;
-}
+} */
 .donatesContainer{
   display: flex;
  margin: 1rem 1rem;
@@ -372,10 +371,34 @@ transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
   /* height: 5px; */
  }
 /* @media (max-width: 700px) {
-  .col-lg-4 {
-    flex: 0 0 100%; 
+ .donatesContainer{ flex:  100%; }
+   
+ 
+} */
+@media screen and (max-width: 800px) {
+    .donatesContainer {
+      display: block;
+      margin: 0rem 0rem;
+
+    }
+  
+    .cards-container {
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+  
+    .show-donations {
+      width: 100%;
+    }
+  
+    .show-donations app-show-donations {
+      width: 100%;
+    }
   }
-}
+
+
+/* 
 @media  (max-width: 1300px )  {
   .col-lg-4 {
     flex: 0 0 50%; 
@@ -383,5 +406,38 @@ transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
 } */
 
 
-
-
+.btnShowMore{
+  width: 25%;
+  color:#FFAF00;
+    justify-content: center; /* מיישור אופקי למרכז */
+    align-items: center; /* מיישור אנכי למרכז */
+    background-color:#054556 ;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: bold; /* טקסט מודגש */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+   height: 80px;
+   margin: 0 auto;
+  }
+  
+  .btnShowMore:hover {
+  background-color: #054556;
+  color: #FFAF00;
+  
+  transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
+  } 
+  .center-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+  }
+  /* .filters .mat-form-field.mat-form-field {
+    border-color : #054556 !important; 
+    border-radius: 5px; 
+  }
+  
+  .filters .mat-select {
+    color:  #054556!important; }
+   */
+  
+   /* ::ng-deep .mat-selected .mat-option-text { color: white!important; } */
