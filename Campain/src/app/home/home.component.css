@@ -260,6 +260,15 @@
     transform: translate(50%, 0%);
 
    }
+   .circular-bar-container {
+    position:fixed;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    justify-content:center;
+    /* margin-right: 220px; ניתן להתאים את המרחק מהצד עם ערך רצוי */
+  }
   
 }
 /* -- -----mp4------ */
