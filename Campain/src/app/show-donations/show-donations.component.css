@@ -1,74 +1,73 @@
 .example-card{
- margin-bottom: 5%; 
- /* margin: 10%;  */
- padding: 15%;
- border: 6px solid #054556; /* צבע מסגרת צהובה בגודל 2 פיקסלים */
-
-}
-.mat-card-content{
-    text-align: left;
-}
-
-.container{ 
-   display: flex;
-   flex-wrap: wrap; 
-   justify-content:end; 
-   gap: 1rem;
-   width: 23%;
-   margin: 2rem 1rem;
-   position: absolute;
-   /* justify-content: center; */
-   background-color: #FFAF00;
-  } 
-  .btnShowMore{
-    width: 50%;
-    color: #ffffff;
-      justify-content: center; /* מיישור אופקי למרכז */
-      align-items: center; /* מיישור אנכי למרכז */
-      background-color:#054556 ;
-      border-radius: 10px;
-      font-size: larger;
-      font-weight: bold; /* טקסט מודגש */
-      transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
-     height: 80px;
-     margin-bottom: 5%;
-     margin-top: 5%;
-    }
-    
-    .btnShowMore:hover {
-    background-color: #054556;
-    color: #FFAF00;
-    
-    transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
-    } 
-  
-  .row{
-    justify-content: center;
-  }
-/* .campaign{
-    justify-content: center;
-
-} */
-
-.row3{
-  background-color:#80A3B2 ;
-  padding: 5%;
-  
-  display: flex; 
-  align-items: center;
-  }
-  
-  @media screen and (max-width: 800px) {
-    .container{ 
-      display: flex;
-      flex-wrap: wrap; 
-      justify-content:center; 
-      gap: 0rem;
-      width: 100%;
-      margin: 0rem 0rem;
-      position: absolute;
-      /* justify-content: center; */
-      background-color: #FFAF00;
+  margin-bottom: 5%; 
+  /* margin: 10%;  */
+  padding: 15%;
+  border: 6px solid #054556; /* צבע מסגרת צהובה בגודל 2 פיקסלים */
+ /* width:90%; */
+ margin: 5%;
+ }
+ .mat-card-content{
+     text-align: left;
+ }
+ 
+ .container-cards{ 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content:end; 
+    gap: 1rem;
+    width: 23%;
+    margin: 2rem 1rem;
+    position: absolute;
+    /* justify-content: center; */
+    background-color: #FFAF00;
+   } 
+   .btnShowMore{
+     width: 50%;
+     color: #ffffff;
+       justify-content: center; /* מיישור אופקי למרכז */
+       align-items: center; /* מיישור אנכי למרכז */
+       background-color:#054556 ;
+       border-radius: 10px;
+       font-size: larger;
+       font-weight: bold; /* טקסט מודגש */
+       transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+      height: 80px;
+      margin-bottom: 5%;
+      margin-top: 5%;
+     }
+     
+     .btnShowMore:hover {
+     background-color: #054556;
+     color: #FFAF00;
+     
+     transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
      } 
-  } 
-  
+   
+   .row{
+     justify-content: center;
+   }
+ 
+   
+   @media  screen and (max-width: 800px) {
+     .container-cards{ 
+       /* display: flex; */
+       flex-wrap: wrap; 
+       justify-content:center; 
+       gap: 0rem;
+       width: 95%;
+       margin: 0rem 0rem;
+       position: absolute;
+       /* justify-content: center; */
+       background-color: #FFAF00;
+      } 
+      .row{
+       justify-content: center;
+     }
+     .example-card{
+       width: 90%;
+      }
+   } 
+   
+ 
+ 
+ 

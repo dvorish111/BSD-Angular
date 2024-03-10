@@ -90,3 +90,25 @@ margin: 0%;
     display: flex;
     justify-content: center;
   } */
+  @media screen and (max-width: 800px) {
+    .container-payment {
+      display: block;
+      margin: 1rem 1rem;
+      /* width: 100%; */
+      justify-content: center;
+    }
+  
+   .payment-form-container {
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+    } 
+  
+    /* .show-donations {
+      width: 100%;
+    }
+  
+    .show-donations app-show-donations {
+      width: 100%;
+    } */
+  }
