@@ -34,9 +34,17 @@ margin-right: 100px;
   box-shadow: none;
   background-color: #f0f0f0;
   border: none;
+  margin: 0; /* מסיר את הרווחים מסביב לכרטיס */
+}
+.incard {
+  border-radius: 0;
+  box-shadow: none;
+  background-color: #f0f0f0;
+  border: none;
   margin-left  : -3%; /* מסיר את הרווחים בצדדים */
   margin-right  : -3%; /* מסיר את הרווחים בצדדים */
   padding: 5%;
+  margin: 0; /* מסיר את הרווחים מסביב לכרטיס */
 }
 
 .form-container {

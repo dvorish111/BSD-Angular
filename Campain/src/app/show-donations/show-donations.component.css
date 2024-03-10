@@ -50,13 +50,7 @@
 
 } */
 
-.row3{
-  background-color:#80A3B2 ;
-  padding: 5%;
-  
-  display: flex; 
-  align-items: center;
-  }
+
   
   @media screen and (max-width: 800px) {
     .container{ 

@@ -292,7 +292,7 @@ mat-card-title{font-size:medium;}
   top:25px;
   position: relative;
   color: #054556;
- text-align: center;
+ text-align: center !important;
 }
 
 
