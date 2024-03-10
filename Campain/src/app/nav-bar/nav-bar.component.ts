@@ -27,7 +27,7 @@ export class NavBarComponent implements OnInit,OnDestroy {
   circumference: number = 2 * Math.PI * this.radius;
   timerSubscription!: Subscription ;
   progress: number=0;
-
+  flag:boolean=false;
   constructor(private cdr: ChangeDetectorRef, private campaignService: CampaignService, private donationService: DonationService, private donateService: DonateService,private el: ElementRef) {
 
 
@@ -156,6 +156,8 @@ export class NavBarComponent implements OnInit,OnDestroy {
     const percentage = 80 / 100;
     return this.circumference * (1 - percentage);
   }
-
+  flags(){
+    this.flag=!this.flag;
+  }
   
 }    

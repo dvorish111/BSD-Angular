@@ -1,10 +1,4 @@
-/* styles.css */
 
-/* body{
-  font-family: 'Sixtyfour';
-} */
-
-/* סגנון לNAVBAR */
 .navbar {
   background-color: white; /* צבע הרקע - באר לבן */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* צל בקצה התחתון */
@@ -42,13 +36,7 @@
   left: 0;
 }
 
-/* אייקונים לצד כל קישור */
-/* .navbar a::before {
-  margin-right: 15px;
-  font-size: 14px;
-  color: #8B4513; 
-} 
-*/
+
 .navbar a::before {
   display: flex;
   align-items: center; /* מרכז את הטקסט והאייקון */
@@ -104,7 +92,7 @@ button.mat-raised-button:hover {
 }
 
 /* שורה חדשה למדיה-קווים - בתוך קובץ ה-CSS שלך */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .navbar-collapse {
       flex-basis: 100%;
       flex-direction: column;
@@ -136,7 +124,7 @@ button.mat-raised-button:hover {
   .Goul button {
       margin-top: 10px;
   }
-}
+} */
 
 /* navbar.component.css */
 #myNavbar.sticky {
@@ -279,3 +267,155 @@ transition: stroke-dashoffset 0.5s ease;
   color: white;
 }
 
+/* Basic styles for the navbar */
+/* .navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+.navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 20px;
+  color: #003036; 
+  transition:
+  color 0.3s ease; 
+  /* margin: 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+*/
+.navbar-collapse {
+  display: none;
+} 
+/* קישורים בNAVBAR */
+
+
+@media (max-width: 970px) {
+  .navbar-toggler {
+    display: block;
+  }
+  .navbar-collapse {
+    display: block;
+/* margin: 0%; */
+
+  }
+  
+.Toggle{
+background-color: #80A3B2;
+}
+.containerToggle{
+margin: 0%;
+}
+  /* .navbar-collapse.active {
+    display: block;
+  } */
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#80A3B2;
+  
+
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); צל בקצה התחתון */
+      position: -webkit-sticky;
+      position: sticky;
+      /* top: 0; */
+      /* z-index: 101; */
+    
+  }
+  .navbar-nav :hover{
+    text-decoration: solid underline #FFAF00 4px;
+    text-underline-offset: 8px;
+  }
+  .navbar a {
+    color: #003036;  /* צבע חום בורדו */
+    transition:
+    color 0.3s ease; /* אנימציה במעבר העכבר */
+    margin: 10px;
+  }
+  button.mat-raised-button {
+    /* height: 70px; */
+    background-color: #FFAF00; /* צבע בורדו נוטה לאדום */
+    color: white; /* צבע טקסט לבן או צבע מתאים */
+    /* margin-right: 15px; מרווח מימין בין הכפתורים */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold; /* טקסט מודגש */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+width: 100%;
+  }
+  /* .navbar a:hover { */
+    /* color: #003036; צבע שחור במעבר העכבר */
+    /* text-decoration: solid underline #FFAF00 4px;
+    text-underline-offset: 8px;
+  } */
+  
+  /* פס מתחת לNAVBAR */
+  /* .navbar::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #FFAF00;
+    position: static;
+    bottom: 0;
+    left: 0;
+  } */
+  .nav-item {
+    /* margin: 10px 0; */
+  }
+  button.mat-raised-button-Toggle{
+    height: 70px;
+  display: flex;
+    background-color: #FFAF00; /* צבע בורדו נוטה לאדום */
+    color: white; /* צבע טקסט לבן או צבע מתאים */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold; /* טקסט מודגש */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+  }
+  button.mat-raised-button-Toggle:hover {
+    background-color:   #FFAF00; /* צבע בורדו נוטה לאדום כאשר עם העכבר מעל הכפתור */
+    transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
+  }
+}
+.close {
+  /* position: fixed;
+  top: 80;
+  right: 10; */
+  background-color:#80A3B2;
+  /* margin-left: 100%; */
+  margin-bottom: 2%;
+  border: none;
+}
+.mat-raised-button-Toggle{
+  display: none;
+
+}

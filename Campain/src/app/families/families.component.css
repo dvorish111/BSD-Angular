@@ -2,12 +2,6 @@
 .show-donations {
   width: 25%;
 }
-.donatesContainer{
-  display: flex;
- margin: 1rem 1rem;
-
-}
-
 
 
 
@@ -50,15 +44,6 @@
 
 
 
-/* .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:flex-start; /* רווח בשוליים */
-  /* gap: 1rem; רווח בין הכרטיסים */
-  /* width: 75%;
-  margin: 0 1rem;
-
-} */ 
   
 
 
@@ -89,9 +74,7 @@
     max-width: 400px;
   }
 
-/* .show-donations {
-  width: 25%;
-} */
+
 .donatesContainer{
   display: flex;
  margin: 1rem 1rem;
@@ -124,15 +107,6 @@
 
   
 
-/* .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:flex-start; /* רווח בשוליים */
-  /* gap: 1rem; רווח בין הכרטיסים */
-  /* width: 75%;
-  margin: 0 1rem;
-
-} */ 
   
 
 
@@ -350,11 +324,11 @@ transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
    
  
 } */
-@media screen and (max-width: 800px) {
+@media screen and (max-width:800px) {
     .donatesContainer {
       display: block;
-      margin: 0rem 0rem;
-
+      margin: 1rem 1rem;
+justify-content: center;
     }
   
     .cards-container {
@@ -363,13 +337,15 @@ transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
       flex-wrap: wrap;
     }
   
-    .show-donations {
-      width: 100%;
+    /* .show-donations {
+      width: 90%;
+   
+
     }
   
     .show-donations app-show-donations {
-      width: 100%;
-    }
+      width: 90%;
+    } */
   }
 
 

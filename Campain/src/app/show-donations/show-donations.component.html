@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-cards">
   <div class="row">
     <div class="campaign  ">
       {{campaign.goul}}
     </div>
-    <div  class="  mb-5 ">
+    <div  >
 
       <mat-card *ngIf="donate" class="example-card">
         <mat-card-header>
@@ -38,7 +38,7 @@
       <br><br>
       <!-- <button (click)="showMoreDonations()">Show more</button> -->
     </div>
-    <div class="mb-5">
+    <div >
       <mat-card *ngFor="let donation of showDonations" class="example-card">
         <div class="col-9 align-items-center">
 

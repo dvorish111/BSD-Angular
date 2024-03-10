@@ -2,7 +2,7 @@ import { Neighborhood } from "../Neighborhood"
 
        export interface AllDonate{
               id?:number
-        parentTaz? :number
+        parentTaz? :string
         name? :string
         numChildren: number
         idStatus: number
