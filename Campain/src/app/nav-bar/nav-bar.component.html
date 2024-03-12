@@ -9,7 +9,9 @@
     </button>
 
     <button class="navbar-toggler" type="button" (click)="flags()">
-      <span class="navbar-toggler-icon"></span>
+      <span *ngIf="!flag" class="navbar-toggler-icon"></span>
+      <span *ngIf="flag"><mat-icon >close</mat-icon>
+      </span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -90,10 +92,11 @@
       <span class="navbar-toggler-icon"></span>
     </button> -->
     <br>
-    <button type="button" class="close"  (click)="flags()">
-      <mat-icon class="close">close</mat-icon>
-    </button>
+    
     <div class="navbar-collapse">
+      <!-- <button type="button" class="close"  (click)="flags()">
+        <mat-icon class="close">close</mat-icon>
+      </button> -->
       <button class="mat-raised-button" mat-raised-button [routerLink]="['/payment', numFamily]"
       routerLinkActive="active">
       <mat-icon>arrow_circle_right</mat-icon>

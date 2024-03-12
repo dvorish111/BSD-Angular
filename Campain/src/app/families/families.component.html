@@ -216,7 +216,7 @@
   </div>
   </div> -->
   <div class="center-button">
-  <button class="btnShowMore" (click)="showMoreFamilies()">Show more</button>
+  <button class="btnShowMore" *ngIf="fullDonates.length!=donates.length" (click)="showMoreFamilies()">Show more</button>
 </div>
 
 </div>

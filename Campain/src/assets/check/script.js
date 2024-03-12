@@ -1,4 +1,4 @@
-   //שימו לב!! שיטת הפוסטמסג' לא עובדת בשרת מקומי (localhost). חובה להעלות את הקוד שלכם לדומיין שלכם.
+// //    שימו לב!! שיטת הפוסטמסג' לא עובדת בשרת מקומי (localhost). חובה להעלות את הקוד שלכם לדומיין שלכם.
 
 //    window.onerror = function (msg, url, line, col, error) {
 //     alert("שגיאת תוכנה. פנה לתמיכה טכנית. שגיאה: " + msg)
@@ -33,6 +33,7 @@ function ReadPostMessage(event) {
                 document.getElementById('WaitPay').style.display = 'none';
                 document.getElementById('PayBtDiv').style.display = 'block';
             } else {
+                sendMessageToParent(event.data.Value)
                 document.getElementById('WaitPay').style.display = 'none';
                 document.getElementById('OkDiv').style.display = 'block';
             }
@@ -113,7 +114,7 @@ default:
     });
 }
 
-function sendMessageToParent(x) {
+function sendMessageToParent(ValueDonation) {
     const inputData = 'Data from iframe'; // The input data you want to send
-    window.parent.postMessage(x, '../../app/payment/payment.component.ts'); // Replace with the actual parent URL
+    window.parent.postMessage(ValueDonation, '../../app/payment/payment.component.ts'); // Replace with the actual parent URL
   }

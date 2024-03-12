@@ -117,7 +117,7 @@
 
 
     </div>
-    <button (click)="showMoreDonations()" class="btnShowMore">Show more</button>
+    <button (click)="showMoreDonations()" *ngIf="showDonations.length!=fullDonations.length" class="btnShowMore" >Show more</button>
 
   </div>
 

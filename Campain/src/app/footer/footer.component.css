@@ -1,0 +1,17 @@
+footer {
+    background-color: #054556;
+    color: #FFAF00;
+    padding: 20px;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .footer-content :hover{
+    /* color: #f0f0f0; */
+    transition: opacity 0.5s ease, transform 0.9s ease;
+  
+  }
+  

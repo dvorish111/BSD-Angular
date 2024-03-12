@@ -68,6 +68,8 @@ import { DonationsComponent } from './admin/donations/donations.component';
 // import { RouterModule } from '@angular/router';
 // import { CarouselModule } from 'ngx-owl-carousel-o';
 // import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+import{ErrorPageComponent} from './error-page/error-page.component'
 
 @NgModule({
   declarations: [
@@ -88,7 +90,9 @@ import { DonationsComponent } from './admin/donations/donations.component';
     AdminNavBarComponent,
     ExportingDonationsAndContributionsComponent,
     ExportsDonatedComponent,
-    DonationsComponent 
+    DonationsComponent ,
+FooterComponent,
+ErrorPageComponent
   ],
   imports: [
     BrowserModule,

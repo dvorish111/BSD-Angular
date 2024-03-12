@@ -1,0 +1,55 @@
+
+.error-container {
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 20%;
+    position: relative;
+    /* background-color:rgb(213, 221, 227) ; */
+}
+
+.error-container img {
+    max-width: 120%;
+
+}
+.errorImg{
+    position: absolute;
+    max-width: 100%;
+    justify-content: center;
+
+}
+.error-container h2 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.error-container p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.error-container a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color:#054556 ;
+    color:#FFAF00;
+        text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+    font-weight: bold; /* טקסט מודגש */
+
+
+   
+      /* justify-content: center; 
+      align-items: center;
+      border-radius: 10px; */
+      font-size: larger;
+    }
+    
+   
+.error-container a:hover {
+    background-color:#FFAF00 ;
+    color: #054556;
+    
+    transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
+}

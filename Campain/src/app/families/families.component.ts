@@ -173,8 +173,7 @@ export class FamiliesComponent implements OnInit {
     this.mapFamiliesRandom(donates);
     this.fullDonates =donates;
     this.donates = donates.slice(0, this.initialFamiliesCount);
-    
-
+  
   }
   mapFamiliesRandom(donates:Donate[]){//Fisher-Yates algorithm
       for (let i = donates.length  - 1; i > 0; i--) { 

@@ -607,4 +607,10 @@ line-height: normal;
   margin-left: 25px;
   /* margin-right:-15px; */
 }
+.igx-circular-bar .igx-circular-bar__label--percent {
+  display: none;
+}
+.igx-circular-bar .igx-circular-bar__label {
+  display: none;
+}
 

@@ -10,6 +10,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { NewCampaignComponent } from './admin/new-campaign/new-campaign.component';
 import { ExportsDonatedComponent } from './admin/exports-donated/exports-donated.component';
 import { DonationsComponent } from './admin/donations/donations.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 // import { DonationsComponent } from './admin/donations/donations.component';
 
 
@@ -33,6 +34,8 @@ const routes: Routes = [
     { path: 'exports-donated', component: ExportsDonatedComponent },
   ]
 },
+// { path: '',  component: HomeComponent },
+{ path: '**',  component: ErrorPageComponent },
 ];
 
 @NgModule({
