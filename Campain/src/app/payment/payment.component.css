@@ -118,3 +118,23 @@ margin: 0%;
       width: 100%;
     } */
   }
+
+  .title {
+    font-size: 24px; /* גודל הכותרת */
+    font-weight: bold; /* עובי הכותרת */
+    text-transform: uppercase; /* המרת הכותרת לאותיות רישיות */
+   color:#FFAF00;
+  }
+
+  .header-title {
+    width: 100%; /* הכותרת תהיה ברוחב כולו של הסטריפ */
+    background-color:#054556;; /* צבע הסטריפ */
+    width: 100%; /* רוחב הסטריפ יהיה כולו */
+    height: 100px; /* גובה הסטריפ */
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:40px;
+  margin-right: 100px;
+  
+  }

@@ -169,6 +169,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.startCountAnimations();
 
   }
+
+
   // calculateIncrementStep(): void {
   //   this.incrementStep = this.eliteNumbers.map(value => (value / this.maxEliteNumber) * this.totalDuration / 1000);
   // }
