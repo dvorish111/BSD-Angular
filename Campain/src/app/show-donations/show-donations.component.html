@@ -1,10 +1,33 @@
 <div class="container-cards">
   <div class="row">
-    <div class="campaign  ">
-      {{campaign.goul}}
-    </div>
-    <div  >
 
+
+    <div class="counter-col-center">
+
+     
+      <div class="totalRaised">
+        <p class="totalRaisedTitle">Total raised: </p>
+        <p class="totalRaisedCaunt"> {{totalRaised}}</p>
+        <hr>
+        <div class="goalCampaign">
+          <p>Goal: ${{campaign.goul}} </p>       
+        </div>
+      </div>
+      <div class="timer">
+        <div class="timer_numbers">{{ formattedTime }}</div>
+        <div class=timer_text>
+          <p class=timer_Day>Day</p>
+          <p class=timer_Hours> Hours </p>
+          <p class=timer_Minutes> Minutes</p>
+          <p class=timer_Seconds> Seconds</p>
+        </div>       
+      </div>
+    </div>
+
+ 
+
+    <div>
+      <br><br><br><br>
       <mat-card *ngIf="donate" class="example-card">
         <mat-card-header>
           <mat-card-title>Family Size</mat-card-title>
@@ -38,56 +61,64 @@
       <br><br>
       <!-- <button (click)="showMoreDonations()">Show more</button> -->
     </div>
-    <div >
+    <div>
       <mat-card *ngFor="let donation of showDonations" class="example-card">
-        <div class="col-9 align-items-center">
+        <div class="col-lg-4 align-items-center">
 
-        <mat-card-header>
-          <mat-card-title>Amount</mat-card-title>
-          <mat-card-subtitle>{{ donation.amount }}</mat-card-subtitle>
-        </mat-card-header>
+          <mat-card-header class="left-align">
+            <mat-card-content>
+              <mat-card-title>Amount</mat-card-title>
+              <mat-card-subtitle class="mat-card-subtitle-header">${{ donation.amount }}</mat-card-subtitle>
+            </mat-card-content>
+          </mat-card-header>
+          <mat-card-header class="right-align">
+            <mat-card-content *ngIf="donation.idDonated; else elseBlock">
+              <mat-card-title>Case</mat-card-title>
+              <mat-card-subtitle class="mat-card-subtitle-header">{{ donation.idDonatedNavigation?.id
+                }}</mat-card-subtitle>
+            </mat-card-content>
+            <ng-template #elseBlock>
+
+              <mat-card-content>
+                <!-- <mat-card-title class="General-Donation">General Donation</mat-card-title> -->
+                <mat-card-subtitle class="mat-card-subtitle-header-idNeighborhoodNavigation">{{
+                  donation.idNeighborhoodNavigation?.name
+                  }}</mat-card-subtitle>
+              </mat-card-content>
+            </ng-template>
+          </mat-card-header>
         </div>
-        <mat-card-content *ngIf="donation.idDonated; else elseBlock">
-          <mat-card-title>Case</mat-card-title>
-          <mat-card-subtitle>{{ donation.idDonatedNavigation?.id }}</mat-card-subtitle>
-        </mat-card-content>
-        <ng-template #elseBlock>
-          <mat-card-content>
-            <mat-card-title>General Donation</mat-card-title>
-            <mat-card-subtitle>{{ donation.idNeighborhoodNavigation?.name }}</mat-card-subtitle>
+
+        <mat-card-content class="custom-content">
+          <div class="left-content">
+            <mat-card-content *ngIf="donation.isAnonymous; else isNotAnonymous">
+              <mat-card-title>Anonymous</mat-card-title>
+            </mat-card-content>
+            <ng-template #isNotAnonymous>
+              <mat-card-content>
+                <mat-card-title>{{ donation.idDonorNavigation.firstName }}</mat-card-title>
+              </mat-card-content>
+            </ng-template>
+
+            <mat-card-content *ngIf="donation.dedication">
+              <!-- <mat-card-title>Dedication</mat-card-title> -->
+              <mat-card-subtitle class="dedication">{{ donation.dedication }}</mat-card-subtitle>
+            </mat-card-content>
+          </div>
+
+          <mat-card-content class="right-content">
+            <mat-card-subtitle class="right-content">{{ calculateTimeDifference(donation.date) }}
+              ago</mat-card-subtitle>
           </mat-card-content>
-        </ng-template>
-        <mat-card-content>
-       
-          <!-- <mat-card-title>Date</mat-card-title> -->
-          <mat-card-subtitle>{{ calculateTimeDifference(donation.date) }} ago</mat-card-subtitle>
         </mat-card-content>
-        <mat-card-content *ngIf="donation.dedication">
-          <mat-card-title>Dedication</mat-card-title>
-          <mat-card-subtitle>{{ donation.dedication }}</mat-card-subtitle>
-        </mat-card-content>
-        <mat-card-content>
-          <mat-card-title *ngIf="donation.isAnonymous; else isNotAnonymous">Anonymous</mat-card-title>
-        </mat-card-content>
-        <ng-template #isNotAnonymous>
-          <mat-card-content>
-            <mat-card-title>{{ donation.idDonorNavigation.firstName }}</mat-card-title>
-            <!-- <mat-card-subtitle>{{ donation.idDonorNavigation.firstName }}</mat-card-subtitle> -->
-          </mat-card-content>
-        </ng-template>
+
+
       </mat-card>
-    
+
+
     </div>
-    <button (click)="showMoreDonations()" class="btnShowMore" >Show more</button>
+    <button (click)="showMoreDonations()" class="btnShowMore">Show more</button>
 
   </div>
-  
+
 </div>
-
-
-
-
-
-
-
-

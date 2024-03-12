@@ -23,7 +23,7 @@ const routes: Routes = [
  {  path: 'payment/:amount',  component: PaymentComponent },
  {  path: 'payment/:donatesId/:amount/:sumDonationsByDonated',  component: PaymentComponent },
  {  path: 'admin-interface/:name',  component: AdminInterfaceComponent },
-//  { path: '**',  component: HomeComponent },
+ { path: '**',  component: HomeComponent },
 //  {  path: 'admin-interface/:name/new-campain',  component: NewCampaignComponent },
 
 { path: 'admin-interface/:name', component: AdminInterfaceComponent,

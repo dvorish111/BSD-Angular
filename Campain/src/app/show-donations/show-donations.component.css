@@ -1,15 +1,21 @@
 .example-card{
   margin-bottom: 5%; 
   /* margin: 10%;  */
-  padding: 15%;
-  border: 6px solid #054556; /* צבע מסגרת צהובה בגודל 2 פיקסלים */
+  padding: 0%;
+  /* border: 6px solid #054556;  */
  /* width:90%; */
  margin: 5%;
+ transition: 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+
  }
- .mat-card-content{
+ .example-card:hover {
+  transform: scale(1.02); /* הגדלת הכפתור במעבר עליו */
+
+}
+ /* .mat-card-content{
      text-align: left;
  }
- 
+  */
  .container-cards{ 
     display: flex;
     flex-wrap: wrap; 
@@ -20,6 +26,7 @@
     position: absolute;
     /* justify-content: center; */
     background-color: #FFAF00;
+    padding-top: 30px;
    } 
    .btnShowMore{
      width: 50%;
@@ -70,4 +77,174 @@
    
  
  
+   .custom-card {
+    /* Add general styling for the card here */
+    
+  }
+
+  
+  .align-items-center {
+    display: flex;
+    /* transform: translate(50%); */
+    width: 100%;
+    justify-content: space-between;
+    background-color: #054556;
+    color: #ffffff;
+    padding-bottom: 0%;
+    padding-top: -5%;
+  
+/* margin-bottom: -5%; */
+
+  }
+  /* .custom-content {
+    display: flex;
+    justify-content: space-between;
+  } */
+  
+  .right-align {
+    text-align: right;
+    position: absolute;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    color: #ffffff;
+    background: #80A3B2;
+ width: 35%;
+
+ }
+  
+  .left-align {
+   
+    /* padding-top: 62px; */
+  }
+  .mat-card-subtitle-header{
+    color: #ffffff;
+    font-size: larger;
+    font-weight: 700;
+    white-space: pre-wrap;
+    text-align: center;
+    /* padding-bottom: 15%; */
+  }
+  .mat-card-subtitle-header-idNeighborhoodNavigation{
+    color: #ffffff;
+    font-size: larger;
+    font-weight: 700;
+    white-space: pre-wrap;
+    text-align: center;
+    padding-bottom: 10%;
+    margin-top: 5%;
+  }
+  .ditailes {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ditailes mat-card-content {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .custom-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -5%;
+  }
+  
+  .left-content {
+    text-align: left;
+  }
+  
+  .right-content {
+    text-align: right;
+    padding-top: 10px;
+    font-size: medium;
+    color: #054556;
+  }
+  .dedication{
+ font-size: medium;
+    color: #054556;
+  }
+  .General-Donation{
+    font-size: small;
+
+    overflow: hidden;
+    
+  }
+
  
+  
+.timer {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  color:#054556;
+  font-size: 40px;
+  white-space: nowrap;
+text-align: center;
+line-height: normal;
+padding-top: 5%;
+padding-bottom: 5%;
+}
+
+.timer_text{
+  justify-content: center;
+  width: 100%;
+    font-size: 18px;
+  display: flexbox;
+  display: flex;
+  align-items:flex-end;
+}
+.timer_Day{
+  margin-left: 15px;
+}
+ .timer_Minutes  {
+  margin-left: 15px;
+  /* margin-right:-15px; */
+}
+.timer_Seconds   {
+  margin-left: 15px;
+  /* margin-right:-15px; */
+}
+.timer_Hours   {
+  margin-left: 25px;
+  /* margin-right:-15px; */
+}
+
+.goalCampaign{
+  justify-content: center;
+  width: 100%;
+  font-size: 28px;
+  /* display: flexbox; */
+  display: flex;
+  align-items:flex-end;
+   /* position: absolute; */
+  color:#ffffff;
+  /* font-size: 40px; */
+  white-space: nowrap;
+text-align: center;
+/* background-color: #bbc3c6; */
+   /* padding-top: 5%; */
+   /* padding-bottom: -5px; */
+  
+}
+
+.totalRaised{
+  justify-content: center;
+  width: 100%;
+   /* position: absolute; */
+   background-color: #80A3B2;
+   padding: 5%;
+   padding-bottom: -5%;
+  color:#054556;
+  /* font-size: 40px; */
+  white-space: nowrap;
+text-align: center;
+line-height: 30px;
+}
+.totalRaisedCaunt{
+  font-size: 60px;
+}
+.totalRaisedTitle{
+  font-size: 30px;
+
+}

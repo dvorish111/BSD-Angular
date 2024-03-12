@@ -23,7 +23,7 @@ donate!:Donate;
 @Input() 
 sumDonationsByDonated!:number;
 neighborhood!:Neighborhood;
-// TotalRaised!:number;
+totalRaised!:number;
 donationsByDonated!:Donation[];
 donations!:Donation[];
 showDonations!:Donation[];
@@ -33,9 +33,18 @@ initialFamiliesCount: number = 5;
 fullDonations!: Donation[];
 campaign!:Campaign;
 campaignGoul!:number;
+
+formattedTime: string = '';
+  timer: any;
+  endDate!: Date;
+  startDate!: Date; // התאריך שבו הקמפיין מתחיל
+  timeLeftInMilliseconds!:number;
+  timeOverInMilliseconds!:number;
+  timeInMilliseconds!:number;
+  valuetimeInMilliseconds!:number;
+
 constructor(private donationService:DonationService,private neighborhoodService:NeighborhoodService,private donorService:DonorService,private campaignService:CampaignService) {
 this.date=new Date();
-
 }
 ngOnInit(): void {
   const campaignId = 1;
@@ -43,27 +52,31 @@ ngOnInit(): void {
     next: (campaign: Campaign) => {
       this.campaign = campaign;
       this.campaignGoul = this.campaign.goul;
-      // this.startDate = this.campaign.startDate;
-      // this.endDate = this.campaign.endDate;
-      // console.log(this.campaignGoul);
+      this.startDate = this.campaign.startDate;
+      this.endDate = this.campaign.endDate;
+      console.log(this.startDate);
       // this.counters[0].target = campaign.goul
-  
+      this.startTimer();
+
     },
     error: (err) => {
       console.error(err);
     }
   });
-  // this.donationService.getSumDonation().subscribe
-  // ({
-  //   next: (sum: number) => {
-  //     this.TotalRaised = sum;        
-  //     console.log(this.TotalRaised);
+  this.donationService.getSumDonation().subscribe
+  ({
+    next: (sum: number) => {
+      this.totalRaised = sum;        
+      console.log(this.totalRaised);
 
-  //   },
-  //   error: (err) => {
-  //     console.error(err);
-  //   }
-  // });
+    },
+    error: (err) => {
+      console.error(err);
+    }
+  });
+
+
+  
 }
   ngOnChanges(changes: SimpleChanges): void {
 
@@ -146,5 +159,65 @@ ShowLoadedDonationsCount(donates:Donation[]){
 
 }
 
+
+
+
+// -timer---
+
+
+
+delay(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+// async startCounting(): Promise<void> {
+//   await Promise.all(this.startInterval(1));
+// }
+
+// async startInterval(counter: any): Promise<void> {
+//   const increment = counter.target / 1000;
+//   while (counter.current < counter.target) {
+//     await this.delay(1); 
+//     counter.current += increment;
+//   }
+//   this.startTimer();
+// }
+
+
+
+startTimer(): void {
+  console.log("campaign:"+this.campaign)
+
+  const startDate = new Date(this.startDate);
+  const endDate = new Date(this.endDate);
+  const updateTimer = () => {
+    const now = new Date().getTime();
+    this.timeLeftInMilliseconds = endDate.getTime() - now;
+    this.timeOverInMilliseconds=endDate.getTime()-startDate.getTime()- this.timeLeftInMilliseconds ;
+    this.timeInMilliseconds=endDate.getTime()-startDate.getTime();
+    this.valuetimeInMilliseconds=this.timeOverInMilliseconds/this.timeInMilliseconds*100;
+    if (this.timeLeftInMilliseconds <= 0) {
+      this.formattedTime = '00:00:00:00';
+    }
+     else {
+      const days = Math.floor(this.timeLeftInMilliseconds / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((this.timeLeftInMilliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((this.timeLeftInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((this.timeLeftInMilliseconds % (1000 * 60)) / 1000);
+      this.formattedTime = `${this.padNumber(days)} : ${this.padNumber(hours)} : ${this.padNumber(minutes)} : ${this.padNumber(seconds)}`;
+      this.timer = setTimeout(updateTimer, 1000);
+    }
+  };
+
+  updateTimer();
+}
+
+padNumber(number: number): string {
+  return number < 10 ? `0${number}` : `${number}`;
+}
+
+
+ngOnDestroy(): void {
+  clearTimeout(this.timer);
+}
 
 }
