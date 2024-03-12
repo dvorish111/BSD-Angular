@@ -1,10 +1,9 @@
 <div class="container-cards">
   <div class="row">
-    <div class="campaign  ">
+    <div class="campaign">
       {{campaign.goul}}
     </div>
-    <div  >
-
+    <div>
       <mat-card *ngIf="donate" class="example-card">
         <mat-card-header>
           <mat-card-title>Family Size</mat-card-title>
@@ -78,7 +77,7 @@
       </mat-card>
     
     </div>
-    <button (click)="showMoreDonations()" class="btnShowMore" >Show more</button>
+    <button (click)="showMoreDonations()" *ngIf="showDonations.length!=fullDonations.length" class="btnShowMore" >Show more</button>
 
   </div>
   

@@ -5,7 +5,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   height: 110px; /* הוספת גובה קבוע לNAVBAR */
 }
 
@@ -329,7 +329,12 @@ transition: stroke-dashoffset 0.5s ease;
   }
   
 .Toggle{
+  width: 100%;
+  z-index: 999;
 background-color: #80A3B2;
+position: fixed;
+
+
 }
 .containerToggle{
 margin: 0%;
@@ -406,15 +411,12 @@ width: 100%;
     transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
   }
 }
-.close {
-  /* position: fixed;
-  top: 80;
-  right: 10; */
+/* .close {
+  
   background-color:#80A3B2;
-  /* margin-left: 100%; */
   margin-bottom: 2%;
   border: none;
-}
+} */
 .mat-raised-button-Toggle{
   display: none;
 
