@@ -20,7 +20,7 @@ export class AddingDonorsComponent {
     street:""
   }; 
   newDonate:AllDonate={
-    parentTaz:0, 
+    parentTaz:"", 
     name:"",
     numChildren:0,
     idStatus:0,
