@@ -73,6 +73,8 @@ import { CampaignManagementComponent } from './admin/campaign-management/campaig
 // import { RouterModule } from '@angular/router';
 // import { CarouselModule } from 'ngx-owl-carousel-o';
 // import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+import{ErrorPageComponent} from './error-page/error-page.component'
 
 @NgModule({
   declarations: [
@@ -93,12 +95,18 @@ import { CampaignManagementComponent } from './admin/campaign-management/campaig
     AdminNavBarComponent,
     ExportingDonationsAndContributionsComponent,
     ExportsDonatedComponent,
+// <<<<<<< HEAD
     DonationsComponent,
     AddingDonorsComponent,
     UpdateManagerDetailsComponent,
     AddManagerComponent,
     ChangeDonatedComponent,
-    CampaignManagementComponent 
+    CampaignManagementComponent,
+// =======
+    DonationsComponent ,
+FooterComponent,
+ErrorPageComponent
+// >>>>>>> 3070642922a7eb749ab8af11388148c79ec4fd1c
   ],
   imports: [
     BrowserModule,

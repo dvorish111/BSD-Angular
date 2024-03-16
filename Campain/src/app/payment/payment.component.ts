@@ -317,6 +317,7 @@ export class PaymentComponent  implements OnInit {
 
     public receiveMessage(event: MessageEvent): void {
       if (event.origin !== '../../assets/check/script.js') {
+        //"https://matara.pro"
         return; // Ignore messages from other origins for security
       }
     
@@ -344,7 +345,7 @@ export class PaymentComponent  implements OnInit {
  
 
  
-  //To receive the message from the JS
+  // To receive the message from the JS
   // handleMessage(event: MessageEvent) {
   //   const returnedData = event.data;    
   //   this.okDonation= event.data;
@@ -357,6 +358,7 @@ export class PaymentComponent  implements OnInit {
   }
 
   keepData(){
+    
     console.log(this.date);
     console.log(this.selectedNeighborhood); 
     console.log("newDonor:"+this.newDonor); 

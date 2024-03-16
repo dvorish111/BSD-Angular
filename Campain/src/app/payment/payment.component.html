@@ -649,8 +649,10 @@
 
 
 
-
-
+<br><br>
+<mat-card-header class="header-title">
+  <p class="title">Donate Now</p>
+</mat-card-header>
 
 <div class="container-payment">
   <div class="container mt-5">
@@ -804,21 +806,21 @@
 
           <div class="form-group mt-3 text-center">
             <div class="btn-group" role="group" aria-label="Font Style">
-              <button type="button" class="btn btn-outline-primary btn-group d-flex flex-column align-items-center"
+              <button type="button" class=" btn-outline-primar  d-flex flex-column align-items-center"
                 [ngClass]="{'active': selectedPaymentType === 'Ragil'} " (click)="PaymentTypeClick('Ragil')">
-                <div class="d-flex flex-column align-items-center">
+                <!-- <div class="d-flex flex-column align-items-center"> -->
                   <mat-icon *ngIf="selectedPaymentType === 'Ragil' " class="mb-0">done</mat-icon>
                   <mat-icon *ngIf="selectedPaymentType ==undefined " class="mb-0">circle</mat-icon>
                   <h2 class="mb-0">Single donation/ installments</h2>
-                </div>
+                <!-- </div> -->
               </button>
               <button type="button" value="HK" ID="selectedPaymentType"
-                class="btn btn-outline-primary btn-group d-flex flex-column align-items-center"
+                class=" btn-outline-primar  d-flex flex-column align-items-center"
                 [ngClass]="{'active': selectedPaymentType === 'HK'}" (click)="PaymentTypeClick('HK')">
-                <div class="d-flex flex-column align-items-center">
+                <!-- <div class="d-flex flex-column align-items-center"> -->
                   <mat-icon *ngIf="selectedPaymentType === 'HK' " class="mb-0">done</mat-icon>
                   <h2 class="mb-0">Donation by direct debit</h2>
-                </div>
+                <!-- </div> -->
               </button>
             </div>
           </div>

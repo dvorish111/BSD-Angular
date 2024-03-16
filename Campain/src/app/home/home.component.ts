@@ -169,6 +169,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.startCountAnimations();
 
   }
+
+
   // calculateIncrementStep(): void {
   //   this.incrementStep = this.eliteNumbers.map(value => (value / this.maxEliteNumber) * this.totalDuration / 1000);
   // }
@@ -235,13 +237,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   async startInterval(counter: any): Promise<void> {
     const increment = counter.target / 1000;
     while (counter.current < counter.target) {
-      await this.delay(1); // Adjust the interval as needed
+      await this.delay(1); 
       counter.current += increment;
     }
-
-
-
-
     this.startTimer();
   }
 
@@ -268,12 +266,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.valuetimeInMilliseconds=this.timeOverInMilliseconds/this.timeInMilliseconds*100;
       if (this.timeLeftInMilliseconds <= 0) {
         this.formattedTime = '00:00:00:00';
-      } else {
+      }
+       else {
         const days = Math.floor(this.timeLeftInMilliseconds / (1000 * 60 * 60 * 24));
         const hours = Math.floor((this.timeLeftInMilliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((this.timeLeftInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((this.timeLeftInMilliseconds % (1000 * 60)) / 1000);
-        this.formattedTime = `${this.padNumber(days)}:${this.padNumber(hours)}:${this.padNumber(minutes)}:${this.padNumber(seconds)}`;
+        this.formattedTime = `${this.padNumber(days)} : ${this.padNumber(hours)} : ${this.padNumber(minutes)} : ${this.padNumber(seconds)}`;
         this.timer = setTimeout(updateTimer, 1000);
       }
     };

@@ -62,7 +62,14 @@ this.contact.message=this.contactForm.value.message;
           next: (success:boolean) => {
            
             console.log(success);
-  
+            this.contactForm.reset();
+            this.contactForm.markAsUntouched(); // סימון הטופס כלא נגע
+            
+            // מחיקת הולידציות
+            Object.keys(this.contactForm.controls).forEach(key => {
+              this.contactForm!.get(key)!.setErrors(null);
+            });
+            
           },
           error: (err) => {
             console.error(err);

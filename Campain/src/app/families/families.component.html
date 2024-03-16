@@ -1,9 +1,12 @@
 
 <br><br>
-<div ><p>There are {{donates.length}} families availalbe to fund</p></div>
 
+<mat-card-header class="header-title">
+  <p class="title">There are {{donates.length}} families availalbe to fund</p>
+  <!-- <mat-card-title >Contact Us</mat-card-title> -->
+</mat-card-header>
 
-<br><br><br>
+<br><br>
 
 
 
@@ -102,10 +105,10 @@
        </div></div>
        <div class="row">
         <!-- אייקון -->
-        <div class="col-11 align-icon-center">
+        <!-- <div class="col-11 align-icon-center">
          
           <mat-icon class="credit_card_heart">credit_card_heart</mat-icon> 
-        </div>
+        </div> -->
         <!-- טקסט -->
         <div class="amount" >
         
@@ -213,7 +216,7 @@
   </div>
   </div> -->
   <div class="center-button">
-  <button class="btnShowMore" (click)="showMoreFamilies()">Show more</button>
+  <button class="btnShowMore" *ngIf="fullDonates.length!=donates.length" (click)="showMoreFamilies()">Show more</button>
 </div>
 
 </div>

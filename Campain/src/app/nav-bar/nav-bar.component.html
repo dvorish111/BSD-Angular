@@ -1,11 +1,17 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light" [ngClass]="{'sticky': isSticky}" id="myNavbar">
 
   <div class="container">
-
     <img src="../../assets/images/globalLogo.png" alt="" class="logo">
+    <button class="mat-raised-button-Toggle" mat-raised-button [routerLink]="['/payment', 250]" routerLinkActive="active">
+      <mat-icon>arrow_circle_right</mat-icon>
+      <div class="DonateNow">Donate now</div>
+    </button>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" (click)="flags()">
+      <span *ngIf="!flag" class="navbar-toggler-icon"></span>
+      <span *ngIf="flag"><mat-icon >close</mat-icon>
+      </span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -60,10 +66,10 @@
         <div class="DonateNow">Donate $1 to each family</div>
       </button>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
 
     </div>
 
@@ -75,3 +81,48 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+<nav class="Toggle" *ngIf="flag" >
+  
+  <div class="containerToggle">
+  
+    <!-- <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <br>
+    
+    <div class="navbar-collapse">
+      <!-- <button type="button" class="close"  (click)="flags()">
+        <mat-icon class="close">close</mat-icon>
+      </button> -->
+      <button class="mat-raised-button" mat-raised-button [routerLink]="['/payment', numFamily]"
+      routerLinkActive="active">
+      <mat-icon>arrow_circle_right</mat-icon>
+      <div class="DonateNow">Donate $1 to each family</div>
+    </button>
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active" href="#">
+            <mat-icon>home</mat-icon>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/families']" routerLinkActive="active" href="#">
+            <mat-icon>diversity_1</mat-icon>
+            Families
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="active" href="#">
+            <mat-icon>perm_phone_msg</mat-icon>
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
