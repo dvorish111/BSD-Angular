@@ -32,15 +32,15 @@
                     <li class="nav-item col-2 py-2 px-3 justify-content-center" (click)="selectNavItem('link1')" [class.active]="selectedNavItem === 'link1'">
                         <a class="nav-link">קמפיין</a>
                         <ul *ngIf="selectedNavItem === 'link1'" class="submenu py-3">
-                          <li><a class="nav-link-child py-2" href="#"> ניהול קמפיין</a></li> <br>
+                          <li><a class="nav-link-child py-2" routerLink="campaign-management"> ניהול קמפיין</a></li> <br>
                           <li><a class="nav-link-child py-2 " routerLink="new-campain"> קמפיין חדש</a></li>
                         </ul>
                     </li>
                     <li class="nav-item col-2 py-2 px-3" (click)="selectNavItem('link2')" [class.active]="selectedNavItem === 'link2'">
                         <a class="nav-link">נתרמים</a>
                         <ul *ngIf="selectedNavItem === 'link2'" class="submenu py-3">
-                          <li><a class="nav-link-child py-2" href="#">  הוספת נתרמים</a></li> <br>
-                          <li><a class="nav-link-child py-2">  שינוי נתרם</a></li> <br>
+                          <li><a class="nav-link-child py-2" routerLink="change-donated">  הוספת נתרמים</a></li> <br>
+                          <li><a class="nav-link-child py-2" routerLink="adding-donors">  שינוי נתרם</a></li> <br>
                           <li><a class="nav-link-child py-2" routerLink="exports-donated">   יצוא נתרמים</a></li>
                         </ul>
                     </li>
@@ -51,8 +51,8 @@
                     <li class="nav-item col-2 py-2 px-3" (click)="selectNavItem('link4')" [class.active]="selectedNavItem === 'link4'">
                         <a class="nav-link">הרשאות</a>
                         <ul *ngIf="selectedNavItem === 'link4'" class="submenu py-4">
-                          <li><a class="nav-link-child py-2" href="#"> עדכון פרטי מנהל</a></li> <br>
-                          <li><a class="nav-link-child py-2">  הוספת מנהל</a></li>
+                          <li><a class="nav-link-child py-2" routerLink="update-manager-details"> עדכון פרטי מנהל</a></li> <br>
+                          <li><a class="nav-link-child py-2" routerLink="add-manager">  הוספת מנהל</a></li>
                         </ul>
                     </li>
                 </ul>
