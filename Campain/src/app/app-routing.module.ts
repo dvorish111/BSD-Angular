@@ -10,7 +10,15 @@ import { PaymentComponent } from './payment/payment.component';
 import { NewCampaignComponent } from './admin/new-campaign/new-campaign.component';
 import { ExportsDonatedComponent } from './admin/exports-donated/exports-donated.component';
 import { DonationsComponent } from './admin/donations/donations.component';
+// <<<<<<< HEAD
+import { AddingDonorsComponent } from './admin/adding-donors/adding-donors.component';
+import { UpdateManagerDetailsComponent } from './admin/update-manager-details/update-manager-details.component';
+import { AddManagerComponent } from './admin/add-manager/add-manager.component';
+import { ChangeDonatedComponent } from './admin/change-donated/change-donated.component';
+import { CampaignManagementComponent } from './admin/campaign-management/campaign-management.component';
+// =======
 import { ErrorPageComponent } from './error-page/error-page.component';
+// >>>>>>> 3070642922a7eb749ab8af11388148c79ec4fd1c
 // import { DonationsComponent } from './admin/donations/donations.component';
 
 
@@ -32,6 +40,11 @@ const routes: Routes = [
     { path: 'new-campain', component: NewCampaignComponent },
     { path: 'donations', component: DonationsComponent },
     { path: 'exports-donated', component: ExportsDonatedComponent },
+    { path: 'adding-donors', component: AddingDonorsComponent },
+    { path: 'update-manager-details', component: UpdateManagerDetailsComponent },
+    { path: 'add-manager', component: AddManagerComponent },
+    { path: 'change-donated', component: ChangeDonatedComponent },
+    { path: 'campaign-management', component: CampaignManagementComponent },
   ]
 },
 // { path: '',  component: HomeComponent },

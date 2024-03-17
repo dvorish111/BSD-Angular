@@ -1,0 +1,97 @@
+<div class="container campaign-management-wrapper" dir="rtl">
+    <h3 class=" campaign-management-p my-5 px-4">עדכון פרטי מנהל</h3>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 col-xl-4">
+            <div class="form-default form-layout-01">
+                <!-- <form (ngSubmit)="saveUser(refUserForm)" #myForm="ngForm" #refUserForm> -->
+                    <form (ngSubmit)="onSubmit()" #campaignForm="ngForm">
+                
+
+                    <div class="form-group my-4">
+                        <label class="mb-2 label" for="name">שם הקמפיין: * </label>
+                        <input id="name" name="name" [(ngModel)]="campaign.name" #name='ngModel' type="text"
+                            maxlength="40" required pattern="[A-Za-zא-ת]+" class="form-control p-2" />
+                        <p class="formIntegrity" *ngIf="name.touched&&name.errors?.['required']">name is required.</p>
+                        <p class="formIntegrity" *ngIf="name.touched&&name.errors?.['pattern']">name includs only
+                            letters</p>
+                    </div>
+
+                    <div class="form-group my-4">
+                        <label class="mb-2 label" for="amount">יעד הקמפיין: * </label>
+                        <input id="amount" name="amount" [(ngModel)]="campaign.amount" #amount="ngModel" type="number"
+                           required  class="form-control p-2" />
+                        <p class="formIntegrity" *ngIf="amount.touched&&amount.errors?.['required']">amount is required.</p>
+                       
+                    </div>
+
+                    <div class="form-group my-4">
+                        <label class="mb-2 label" for="start_date">תאריך התחלה *</label>
+                        <input type="date" class="form-control p-2" id="start_date" name="start_date" #date="ngModel" [(ngModel)]="campaign.startDate" required>
+                        <p class="formIntegrity" *ngIf="date.touched&&date.errors?.['required']">date is required.</p>
+                    
+                    </div>
+                    <div class="form-group my-4">
+                        <label class="mb-2 label" for="end_date">תאריך סיום *</label>
+                        <input type="date" class="form-control p-2" id="end_date" name="end_date" #end_date="ngModel" [(ngModel)]="campaign.endDate" required>
+                        <p class="formIntegrity" *ngIf="end_date.touched&&end_date.errors?.['required']">date is required.</p>
+                    
+                    </div>
+
+                    <!-- <div class="form-group my-4 ">
+                        <label class="mb-2 label" for="loginInputMail">סיסמא: * </label>
+                        <input type="password" [(ngModel)]="manager.password" name="password" #password='ngModel'
+                            class="form-control p-2" id="loginInputPassword" required minlength="4"
+                            password>
+                        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                            <p class="formIntegrity" *ngIf="password.errors?.['required']">כתובת אימייל חובה</p>
+                            <p class="formIntegrity" *ngIf="password.errors?.['password']">כתובת אימייל לא חוקית</p>
+                        </div>
+                    </div> -->
+
+
+                    <!-- <div class="form-group my-4">
+                        <label class="mb-2 label" for="loginInputMail">מייל: * </label>
+                        <input type="email" [(ngModel)]="manager.email" #email='ngModel' name="email"
+                            class="form-control p-2" id="loginInputMail"  required email>
+                        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                            <p class="formIntegrity" *ngIf="email.errors?.['required']">כתובת אימייל חובה</p>
+                            <p class="formIntegrity" *ngIf="email.errors?.['email']">כתובת אימייל לא חוקית</p>
+                        </div>
+                    </div> -->
+                    <div class="text-center d-flex justify-content-center">
+
+                        <button type="submit" class="update-button px-5 py-2 mb-5" [disabled]="campaignForm.invalid">עדכון</button>
+                    </div>
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="container mt-5">
+    <form (ngSubmit)="onSubmit()" #campaignForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="campaign.name" required>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="campaign.amount" required>
+      </div>
+      <div class="form-group">
+        <label for="start_date">Start Date</label>
+        <input type="date" class="form-control" id="start_date" name="start_date" [(ngModel)]="campaign.startDate" required>
+      </div>
+      <div class="form-group">
+        <label for="end_date">End Date</label>
+        <input type="date" class="form-control" id="end_date" name="end_date" [(ngModel)]="campaign.endDate" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="campaignForm.invalid">Submit</button>
+    </form>
+  </div> -->
+  
