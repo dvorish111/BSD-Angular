@@ -356,7 +356,11 @@ export class PaymentComponent  implements OnInit {
   ngOnDestroy() {
     window.removeEventListener('message', this.receiveMessage.bind(this));
   }
-
+  formIsValid(): boolean {
+    // בדוק אם כל השדות בטופס תקינים ומלאים
+    return !!this.newDonor.firstName && !!this.newDonor.lastName && !!this.newDonor.phone && !!this.newDonor.email&&!!this.newDonation.amount;
+  }
+  
   keepData(){
     
     console.log(this.date);

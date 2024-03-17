@@ -238,3 +238,10 @@ button.mat-raised-button:hover {
     }
   }
 } */
+.snackbar .mat-snack-bar-action {
+  color: #054556;
+}
+
+.snackbar .mat-snack-bar-action:hover {
+  color: #FFAF00;
+}
