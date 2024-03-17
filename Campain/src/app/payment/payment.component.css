@@ -138,3 +138,13 @@ margin: 0%;
   margin-right: 100px;
   
   }
+
+
+  .Result{
+    background-color:#054556; /* צבע הסטריפ */
+    text-align:center;
+    /* margin-left: 30%;
+    margin-right: 30%; */
+    padding: 2%;
+    border-color:solid 2px #FFAF00 ;
+  }
