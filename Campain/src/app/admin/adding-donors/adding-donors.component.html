@@ -1,0 +1,136 @@
+<div class="container px-5" dir="rtl">
+    <div class=" adding-donors mx-5">
+        <div class="row">
+    <h3 class=" adding-donors-p my-5 px-4"> הוספת נתרם</h3>
+            <div class=" d-flex justify-content-center mb-4">
+                <!-- <button class="donations m-4 me-0 px-2">יצוא רשימת נתרמים</button> -->
+                <input type="text" placeholder="חפש משפחה לפי מספר תז "
+                    class="adding-donors-input p-2 m-2" />
+                <button class="adding-donors-button m-2 "></button>
+            </div>
+          
+            <div class="col-12">
+                <form (ngSubmit)="keepData()" #myForm="ngForm">
+                    <div class="row mb-4 justify-content-center">
+                      
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!-- <label for="LastName">Full Name *:</label> -->
+                                <input id="LastName" name="Lname" [(ngModel)]="newDonor.lastName" #Lname='ngModel'
+                                    type="text" maxlength="30" required pattern="[A-Za-zא-ת]+" class="form-control"
+                                    placeholder="שם המשפחה *" />
+                                <p class="formIntegrity" *ngIf="Lname.touched&&Lname.errors?.['required']">name is
+                                    required.
+                                </p>
+                                <p class="formIntegrity" *ngIf="Lname.touched&&Lname.errors?.['pattern']">name includs
+                                    only
+                                    letters</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!-- <label for="Street">Street:</label> -->
+                                <input type="text" maxlength="9" minlength="9" [(ngModel)]="newDonate.parentTaz"
+                                    required class="form-control" placeholder="תז הורים *" />
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-3">
+                        <div class="form-group">
+                            <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonor.street"
+                                class="form-control" placeholder="רחוב" />
+                        </div>
+                    </div> -->
+                    </div>
+
+                    <div class="row mb-4 justify-content-center">
+                      
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonor.street"
+                                class="form-control" placeholder=" רחוב *" #address="ngModel" />
+                                <p class="formIntegrity" *ngIf="address.touched&&address.errors?.['required']">name is
+                                    required.
+                                </p>
+                              
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text"  [(ngModel)]="newDonate.parentTaz" #numChild="ngModel"
+                                    required class="form-control" placeholder="מספר ילדים  *" />
+                                    <p class="formIntegrity" *ngIf="numChild.touched&&numChild.errors?.['required']">name is
+                                        required.
+                                    </p>
+                            </div>
+                        </div>
+                      
+                    </div>
+
+
+                    <div class="row mb-4 justify-content-center">
+                      
+
+                       
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="number"  [(ngModel)]="newDonate.parentTaz" #numBuilding="ngModel"
+                                    required class="form-control" placeholder="מספר בנין  *" />
+                                    <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">name is
+                                        required.
+                                    </p>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text"  [(ngModel)]="newDonate.parentTaz" #numBuilding="ngModel" #money="ngModel"
+                                    required class="form-control" placeholder="סכום נצרך לתמיכה  *" />
+                                    <p class="formIntegrity" *ngIf="money.touched&&money.errors?.['required']">name is
+                                        required.
+                                    </p>
+                            </div>
+                        </div>
+                      
+                    </div>
+
+
+                    <div class="row mb-4 justify-content-center">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select id="Neighborhood" class="form-control" [(ngModel)]="selectedNeighborhood"  >
+                                    <option *ngIf="!selectedNeighborhood" value="" disabled selected hidden>שכונה *</option>
+                                    <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
+                                  </select>   
+                                    <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">name is
+                                        required.
+                                    </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select id="Neighborhood" class="form-control" [(ngModel)]="selectedNeighborhood"  >
+                                    <option *ngIf="!selectedNeighborhood" value="" disabled selected hidden>שכונה *</option>
+                                    <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
+                                  </select>   
+                                    <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">name is
+                                        required.
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                </form>
+
+            </div>
+            <div class="text-start mt-3 mb-5">
+                <button class="px-4 py-2 change-donated"> שינוי נתרם </button>
+            </div>
+           
+        </div>
+    </div>
+</div>

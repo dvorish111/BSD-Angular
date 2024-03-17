@@ -63,6 +63,11 @@ import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.compon
 import { ExportingDonationsAndContributionsComponent } from './admin/exporting-donations-and-contributions/exporting-donations-and-contributions.component';
 import { ExportsDonatedComponent } from './admin/exports-donated/exports-donated.component';
 import { DonationsComponent } from './admin/donations/donations.component';
+import { AddingDonorsComponent } from './admin/adding-donors/adding-donors.component';
+import { UpdateManagerDetailsComponent } from './admin/update-manager-details/update-manager-details.component';
+import { AddManagerComponent } from './admin/add-manager/add-manager.component';
+import { ChangeDonatedComponent } from './admin/change-donated/change-donated.component';
+import { CampaignManagementComponent } from './admin/campaign-management/campaign-management.component';
 // import { BrowserModule } from '@angular/platform-browser';
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { RouterModule } from '@angular/router';
@@ -90,9 +95,18 @@ import{ErrorPageComponent} from './error-page/error-page.component'
     AdminNavBarComponent,
     ExportingDonationsAndContributionsComponent,
     ExportsDonatedComponent,
+// <<<<<<< HEAD
+    DonationsComponent,
+    AddingDonorsComponent,
+    UpdateManagerDetailsComponent,
+    AddManagerComponent,
+    ChangeDonatedComponent,
+    CampaignManagementComponent,
+// =======
     DonationsComponent ,
 FooterComponent,
 ErrorPageComponent
+// >>>>>>> 3070642922a7eb749ab8af11388148c79ec4fd1c
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,72 @@
+.change-donated {
+    margin-top: 80px;
+    border: 5px solid #054556 !important;
+}
+
+.form-control {
+    border-radius: 2px;
+    background-color: #EBECED;
+    font-family: sans-serif;
+    color: #003036;
+
+    /* font-weight: 100; */
+    /* border-color:#003036 ; */
+    /* background-color:#003036; */
+    /* rgb(206, 216, 252); */
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.0);
+    border: 2px solid black;
+
+    /* transition: border 2s; */
+}
+
+.formIntegrity {
+    font-size: 12px;
+    color: red;
+    padding: 0%;
+    margin: 0%;
+}
+
+.change-donated-b {
+    background-color: #FFAF00;
+    border: none;
+    font-family: sans-serif;
+    /* font-size: 19px; */
+    font-size: 15px;
+margin: 0 auto;
+    font-weight: bold;
+    margin-left: 160px;
+}
+
+.change-donated-example {
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 160px;
+    /* border-color: #FFAF00; */
+    background-color: white;
+    border: 2px solid #FFAF00;
+}
+
+.page-divider {
+    width: 80%;
+    /* border: none; */
+    height: 2px;
+    background-color: black;
+    margin: 0 auto;
+    opacity: 1;
+}
+
+.change-donated-p {
+    font-family: sans-serif;
+    font-size: 25px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+
+.change-donated-text {
+    font-family: sans-serif;
+    font-size: 15px;
+}
