@@ -358,7 +358,7 @@ export class PaymentComponent  implements OnInit {
   }
   formIsValid(): boolean {
     // בדוק אם כל השדות בטופס תקינים ומלאים
-    return !!this.newDonor.firstName && !!this.newDonor.lastName && !!this.newDonor.phone && !!this.newDonor.email&&!!this.newDonation.amount;
+    return !!this.newDonor.firstName && !!this.newDonor.lastName && !!this.newDonor.phone && !!this.newDonor.email;
   }
   
   keepData(){
