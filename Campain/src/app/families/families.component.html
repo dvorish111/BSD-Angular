@@ -1,4 +1,4 @@
-
+<div class="wrap" style="height: max-content;">
 <br><br>
 
 <mat-card-header class="header-title">
@@ -12,9 +12,9 @@
 
 <br>
 <div class="filters">
-  <mat-form-field appearance="fill">
+  <mat-form-field >
         <mat-label>Family size</mat-label>
-    <mat-select (selectionChange)="familyOfChildren($event.value)">
+    <mat-select [formControl]="familyOfChildrenSelectedValue" (selectionChange)="familyOfChildren($event.value)">
       <mat-option value="5">2-5 children</mat-option>
       <mat-option value="10">5-10 children</mat-option>
       <mat-option value="15">10-15 children</mat-option>
@@ -23,14 +23,14 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Funded</mat-label>
-    <mat-select (selectionChange)="funded($event.value)">
+    <mat-select [formControl]="fundedSelectedValue" (selectionChange)="funded($event.value)">
       <mat-option value="true">Funded</mat-option>
       <mat-option value="false">Not funded</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Needed</mat-label>
-    <mat-select (selectionChange)="needed($event.value)">
+    <mat-select [formControl]="neededSelectedValue" (selectionChange)="needed($event.value)">
       <mat-option value="499">0-499</mat-option>
       <mat-option value="999">500-999</mat-option>
       <mat-option value="10000">2000+</mat-option>
@@ -38,7 +38,7 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Status</mat-label>
-    <mat-select (selectionChange)="status($event.value)">
+    <mat-select [formControl]="statusSelectedValue" (selectionChange)="status($event.value)">
       <mat-option [value]="Statuses.Widow">Widowed</mat-option>
       <mat-option [value]="Statuses.Married">Married</mat-option>
       <mat-option [value]="Statuses.Divorced">Divorced</mat-option>
@@ -46,7 +46,7 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Neighborhood</mat-label>
-    <mat-select (selectionChange)="neighborhood($event.value)">
+    <mat-select [formControl]="neighborhoodSelectedValue" (selectionChange)="neighborhood($event.value)">
       <mat-option *ngFor="let neighborhoodId of neighborhoods" [value]="neighborhoodId.id">
         {{ neighborhoodId.name }}
       </mat-option>
@@ -232,7 +232,7 @@
   <br><br><br>
  
   
-  
+</div>
   
   
   
