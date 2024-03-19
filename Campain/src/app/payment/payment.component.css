@@ -1,25 +1,33 @@
 .container {
-  
-  max-width: 800px; /* Adjust the maximum width as needed */
+
+  max-width: 800px;
+  /* Adjust the maximum width as needed */
 }
-.payment-form-container{ 
-  justify-content:flex-start; /* רווח בשוליים */
+
+.payment-form-container {
+  justify-content: flex-start;
+  /* רווח בשוליים */
   /* gap: 1rem;  */
-  width: 75%;}
-.container-payment{
+  width: 75%;
+}
+
+.container-payment {
   display: flex;
   justify-content: center;
   margin: 0%;
-}  
+
+}
 
 .btn-btn-secondary {
   border-radius: 2px;
   background-color: #003036;
   /* rgb(206, 216, 252); */
 }
-.imgWaitNew{
-  width:50px
+
+.imgWaitNew {
+  width: 50px
 }
+
 .form-control {
   border-radius: 2px;
   background-color: #EBECED;
@@ -28,12 +36,13 @@
 }
 
 .form-control:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.0); 
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.0);
   border: 2px solid black;
 }
-.form-check-input{
+
+.form-check-input {
   border-radius: 2px;
-  background-color: rgb(206, 216, 252) ;
+  background-color: rgb(206, 216, 252);
   color: #003036;
 }
 
@@ -42,102 +51,102 @@
   justify-content: center;
   width: 200%px;
 }
-.btn-outline-primar{
-background-color: #003036;
-color:#FFAF00 ;
-display: flex;
-align-items:end;
-justify-content:end ;
+
+.btn-outline-primar {
+  background-color: #003036;
+  color: #FFAF00;
+  display: flex;
+  align-items: end;
+  justify-content: end;
 
 }
-.btn-outline-primar:hover{
+
+.btn-outline-primar:hover {
   background-color: #FFAF00;
-  color:#003036 ; 
+  color: #003036;
 }
 
-.formIntegrity{
-font-size: 12px;
-color: red;
-padding: 0%;
-margin: 0%;
-} 
+.formIntegrity {
+  font-size: 12px;
+  color: red;
+  padding: 0%;
+  margin: 0%;
+}
+
 .show-donations {
   width: 25%;
+
 }
 
-  .TextBox{
-    justify-content: center; /* מיישור אופקי למרכז */
-    align-items: center; /* מיישור אנכי למרכז */
-    width: 50%; /* רוחב מקסימלי */
-    background-color: #FFAF00;
-    border-radius: 10px;
-    border: none;
-    font-size: larger;
-    font-weight: bold; /* טקסט מודגש */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
-   height: 80px;
-   color: #054556;
-  }
-  
-  .TextBox:hover {
+.TextBox {
+  justify-content: center;
+  /* מיישור אופקי למרכז */
+  align-items: center;
+  /* מיישור אנכי למרכז */
+  width: 50%;
+  /* רוחב מקסימלי */
+  background-color: #FFAF00;
+  border-radius: 10px;
+  border: none;
+  font-size: larger;
+  font-weight: bold;
+  /* טקסט מודגש */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* אנימציה עבור שינוי צבע וגודל */
+  height: 80px;
+  color: #054556;
+}
+
+.TextBox:hover {
   background-color: #054556;
   color: #ffffff;
-  
-  transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
-  } 
-  /* .center-button {
-    display: flex;
+
+  transform: scale(1.05);
+  /* הגדלת הכפתור במעבר עליו */
+}
+
+@media screen and (max-width: 800px) {
+  .container-payment {
+    display: block;
+    margin: 1rem 1rem;
+    /* width: 100%; */
     justify-content: center;
-  } */
-  @media screen and (max-width: 800px) {
-    .container-payment {
-      display: block;
-      margin: 1rem 1rem;
-      /* width: 100%; */
-      justify-content: center;
-    }
-  
-   .payment-form-container {
-      justify-content: center;
-      width: 100%;
-      flex-wrap: wrap;
-    } 
-  
-    /* .show-donations {
-      width: 100%;
-    }
-  
-    .show-donations app-show-donations {
-      width: 100%;
-    } */
   }
 
-  .title {
-    font-size: 24px; /* גודל הכותרת */
-    font-weight: bold; /* עובי הכותרת */
-    text-transform: uppercase; /* המרת הכותרת לאותיות רישיות */
-   color:#FFAF00;
+  .payment-form-container {
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
   }
 
-  .header-title {
-    width: 100%; /* הכותרת תהיה ברוחב כולו של הסטריפ */
-    background-color:#054556;; /* צבע הסטריפ */
-    width: 100%; /* רוחב הסטריפ יהיה כולו */
-    height: 100px; /* גובה הסטריפ */
-    display: flex;
+
+}
+
+.title {
+  font-size: 24px;
+  /* גודל הכותרת */
+  font-weight: bold;
+  /* עובי הכותרת */
+  text-transform: uppercase;
+  /* המרת הכותרת לאותיות רישיות */
+  color: #FFAF00;
+}
+
+.header-title {
+  width: 100%;
+  /* הכותרת תהיה ברוחב כולו של הסטריפ */
+  background-color: #054556;
+  ;
+  /* צבע הסטריפ */
+  width: 100%;
+  /* רוחב הסטריפ יהיה כולו */
+  height: 100px;
+  /* גובה הסטריפ */
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom:40px;
+  margin-bottom: 40px;
   margin-right: 100px;
-  
-  }
 
+}
 
-  .Result{
-    background-color:#054556; /* צבע הסטריפ */
-    text-align:center;
-    /* margin-left: 30%;
-    margin-right: 30%; */
-    padding: 2%;
-    border-color:solid 2px #FFAF00 ;
-  }

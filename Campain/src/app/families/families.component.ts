@@ -9,6 +9,7 @@ import { Statuses } from '../Enums/Statuses';
 import { Neighborhood } from '../Classes/Neighborhood';
 import { NeighborhoodService } from '../Services/neighborhood.service';
 import { findIndex } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -29,6 +30,11 @@ export class FamiliesComponent implements OnInit {
   constructor( public myRouter: Router,private donateService: DonateService,private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
 
   }
+  familyOfChildrenSelectedValue = new FormControl();
+  fundedSelectedValue = new FormControl();
+  neededSelectedValue = new FormControl();
+  statusSelectedValue = new FormControl();
+  neighborhoodSelectedValue = new FormControl();
 
 
   ngOnInit(): void {
@@ -73,6 +79,8 @@ export class FamiliesComponent implements OnInit {
       ({
         next: (donates: Donate[]) => {
           this.ShowLoadedFamiliesCount(donates);
+          this.resetOtherSelections()
+          this.familyOfChildrenSelectedValue.setValue(NumChildren); 
 
           console.log(donates);
 
@@ -91,6 +99,8 @@ export class FamiliesComponent implements OnInit {
         next: (donates: Donate[]) => {
           this.ShowLoadedFamiliesCount(donates);
           console.log(donates);
+          this.resetOtherSelections()
+          this.neededSelectedValue.setValue(needed); 
 
         },
         error: (err) => {
@@ -116,6 +126,8 @@ export class FamiliesComponent implements OnInit {
     
       }
       this.ShowLoadedFamiliesCount(this.donates);
+this.resetOtherSelections()
+this.fundedSelectedValue.setValue(funded); 
 
 
    //   this.flagIsFulldonates=false;
@@ -128,6 +140,9 @@ export class FamiliesComponent implements OnInit {
         next: (donates: Donate[]) => {
           this.ShowLoadedFamiliesCount(donates);
         console.log(donates);
+        this.resetOtherSelections()
+          this.statusSelectedValue.setValue(status); 
+
       },
       error: (err) => {
         console.error(err);
@@ -145,6 +160,8 @@ export class FamiliesComponent implements OnInit {
     {this.donates.push(element)}    
    });
    this.ShowLoadedFamiliesCount( this.donates);
+   this.resetOtherSelections()
+   this.neighborhoodSelectedValue.setValue(neighborhoodId); 
 
     //this.tempdonates =this.donates;
    // this.donates=this.donatesN;
@@ -183,6 +200,15 @@ export class FamiliesComponent implements OnInit {
 
       } 
   }
+
+  resetOtherSelections(){
+    this.familyOfChildrenSelectedValue.setValue(null); 
+    this.fundedSelectedValue.setValue(null); 
+    this.neededSelectedValue.setValue(null); 
+    this.statusSelectedValue.setValue(null); 
+    this.neighborhoodSelectedValue.setValue(null); 
+  }
+  
 }
 
 

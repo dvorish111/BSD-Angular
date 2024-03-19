@@ -23,6 +23,7 @@
     gap: 1rem;
     width: 23%;
     margin: 2rem 1rem;
+    /* position: absolute;*/
     position: absolute;
     /* justify-content: center; */
     background-color: #FFAF00;
@@ -67,9 +68,7 @@
        /* justify-content: center; */
        background-color: #FFAF00;
       } 
-      .row{
-       justify-content: center;
-     }
+    
      .example-card{
        width: 90%;
       }
@@ -248,3 +247,7 @@ line-height: 30px;
   font-size: 30px;
 
 }
+/* .wrap{
+  position: relative;
+} */
+
