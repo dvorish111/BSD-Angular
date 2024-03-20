@@ -6,6 +6,7 @@ import { ContactService } from '../Services/contact.service';
 //import{Contact}from '../Classes/otherObject/contact';
 //import{Contact}from'../Classes/otherObject/contact';
 import{Contact}from '../Classes/OtherObject/Contact';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ContactComponent {
     message:''
   };
 
-  constructor(private fb: FormBuilder, private http: HttpClient,private contactService:ContactService) {
+  constructor(private fb: FormBuilder, private http: HttpClient,private contactService:ContactService, private snackBar: MatSnackBar) {
     this.contactForm = new FormGroup({
       firstName: new FormControl(""),
       lastName: new FormControl(""),
@@ -69,7 +70,10 @@ this.contact.message=this.contactForm.value.message;
             Object.keys(this.contactForm.controls).forEach(key => {
               this.contactForm!.get(key)!.setErrors(null);
             });
-            
+            const snackBarRef = this.snackBar.open("Your message has been successfully received! We will make every effort to get back to you promptly. Thank you for reaching out!", 'Close', {
+              duration: 5000,
+              panelClass: "success-dialog"              
+            });   
           },
           error: (err) => {
             console.error(err);
