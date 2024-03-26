@@ -36,8 +36,8 @@ export class ChangeDonatedComponent {
 
   selectedNeighborhood!:number;
   neighborhoods!:Neighborhood[];
-  statuses: typeof Statuses = Statuses;
-  options = Object.keys(this.statuses);
+  // statuses: typeof Statuses = Statuses;
+  // options = Object.keys(this.statuses);
   // constructor( private donateService: DonateService,private donationService: DonationService,private renderer: Renderer2,private route:Router,private activatedRoute:ActivatedRoute,private neighborhoodService:NeighborhoodService, private donorService:DonorService) { }
   
   constructor(private neighborhoodService:NeighborhoodService,private donateService: DonateService,private snackBar: MatSnackBar) { 
@@ -45,7 +45,7 @@ export class ChangeDonatedComponent {
   }
   
 ngOnInit(){
-  this.options = this.options.slice(this.options.length / 2);
+  // this.options = this.options.slice(this.options.length / 2);
 
   this.getAllNeighborhoods();
 
