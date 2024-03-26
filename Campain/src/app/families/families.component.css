@@ -338,6 +338,10 @@ justify-content: center;
       width: 100%;
       flex-wrap: wrap;
     }
+
+    .show-donations {
+      width: 100%;
+    }
   
     /* .show-donations {
       width: 90%;

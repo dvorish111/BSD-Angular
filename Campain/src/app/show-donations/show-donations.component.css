@@ -6,6 +6,7 @@
  /* width:90%; */
  margin: 5%;
  transition: 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+ 
 
  }
  .example-card:hover {
@@ -16,11 +17,16 @@
      text-align: left;
  }
   */
- .container-cards{ 
+
+   .container-cards{
+    max-height: 2700px; /* גובה קבוע */
+    overflow-y: auto; /* גלילה אנכית בלבד */
+    overflow-x: hidden; /* הסתרת גלילת הרוחב */
+    /* max-width: 25%; */
     display: flex;
     flex-wrap: wrap; 
     justify-content:end; 
-    gap: 1rem;
+    /* gap: 1rem; */
     width: 23%;
     margin: 2rem 1rem;
     /* position: absolute;*/
@@ -28,7 +34,7 @@
     /* justify-content: center; */
     background-color: #FFAF00;
     padding-top: 30px;
-   } 
+   }
    .btnShowMore{
      width: 50%;
      color: #ffffff;
@@ -53,6 +59,7 @@
    
    .row{
      justify-content: center;
+
    }
  
   
@@ -63,10 +70,11 @@
        justify-content:center; 
        gap: 0rem;
        width: 95%;
-       margin: 0rem 0rem;
-       position: absolute;
+       margin: 1rem 1rem;
+       position: relative;
        /* justify-content: center; */
        background-color: #FFAF00;
+      
       } 
     
      .example-card{
@@ -251,3 +259,331 @@ line-height: 30px;
   position: relative;
 } */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------עיצוב של הכרטיס--------------- */
+
+
+
+  
+
+  
+
+
+
+.card{
+  z-index:1;
+  /* background-color: #ffffff; */
+  border: 6px solid #054556; /* צבע מסגרת צהובה בגודל 2 פיקסלים */
+  padding: 5%;
+  /* text-align: center; */
+  justify-content:center; 
+  margin-bottom: 5%; 
+  /* margin: 10%;  */
+  padding: 0%;
+  /* border: 6px solid #054556;  */
+ /* width:90%; */
+ margin: 5%;
+}
+
+.row1 {
+  display: flex; /* הפעלת Flexbox על השורה */
+  
+  background-color: #ffffff;
+
+}
+.row2 {
+  display: flex; /* הפעלת Flexbox על השורה */
+  align-items: center; /* יישור אנכי של הפריטים למרכז השורה */
+  background-color: #ffffff;
+
+}
+
+.align-icon-left mat-icon ,.mat-card-content {
+  margin-right: 8px; /* מרווח בין האייקון לטקסט */
+color: #054556;
+
+  margin-top: 0.5rem; /* הפחתת המרחק למעלה */
+  margin-bottom: 0.5rem; /* הפחתת המרחק למטה */
+
+ 
+}
+.row3{
+  background-color:#80A3B2 ;
+  /* border-radius: 10px; */
+  padding: 5%;
+  /* margin-top: -10px; */
+
+  display: flex; /* הפעלת Flexbox על השורה */
+  align-items: center; /* יישור אנכי של הפריטים למרכז השורה */
+  }
+ 
+mat-icon{
+  /* font-size: 200%; */
+ font-size: 4rem; 
+  overflow:visible;
+}
+.align-items-center mat-card-content {
+  flex-grow: 1; /* התפשטות כלפי כל הכיוונים של הטקסט */
+}
+.family-size{
+  text-align: right;
+ 
+}
+.family-size-title{
+color: #ffffff;
+}
+.align-items-center {
+ /* justify-content: flex-end; */
+ text-align: left;
+ 
+}
+.donate-numChildren{
+  font-size: x-large;
+  color: #ffffff;
+}
+.amount{
+  display: flex;
+   justify-content: space-between; 
+  
+   /* top: initial; */
+
+
+}
+
+  .mat-card-amount{
+  font-size:xx-large;
+  font-weight: bold;
+  color: #000;
+
+  }
+.example-card {
+    max-width: 400px;
+  }
+
+
+
+
+
+
+
+.showMoreFamiliesContainer{
+  /* position: absolute; */
+}
+
+
+mat-card-subtitle{
+  font-size:large;
+  color: #000;
+  font-weight: bold;
+  text-align: end;
+}
+
+mat-card-title{font-size:medium;}
+  
+.bbb{
+  padding-top: 16px;
+}
+/* גורם לסכומים להיות באותו גובה */
+
+/* ----מסגרת זוהרת----- */
+.card:hover{
+  border: none;
+
+}
+.card:hover:before, .card:hover:after {
+  z-index:-1;
+  content: '';
+
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #FFAF00,#FFAF00,#ffff00,#ffd500,#fbffd3, #FFAF00, 
+  #054556, #054556,#708dff, #054556);
+  background-size: 400%;
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+ 
+  animation: steam 20s linear infinite;
+
+}
+
+@keyframes steam {
+ 
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
+.card:hover:after {
+  /* filter: blur(20px); */
+  transform: scale(0.98);
+
+  border-radius: 20px;
+  
+} 
+/* ----פסים בצידי האיקון----- */
+.align-icon-center {
+  position: relative;
+  margin-bottom: -90px;
+  text-align: center;
+
+}
+.credit_card_heart{
+  top:25px;
+  position: relative;
+  color: #054556;
+ text-align: center !important;
+}
+
+
+.align-icon-center::before, .align-icon-center::after {
+  content: '';
+
+  position: absolute;
+   top: 100%;
+  /* transform: translateY(-50%); */
+  width: 40%;
+  height: 3px;
+  background-color: #054556; /* צבע הפס */
+}
+
+.align-icon-center::before {
+  left: 0%; /* מיקום הפס השמאלי */
+}
+
+.align-icon-center::after {
+  right: -12%; /* מיקום הפס הימני */
+}
+/* ----פסים בצידי האיקון- עד כאן---- */
+
+
+/* ----כפתור התשלום--- */
+.mat-button-pay{
+  justify-content: center; /* מיישור אופקי למרכז */
+  align-items: center; /* מיישור אנכי למרכז */
+  width: 100%; /* רוחב מקסימלי */
+  background-color: #FFAF00;
+  border-radius: 10px;
+  font-size: larger;
+  font-weight: bold; /* טקסט מודגש */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עבור שינוי צבע וגודל */
+ height: 80px;
+}
+
+.mat-button-pay:hover {
+background-color: #054556;
+color: #ffffff;
+
+transform: scale(1.05); /* הגדלת הכפתור במעבר עליו */
+} 
+
+.titleCard{  content: '';
+  /* position: absolute; */
+  background-color: #FFAF00;
+  
+  /* transform: translateY(-50%); */
+  width: 40%;
+  /* height: 5px; */
+ }
+/* @media (max-width: 700px) {
+ .donatesContainer{ flex:  100%; }
+   
+ 
+} */
+@media screen and (max-width:800px) {
+    .donatesContainer {
+      display: block;
+      margin: 1rem 1rem;
+justify-content: center;
+    }
+  
+    .cards-container {
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+  
+    /* .show-donations {
+      width: 90%;
+   
+
+    }
+  
+    .show-donations app-show-donations {
+      width: 90%;
+    } */
+  }
+
+
+/* 
+@media  (max-width: 1300px )  {
+  .col-lg-4 {
+    flex: 0 0 50%; 
+  }
+} */
+
+  .center-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+  }
+  /* .filters .mat-form-field.mat-form-field {
+    border-color : #054556 !important; 
+    border-radius: 5px; 
+  }
+  
+  .filters .mat-select {
+    color:  #054556!important; }
+   */
+  
+   /* ::ng-deep .mat-selected .mat-option-text { color: white!important; } */
+
+   .title {
+    font-size: 24px; /* גודל הכותרת */
+    font-weight: bolder; /* עובי הכותרת */
+    text-transform: uppercase; /* המרת הכותרת לאותיות רישיות */
+   color:#FFAF00;
+  }
+
+  .header-title {
+  
+      width: 100%; /* הכותרת תהיה ברוחב כולו של הסטריפ */
+      background-color:#054556;; /* צבע הסטריפ */
+      width: 100%; /* רוחב הסטריפ יהיה כולו */
+      height: 100px; /* גובה הסטריפ */
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:40px;
+    margin-right: 100px;
+  
+  }
+  /* .wrap{
+    height: ;
+  } */

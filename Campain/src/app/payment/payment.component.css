@@ -119,7 +119,10 @@
     flex-wrap: wrap;
   }
 
-
+  .show-donations {
+    width: 100%;
+  
+  }
 }
 
 .title {
