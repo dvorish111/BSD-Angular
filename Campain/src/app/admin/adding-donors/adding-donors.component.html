@@ -98,17 +98,16 @@
 
 
                     <div class="row mb-4 justify-content-center">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <select id="Neighborhood" class="form-control" [(ngModel)]="selectedNeighborhood"  >
-                                    <option *ngIf="!selectedNeighborhood" value="" disabled selected hidden>שכונה *</option>
-                                    <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
-                                  </select>   
-                                    <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">name is
-                                        required.
-                                    </p>
+                       <div class="form-group">
+                                <select id="Neighborhood" class="form-control" >
+                                    <option value="" disabled selected hidden> שכונה *</option>                       
+                                     <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
+                                </select>       
+                                <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">
+                                    name is
+                                    required.
+                                </p>
                             </div>
-                        </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
