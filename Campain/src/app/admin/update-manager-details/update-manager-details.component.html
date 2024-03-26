@@ -1,8 +1,8 @@
-<div class="container update-manager-details-wrapper" dir="rtl">
+<!-- <div class="container update-manager-details-wrapper" dir="rtl">
     <h3 class=" update-manager-p my-5 px-4">עדכון פרטי מנהל</h3>
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5 col-xl-4">
-            <!-- <div id="login"> -->
+           
             <div class="form-default form-layout-01">
                 <form (ngSubmit)="saveUser(refUserForm)" #myForm="ngForm" #refUserForm>
 
@@ -22,7 +22,7 @@
                             class="form-control p-2" id="loginInputPassword" required minlength="4"
                             password>
                         <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-                            <p class="formIntegrity" *ngIf="password.errors?.['required']">כתובת אימייל חובה</p>
+                            <p class="formIntegrity" *ngIf="password.errors?.['required']">לפחות 6 תווים  חובה</p>
                             <p class="formIntegrity" *ngIf="password.errors?.['password']">כתובת אימייל לא חוקית</p>
                         </div>
                     </div>
@@ -48,4 +48,81 @@
 
         </div>
     </div>
-</div>
+</div> -->
+
+
+
+
+<div class="container update-manager-details-wrapper" dir="rtl">
+    <h3 class=" update-manager-p my-5 px-4">עדכון פרטי מנהל</h3>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5 col-xl-4">
+        <div class="form-default form-layout-01">
+          <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()" #userForm="ngForm" class="modal-content animate"
+            action="" method="post" autocomplete="off">
+  
+  
+          <div class="form-group my-4">
+            <label class="mb-2 label" for="loginInputMail">שם מנהל: * </label>
+            <input type="text" id="fullName" formControlName="ManagerName" placeholder="הכנס שם מנהל"
+              value="loginForm?.ManagerName" required pattern="[A-Za-zא-ת]+" class="form-control p-2">
+            <div class="formIntegrity"
+              *ngIf="formControls['ManagerName'].invalid && (formControls['ManagerName'].dirty || formControls['ManagerName'].touched)">
+              <div class="formIntegrity" *ngIf="formControls['ManagerName'].errors?.['required']">
+                דרושה שם מנהל. </div>
+  
+            </div>
+  
+  
+          </div>
+  
+          <div class="form-group my-4 ">
+            <label class="mb-2 label" for="loginInputMail">סיסמא: * </label>
+            <input class="form-control p-2" type="password" formControlName="Password" placeholder="הכנס סיסמא"
+              value="loginForm?.Password" name="psw" id="password"
+              [ngClass]="{'invalid-field': formControls['Password'].invalid && (formControls['Password'].dirty || formControls['Password'].touched)}" />
+            <div class="formIntegrity"
+              *ngIf="formControls['Password'].invalid && (formControls['Password'].dirty || formControls['Password'].touched)">
+              <div class="formIntegrity" *ngIf="formControls['Password'].errors?.['required']">
+                דרושה סיסמא. </div>
+              <div class="formIntegrity" *ngIf="formControls['Password'].errors?.['minlength']">
+                הסיסמה חייבת להיות באורך של לפחות 6 תווים. </div>
+              <div class="formIntegrity" *ngIf="formControls['Password'].errors?.['pattern']">
+                הסיסמה צריכה להכיל לפחות אות אחת ומספר אחד. </div>
+            </div>
+  
+          </div>
+  
+  
+          <div class="form-group my-4">
+            <label class="mb-2 label" for="loginInputMail">מייל: * </label>
+            <input class="form-control p-2" #c type="email" placeholder="הכנס כתובת מייל" formControlName="Email"
+              id="email" value="loginForm?.Email" name="Eml"
+              [ngClass]="{'invalid-field': formControls['Email'].invalid && (formControls['Email'].dirty || formControls['Email'].touched)}" />
+            <div class="formIntegrity"
+              *ngIf="formControls['Email'].invalid && (formControls['Email'].dirty || formControls['Email'].touched)">
+              <div class="formIntegrity" *ngIf="formControls['Email'].errors?.['required']">
+                נדרש אימייל. </div>
+              <div class="formIntegrity" *ngIf="formControls['Email'].errors?.['minlength']">
+                הדוא"ל חייב להיות באורך 5 תווים לפחות.
+              </div>
+              <div class="formIntegrity" *ngIf="formControls['Email'].errors?.['email']">
+                בבקשה להכניס כתובת מייל תקינה
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="text-center d-flex justify-content-center">
+            <button class="update-button px-5 py-2 mb-5" [disabled]="!loginForm.valid">עדכון</button>
+          </div>
+  
+          </form>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
+  
+  

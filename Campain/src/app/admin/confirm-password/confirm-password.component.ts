@@ -6,11 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./confirm-password.component.css']
 })
 export class ConfirmPasswordComponent {
+
+
+
+  password: string='';
   isPasswordCorrect: boolean = false;
-  password: string = '';
-  checkPassword(password: string): void {
-    // בצע את האימות שלך כאן
-    // אם הסיסמה נכונה, שנה את הערך של isPasswordCorrect ל true
-    this.isPasswordCorrect = true;
+  hide: boolean = true;
+
+  checkPassword(password: string) {
+    // Your password verification logic goes here
+    // For example:
+    if (password === 'yourAdminPassword') {
+      this.isPasswordCorrect = true;
+    } else {
+      this.isPasswordCorrect = false;
+    }
   }
 }

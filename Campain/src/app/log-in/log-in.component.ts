@@ -44,7 +44,7 @@ export class LogInComponent {
       next: (permission) => {
         this.User=permission;
       this.login();
-        alert("successful")
+       
         this.myRouter.navigate(['/admin-interface',permission.managerName])
       },
       error: (err) => {

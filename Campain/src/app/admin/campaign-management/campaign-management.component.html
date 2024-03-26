@@ -1,10 +1,13 @@
 <div class="container campaign-management-wrapper" dir="rtl">
-    <h3 class=" campaign-management-p my-5 px-4">עדכון פרטי מנהל</h3>
+    <h3 class=" campaign-management-p my-5 px-4">עדכון קמפיין </h3>
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5 col-xl-4">
             <div class="form-default form-layout-01">
+                <div *ngIf="!dataLoaded">
+                    <p>טוען נתונים...</p>
+                </div>
                 <!-- <form (ngSubmit)="saveUser(refUserForm)" #myForm="ngForm" #refUserForm> -->
-                    <form (ngSubmit)="onSubmit()" #campaignForm="ngForm">
+                    <form (ngSubmit)="onSubmit()" #campaignForm="ngForm" *ngIf="dataLoaded">
                 
 
                     <div class="form-group my-4">
@@ -18,7 +21,7 @@
 
                     <div class="form-group my-4">
                         <label class="mb-2 label" for="amount">יעד הקמפיין: * </label>
-                        <input id="amount" name="amount" [(ngModel)]="campaign.amount" #amount="ngModel" type="number"
+                        <input id="amount" name="amount" [(ngModel)]="campaign.goul" #amount="ngModel" type="number"
                            required  class="form-control p-2" />
                         <p class="formIntegrity" *ngIf="amount.touched&&amount.errors?.['required']">amount is required.</p>
                        
@@ -26,13 +29,13 @@
 
                     <div class="form-group my-4">
                         <label class="mb-2 label" for="start_date">תאריך התחלה *</label>
-                        <input type="date" class="form-control p-2" id="start_date" name="start_date" #date="ngModel" [(ngModel)]="campaign.startDate" required>
+                        <input type="datetime-local" class="form-control p-2" id="start_date" name="start_date" #date="ngModel" value="campaign?.startDate" [(ngModel)]="campaign.startDate" required>
                         <p class="formIntegrity" *ngIf="date.touched&&date.errors?.['required']">date is required.</p>
                     
                     </div>
                     <div class="form-group my-4">
                         <label class="mb-2 label" for="end_date">תאריך סיום *</label>
-                        <input type="date" class="form-control p-2" id="end_date" name="end_date" #end_date="ngModel" [(ngModel)]="campaign.endDate" required>
+                        <input type="datetime-local" class="form-control p-2" id="end_date" name="end_date" #end_date="ngModel" [(ngModel)]="campaign.endDate" required>
                         <p class="formIntegrity" *ngIf="end_date.touched&&end_date.errors?.['required']">date is required.</p>
                     
                     </div>

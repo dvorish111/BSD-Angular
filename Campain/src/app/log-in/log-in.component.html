@@ -12,8 +12,8 @@
 <br>
     <br>
   
-    <label for="psw"><b>Email</b></label>
-    <input #c type="email" placeholder="Enter Email"  formControlName="Email" id="email" name="Eml" [ngClass]="{'invalid-field': formControls['Email'].invalid && (formControls['Email'].dirty || formControls['Email'].touched)}"  />
+    <label for="psw"><b>*מייל</b></label>
+    <input #c type="email" placeholder="הכנס מייל"  formControlName="Email" id="email" name="Eml" [ngClass]="{'invalid-field': formControls['Email'].invalid && (formControls['Email'].dirty || formControls['Email'].touched)}"  />
     <div *ngIf="formControls['Email'].invalid && (formControls['Email'].dirty || formControls['Email'].touched)">
       <div *ngIf="formControls['Email'].errors?.['required']">
         Email is required.
@@ -26,8 +26,8 @@
       </div>
     </div>
 
-    <label for="psw"><b>Password</b></label>
-    <input  type="password" formControlName="Password"  placeholder="Enter Password" name="psw" id="password" [ngClass]="{'invalid-field': formControls['Password'].invalid &&formControls['Password'].errors?.['pattern'] && (formControls['Password'].dirty || formControls['Password'].touched)}"/>
+    <label for="psw"><b>*סיסמא</b></label>
+    <input  type="password" formControlName="Password"  placeholder="הכנס סיסמא" name="psw" id="password" [ngClass]="{'invalid-field': formControls['Password'].invalid &&formControls['Password'].errors?.['pattern'] && (formControls['Password'].dirty || formControls['Password'].touched)}"/>
     <div *ngIf="formControls['Password'].invalid && (formControls['Password'].dirty || formControls['Password'].touched)">
       <div *ngIf="formControls['Password'].errors?.['required']">
         Password is required.
@@ -45,7 +45,7 @@
   </div>
   <div class="container" style="background-color:#f1f1f1; padding: 16px;">
   </div>
-  <button type="submit">submit</button>
+  <button type="submit">התחברות</button>
 </form>  
 
 

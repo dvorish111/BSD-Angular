@@ -1,5 +1,6 @@
 <!-- <div class="wrap"> -->
 <div class="container-cards">
+  <div class="container-cards-1">
   <div class="row">
 
 
@@ -29,7 +30,7 @@
 
     <div>
       <br><br><br><br>
-      <mat-card *ngIf="donate" class="example-card">
+      <!-- <mat-card *ngIf="donate" class="example-card">
         <mat-card-header>
           <mat-card-title>Family Size</mat-card-title>
           <mat-card-subtitle>{{ donate.numChildren }}</mat-card-subtitle>
@@ -58,8 +59,85 @@
           <mat-card-title>Neighborhood</mat-card-title>
           <mat-card-subtitle>{{ donate.idNeighborhoodNavigation.name }}</mat-card-subtitle>
         </mat-card-content>
+      </mat-card> -->
+
+
+<br><br><br>
+      <mat-card class="card" *ngIf="donate">
+
+        <div class="row3">
+          <!-- אייקון -->
+          <div class="col-3 align-icon-left">
+            <mat-icon>diversity_1</mat-icon> <!-- ניתן להחליף את "insert_chart" באייקון המתאים -->
+          </div>
+          <!-- טקסט -->
+          <div class="col-9 ">
+            <mat-card-content class="family-size">
+              <mat-card-title class="family-size-title">family size:</mat-card-title>
+              <mat-card-subtitle class="donate-numChildren">{{donate.numChildren}}</mat-card-subtitle>
+            </mat-card-content>
+          </div>
+        </div>
+
+        <div class="row2 ">
+          <!-- אייקון -->
+          <div class="col-3 align-icon-left">
+            <mat-icon>home</mat-icon> <!-- ניתן להחליף את "insert_chart" באייקון המתאים -->
+          </div>
+          <!-- טקסט -->
+          <div class="col-9 ">
+            <mat-card-content class="d-flex ">
+              <mat-card-title class="flex-grow-1">case:</mat-card-title>
+              <mat-card-subtitle>{{donate.id}}</mat-card-subtitle>
+            </mat-card-content>
+
+            <mat-card-content class="d-flex ">
+              <mat-card-title class="flex-grow-1">status:</mat-card-title>
+              <mat-card-subtitle>{{Statuses[donate.idStatus]}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-content class="d-flex ">
+              <mat-card-title class="flex-grow-1">Neighborhood:</mat-card-title>
+              <mat-card-subtitle>{{donate.idNeighborhoodNavigation.name}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-content class="d-flex ">
+              <mat-card-title class="flex-grow-1">street:</mat-card-title>
+              <mat-card-subtitle>{{donate.street}}</mat-card-subtitle>
+            </mat-card-content>
+          </div>
+        </div>
+        <div class="row1">
+          <!-- אייקון -->
+          <!-- <div class="col-11 align-icon-center">
+     
+      <mat-icon class="credit_card_heart">credit_card_heart</mat-icon> 
+    </div> -->
+          <!-- טקסט -->
+          <hr>
+          <div class="amount">
+
+
+            <mat-card-content class="aaa">
+              <mat-card-title>needed:</mat-card-title>
+              <mat-card-subtitle class="mat-card-amount">{{donate.needed}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-content class="bbb">
+              <mat-card-title>Raised:</mat-card-title>
+              <mat-card-subtitle class="mat-card-amount">{{donate.raised}}</mat-card-subtitle>
+            </mat-card-content>
+          </div>
+        </div>
+        <br>
+       
       </mat-card>
+
+
+
+
+
+      
       <br><br>
+
+
       <!-- <button (click)="showMoreDonations()">Show more</button> -->
     </div>
     <div>
@@ -121,6 +199,6 @@
     <button (click)="showMoreDonations()" *ngIf="showDonations.length!=fullDonations.length" class="btnShowMore" >Show more</button>
 
   </div>
-
+</div>
 </div>
 <!-- </div> -->

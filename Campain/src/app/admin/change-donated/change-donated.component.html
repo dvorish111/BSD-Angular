@@ -155,7 +155,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonor.street"
+                                <input id="Street" type="text" maxlength="30" [(ngModel)]="newDonate.street"
                                     class="form-control" placeholder=" רחוב *" #address="ngModel" />
                                 <p class="formIntegrity" *ngIf="address.touched&&address.errors?.['required']">name is
                                     required.
@@ -200,12 +200,10 @@
                     <div class="row mb-4 justify-content-center">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <select id="Neighborhood" class="form-control" [(ngModel)]="selectedNeighborhood">
-                                    <option *ngIf="!selectedNeighborhood" value="" disabled selected hidden>שכונה *
-                                    </option>
-                                    <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{
-                                        neighborhood.name }}</option>
-                                </select>
+                                <select id="Neighborhood" class="form-control" >
+                                    <option value="" disabled selected hidden> שכונה *</option>                       
+                                     <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
+                                </select>       
                                 <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">
                                     name is
                                     required.
@@ -214,12 +212,13 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <select id="Neighborhood" class="form-control" [(ngModel)]="selectedNeighborhood">
-                                    <option *ngIf="!selectedNeighborhood" value="" disabled selected hidden>שכונה *
-                                    </option>
-                                    <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{
-                                        neighborhood.name }}</option>
-                                </select>
+                                <!-- <select formControlName="Status" name="status">
+                                    <option *ngFor="let s of options" [value]="s">{{s}}</option>
+                                 </select> -->
+                                <select id="statuses" class="form-control" >
+                                    <option value="" disabled selected hidden> סטטוס * </option>                       
+                                     <option *ngFor="let s of Statuses" >{{s}}</option>
+                                </select>    
                                 <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">
                                     name is
                                     required.
