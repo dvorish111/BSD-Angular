@@ -12,6 +12,19 @@
 
 <br>
 <div class="filters">
+  <form class="example-form" [formGroup]="SearchForm" (ngSubmit)="onSubmitSearchForm()">
+
+    <!-- <mat-label></mat-label>
+    <mat-form-field>
+    <input  type="search" formControlName="search" matInput placeholder=" case" value="">
+    </mat-form-field>
+    <button type="submit">search</button> -->
+
+    <mat-form-field>
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput formControlName="search" type="search" placeholder="search case here" class="search-input">
+  </mat-form-field>
+  </form>
   <mat-form-field >
         <mat-label>Family size</mat-label>
     <mat-select [formControl]="familyOfChildrenSelectedValue" (selectionChange)="familyOfChildren($event.value)">

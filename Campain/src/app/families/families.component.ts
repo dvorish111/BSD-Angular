@@ -9,7 +9,8 @@ import { Statuses } from '../Enums/Statuses';
 import { Neighborhood } from '../Classes/Neighborhood';
 import { NeighborhoodService } from '../Services/neighborhood.service';
 import { findIndex } from 'rxjs';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { AllDonate } from '../Classes/AllClasses/AllDonate';
 
 
 @Component({
@@ -27,15 +28,19 @@ export class FamiliesComponent implements OnInit {
   sumAllDonationsByDonated!:number[];
   Statuses= Statuses ;
   initialFamiliesCount: number = 45;
-  constructor( public myRouter: Router,private donateService: DonateService,private donationService:DonationService,private neighborhoodService:NeighborhoodService) {
-
+  SearchForm:FormGroup;
+  constructor( public myRouter: Router,private donateService: DonateService,private donationService:DonationService,private neighborhoodService:NeighborhoodService,private formBuilder: FormBuilder) {
+ this.SearchForm= this.formBuilder.group(
+    {
+      search:new FormControl("")
+    })
   }
   familyOfChildrenSelectedValue = new FormControl();
   fundedSelectedValue = new FormControl();
   neededSelectedValue = new FormControl();
   statusSelectedValue = new FormControl();
   neighborhoodSelectedValue = new FormControl();
-
+ 
 
   ngOnInit(): void {
     this.donateService.getAllDonates().subscribe
@@ -208,7 +213,13 @@ this.fundedSelectedValue.setValue(funded);
     this.statusSelectedValue.setValue(null); 
     this.neighborhoodSelectedValue.setValue(null); 
   }
+
+
+  onSubmitSearchForm(){
+    this.resetOtherSelections()
+      this.donates= this.tempdonates.filter(d=>d.id==this.SearchForm.value.search)
+
   
 }
-
+}
 

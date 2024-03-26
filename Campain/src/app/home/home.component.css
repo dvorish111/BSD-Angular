@@ -338,7 +338,7 @@
     font-size: 40px;
     white-space: nowrap;
     line-height: 30px;
-  
+  /* background-color: #054556; */
   
   }
   .timer {
@@ -583,10 +583,21 @@ igx-circular-bar__text ng-star-inserted{
   white-space: nowrap;
 text-align: center;
 line-height: normal;
-}
+  /* background-color: #80A3B2; */
+  border-radius: 5%;
 
+;
+/* background-color: #80A3B2; */
+
+
+}
+.timer_numbers{
+    background-color: #054556;
+
+}
 .timer_text{
-  
+  /* background-color: #80A3B2; */
+
     font-size: 18px;
   display: flexbox;
   display: flex;
