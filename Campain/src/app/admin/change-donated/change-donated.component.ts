@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AllDonate } from 'src/app/Classes/AllClasses/AllDonate';
 import { AllDonor } from 'src/app/Classes/AllClasses/AllDonor';
 import { Neighborhood } from 'src/app/Classes/Neighborhood';
+import { Statuses } from 'src/app/Enums/Statuses';
 import { DonateService } from 'src/app/Services/donate.service';
 import { NeighborhoodService } from 'src/app/Services/neighborhood.service';
 
@@ -36,8 +37,8 @@ export class ChangeDonatedComponent {
 
   selectedNeighborhood!:number;
   neighborhoods!:Neighborhood[];
-  // statuses: typeof Statuses = Statuses;
-  // options = Object.keys(this.statuses);
+  statuses: typeof Statuses = Statuses;
+  options = Object.keys(this.statuses);
   // constructor( private donateService: DonateService,private donationService: DonationService,private renderer: Renderer2,private route:Router,private activatedRoute:ActivatedRoute,private neighborhoodService:NeighborhoodService, private donorService:DonorService) { }
   
   constructor(private neighborhoodService:NeighborhoodService,private donateService: DonateService,private snackBar: MatSnackBar) { 
