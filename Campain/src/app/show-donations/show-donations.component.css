@@ -19,18 +19,17 @@
   */
 
    .container-cards{
-    max-height: 2700px; /* גובה קבוע */
-    overflow-y: auto; /* גלילה אנכית בלבד */
+
     overflow-x: hidden; /* הסתרת גלילת הרוחב */
     /* max-width: 25%; */
     display: flex;
     flex-wrap: wrap; 
     justify-content:end; 
-    /* gap: 1rem; */
-    width: 23%;
-    margin: 2rem 1rem;
+  /* gap: 1rem; */
+    /* width: 23%; */
+    margin: 1rem ,1rem;
     /* position: absolute;*/
-    position: absolute;
+    position: relative;
     /* justify-content: center; */
     background-color: #FFAF00;
     padding-top: 30px;
@@ -66,6 +65,9 @@
    @media  screen and (max-width: 800px) {
      .container-cards{ 
        /* display: flex; */
+       max-height: 100%;
+       overflow-y: hidden; /* גלילה אנכית בלבד */
+       overflow-x: hidden; /* הסתרת גלילת הרוחב */
        flex-wrap: wrap; 
        justify-content:center; 
        gap: 0rem;

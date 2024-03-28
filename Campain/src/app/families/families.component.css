@@ -1,9 +1,14 @@
 
 .show-donations {
-  width: 25%;
+  width: 23%;
+  display: flex;
+  flex-direction: column; /* מסדר פריטים בציר האנכי */
+
 }
-
-
+app-show-donations {
+  flex-grow: 1; /* מקפיא את הרוחב של כל האבא שנשתמש ב-1. כלומר, app-show-donations תמלא את המרחב הפנוי */
+  flex-basis: 23%; /* גובה האבא יחולק לארבעה רבעים, כאשר app-show-donations יקבל אחד מהם */
+}
 
 
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { Donate } from '../Classes/Donate';
 import { Statuses } from '../Enums/Statuses';
 import { DonationService } from '../Services/donation.service';
@@ -75,7 +75,6 @@ ngOnInit(): void {
     }
   });
 
-
   
 }
   ngOnChanges(changes: SimpleChanges): void {
@@ -110,6 +109,7 @@ ngOnInit(): void {
   }
  ) 
 }
+
 
 
 }
@@ -219,5 +219,9 @@ padNumber(number: number): string {
 ngOnDestroy(): void {
   clearTimeout(this.timer);
 }
+
+maxHeight: string | undefined;
+
+
 
 }
