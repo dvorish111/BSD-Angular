@@ -332,6 +332,8 @@ export class AdminInterfaceComponent  implements OnInit{
     this.showPopup=true;
   }
 
+  
+
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
       var name=params.get('name');
