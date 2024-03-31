@@ -103,7 +103,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <select id="Neighborhood" name="idNeighborhood" class="form-control" [(ngModel)]="newDonate.idNeighborhood"  >
-                                    <option *ngIf="!newDonate.idNeighborhood" value="" disabled selected hidden>שכונה *</option>
+                                    <option value="" disabled selected hidden>בחר שכונה</option>                       
                                     <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
                                   </select>   
                                     <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">name is
@@ -115,7 +115,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <select id="Neighborhood" name="idStatus" class="form-control" [(ngModel)]="options[newDonate.idStatus-1]"  >
-                                    <option *ngIf="!newDonate.idStatus" value="" disabled selected hidden>שכונה *</option>
+                                    <option value="" disabled selected hidden>בחר שכונה</option>                       
                                     <option *ngFor="let status of options" [value]="status">{{ status }}</option>
                                   </select>   
                                     <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">name is
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                     <div class="text-start mt-3 mb-5">
-                        <button class="px-4 py-2 change-donated" type="submit"> שינוי נתרם </button>
+                        <button class="px-4 py-2 change-donated" type="submit" (click)="resetForm(myForm)"> שינוי נתרם </button>
                     </div>
                    
                 </form>
