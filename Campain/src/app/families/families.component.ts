@@ -114,20 +114,22 @@ export class FamiliesComponent implements OnInit {
       });
   }
 
-  funded(funded: boolean) {
+  funded(funded: string) {
     //if(this.flagIsFulldonates==false)
     this.donates=this.tempdonates;
-    if(funded){
-      // this.donates=this.donates.filter((d=>d.needed-this.sumAllDonationsByDonated[]))
-      this.donates = this.donates.map((item, index) => ({ item, index }))
-      .filter(({ item, index }) => item.needed - this.sumAllDonationsByDonated[index] <= 0)
-      .map(({ item }) => item);
+    if(funded=="true"){
+       this.donates=this.tempdonates.filter((d=>d.needed-d.raised>0))
+      // this.donates = this.donates.map((item, index) => ({ item, index }))
+      // .filter(({ item, index }) => item.needed - item.raised <= 0)
+      // .map(({ item }) => item);
     
     }
-    else{
-      this.donates = this.donates.map((item, index) => ({ item, index }))
-      .filter(({ item, index }) => item.needed - this.sumAllDonationsByDonated[index] > 0)
-      .map(({ item }) => item);
+    if(funded=="false"){
+      this.donates=this.tempdonates.filter((d=>d.needed-d.raised<=0))
+
+      // this.donates = this.donates.map((item, index) => ({ item, index }))
+      // .filter(({ item, index }) => item.needed -  item.raised > 0)
+      // .map(({ item }) => item);
     
       }
       this.ShowLoadedFamiliesCount(this.donates);
