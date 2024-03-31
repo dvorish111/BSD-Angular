@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { stats } from '@igniteui/material-icons-extended';
 import { AllDonate } from 'src/app/Classes/AllClasses/AllDonate';
 import { AllDonor } from 'src/app/Classes/AllClasses/AllDonor';
 import { Neighborhood } from 'src/app/Classes/Neighborhood';
@@ -13,28 +15,21 @@ import { NeighborhoodService } from 'src/app/Services/neighborhood.service';
   styleUrls: ['./change-donated.component.css']
 })
 export class ChangeDonatedComponent {
-  // newDonor: AllDonor={
-  //   firstName:"",
-  //   lastName:"",
-  //   email:"",
-  //   phone:"",
-  //   city:"",
-  //   street:""
-  // }; 
-  // newDonate:AllDonate={
-  //   parentTaz:"", 
-  //   name:"",
-  //   numChildren:0,
-  //   idStatus:0,
-  //   street:"",
-  //   needed:0, 
-  //   numberBuilding:0,
-  //   raised:0,
-  //   idNeighborhood:0
-   
-  // }
-  newDonate!:AllDonate;
 
+  newDonate:AllDonate={
+    parentTaz:"", 
+    name:"",
+    numChildren:0,
+    idStatus:0,
+    street:"",
+    needed:0, 
+    numberBuilding:0,
+    raised:0,
+    idNeighborhood:0
+   
+  }
+  // newDonate!:AllDonate;
+  Status!:string;
   selectedNeighborhood!:number;
   neighborhoods!:Neighborhood[];
   statuses: typeof Statuses = Statuses;
@@ -46,7 +41,7 @@ export class ChangeDonatedComponent {
   }
   
 ngOnInit(){
-  // this.options = this.options.slice(this.options.length / 2);
+  this.options = this.options.slice(this.options.length / 2);
 
   this.getAllNeighborhoods();
 
@@ -64,12 +59,16 @@ ngOnInit(){
       }
     });
   }
-
+  resetForm(form: NgForm) {
+    this.onSubmitCreateFamily();
+    form.reset(); // אפס את כל הערכים בטופס
+  }
   onSubmitCreateFamily(){
+    
+    this.newDonate.idStatus=this.Status=='Married'?1:this.Status=='Divorced'?2:3;
     this.donateService.createDonate(this.newDonate).subscribe(
       {
         next:()=>{
-        
         console.log("create Donate Successfully!!")
         // this.addFamilyFormrReset();
         this.snackBar.open('create Donate Successfully!!', 'Close', {

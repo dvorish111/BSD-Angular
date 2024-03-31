@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AllDonate } from 'src/app/Classes/AllClasses/AllDonate';
 import { AllDonor } from 'src/app/Classes/AllClasses/AllDonor';
@@ -16,19 +16,19 @@ import { NeighborhoodService } from 'src/app/Services/neighborhood.service';
 export class AddingDonorsComponent {
 
  
-  // newDonate:AllDonate={
-  //   parentTaz:"", 
-  //   name:"",
-  //   numChildren:0,
-  //   idStatus:0,
-  //   street:"",
-  //   needed:0, 
-  //   numberBuilding:0,
-  //   raised:0,
-  //   idNeighborhood:0
+  newDonate:AllDonate={
+    parentTaz:"", 
+    name:"",
+    numChildren:0,
+    idStatus:0,
+    street:"",
+    needed:0, 
+    numberBuilding:0,
+    raised:0,
+    idNeighborhood:0
    
-  // }
-  newDonate!:AllDonate;
+  }
+  // newDonate!:AllDonate;
 
 
   selectedNeighborhood!:number;
@@ -92,6 +92,10 @@ ngOnInit(){
     
     }
   ) 
+}
+resetForm(form: NgForm) {
+  this.onSubmitUpdateFamily()
+  form.reset(); // אפס את כל הערכים בטופס
 }
 // mapAddFamilyFormToAllDonate():AllDonate{
 //   return this.allDonate={
