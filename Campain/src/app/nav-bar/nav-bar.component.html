@@ -2,7 +2,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" [ngClass]="{'sticky': isSticky}" id="myNavbar">
 
   <div class="container">
-    <img src="../../assets/images/globalLogo.png" alt="" class="logo">
+    
+    <img src="../../assets/images/globalLogo.png" alt="" class="logo" [routerLink]="['/home']" routerLinkActive="active" href="#">
     <button class="mat-raised-button-Toggle" mat-raised-button [routerLink]="['/payment', 250]" routerLinkActive="active">
       <mat-icon>arrow_circle_right</mat-icon>
       <div class="DonateNow">Donate now</div>
