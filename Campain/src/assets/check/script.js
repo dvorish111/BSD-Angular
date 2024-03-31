@@ -1,17 +1,17 @@
 // //    שימו לב!! שיטת הפוסטמסג' לא עובדת בשרת מקומי (localhost). חובה להעלות את הקוד שלכם לדומיין שלכם.
 
-//    window.onerror = function (msg, url, line, col, error) {
-//     alert("שגיאת תוכנה. פנה לתמיכה טכנית. שגיאה: " + msg)
-// }
+   window.onerror = function (msg, url, line, col, error) {
+    alert("שגיאת תוכנה. פנה לתמיכה טכנית. שגיאה: " + msg)
+}
 
-// //זהירות! את השורת קוד הזו יש להפעיל רק פעם אחת בעת פתיחת הדף
-// window.onload = function () {
+//זהירות! את השורת קוד הזו יש להפעיל רק פעם אחת בעת פתיחת הדף
+window.onload = function () {
     
-// console.log(document.getElementById('FirstName').value);
-//     if (window.addEventListener) { window.addEventListener("message", ReadPostMessage, false); } else { window.attachEvent("onmessage", ReadPostMessage); }
-//     document.getElementById('NedarimFrame').onload = function () { console.log('StartNedarim'); PostNedarim({'Name':'GetHeight'}) }
-//     document.getElementById('NedarimFrame').src = "https://matara.pro/nedarimplus/iframe?language=en";
-// }
+console.log(document.getElementById('FirstName').value);
+    if (window.addEventListener) { window.addEventListener("message", ReadPostMessage, false); } else { window.attachEvent("onmessage", ReadPostMessage); }
+    document.getElementById('NedarimFrame').onload = function () { console.log('StartNedarim'); PostNedarim({'Name':'GetHeight'}) }
+    document.getElementById('NedarimFrame').src = "https://matara.pro/nedarimplus/iframe?language=en";
+}
 ///////////////////////////////
 
 function PostNedarim(Data) {      
@@ -26,13 +26,14 @@ function ReadPostMessage(event) {
             break;
 
         case 'TransactionResponse':
-            document.getElementById('Result').innerHTML = '<b>TransactionResponse:<br/>' + JSON.stringify("ClientName"+event.data.Value.ClientName,"\nAmount"+event.data.Value.Amount,"\nLastNum"+event.data.Value.LastNum+document.getElementById('Neighborhood') )+ '</b><br/>see full data in console';
-            console.log(event.data.Value)
+            console.log(event.data.Value)      
+
             if (event.data.Value.Status == 'Error') {
                 document.getElementById('ErrorDiv').innerHTML = event.data.Value.Message
                 document.getElementById('WaitPay').style.display = 'none';
                 document.getElementById('PayBtDiv').style.display = 'block';
             } else {
+                 document.getElementById('Result').innerHTML = '<b>TransactionResponse:<br/>' + JSON.stringify("ClientName"+event.data.Value.ClientName,"\nAmount"+event.data.Value.Amount,"\nLastNum"+event.data.Value.LastNum+document.getElementById('Neighborhood') )+ '</b><br/>see full data in console';
                 sendMessageToParent(event.data.Value)
                 document.getElementById('WaitPay').style.display = 'none';
                 document.getElementById('OkDiv').style.display = 'block';
