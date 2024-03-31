@@ -1,4 +1,4 @@
-<!-- <div class="container px-5" dir="rtl">
+<div class="container px-5" dir="rtl">
     <div class=" change-donated mx-5">
         <div class="row">
             <h3 class=" change-donated-p my-5 px-4"> הוספת נתרם</h3>
@@ -105,7 +105,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <select id="Status" name="idStatus" class="form-control" [(ngModel)]="Status"  >
-                                    <!-- <option *ngIf="!newDonate.idStatus" value="" disabled selected hidden>סטטוס *</option> -->
+                                    <option *ngIf="!newDonate.idStatus" value="" disabled selected hidden>סטטוס *</option>
                                     <option *ngFor="let status of options" [value]="status">{{ status }}</option>
                                 </select>
                                 <p class="formIntegrity" *ngIf="numBuilding.touched&&numBuilding.errors?.['required']">
@@ -115,14 +115,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="text-start mt-3 mb-5">
-                        <button class="px-4 py-2 change-donated-b" (click)="resetForm(myForm)" type="submit" >שינוי נתרם</button>
+                  <div class="text-start mt-3 mb-5">
+                        <button class="px-4 py-2 change-donated-b" (click)="resetForm(myForm)" type="submit" >הוספת נתרם</button>
                     </div> 
                    
                 </form>
 
             </div>
-            
+<!--             
             <div class="col-12">
                 <form (ngSubmit)="keepData()" #myForm="ngForm">
                     <div class="row mb-4 justify-content-center">
@@ -226,10 +226,10 @@
                     </div>
                 </form>
 
-            </div>
-            <div class="text-start mt-3 mb-5">
+            </div>  -->
+            <!-- <div class="text-start mt-3 mb-5">
                 <button class="px-4 py-2 change-donated-b"> הוסף נתרם </button>
-            </div> 
+            </div>  -->
             <hr class="page-divider mb-5">
             <div class="row justify-content-end mb-5">
                 <div class="col-6 px-5">
@@ -248,5 +248,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>
