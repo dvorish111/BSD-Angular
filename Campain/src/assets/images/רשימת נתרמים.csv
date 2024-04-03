@@ -1,0 +1,14 @@
+ParentTaz, Name, NumChildren, Status, Street, Needed, NumberBuilding, Neighborhood
+123456789,s,10,Married,h,10000,12,Ramot A
+987654321,n,15,Married,k,2000,13,Ramot A
+122222222,string,1,Married,string,0,0,Ramot A
+123456744,TOTI,5,Married,zaritsi,2000,85,Ramot D
+987444321,ashem yerachem,12,Widow,mirski,1500,1,Ramot D
+222222222,ashem ishmor,8,Married,ruzenblat,800,12,Ramot G
+324842553,levi,12,Widow,ungvar,1500,805,Ramot Polin
+324842534,levi,12,Widow,ungvar,1500,805,Ramot Polin
+336633333,choen,5,Married,ramot polin,1000,55,Ramot Polin
+324844555,levi,12,Widow,ungvar,1500,805,Ramot Polin
+333334333,choen,5,Married,ramot polin,1000,55,Ramot Polin
+324212555,levi,12,Widow,ungvar,1500,805,Ramot Polin
+339999333,choen,5,Married,ramot polin,1000,55,Ramot Polin
