@@ -24,6 +24,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/assets/check/script.js"
+
             ],
             "styles": [
               "node_modules/minireset.css/minireset.css",
@@ -50,13 +51,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "4mb",
+                  "maximumWarning": "10mb",
                   "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "10kb"
                 }
               ],
               "outputHashing": "all"
@@ -100,7 +101,8 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "web.config"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",

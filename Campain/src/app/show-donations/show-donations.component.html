@@ -11,8 +11,8 @@
         <p class="totalRaisedTitle">Total raised: </p>
         <p class="totalRaisedCaunt"> {{totalRaised}}</p>
         <hr>
-        <div class="goalCampaign">
-          <p>Goal: ${{campaign.goul}} </p>       
+        <div  class="goalCampaign" >
+          <p>Goal: ${{campaignGoul}} </p>       
         </div>
       </div>
       <div class="timer">
@@ -166,8 +166,9 @@
 
 
     </div>
+    <div *ngIf="showDonations && showDonations.length > 0 && fullDonations && fullDonations.length > 0">
     <button (click)="showMoreDonations()" *ngIf="showDonations.length!=fullDonations.length" class="btnShowMore" >Show more</button>
-
+</div>
   </div>
 </div>
 </div>

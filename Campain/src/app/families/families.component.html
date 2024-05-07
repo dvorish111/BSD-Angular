@@ -1,8 +1,8 @@
 <div class="wrap" style="height: max-content;">
   <br><br>
 
-  <mat-card-header class="header-title">
-    <p class="title">There are {{donates.length}} families availalbe to fund</p>
+  <mat-card-header *ngIf="donates && donates.length > 0" class="header-title">
+    <p  class="title">There are {{donates.length}} families availalbe to fund</p>
     <!-- <mat-card-title >Contact Us</mat-card-title> -->
   </mat-card-header>
 
@@ -156,9 +156,9 @@
 
 
 
-      <div class="center-button">
-        <button class="btnShowMore" *ngIf="fullDonates.length!=donates.length" (click)="showMoreFamilies()">Show
-          more</button>
+      <div *ngIf="donates && donates.length > 0 && fullDonates && fullDonates.length > 0" class="center-button">
+        <button class="btnShowMore" *ngIf="fullDonates.length!=donates.length" (click)="showMoreFamilies()">Show -->
+           more</button>
       </div>
 
     </div>

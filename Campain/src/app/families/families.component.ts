@@ -46,6 +46,8 @@ export class FamiliesComponent implements OnInit {
     this.donateService.getAllDonates().subscribe
       ({
         next: (donates: Donate[]) => {
+          console.log("sum al donates "+donates.length)
+          this.donates = donates;
           this.getAllSumDonationsByDonated(donates);
           this.tempdonates =donates;
           this.getAllNeighborhoods();

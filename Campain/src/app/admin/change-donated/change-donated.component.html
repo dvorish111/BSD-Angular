@@ -239,10 +239,20 @@
                     <p class="change-donated-text">שימו לב! אין לשנות סדר העמודות, להסיר או להוסיף. כל שינוי קטן ימנע
                         מהמערכת לקרוא את הקובץ שלכם.
                     </p>
+                    <p class="change-donated-text1"> נא לסגור את הקובץ כקובץ בסיומת CSV</p>
                 </div>
                 <div class="col-5">
-                    <button class="px-2 py-2 change-donated-example mt-5"> הורדת קובץ לדוגמא </button>
-                    <button class="px-4  py-2 ps-5 change-donated-b mt-2"> העלה קובץ </button>
+                    <!-- אקסל נתרמים -->
+<form (submit)="uploadFile($event)">
+    <input class="px-4  py-2 ps-5 change-donated-b mt-2" type="file" (change)="onFileSelected($event)" />
+    <div *ngIf="fileMessage">{{ fileMessage }}</div>
+    <div *ngIf="selectedFile"   >
+        <button class="px-4  py-2 ps-5 change-donated-b mt-2"   type="submit" >העלאת הקובץ</button>
+    </div>
+    <hr>
+    <a class="px-2 py-2 change-donated-example mt-5" href="../../../assets/images/קובץ לדוגמא.xlsx" download>הורדת קובץ לדוגמא</a>
+  </form>
+ 
 
                 </div>
             </div>

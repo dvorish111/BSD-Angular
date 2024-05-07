@@ -15,7 +15,8 @@ import { NeighborhoodService } from 'src/app/Services/neighborhood.service';
   styleUrls: ['./change-donated.component.css']
 })
 export class ChangeDonatedComponent {
-
+  selectedFile: File | null = null;
+  fileMessage: string | undefined;
   newDonate:AllDonate={
     parentTaz:"", 
     name:"",
@@ -83,6 +84,58 @@ ngOnInit(){
       
       }
     )  }
+
+
+    onFileSelected(event: any) {
+    
+      this.selectedFile = event.target.files[0] as File;
+      this.ifCSV();
+    }
+    ifCSV(){
+      const validExtensions = ['.csv'];
+      if (this.selectedFile!=null)
+        {const file = this.selectedFile;
+        const ext = file.name.split('.').pop();
+        
+        if (validExtensions.indexOf('.' + ext) !== -1) 
+        {
+          this.fileMessage=("קובץ תקין");
+        }
+        else { this.fileMessage=("קובץ לא תקין העלה שוב");
+        this.selectedFile=null
+      }
+  
+      }
+     }
+     
+  
+  
+    uploadFile(event: Event) {
+      event.preventDefault();
+      if (this.selectedFile) {
+        const formData = new FormData();
+        formData.append('file', this.selectedFile);
+  
+        this.donateService.craeteDonatesByExcel(formData).subscribe(
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      }
+    }
+    downloadAllDonatesCsv(){
+      this.donateService.getDonatesByExcel().subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    }
 }
 
 
