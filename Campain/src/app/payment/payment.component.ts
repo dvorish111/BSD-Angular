@@ -212,7 +212,7 @@
 //   }
 // }
 ///////////////////////////////
-import { Component, AfterViewInit, OnInit, Renderer2, Output, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, OnInit, Renderer2, Output, EventEmitter, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -229,6 +229,7 @@ import { Donor } from '../Classes/Donor';
 
 import { AllDonate } from '../Classes/AllClasses/AllDonate';
 import { DonateService } from '../Services/donate.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-payment',
@@ -243,6 +244,7 @@ export class PaymentComponent implements OnInit {
   amount!: number;
   neighborhoods!: Neighborhood[];
   donated!: Donate;
+  //  idNeighborhoodDonated:string = "0";
   idDonated!: number;
   sumDonationsByDonated!: number;
   donor!: Donor;
@@ -268,7 +270,9 @@ export class PaymentComponent implements OnInit {
   };
   okDonation: boolean = true;
   Tashlumim: number = 1;
-
+// גישה לערך מהמשתנה הגלובלי
+//  myDataFromJS: boolean = (window as any).okDonation;
+@ViewChild('myForm') myForm!: NgForm;
 
   //ifAnonymous: boolean =true;
   ngOnInit() {
@@ -283,8 +287,10 @@ export class PaymentComponent implements OnInit {
           {
             next: (donated: Donate) => {
               this.donated = donated;
-              console.log(this.donated + "this.donated!!!!!")
+              (window as any).idNeighborhoodDonated = donated.idNeighborhood.toString();
 
+              console.log(this.donated.idNeighborhood + "this.donated!!!!!")
+ 
             },
             error: (err) => {
               console.error(err);
@@ -330,27 +336,29 @@ export class PaymentComponent implements OnInit {
 
 
   loadScript() {
+  
     const script = this.renderer.createElement('script');
     script.src = '../../assets/check/script.js';
     script.type = 'text/javascript';
     this.renderer.appendChild(document.body, script);
     (window as any).selectedPaymentType = this.selectedPaymentType;
+    (window as any).keepData = this.keepData.bind(this);
+    // if(this.donated!=null){
+     
+    // }
 
   }
   isButtonClicked: boolean = false;
   PaymentTypeClick(selectedPaymentType: string): void {
     this.selectedPaymentType = selectedPaymentType;
+    console.log( this.selectedPaymentType+ "selectedPaymentType");
+    (window as any).selectedPaymentType = this.selectedPaymentType;
     this.isButtonClicked = true;
+   
   }
 
 
 
-  // To receive the message from the JS
-  // handleMessage(event: MessageEvent) {
-  //   const returnedData = event.data;    
-  //   this.okDonation= event.data;
-  //  this.keepData();
-  // }
 
 
   ngOnDestroy() {
@@ -399,6 +407,7 @@ export class PaymentComponent implements OnInit {
             this.donated.raised = this.donated.raised + this.newDonation.amount;
             this.allDonate = this.mapDonateToAllDonate(this.donated);
             this.updateDonate();
+            this.myForm.resetForm(); // זה יאפס את הנתונים בטופס
           }
         },
         error: (err) => {
@@ -433,4 +442,6 @@ export class PaymentComponent implements OnInit {
       street: donated.street
     }
   }
+
+  
 }

@@ -5,13 +5,13 @@
 }
 
 //זהירות! את השורת קוד הזו יש להפעיל רק פעם אחת בעת פתיחת הדף
-// window.onload = function () {
+window.onload = function () {
     
-// console.log(document.getElementById('FirstName').value);
-//     if (window.addEventListener) { window.addEventListener("message", ReadPostMessage, false); } else { window.attachEvent("onmessage", ReadPostMessage); }
-//     document.getElementById('NedarimFrame').onload = function () { console.log('StartNedarim'); PostNedarim({'Name':'GetHeight'}) }
-//     document.getElementById('NedarimFrame').src = "https://matara.pro/nedarimplus/iframe?language=en";
-// }
+console.log(document.getElementById('FirstName').value);
+    if (window.addEventListener) { window.addEventListener("message", ReadPostMessage, false); } else { window.attachEvent("onmessage", ReadPostMessage); }
+    document.getElementById('NedarimFrame').onload = function () { console.log('StartNedarim'); PostNedarim({'Name':'GetHeight'}) }
+    document.getElementById('NedarimFrame').src = "https://matara.pro/nedarimplus/iframe?language=en";
+}
 ///////////////////////////////
 
 function PostNedarim(Data) {      
@@ -27,16 +27,20 @@ function ReadPostMessage(event) {
 
         case 'TransactionResponse':
             console.log(event.data.Value)      
-
+            // window.resetForm();
             if (event.data.Value.Status == 'Error') {
                 document.getElementById('ErrorDiv').innerHTML = event.data.Value.Message
                 document.getElementById('WaitPay').style.display = 'none';
                 document.getElementById('PayBtDiv').style.display = 'block';
             } else {
-                 document.getElementById('Result').innerHTML = '<b>TransactionResponse:<br/>' + JSON.stringify("ClientName"+event.data.Value.ClientName,"\nAmount"+event.data.Value.Amount,"\nLastNum"+event.data.Value.LastNum+document.getElementById('Neighborhood') )+ '</b><br/>see full data in console';
-                sendMessageToParent(event.data.Value)
+                document.getElementById('Result').innerHTML = '<b>The transaction was successfully completed:<br/> ' +
+    'Thanks to ' + document.getElementById('LastName').value + ' ' + document.getElementById('FirstName').value +
+    ' for donating ' + (document.getElementById('Amount').value * (document.getElementById('Tashlumim').value ? document.getElementById('Tashlumim').value : 1)+'$') ;              
+                window.keepData(); 
                 document.getElementById('WaitPay').style.display = 'none';
                 document.getElementById('OkDiv').style.display = 'block';
+                document.getElementById('PayBtDiv').style.display = 'block';
+                 sendMessageToParent(event.data.Value)
             }
     }
 }
@@ -48,7 +52,11 @@ function PayBtClick() {
     document.getElementById('OkDiv').style.display = 'none';
     document.getElementById('WaitPay').style.display = 'block';
     document.getElementById('ErrorDiv').innerHTML = '';
-    switch(document.getElementById('Neighborhood').value)
+    
+    // ' to the ' + document.getElementById('Neighborhood').value + ' fund.</b><br/>';
+  
+    const idNeighborhood = document.getElementById('Neighborhood')?.value || window.idNeighborhoodDonated;  
+    switch(idNeighborhood) 
    {
 case "1":
     Mosad=31;
@@ -79,7 +87,7 @@ default:
     ApiValid="737FzAnO1v";  
           
   }
-  console.log(Mosad+"mosad"+document.getElementById('Neighborhood').value)
+//   console.log(Mosad+"mosad"+document.getElementById('Neighborhood').value)
   console.log(window.selectedPaymentType+ " selectedPaymentType" ); // יציג: Hello from TypeScript
   console.log( document.getElementById('Tashlumim').value+ "Tashlumim")
     PostNedarim({
@@ -89,7 +97,7 @@ default:
             'ApiValid':ApiValid,
             // 'PaymentType': document.getElementById("selectedPaymentType").value,
             'PaymentType': window.selectedPaymentType, //מגיע מהTS בתוך פונקציית LOADSCRIPT
-            'Currency': '2',
+            'Currency': '1',
             'Zeout': document.getElementById('Zeout').value,
             'FirstName': document.getElementById('FirstName').value,
             'LastName': document.getElementById('LastName').value,

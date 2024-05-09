@@ -28,6 +28,9 @@
           <option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood.id">{{ neighborhood.name }}</option>
         </select>
       </div>
+      <div *ngIf="idDonated!=0" class="form-group" id="NeighborhoodDiv">
+        <h1 class="fas fa-user text-center" id="Neighborhooddonated" value="donated.idNeighborhood" for="Neighborhood">You donate the money directly to a family living in {{donated.idNeighborhoodNavigation.name}}</h1>
+      </div>
       <hr>
       <!-- Personal Information -->
       <div class="divider">
