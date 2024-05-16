@@ -30,6 +30,7 @@ export class ChangeDonatedComponent {
    
   }
   // newDonate!:AllDonate;
+  invalid:string=""
   Status!:string;
   selectedNeighborhood!:number;
   neighborhoods!:Neighborhood[];
@@ -89,24 +90,40 @@ ngOnInit(){
     onFileSelected(event: any) {
     
       this.selectedFile = event.target.files[0] as File;
-      this.ifCSV();
+      this.ifExcel();
     }
-    ifCSV(){
-      const validExtensions = ['.csv'];
-      if (this.selectedFile!=null)
-        {const file = this.selectedFile;
-        const ext = file.name.split('.').pop();
+    // ifCSV(){
+    //   const validExtensions = ['.csv'];
+    //   if (this.selectedFile!=null)
+    //     {const file = this.selectedFile;
+    //     const ext = file.name.split('.').pop();
         
-        if (validExtensions.indexOf('.' + ext) !== -1) 
-        {
-          this.fileMessage=("קובץ תקין");
-        }
-        else { this.fileMessage=("קובץ לא תקין העלה שוב");
-        this.selectedFile=null
-      }
+    //     if (validExtensions.indexOf('.' + ext) !== -1) 
+    //     {
+    //       this.fileMessage=("קובץ תקין");
+    //     }
+    //     else { this.fileMessage=("קובץ לא תקין העלה שוב");
+    //     this.selectedFile=null
+    //   }
   
+    //   }
+    //  }
+
+     ifExcel() {
+      const validExtensions = ['.xls', '.xlsx', '.xlsm']; // הוספתי סיומות אפשריות של קבצי Excel
+      if (this.selectedFile != null) {
+          const file = this.selectedFile;
+          const ext = file.name.split('.').pop(); // להמרת סיומת הקובץ לאותיות קטנות
+  
+          if (validExtensions.indexOf('.' + ext) !== -1) { // בדיקה האם סיומת הקובץ נמצאת ברשימת הסיומות התקינות
+              this.fileMessage = "קובץ אקסל תקין";
+          } else {
+              this.fileMessage = "סיומת הקובץ אינה נתמכת, נא להעלות קובץ אקסל חוקי";
+              this.selectedFile = null;
+          }
       }
-     }
+  }
+  
      
   
   
@@ -118,6 +135,16 @@ ngOnInit(){
   
         this.donateService.craeteDonatesByExcel(formData).subscribe(
           (response) => {
+          if(response.length>0){
+            response.forEach(element => {
+              this.invalid+=" "
+              this.invalid+=element.toString()
+            });
+            this.showMessageOK(this.invalid+ " הקובץ הועלה בהצלחה למעט שורות ")
+
+            }
+           else this.showMessageOK(" הקובץ הועלה בהצלחה ")
+           this.invalid=" "
             console.log(response);
           },
           (error) => {
@@ -136,6 +163,13 @@ ngOnInit(){
         }
       );
     }
+
+    showMessageOK(messege: string) {
+      const snackBarRef = this.snackBar.open(messege, 'Close', {
+        duration: 15000,
+        panelClass: ['snackbar']
+      });
+    };
 }
 
 
