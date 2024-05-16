@@ -50,8 +50,8 @@ export class DonateService {
     return this.http.get<number>(`${this.baseUrl}/NumChildren`);
   }
 
-craeteDonatesByExcel(ExcelToAdd:FormData ): Observable<any> {
-  return this.http.post(`${this.baseUrl}/CraeteDonatesByExcel`, ExcelToAdd);
+craeteDonatesByExcel(ExcelToAdd:FormData ): Observable<number[]> {
+  return this.http.post<number[]>(`${this.baseUrl}/CraeteDonatesByExcel`, ExcelToAdd);
 }
 getDonatesByExcel(): Observable<Blob> {
   return this.http.get(`${this.baseUrl}/GetDonatesByExcel`,  { responseType: 'blob' });

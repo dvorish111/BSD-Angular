@@ -83,7 +83,8 @@ ngOnInit(): void {
   this.donationService.getAllDonationsByDonated(this.donate.id).subscribe(
     {
       next:(donations:Donation[])=>{
-        this.donationsByDonated=donations;
+        
+        this.donationsByDonated=this.reverseArray(donations);
         this.ShowLoadedDonationsCount(donations);
        //this.showDonations= this.donationsByDonated;
        this.flagFamily=true;
@@ -98,7 +99,7 @@ ngOnInit(): void {
  this.donationService.getAllDonations().subscribe(
   {
     next:(donations:Donation[])=>{
-      this.donations=donations;
+      this.donations=this.reverseArray(donations);
       this.ShowLoadedDonationsCount(donations);
      // this.showDonations=this.donations;
       console.log(donations+"donations")
@@ -222,7 +223,8 @@ ngOnDestroy(): void {
 }
 
 maxHeight: string | undefined;
-
-
+ reverseArray(arr: any[]): any[] {
+  return arr.reverse();
+}
 
 }

@@ -15,7 +15,8 @@ import { NeighborhoodService } from 'src/app/Services/neighborhood.service';
   styleUrls: ['./change-donated.component.css']
 })
 export class ChangeDonatedComponent {
-
+  selectedFile: File | null = null;
+  fileMessage: string | undefined;
   newDonate:AllDonate={
     parentTaz:"", 
     name:"",
@@ -29,6 +30,7 @@ export class ChangeDonatedComponent {
    
   }
   // newDonate!:AllDonate;
+  invalid:string=""
   Status!:string;
   selectedNeighborhood!:number;
   neighborhoods!:Neighborhood[];
@@ -83,6 +85,91 @@ ngOnInit(){
       
       }
     )  }
+
+
+    onFileSelected(event: any) {
+    
+      this.selectedFile = event.target.files[0] as File;
+      this.ifExcel();
+    }
+    // ifCSV(){
+    //   const validExtensions = ['.csv'];
+    //   if (this.selectedFile!=null)
+    //     {const file = this.selectedFile;
+    //     const ext = file.name.split('.').pop();
+        
+    //     if (validExtensions.indexOf('.' + ext) !== -1) 
+    //     {
+    //       this.fileMessage=("קובץ תקין");
+    //     }
+    //     else { this.fileMessage=("קובץ לא תקין העלה שוב");
+    //     this.selectedFile=null
+    //   }
+  
+    //   }
+    //  }
+
+     ifExcel() {
+      const validExtensions = ['.xls', '.xlsx', '.xlsm']; // הוספתי סיומות אפשריות של קבצי Excel
+      if (this.selectedFile != null) {
+          const file = this.selectedFile;
+          const ext = file.name.split('.').pop(); // להמרת סיומת הקובץ לאותיות קטנות
+  
+          if (validExtensions.indexOf('.' + ext) !== -1) { // בדיקה האם סיומת הקובץ נמצאת ברשימת הסיומות התקינות
+              this.fileMessage = "קובץ אקסל תקין";
+          } else {
+              this.fileMessage = "סיומת הקובץ אינה נתמכת, נא להעלות קובץ אקסל חוקי";
+              this.selectedFile = null;
+          }
+      }
+  }
+  
+     
+  
+  
+    uploadFile(event: Event) {
+      event.preventDefault();
+      if (this.selectedFile) {
+        const formData = new FormData();
+        formData.append('file', this.selectedFile);
+  
+        this.donateService.craeteDonatesByExcel(formData).subscribe(
+          (response) => {
+          if(response.length>0){
+            response.forEach(element => {
+              this.invalid+=" "
+              this.invalid+=element.toString()
+            });
+            this.showMessageOK(this.invalid+ " הקובץ הועלה בהצלחה למעט שורות ")
+
+            }
+           else this.showMessageOK(" הקובץ הועלה בהצלחה ")
+           this.invalid=" "
+            console.log(response);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      }
+    }
+    downloadAllDonatesCsv(){
+      this.donateService.getDonatesByExcel().subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    }
+
+    showMessageOK(messege: string) {
+      const snackBarRef = this.snackBar.open(messege, 'Close', {
+        duration: 15000,
+        panelClass: ['snackbar']
+      });
+    };
 }
 
 

@@ -70,3 +70,10 @@ margin: 0 auto;
     font-family: sans-serif;
     font-size: 15px;
 }
+
+.change-donated-text1 {
+    font-family: sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: darkred;
+}
