@@ -18,6 +18,7 @@ import { ChangeDonatedComponent } from './admin/change-donated/change-donated.co
 import { CampaignManagementComponent } from './admin/campaign-management/campaign-management.component';
 // =======
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { DesignOptionsComponent } from './admin/design-options/design-options.component';
 // >>>>>>> 3070642922a7eb749ab8af11388148c79ec4fd1c
 // import { DonationsComponent } from './admin/donations/donations.component';
 
@@ -45,6 +46,8 @@ const routes: Routes = [
     { path: 'add-manager', component: AddManagerComponent },
     { path: 'change-donated', component: ChangeDonatedComponent },
     { path: 'campaign-management', component: CampaignManagementComponent },
+    { path: 'Design-options', component: DesignOptionsComponent },
+
   ]
 },
 // { path: '',  component: HomeComponent },

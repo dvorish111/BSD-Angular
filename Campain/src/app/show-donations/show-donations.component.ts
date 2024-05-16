@@ -154,6 +154,7 @@ showMoreDonations(): void {
  //this.donates=this.tempdonates.slice(0,this.donates.length+10)
 }
 ShowLoadedDonationsCount(donates:Donation[]){
+  
  this.fullDonations =donates;
  this.showDonations = donates.slice(0, this.initialFamiliesCount);
 

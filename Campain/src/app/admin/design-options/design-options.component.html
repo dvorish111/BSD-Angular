@@ -1,0 +1,51 @@
+
+
+  
+  <div class="container" dir="rtl">
+    <div class="row  justify-content-center ExportingDonationsAndContributions-wrapper mx-5">
+        <p class="p-5 pb-0 ExportingDonationsAndContributions-p">שינוי תמונות </p>
+        <div class="col-7 pb-5 mt-3">
+            
+
+            <div class="form-group">
+                     
+            
+            </div>
+
+
+           
+
+            <div class=" d-flex justify-content-center ">
+              <form >
+                <label for="BackgroundPicture">תמונת רקע</label>
+                <br>
+                
+                <input class="btnUploadingPicture" name="BackgroundPicture" type="file" (change)="onFileChanged($event,1)" accept="image/*"><br>
+                <hr>
+                <label for="TimerPicture">תמונת טיימר</label>
+                <br>
+                
+                <input class="btnUploadingPicture" name="TimerPicture" type="file" (change)="onFileChanged($event,2)" accept="image/*"><br><hr>
+                <label for="GalleryImage">תמונות גלריה</label>
+                <br>
+               
+                <input class="btnUploadingPicture" name="GalleryImage" type="file" (change)="onFileChanged($event,3)" accept="image/*"><br>
+               
+                <input class="btnUploadingPicture" name="GalleryImage" type="file" (change)="onFileChanged($event,4)" accept="image/*"><br>
+                <input class="btnUploadingPicture" name="GalleryImage" type="file" (change)="onFileChanged($event,5)" accept="image/*"><br>
+                <input class="btnUploadingPicture" name="GalleryImage" type="file" (change)="onFileChanged($event,6)" accept="image/*"><br>
+                <input class="btnUploadingPicture" name="GalleryImage" type="file" (change)="onFileChanged($event,7)" accept="image/*"><br>
+                <input class="btnUploadingPicture" name="GalleryImage" type="file" (change)="onFileChanged($event,8)" accept="image/*"><br>
+                <input class="btnUploadingPicture" name="GalleryImage" type="file" (change)="onFileChanged($event,9)" accept="image/*"><br>
+                <input class="btnUploadingPicture" name="GalleryImage" type="file" (change)="onFileChanged($event,10)" accept="image/*"><br>
+                <input class="btnUploadingPicture" name="GalleryImage" type="file" (change)="onFileChanged($event,11)" accept="image/*"><br>
+                <div *ngIf="flagImageMessage" class="error-message">{{imageMessage}}</div>
+              </form>
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+
+  

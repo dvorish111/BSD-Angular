@@ -22,7 +22,7 @@
            -->
 <div class="bg-image_goal">
   <div class="bg-image1">
-    <img class="bg-image" src="../../assets/images/1.jpg" alt="" class="bg-image">
+    <img class="bg-image" [src]="bgGoalImage" alt="" class="bg-image">
   </div>
   <br><br><br>
 
@@ -68,7 +68,7 @@
 
   </div>
   <div class="circular-bar">
-    <img src="../../assets/images/2.jpg" alt="..." class="rounded-circle">
+    <img [src]="circularBarImage" alt="../../assets/images/2.jpg" class="rounded-circle">
 
  
 
@@ -131,23 +131,23 @@
 
 
 <h1>Pictures of Ramot</h1>
-<ul>
+<ul class="gallery">
   <!-- <li> <img src="../../assets/images/10-05-2023-11-20-52-WhatsApp-Image-2023-05-09-at-8.44.56-PM-1-758x426.jpeg" alt="cut citrus fruits. " />Lorem Ipsum</li>
   <li> <img src="../../assets/images/10-05-2023-11-20-55-WhatsApp-Image-2023-05-09-at-8.44.56-PM-2-758x426.jpeg" alt="sliced mango. " />Dolor Sit</li> -->
-  <li> <img src="../../assets/images/16.jpg" alt="a bunch of blueberries. " />Ramot Mall</li>
-  <li> <img src="../../assets/images/4.JPG" alt="a pineapple sitting on a table. " />Ungvar community</li>
-  <li> <img src="../../assets/images/5.JPG" alt="frozen raspberries. " /> Ramot Polin</li>
-  <li> <img src="../../assets/images/6.JPG" alt="a sliced strawberry. " />Zichron Avraham Synagogue</li>
-  <li> <img src="../../assets/images/7.JPG" alt="an arrangement of assorted sliced fruits. " />Ramot G</li>
-  <li> <img src="../../assets/images/8.jpg" alt="sliced watermelons. " />Ramot Polin</li>
+  <li> <img class="GalleryImage" [src]="imageUrl3" alt="a bunch of blueberries. " />{{imageUrl3Name}}</li>
+  <li> <img class="GalleryImage" [src]="imageUrl4" alt="a pineapple sitting on a table. " />{{imageUrl4Name}}</li>
+  <li> <img class="GalleryImage" [src]="imageUrl5" alt="frozen raspberries. " /> {{imageUrl5Name}}</li>
+  <li> <img class="GalleryImage" [src]="imageUrl6" alt="a sliced strawberry. " />{{imageUrl6Name}}</li>
+  <li> <img class="GalleryImage"[src]="imageUrl7" alt="an arrangement of assorted sliced fruits. " />{{imageUrl7Name}}</li>
+  <li> <img class="GalleryImage" [src]="imageUrl8" alt="sliced watermelons. " />{{imageUrl8Name}}</li>
   <!-- <li> <img src="../../assets/images/kipod.jpg" alt="grapefruits, lemons, and pomegranates. " />Park in Ramot</li> -->
-  <li> <img src="../../assets/images/10.JPG" alt="half of an avocado. " />Rescue Union House</li>
-  <li> <img src="../../assets/images/B11.jpg" alt="half of a lime. " />Ramot B</li>
+  <li> <img class="GalleryImage" [src]="imageUrl9" alt="half of an avocado. " />{{imageUrl9Name}}</li>
+  <li> <img class="GalleryImage" [src]="imageUrl10" alt="half of a lime. " />{{imageUrl10Name}}</li>
   <!-- <li> <img src="../../assets/images/רמות-פולין-צילום-אביר-סולטן-פלאש-90.jpg" alt="a single cherry with stem. " />Ultricies Sollicitudin</li>
   <li> <img src="../../assets/images/Mitzpe-ramot-shtila-4687_00000.jpg" alt="a bunch of bananas. " />Gravida Nibh</li>
   <li> <img src="../../assets/images/galery11.jpg" alt="three pears. " />Pellentesque Sapien</li>
   <li> <img src="../../assets/images/IMG_8549.JPG" alt="a basket full of peaches next to a plate with sliced peaches. " />Suspendisse Vel</li> -->
-  <li> <img src="../../assets/images/2ramot-1.jpg" alt="a bowl of avocados. " />View</li>
+  <li> <img class="GalleryImage" [src]="imageUrl11" alt="a bowl of avocados. " />{{imageUrl11Name}}</li>
 </ul>
 
 
@@ -239,4 +239,5 @@
   <h1>-- Help us help them -- </h1>
 <app-families></app-families>
 <!-- <app-show-donations></app-show-donations> -->
+<!-- <button (click)="getByIdImage(1)">(click)="getByIdImage(1)"</button> -->
 

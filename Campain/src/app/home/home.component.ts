@@ -13,6 +13,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { shakeCenter } from 'igniteui-angular';
 import { cementMixer } from '@igniteui/material-icons-extended';
 import { MatIcon } from '@angular/material/icon';
+import { ImagesService } from '../Services/images.service';
+import { Image } from '../Classes/Image';
 
 export interface slidesStore {
   id: string;
@@ -42,7 +44,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ];
   showId: boolean = false;
-
   hideImageId() {
     this.showId = false;
   }
@@ -94,8 +95,37 @@ export class HomeComponent implements OnInit, OnDestroy {
   timeOverInMilliseconds!:number;
   timeInMilliseconds!:number;
   valuetimeInMilliseconds!:number;
+ 
 
-  constructor(public myRouter: Router, private campaignService: CampaignService, private donationService: DonationService, private donateService: DonateService) {
+  imageUrl3!: string;
+  imageUrl4!: string;
+  imageUrl5!: string;
+  imageUrl6!: string;
+  imageUrl7!: string;
+  imageUrl8!: string;
+  imageUrl9!: string;
+  imageUrl10!: string;
+  imageUrl11!: string;
+
+  imageId !:number;
+  circularBarImage!:string;
+  bgGoalImage!:string;
+
+  bgGoalImageName!:string;
+  circularBarImageName!:string;
+  imageUrl3Name!: string;
+  imageUrl4Name!: string;
+  imageUrl5Name!: string;
+  imageUrl6Name!: string;
+  imageUrl7Name!: string;
+  imageUrl8Name!: string;
+  imageUrl9Name!: string;
+  imageUrl10Name!: string;
+  imageUrl11Name!: string;
+
+  imageFileName!:string;
+  image!:Image;
+  constructor(public myRouter: Router, private campaignService: CampaignService, private donationService: DonationService, private donateService: DonateService,private imagesService:ImagesService) {
  
     this.startCounting();
 
@@ -168,9 +198,165 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.startCountAnimations();
 
+
+  // this.imagesService.getByIdImage(1)
+  //   .subscribe(response => {
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       this.imageUrl1 = reader.result as string;
+        
+  //     };
+  //     reader.readAsDataURL(response);
+  //   });
+ 
+
+  this.getByIdImage(1)
+  this.getByIdImage(2)
+  this.getByIdImage(3)
+  this.getByIdImage(4)
+   this.getByIdImage(5)
+   this.getByIdImage(6)
+   this.getByIdImage(7)
+   this.getByIdImage(8)
+   this.getByIdImage(9)
+   this.getByIdImage(10)
+   this.getByIdImage(11)
+
+}
+
+getByIdImageData(imageId:number){
+this.imagesService.getByIdImageData(imageId)
+.subscribe
+({
+  next: (response) => {
+   this.image=response;
+   //return this.image.fileName;
+   switch(imageId){
+    case 1:
+    this.bgGoalImageName=this.image.fileName;
+    break;
+    case 2:
+    this.circularBarImageName=this.image.fileName;
+    break;
+    case 3:
+    this.imageUrl3Name=this.image.fileName;
+    break;
+    case 4:
+    this.imageUrl4Name=this.image.fileName;
+
+    break;
+    case 5:
+    this.imageUrl5Name=this.image.fileName;
+
+    break;
+    case 6:
+    this.imageUrl6Name=this.image.fileName;
+
+    break;
+    case 7:
+    this.imageUrl7Name=this.image.fileName;
+
+    break;
+    case 8:
+    this.imageUrl8Name=this.image.fileName;
+
+    break;
+    case 9:
+    this.imageUrl9Name=this.image.fileName;
+
+    break;
+    case 10:
+    this.imageUrl10Name=this.image.fileName;
+
+    break;
+    case 11:
+    this.imageUrl11Name=this.image.fileName;
+
+    break;
+  
   }
+   
+  },
+  error: (err) => {
+    console.error(err);
+  }
+  
+})
+//return "View1";
+
+}
+  
 
 
+
+  getByIdImage(imageId:number){
+   //this.imageFileName= this.getByIdImageData(imageId);
+   this.getByIdImageData(imageId);
+  this.imagesService.getByIdImage(imageId)
+    .subscribe
+    ({
+      next: (response) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          switch(imageId){
+            case 1:this.bgGoalImage = reader.result as string;
+            //this.bgGoalImageName=this.imageFileName;
+            break;
+            case 2:this.circularBarImage = reader.result as string;
+           // this.circularBarImageName=this.imageFileName;
+            break;
+            case 3:this.imageUrl3 = reader.result as string;
+           // this.imageUrl3Name=this.imageFileName;
+            break;
+            case 4:this.imageUrl4 = reader.result as string;
+           // this.imageUrl4Name=this.imageFileName;
+
+            break;
+            case 5:this.imageUrl5 = reader.result as string;
+            //this.imageUrl5Name=this.imageFileName;
+
+            break;
+            case 6:this.imageUrl6 = reader.result as string;
+           // this.imageUrl6Name=this.imageFileName;
+
+            break;
+            case 7:this.imageUrl7 = reader.result as string;
+           // this.imageUrl7Name=this.imageFileName;
+
+            break;
+            case 8:this.imageUrl8 = reader.result as string;
+           // this.imageUrl8Name=this.imageFileName;
+
+            break;
+            case 9:this.imageUrl9 = reader.result as string;
+           // this.imageUrl9Name=this.imageFileName;
+
+            break;
+            case 10:this.imageUrl10 = reader.result as string;
+           // this.imageUrl10Name=this.imageFileName;
+
+            break;
+            case 11:this.imageUrl11 = reader.result as string;
+           // this.imageUrl11Name=this.imageFileName;
+
+            break;
+          
+          }
+          
+        };
+        reader.readAsDataURL(response);
+      
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
+    
+    
+    
+  }
+    
+   
   // calculateIncrementStep(): void {
   //   this.incrementStep = this.eliteNumbers.map(value => (value / this.maxEliteNumber) * this.totalDuration / 1000);
   // }

@@ -89,7 +89,7 @@ default:
             'ApiValid':ApiValid,
             // 'PaymentType': document.getElementById("selectedPaymentType").value,
             'PaymentType': window.selectedPaymentType, //מגיע מהTS בתוך פונקציית LOADSCRIPT
-            'Currency': '2',
+            'Currency': '1',
             'Zeout': document.getElementById('Zeout').value,
             'FirstName': document.getElementById('FirstName').value,
             'LastName': document.getElementById('LastName').value,
