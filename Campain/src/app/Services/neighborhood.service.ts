@@ -7,7 +7,9 @@ import { Neighborhood } from '../Classes/Neighborhood';
   providedIn: 'root'
 })
 export class NeighborhoodService {
+  // baseUrl = "https://campaignramot.org/api/Neighborhood";
   baseUrl = "https://localhost:7182/api/Neighborhood";
+
 
   constructor(private http: HttpClient) { }
 

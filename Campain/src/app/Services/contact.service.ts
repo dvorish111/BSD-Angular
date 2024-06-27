@@ -9,7 +9,9 @@ import { Contact } from '../Classes/OtherObject/Contact';
 })
 export class ContactService {
 
+  // baseUrl = "https://campaignramot.org/api/Contact"
   baseUrl = "https://localhost:7182/api/Contact"
+ 
   constructor(private http: HttpClient) { }
 
   sendEmail(contact:Contact): Observable<any> {

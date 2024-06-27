@@ -8,7 +8,11 @@ import { LogIn } from '../Classes/LogIn';
   providedIn: 'root'
 })
 export class PermissionService {
+    //  baseUrl = "https://campaignramot.org/api/Permission";
+
+  // baseUrl = "https://y-sites.com/api/Permission";
   baseUrl = "https://localhost:7182/api/Permission";
+
   detailesMenegr!:SignUp;
   constructor(private http: HttpClient) { }
 

@@ -129,7 +129,6 @@ DesignOptionsComponent
      CarouselModule,
      RouterModule
     
-    
   ],
 
   

@@ -7,6 +7,7 @@ import { Campaign } from '../Classes/Campaign';
   providedIn: 'root'
 })
 export class CampaignService {
+  // baseUrl = "https://campaignramot.org/api/Campaign"
   baseUrl = "https://localhost:7182/api/Campaign"
   constructor(private http: HttpClient) { }
 

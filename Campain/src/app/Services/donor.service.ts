@@ -9,7 +9,9 @@ import { AllDonor } from '../Classes/AllClasses/AllDonor';
 })
 export class DonorService {
 
+  // baseUrl = "https://campaignramot.org/api/Donor"
   baseUrl = "https://localhost:7182/api/Donor"
+
   constructor(private http: HttpClient) { }
 
   getAllDonors(): Observable<Donor[]> {

@@ -8,6 +8,7 @@ import { AllDonation } from '../Classes/AllClasses/AllDonation';
   providedIn: 'root'
 })
 export class DonationService {
+  // baseUrl = "https://campaignramot.org/api/Donation";
   baseUrl = "https://localhost:7182/api/Donation";
 
   private donationAmountSubject= new BehaviorSubject<number>(0);

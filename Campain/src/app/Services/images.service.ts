@@ -8,7 +8,9 @@ import { Image } from '../Classes/Image';
 })
 export class ImagesService {
 
+  // baseUrl = "https://campaignramot.org/api/Image"
   baseUrl = "https://localhost:7182/api/Image"
+
   constructor(private http: HttpClient) { }
   // saveImage(image:Image): Observable<any> {
   //   return this.http.post(`${this.baseUrl}`,image);

@@ -101,7 +101,7 @@ export class DesignOptionsComponent {
 
 onFileChanged(event: any,num:number) {
   this.selectedFile = event.target.files[0];
-  if (this.selectedFile&&this.selectedFile.size<200 * 1024) {
+  if (this.selectedFile&&this.selectedFile.size<1000 * 1024) {
     this.flagImageMessage = false;
     const formData = new FormData();
    

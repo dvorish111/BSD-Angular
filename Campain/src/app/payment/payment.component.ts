@@ -270,13 +270,16 @@ export class PaymentComponent implements OnInit {
   };
   okDonation: boolean = true;
   Tashlumim: number = 1;
+  errorValid : string=" ";
+  
+  ValidFlag: boolean =true;
 // גישה לערך מהמשתנה הגלובלי
 //  myDataFromJS: boolean = (window as any).okDonation;
 @ViewChild('myForm') myForm!: NgForm;
 
   //ifAnonymous: boolean =true;
   ngOnInit() {
-
+  
     this.activatedRoute.paramMap.subscribe(params => {
 
       this.idDonated = Number(params.get('donatesId'));
@@ -365,9 +368,12 @@ export class PaymentComponent implements OnInit {
     window.removeEventListener('message', this.receiveMessage.bind(this));
   }
   formIsValid(): boolean {
+    this.ValidFlag=  !!this.newDonor.firstName && !!this.newDonor.lastName && !!this.newDonor.phone && !!this.newDonor.email;
     // בדוק אם כל השדות בטופס תקינים ומלאים
-    return !!this.newDonor.firstName && !!this.newDonor.lastName && !!this.newDonor.phone && !!this.newDonor.email;
+
+ return  this.ValidFlag;
   }
+  
 
   keepData() {
 
@@ -443,5 +449,5 @@ export class PaymentComponent implements OnInit {
     }
   }
 
-  
+ 
 }

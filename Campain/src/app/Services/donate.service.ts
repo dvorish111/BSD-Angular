@@ -8,7 +8,9 @@ import { AllDonate } from '../Classes/AllClasses/AllDonate';
   providedIn: 'root'
 })
 export class DonateService {
+  // baseUrl = "https://campaignramot.org/api/Donate"
   baseUrl = "https://localhost:7182/api/Donate"
+
   constructor(private http: HttpClient) { }
 
   
