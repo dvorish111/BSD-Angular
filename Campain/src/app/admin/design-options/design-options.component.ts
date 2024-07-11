@@ -15,7 +15,8 @@ export class DesignOptionsComponent {
     flagImageMessage: boolean = false;
     imageMessage: string = '';
     image :Image={
-      contentType:"",fileName:"",fileSize:0,id:0
+      contentType: "", fileName: "", id: 0,
+      fileSize: 0
     };
     flagImageMessege!:boolean;
     constructor(private http: HttpClient,private imagesService:ImagesService) { }
@@ -101,7 +102,7 @@ export class DesignOptionsComponent {
 
 onFileChanged(event: any,num:number) {
   this.selectedFile = event.target.files[0];
-  if (this.selectedFile&&this.selectedFile.size<1000 * 1024) {
+  if (this.selectedFile&&this.selectedFile.size<2000 * 1024) {
     this.flagImageMessage = false;
     const formData = new FormData();
    

@@ -14,7 +14,9 @@ import { shakeCenter } from 'igniteui-angular';
 import { cementMixer } from '@igniteui/material-icons-extended';
 import { MatIcon } from '@angular/material/icon';
 import { ImagesService } from '../Services/images.service';
-import { Image } from '../Classes/Image';
+import { Image} from '../Classes/Image';
+import { ShowImage} from '../Classes/ShowImage';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 export interface slidesStore {
   id: string;
@@ -124,8 +126,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   imageUrl11Name!: string;
 
   imageFileName!:string;
-  image!:Image;
-  constructor(public myRouter: Router, private campaignService: CampaignService, private donationService: DonationService, private donateService: DonateService,private imagesService:ImagesService) {
+  image!:ShowImage;
+  constructor(private sanitizer: DomSanitizer,public myRouter: Router, private campaignService: CampaignService, private donationService: DonationService, private donateService: DonateService,private imagesService:ImagesService) {
  
     this.startCounting();
 
@@ -224,138 +226,314 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 }
 
-getByIdImageData(imageId:number){
-this.imagesService.getByIdImageData(imageId)
-.subscribe
-({
-  next: (response) => {
-   this.image=response;
-   //return this.image.fileName;
-   switch(imageId){
-    case 1:
-    this.bgGoalImageName=this.image.fileName;
-    break;
-    case 2:
-    this.circularBarImageName=this.image.fileName;
-    break;
-    case 3:
-    this.imageUrl3Name=this.image.fileName;
-    break;
-    case 4:
-    this.imageUrl4Name=this.image.fileName;
+// getByIdImageData(imageId:number){
+// this.imagesService.getByIdImageData(imageId)
 
-    break;
-    case 5:
-    this.imageUrl5Name=this.image.fileName;
+// .subscribe
+// ({
+//   next: (response) => {    
+//    this.image=response;
+//    //return this.image.fileName;
+//    switch(imageId){
+//     case 1:
+//     this.bgGoalImageName=this.image.fileName;
+//     break;
+//     case 2:
+//     this.circularBarImageName=this.image.fileName;
+//     break;
+//     case 3:
+//     this.imageUrl3Name=this.image.fileName;
+//     break;
+//     case 4:
+//     this.imageUrl4Name=this.image.fileName;
 
-    break;
-    case 6:
-    this.imageUrl6Name=this.image.fileName;
+//     break;
+//     case 5:
+//     this.imageUrl5Name=this.image.fileName;
 
-    break;
-    case 7:
-    this.imageUrl7Name=this.image.fileName;
+//     break;
+//     case 6:
+//     this.imageUrl6Name=this.image.fileName;
 
-    break;
-    case 8:
-    this.imageUrl8Name=this.image.fileName;
+//     break;
+//     case 7:
+//     this.imageUrl7Name=this.image.fileName;
 
-    break;
-    case 9:
-    this.imageUrl9Name=this.image.fileName;
+//     break;
+//     case 8:
+//     this.imageUrl8Name=this.image.fileName;
 
-    break;
-    case 10:
-    this.imageUrl10Name=this.image.fileName;
+//     break;
+//     case 9:
+//     this.imageUrl9Name=this.image.fileName;
 
-    break;
-    case 11:
-    this.imageUrl11Name=this.image.fileName;
+//     break;
+//     case 10:
+//     this.imageUrl10Name=this.image.fileName;
 
-    break;
+//     break;
+//     case 11:
+//     this.imageUrl11Name=this.image.fileName;
+
+//     break;
   
-  }
+//   }
    
-  },
-  error: (err) => {
-    console.error(err);
-  }
+//   },
+//   error: (err) => {
+//     console.error(err);
+//   }
   
-})
-//return "View1";
+// })
+// //return "View1";
 
-}
+// }
   
 
 
 
-  getByIdImage(imageId:number){
-   //this.imageFileName= this.getByIdImageData(imageId);
-   this.getByIdImageData(imageId);
-  this.imagesService.getByIdImage(imageId)
-    .subscribe
-    ({
-      next: (response) => {
-        const reader = new FileReader();
-        reader.onload = () => {
-          switch(imageId){
-            case 1:this.bgGoalImage = reader.result as string;
-            //this.bgGoalImageName=this.imageFileName;
-            break;
-            case 2:this.circularBarImage = reader.result as string;
-           // this.circularBarImageName=this.imageFileName;
-            break;
-            case 3:this.imageUrl3 = reader.result as string;
-           // this.imageUrl3Name=this.imageFileName;
-            break;
-            case 4:this.imageUrl4 = reader.result as string;
-           // this.imageUrl4Name=this.imageFileName;
+//   getByIdImage(imageId:number){
+//    //this.imageFileName= this.getByIdImageData(imageId);
+//    this.getByIdImageData(imageId);
+//   this.imagesService.getByIdImage(imageId)
+//     .subscribe
+//     ({
+//       next: (response) => {
+//         const reader = new FileReader();
+//         reader.onload = () => {
+//           switch(imageId){
+//             case 1:this.bgGoalImage = reader.result as string;
+//             //this.bgGoalImageName=this.imageFileName;
+//             break;
+//             case 2:this.circularBarImage = reader.result as string;
+//            // this.circularBarImageName=this.imageFileName;
+//             break;
+//             case 3:this.imageUrl3 = reader.result as string;
+//            // this.imageUrl3Name=this.imageFileName;
+//             break;
+//             case 4:this.imageUrl4 = reader.result as string;
+//            // this.imageUrl4Name=this.imageFileName;
 
-            break;
-            case 5:this.imageUrl5 = reader.result as string;
-            //this.imageUrl5Name=this.imageFileName;
+//             break;
+//             case 5:this.imageUrl5 = reader.result as string;
+//             //this.imageUrl5Name=this.imageFileName;
 
-            break;
-            case 6:this.imageUrl6 = reader.result as string;
-           // this.imageUrl6Name=this.imageFileName;
+//             break;
+//             case 6:this.imageUrl6 = reader.result as string;
+//            // this.imageUrl6Name=this.imageFileName;
 
-            break;
-            case 7:this.imageUrl7 = reader.result as string;
-           // this.imageUrl7Name=this.imageFileName;
+//             break;
+//             case 7:this.imageUrl7 = reader.result as string;
+//            // this.imageUrl7Name=this.imageFileName;
 
-            break;
-            case 8:this.imageUrl8 = reader.result as string;
-           // this.imageUrl8Name=this.imageFileName;
+//             break;
+//             case 8:this.imageUrl8 = reader.result as string;
+//            // this.imageUrl8Name=this.imageFileName;
 
-            break;
-            case 9:this.imageUrl9 = reader.result as string;
-           // this.imageUrl9Name=this.imageFileName;
+//             break;
+//             case 9:this.imageUrl9 = reader.result as string;
+//            // this.imageUrl9Name=this.imageFileName;
 
-            break;
-            case 10:this.imageUrl10 = reader.result as string;
-           // this.imageUrl10Name=this.imageFileName;
+//             break;
+//             case 10:this.imageUrl10 = reader.result as string;
+//            // this.imageUrl10Name=this.imageFileName;
 
-            break;
-            case 11:this.imageUrl11 = reader.result as string;
-           // this.imageUrl11Name=this.imageFileName;
+//             break;
+//             case 11:this.imageUrl11 = reader.result as string;
+//            // this.imageUrl11Name=this.imageFileName;
 
-            break;
+//             break;
           
-          }
+//           }
           
-        };
-        reader.readAsDataURL(response);
+//         };
+//         reader.readAsDataURL(response);
       
-      },
-      error: (err) => {
-        console.error(err);
+//       },
+//       error: (err) => {
+//         console.error(err);
+//       }
+//     })
+    
+    
+    
+//   }
+
+
+
+// Adjusted TypeScript code in your component
+
+getByIdImageData(imageId: number,name :string) {
+  // this.imagesService.getByIdImageData(imageId)
+  //   .subscribe({
+  //     next: (response) => {
+        // this.image = response;
+        switch (imageId) {
+          case 1:
+            this.bgGoalImageName =name;
+            break;
+          case 2:
+            this.circularBarImageName = name;
+            break;
+          case 3:
+            this.imageUrl3Name =name;
+            break;
+          case 4:
+            this.imageUrl4Name = name;
+            break;
+          case 5:
+            this.imageUrl5Name =name;
+            break;
+          case 6:
+            this.imageUrl6Name =name;
+            break;
+          case 7:
+            this.imageUrl7Name =name;
+            break;
+          case 8:
+            this.imageUrl8Name =name;
+            break;
+          case 9:
+            this.imageUrl9Name =name;
+            break;
+          case 10:
+            this.imageUrl10Name =name;
+            break;
+          case 11:
+            this.imageUrl11Name = name;
+            break;
+        }
+    //   },
+    //   error: (err) => {
+    //     console.error(err);
+    //   }
+    // });
+}
+
+// getByIdImage(imageId: number) {
+//   // this.getByIdImageData(imageId); // Fetch metadata first
+//   // this.imagesService.getByIdImage(imageId)
+//   //   .subscribe({
+//   //     next: (response) => {
+//     this.imagesService.getImageById(imageId).subscribe({
+//       next: (image) => {
+//         if (image.fileData) {
+//           const blob = this.base64ToBlob(image.fileData, image.contentType);
+//           this.createImageFromBlob(blob);
+//         }
+     
+//         const reader = new FileReader();
+//         reader.onload = () => {
+//           switch (imageId) {
+//             case 1:
+//               this.bgGoalImage = reader.result as string;
+//               break;
+//             case 2:
+//               this.circularBarImage = reader.result as string;
+//               break;
+//             case 3:
+//               this.imageUrl3 = reader.result as string;
+//               break;
+//             case 4:
+//               this.imageUrl4 = reader.result as string;
+//               break;
+//             case 5:
+//               this.imageUrl5 = reader.result as string;
+//               break;
+//             case 6:
+//               this.imageUrl6 = reader.result as string;
+//               break;
+//             case 7:
+//               this.imageUrl7 = reader.result as string;
+//               break;
+//             case 8:
+//               this.imageUrl8 = reader.result as string;
+//               break;
+//             case 9:
+//               this.imageUrl9 = reader.result as string;
+//               break;
+//             case 10:
+//               this.imageUrl10 = reader.result as string;
+//               break;
+//             case 11:
+//               this.imageUrl11 = reader.result as string;
+//               break;
+//           }
+//         };
+//         // reader.readAsDataURL();
+//       },
+//       error: (err) => {
+//         console.error(err);
+//       }
+//     });
+// }
+
+    
+
+
+
+getByIdImage(imageId: number) {
+  this.imagesService.getImageById(imageId).subscribe({
+    next: (image) => {
+      if (image.fileData) {
+        const blob = this.base64ToBlob(image.fileData, image.contentType);
+        const reader = new FileReader();
+this.getByIdImageData(image.id,image.fileName)
+        reader.onload = () => {
+          const imageUrl = reader.result as string;
+
+          switch (imageId) {
+            case 1:
+              this.bgGoalImage = imageUrl;
+              break;
+            case 2:
+              this.circularBarImage = imageUrl;
+              break;
+            case 3:
+              this.imageUrl3 = imageUrl;
+
+              break;
+            case 4:
+              this.imageUrl4 = imageUrl;
+          ;
+
+              break;
+            case 5:
+              this.imageUrl5 = imageUrl;
+              break;
+            case 6:
+              this.imageUrl6 = imageUrl;
+              break;
+            case 7:
+              this.imageUrl7 = imageUrl;
+              break;
+            case 8:
+              this.imageUrl8 = imageUrl;
+              break;
+            case 9:
+              this.imageUrl9 = imageUrl;
+              break;
+            case 10:
+              this.imageUrl10 = imageUrl;
+              break;
+            case 11:
+              this.imageUrl11 = imageUrl;
+              break;
+          }
+        };
+
+        reader.readAsDataURL(blob);
       }
-    })
-    
-    
-    
-  }
-    
+    },
+    error: (err) => {
+      console.error(err);
+    }
+  });
+}
+
+
+
+
    
   // calculateIncrementStep(): void {
   //   this.incrementStep = this.eliteNumbers.map(value => (value / this.maxEliteNumber) * this.totalDuration / 1000);
@@ -395,6 +573,7 @@ this.imagesService.getByIdImageData(imageId)
   //   }
 
   private startCountAnimations(): void {
+    const totalTime = 5000;
     this.counters.forEach(counter => {
       this.counterValues[counter.name] = 0;
     });
@@ -474,4 +653,77 @@ this.imagesService.getByIdImageData(imageId)
   ngOnDestroy(): void {
     clearTimeout(this.timer);
   }
+
+
+
+  uploadedImageUrl: SafeUrl | undefined;
+
+
+
+  // loadImage(imageId: number): void {
+  //   this.imagesService.getImageById(imageId).subscribe({
+  //     next: (blob) => {
+  //       console.log(blob)
+  //       this.createImageFromBlob(blob);
+  //     },
+  //     error: (error) => {
+  //       console.error('Error loading image:', error);
+  //     }
+  //   });
+  // }
+
+  // createImageFromBlob(imageBlob: Blob): void {
+  //   const reader = new FileReader();
+  //   reader.onload = (event: any) => {
+  //     this.uploadedImageUrl = this.sanitizer.bypassSecurityTrustUrl(event.target.result);
+  //   };
+  //   reader.readAsDataURL(imageBlob);
+  // }
+  // loadImage(imageId: number): void {
+  //   this.imagesService.getImageById(imageId).subscribe({
+  //     next: (image) => {
+  //       if (image.fileData) {
+  //         const blob = this.base64ToBlob(image.fileData, image.contentType);
+  //         this.createImageFromBlob(blob);
+  //       }
+  //     },
+  //     error: (err) => {
+  //       console.error('Load Error:', err);
+  //     }
+  //   });
+  // }
+
+  private base64ToBlob(base64: string, contentType: string): Blob {
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: contentType });
+  }
+
+  private createImageFromBlob(imageBlob: Blob): void {
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.uploadedImageUrl = this.sanitizer.bypassSecurityTrustUrl(event.target.result);
+    };
+    reader.readAsDataURL(imageBlob);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 }

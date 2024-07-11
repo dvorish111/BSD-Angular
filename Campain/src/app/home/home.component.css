@@ -58,6 +58,11 @@
     font-weight: 400;
     line-height: 1.6;
   }
+  .text-bold{
+    font-weight: 700;
+    font-size: large;
+    color:#054556
+  }
 
   button.mat-raised-button{height:70px;font-family:'Open Sans',sans-serif;transition:background-color .3s,transform .3s;font-weight:700}
   button.mat-raised-button{background-color:#ffaf00;color:#fff;margin-right:15px}
@@ -65,3 +70,4 @@
     z-index: 999;
     background-color:#ffaf00;transform:scale(1.05)}
   .DonateNow{font-size:larger}
+
