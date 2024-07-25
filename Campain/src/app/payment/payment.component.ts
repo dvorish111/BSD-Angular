@@ -218,7 +218,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NeighborhoodService } from '../Services/neighborhood.service';
 import { Neighborhood } from '../Classes/Neighborhood';
-import '../../assets/check/script.js';
+// import '../../assets/check/script.js';
 import { AllDonor } from '../Classes/AllClasses/AllDonor';
 import { Donation } from '../Classes/Donation';
 import { AllDonation } from '../Classes/AllClasses/AllDonation';
@@ -238,7 +238,9 @@ import { NgForm } from '@angular/forms';
 })
 export class PaymentComponent implements OnInit {
   buttonPressed: boolean = true;
-  constructor(private donateService: DonateService, private donationService: DonationService, private renderer: Renderer2, private route: Router, private activatedRoute: ActivatedRoute, private neighborhoodService: NeighborhoodService, private donorService: DonorService) { }
+  constructor(private donateService: DonateService, private donationService: DonationService, private renderer: Renderer2, private route: Router, private activatedRoute: ActivatedRoute, private neighborhoodService: NeighborhoodService, private donorService: DonorService) { 
+
+     }
   selectedPaymentType: string = 'Ragil';
   selectedNeighborhood!: number;
   amount!: number;
@@ -271,7 +273,9 @@ export class PaymentComponent implements OnInit {
   okDonation: boolean = true;
   Tashlumim: number = 1;
   errorValid : string=" ";
+  refresh :number=0;
   
+
   ValidFlag: boolean =true;
 // גישה לערך מהמשתנה הגלובלי
 //  myDataFromJS: boolean = (window as any).okDonation;
@@ -304,10 +308,20 @@ export class PaymentComponent implements OnInit {
 
     this.getAllNeighborhoods();
 
-    this.loadScript();
+  
 
     window.addEventListener('message', this.receiveMessage.bind(this), false);
 
+
+  this.loadScript();
+
+  if (this.refresh==0){
+    this.refresh=1
+    // this.route.navigateByUrl{("['/payment', 250]" ).routerLinkActive="active"}
+
+    // this.route.navigateByUrl("[/payment',150']", { skipLocationChange: true }).then(() => {
+    //   this.route.navigate(["[/payment',150']"])});
+  }
   }
   getAllNeighborhoods() {
     this.neighborhoodService.getAllNeighborhoods().subscribe
@@ -325,6 +339,7 @@ export class PaymentComponent implements OnInit {
 
 
   public receiveMessage(event: MessageEvent): void {
+    
     if (event.origin !== '../../assets/check/script.js') {
       //"https://matara.pro"
       return; // Ignore messages from other origins for security
@@ -336,21 +351,25 @@ export class PaymentComponent implements OnInit {
     console.log(event.data + "inputData");
   }
 
-
-
+ 
   loadScript() {
   
     const script = this.renderer.createElement('script');
     script.src = '../../assets/check/script.js';
-    script.type = 'text/javascript';
+    script.type = 'text/javascript';   
     this.renderer.appendChild(document.body, script);
     (window as any).selectedPaymentType = this.selectedPaymentType;
+   
     (window as any).keepData = this.keepData.bind(this);
     // if(this.donated!=null){
      
     // }
+    // NedarimFrame.src = "https://matara.pro/nedarimplus/iframe?language=en";
 
   }
+
+ 
+
   isButtonClicked: boolean = false;
   PaymentTypeClick(selectedPaymentType: string): void {
     this.selectedPaymentType = selectedPaymentType;

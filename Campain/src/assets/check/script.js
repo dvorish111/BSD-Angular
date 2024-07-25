@@ -2,16 +2,48 @@
 
 //    window.onerror = function (msg, url, line, col, error) {
 //     alert("שגיאת תוכנה. פנה לתמיכה טכנית. שגיאה: " + msg)
+//     console.log(msg+ "window.onerror")
 // }
 
 //זהירות! את השורת קוד הזו יש להפעיל רק פעם אחת בעת פתיחת הדף
 window.onload = function () {
     
-// console.log(document.getElementById('FirstName').value);
-    if (window.addEventListener) { window.addEventListener("message", ReadPostMessage, false); } else { window.attachEvent("onmessage", ReadPostMessage); }
+console.log(('FirstName!!!!!!!!!!!!!!!!!!!!!!!!!!'));
+    if (window.addEventListener) 
+        {
+             window.addEventListener("message", ReadPostMessage, false); } 
+    else {
+         window.attachEvent("onmessage", ReadPostMessage); }
     document.getElementById('NedarimFrame').onload = function () { console.log('StartNedarim'); PostNedarim({'Name':'GetHeight'}) }
     document.getElementById('NedarimFrame').src = "https://matara.pro/nedarimplus/iframe?language=en";
 }
+
+// פונקציה ראשית
+function init() {
+    console.log('FirstName!!!!!!!!!!!!!!!!!!!!!!!!!!');
+
+    if (window.addEventListener) {
+        window.addEventListener("message", ReadPostMessage, false);
+    } else {
+        window.attachEvent("onmessage", ReadPostMessage);
+    }
+
+    let iframe = document.getElementById('NedarimFrame');
+    iframe.onload = function () {
+        console.log('StartNedarim');
+        PostNedarim({'Name':'GetHeight'});
+    };
+    iframe.src = "https://matara.pro/nedarimplus/iframe?language=en";
+}
+
+// בדיקה אם הדף כבר נטען
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    init();
+} else {
+    document.addEventListener("DOMContentLoaded", init);
+}
+
+
 ///////////////////////////////
 
 function PostNedarim(Data) {      
