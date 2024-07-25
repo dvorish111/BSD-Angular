@@ -42,14 +42,28 @@
     align-items: flex-start;
     margin-bottom: 20px;
   }
-  
-  .image {
+  .image-wrapper {
+    /* display: flex;
+    align-items: flex-start; */
+    /* margin-bottom: 20px; */
     max-width: 200px;
     width: 100%;
     height: auto;
     margin-right: 20px;
     object-fit: cover;
     border-radius: 8px;
+    /* display: flex; */
+  }
+  
+  .image {
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 8px;
+    /* display: flex; */
+
   }
   
   .text-content {
