@@ -7,6 +7,8 @@ import { DonorService } from 'src/app/Services/donor.service';
 import { CampaignService } from 'src/app/Services/campaign.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Campaign } from 'src/app/Classes/Campaign';
+import { ConfirmPasswordComponent } from '../confirm-password/confirm-password.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-campaign',
@@ -18,8 +20,45 @@ export class NewCampaignComponent {
   campaign!: Campaign;
   deleteAllCampain: boolean = false;
   createCampainOk:boolean=false;
-  constructor( private snackBar: MatSnackBar,private campainService:CampaignService,private dialog: MatDialog, private donorService:DonorService,private donationService:DonationService, private donateService: DonateService) {
+  constructor(public myRouter: Router, private snackBar: MatSnackBar,private campainService:CampaignService,private dialog: MatDialog, private donorService:DonorService,private donationService:DonationService, private donateService: DonateService) {
   }
+  ngOnInit(): void {
+    this.openConfirmPasswordDialog();
+  }
+
+  //eקשור לאימות מנהל ראשי
+  openConfirmPasswordDialog() {
+    const dialogRef = this.dialog.open(ConfirmPasswordComponent, {
+      width: '800px',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.myRouter
+        // הסיסמה נכונה, נווט לקומפוננטה היעד
+        // לדוגמה: this.router.navigate(['/target-component']);
+      } else {
+        // הסיסמה לא נכונה או בוטלה
+        this.navigateToPreviousRoute();
+      }
+    });
+  }
+
+  navigateToPreviousRoute() {
+    // קבלת הנתיב הנוכחי
+    const currentUrl = this.myRouter.url;
+    // חלוקת הנתיב למרכיבים
+    const urlSegments = currentUrl.split('/');
+    // הסרת החלק האחרון של הנתיב
+    urlSegments.pop();
+    // יצירת הנתיב החדש
+    const newUrl = urlSegments.join('/');
+    // ניתוב לנתיב החדש
+    this.myRouter.navigate([newUrl]);
+  }
+
+    //עד פה קשור לאימות מנהל ראשי
 
   openConfirmationDialog(): void {
     const dialogRef = this.dialog.open(NewCampaignApprovalComponent, {

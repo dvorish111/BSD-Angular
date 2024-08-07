@@ -4,6 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SignUp } from 'src/app/Classes/SignUp';
 import { PermissionService } from 'src/app/Services/permission.service';
+import { ConfirmPasswordComponent } from '../confirm-password/confirm-password.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-manager',
@@ -18,7 +20,7 @@ export class AddManagerComponent {
     managerName: '',
     email: ''
   };
-  constructor( private snackBar: MatSnackBar ,private myRouter: Router, private permissionSer: PermissionService, private formBuilder: FormBuilder) {
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar ,private myRouter: Router, private permissionSer: PermissionService, private formBuilder: FormBuilder) {
     this.loginForm = new FormGroup({
       ManagerName: new FormControl(),
       Email: new FormControl("", [Validators.required, Validators.minLength(5), Validators.email]),
@@ -28,6 +30,8 @@ export class AddManagerComponent {
   }
 
   ngOnInit() { 
+    this.openConfirmPasswordDialog();
+
     // if(this.data){
     //   this.loginForm.setValue({
     //   ManagerName: this.data.managerName,
@@ -81,6 +85,40 @@ export class AddManagerComponent {
     });
   };
 
+
+   //eקשור לאימות מנהל ראשי
+   openConfirmPasswordDialog() {
+    const dialogRef = this.dialog.open(ConfirmPasswordComponent, {
+      width: '800px',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.myRouter
+        // הסיסמה נכונה, נווט לקומפוננטה היעד
+        // לדוגמה: this.router.navigate(['/target-component']);
+      } else {
+        // הסיסמה לא נכונה או בוטלה
+        this.navigateToPreviousRoute();
+      }
+    });
+  }
+
+  navigateToPreviousRoute() {
+    // קבלת הנתיב הנוכחי
+    const currentUrl = this.myRouter.url;
+    // חלוקת הנתיב למרכיבים
+    const urlSegments = currentUrl.split('/');
+    // הסרת החלק האחרון של הנתיב
+    urlSegments.pop();
+    // יצירת הנתיב החדש
+    const newUrl = urlSegments.join('/');
+    // ניתוב לנתיב החדש
+    this.myRouter.navigate([newUrl]);
+  }
+
+    //עד פה קשור לאימות מנהל ראשי
 
 }
  
