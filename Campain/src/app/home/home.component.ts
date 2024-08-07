@@ -134,6 +134,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.getByIdImage(1)
     const campaignId = 1;
     this.campaignService.getByIdCampaign(campaignId).subscribe({
       next: (campaign: Campaign) => {
@@ -212,7 +213,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   //   });
  
 
-  this.getByIdImage(1)
+  
   this.getByIdImage(2)
   this.getByIdImage(3)
   this.getByIdImage(4)
@@ -224,6 +225,8 @@ export class HomeComponent implements OnInit, OnDestroy {
    this.getByIdImage(10)
    this.getByIdImage(11)
 
+
+   
 }
 
 // getByIdImageData(imageId:number){
@@ -721,7 +724,14 @@ this.getByIdImageData(image.id,image.fileName)
 
 
 
+  currentIndex = 0;
 
+ 
+  
+
+  showNextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+  }
 
 
 

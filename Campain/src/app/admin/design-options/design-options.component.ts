@@ -123,7 +123,8 @@ onFileChanged(event: any,num:number) {
         if (!this.selectedFile) {
           this.imageMessage = 'לא נבחר קובץ';
         } else {
-          this.imageMessage = 'הקובץ גדול מדי. אנא בחר קובץ קטן מ-200KB';
+          this.imageMessage = ' הקובץ גדול מדי. אנא בחר קובץ קטן מ-1000KBאו צמצם את הקובץ באתר https://tinypng.com/';
+
         }
       }
 }
