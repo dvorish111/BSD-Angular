@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DonateService } from '../Services/donate.service';
 import { Donate } from '../Classes/Donate';
 import { DonationService } from '../Services/donation.service';
@@ -29,7 +29,7 @@ export class FamiliesComponent implements OnInit {
   Statuses= Statuses ;
   initialFamiliesCount: number = 45;
   SearchForm:FormGroup;
-  constructor( public myRouter: Router,private donateService: DonateService,private donationService:DonationService,private neighborhoodService:NeighborhoodService,private formBuilder: FormBuilder) {
+  constructor( private route: ActivatedRoute, public myRouter: Router,private donateService: DonateService,private donationService:DonationService,private neighborhoodService:NeighborhoodService,private formBuilder: FormBuilder) {
  this.SearchForm= this.formBuilder.group(
     {
       search:new FormControl("")
@@ -51,7 +51,7 @@ export class FamiliesComponent implements OnInit {
           this.getAllSumDonationsByDonated(donates);
           this.tempdonates =donates;
           this.getAllNeighborhoods();
-       
+         
         },
         error: (err) => {
           console.error(err);
@@ -59,8 +59,7 @@ export class FamiliesComponent implements OnInit {
       });
 
   
-    
-    
+     
 
     
   }
@@ -162,16 +161,33 @@ this.fundedSelectedValue.setValue(funded);
 
   neighborhood(neighborhoodId:number)
   {
-    //this.donates=this.tempdonates;
     this.donates = [];
-    this.tempdonates.forEach(element => {
-    if(element.idNeighborhood==neighborhoodId)
-    {this.donates.push(element)}    
-   });
-   this.ShowLoadedFamiliesCount( this.donates);
-   this.resetOtherSelections()
-   this.neighborhoodSelectedValue.setValue(neighborhoodId); 
+  //   this.tempdonates.forEach(element => {
+  //   if(element.idNeighborhood==neighborhoodId)
+  //   {this.donates.push(element)}    
+  //  });
+  //  this.ShowLoadedFamiliesCount( this.donates);
+  //  this.resetOtherSelections()
+  //  this.neighborhoodSelectedValue.setValue(neighborhoodId); 
 
+// --------------------------
+
+   this.donates = this.tempdonates.filter(
+    element => element.idNeighborhood === neighborhoodId
+  );
+  
+  this.ShowLoadedFamiliesCount(this.donates);
+  this.resetOtherSelections();
+  
+  // עדכון הסלקט רק אם אינו תואם כבר לערך הנבחר
+  this.donates = this.tempdonates.filter(
+    element => element.idNeighborhood === neighborhoodId
+  );
+    this.neighborhoodSelectedValue.setValue(neighborhoodId);
+
+
+    
+// -------------------------
     //this.tempdonates =this.donates;
    // this.donates=this.donatesN;
   }
@@ -180,8 +196,21 @@ this.fundedSelectedValue.setValue(funded);
     this.neighborhoodService.getAllNeighborhoods().subscribe
     ({
       next: (neighborhood:Neighborhood[]) => {
-        this.neighborhoods = neighborhood;
-        console.log(this.neighborhoods);
+         this.neighborhoods = neighborhood;
+  console.log(this.neighborhoods);
+
+
+   // קריאת השכונה מה-URL לאחר טעינת השכונות
+   this.route.params.subscribe(params => {
+    const neighborhoodId = +params['id'];
+    if (neighborhoodId) {
+      this.neighborhoodSelectedValue.setValue(neighborhoodId);
+      this.neighborhood(neighborhoodId);
+    }
+  });
+
+
+
 
       },
       error: (err) => {
@@ -198,7 +227,12 @@ this.fundedSelectedValue.setValue(funded);
   ShowLoadedFamiliesCount(donates:Donate[]){
     this.mapFamiliesRandom(donates);
     this.fullDonates =donates;
-    this.donates = donates.slice(0, this.initialFamiliesCount);
+    
+      this.route.params.subscribe(params => {
+        const neighborhoodId = +params['id'];
+        if (!neighborhoodId){
+    this.donates = donates.slice(0, this.initialFamiliesCount);}}
+  )
   
   }
   mapFamiliesRandom(donates:Donate[]){//Fisher-Yates algorithm
